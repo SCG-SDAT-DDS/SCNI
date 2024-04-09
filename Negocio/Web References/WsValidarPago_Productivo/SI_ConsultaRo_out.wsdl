@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:p1="http://geson.gob.mx/TRM/PORTAL/PagoEnLinea" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="SI_ConsultaRo_out" targetNamespace="http://geson.gob.mx/TRM/PORTAL/PagoEnLinea" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="OP_SI_ConsultaRo_out" />
+  <wsdl:types>
+    <xsd:schema xmlns="http://geson.gob.mx/TRM/PORTAL/PagoEnLinea" targetNamespace="http://geson.gob.mx/TRM/PORTAL/PagoEnLinea" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="MT_Consulta_resp" type="p1:DT_Consulta_resp" />
+      <xsd:element name="MT_Consulta_req" type="p1:DT_Consulta_req" />
+      <xsd:complexType name="DT_DatosRO">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">a2a54aef06af11e8bf2700000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="RECIBO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">ca8aecfb069911e8a7c6d3880a000109</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="PASE_CAJA" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">ca8aecfc069911e8b132d3880a000109</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="TIPO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">ca8aecfd069911e8916fd3880a000109</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="IMPORTE" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">ca8aecfe069911e8a4dbd3880a000109</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="PARTNER" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">ca8aecff069911e88535d3880a000109</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="F_CREACION" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">ca8aed00069911e8cc85d3880a000109</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="NOMBRE" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">2577725d069a11e88a31d3880a000109</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_Consulta_resp">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">379e93a406ab11e8c09500000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="STATUS" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">87e0dafd4c5911e7c0a5542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="DATOS" type="p1:DT_DatosRO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">87e132094c5911e792ef542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="STR_B64" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">87e1320a4c5911e7bc5e542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_Consulta_req">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">50818cac06ab11e8a30f00000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PASEC" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">3c260e454d7311e79789542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="RECIBO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">3c2646274d7311e78e51542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MT_Consulta_req">
+    <wsdl:documentation />
+    <wsdl:part name="MT_Consulta_req" element="p1:MT_Consulta_req" />
+  </wsdl:message>
+  <wsdl:message name="MT_Consulta_resp">
+    <wsdl:documentation />
+    <wsdl:part name="MT_Consulta_resp" element="p1:MT_Consulta_resp" />
+  </wsdl:message>
+  <wsdl:portType name="SI_ConsultaRo_out">
+    <wsdl:documentation />
+    <wsdl:operation name="SI_ConsultaRo_out">
+      <wsdl:documentation />
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_SI_ConsultaRo_out" />
+      </wsp:Policy>
+      <wsdl:input message="p1:MT_Consulta_req" />
+      <wsdl:output message="p1:MT_Consulta_resp" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SI_ConsultaRo_outBinding" type="p1:SI_ConsultaRo_out">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <wsdl:operation name="SI_ConsultaRo_out">
+      <operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <wsdl:input>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:input>
+      <wsdl:output>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SI_ConsultaRo_outService">
+    <wsdl:port name="HTTP_Port" binding="p1:SI_ConsultaRo_outBinding">
+      <address location="http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_PRO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_ConsultaRo_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoEnLinea" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+    <wsdl:port name="HTTPS_Port" binding="p1:SI_ConsultaRo_outBinding">
+      <address location="https://gespipci.claro.sonora.gob.mx:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_PRO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_ConsultaRo_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoEnLinea" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

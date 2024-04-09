@@ -1,0 +1,139 @@
+﻿@using Datos.Recursos
+<div class="modal fade" id="mdlDetalles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <div class="col-md-12">
+                    <div class="widget-head-color-box gray-bg p-xxs text-center">
+                        <div class="m-b-5">
+                            <h2 class="font-bold no-margins" data-bind="text: NombreCompleto"></h2>
+                            <small data-bind="text: Puesto"></small>
+                        </div>
+                        <img src="#" data-bind="attr: { src: UrlFoto }" id="imgFotoEmpleado" class="img-circle circle-border" alt="foto" />
+                    </div>
+                    <div class="widget-text-box p-all-10 container-fluid">
+                        <div class="col-md-12 text-center p-t-5 p-b-5 gray-bg m-t-10 m-b-10">
+                            <span class="bold">Información personal</span>
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div>
+                                <span class="bold">@General.Genero: </span>
+                                <span data-bind="text: ObtenerGenero"></span>
+                            </div>
+                            <div>
+                                <span class="bold">@General.Rfc:</span>
+                                <span data-bind="text: Rfc"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                            <div>
+                                <span class="bold">@General.Celular:</span>
+                                <span data-bind="text: Celular"></span>
+                            </div>
+                            <div>
+                                <span class="bold">@General.Correo:</span>
+                                <span data-bind="text: Email"></span>
+                            </div>
+                        </div>
+                        @*<div class="col-md-6 text-center">
+                            <h5>@General.Direccion:</h5>
+                            <span data-bind="text: Direccion"></span>
+                            <span data-bind="text: DireccionNumero"></span>.<br />
+                            @General.Entre <span data-bind="text: EntreCalles1"></span>
+                            @General.Y <span data-bind="text: EntreCalles2"></span>.<br />
+                            @General.Col. <span data-bind="text: Colonia"></span>,
+                            @General.CP <span data-bind="text: CodigoPostal"></span>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <h5>@General.Contacto: </h5>
+                            <abbr title="Teléfono">
+                                @General.Tel. <span data-bind="text: Telefono"></span>
+                            </abbr>
+                            <br />
+                            <abbr title="Celular">
+                                @General.Cel. <span data-bind="text: Celular"></span>
+                            </abbr>
+                            <br />
+                            <abbr title="Correo">
+                                @General.Correo: <span data-bind="text: Email"></span>
+                            </abbr>
+                        </div>
+                        <div class="col-md-12 text-center p-t-5 p-b-5 gray-bg m-t-10 m-b-10">
+                            <span class="bold">Información adicional</span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div>
+                                <span class="bold">@General.FechaNacimiento:</span>
+                                <span data-bind="text: FechaNacimiento"></span>
+                            </div>
+                            <div>
+                                <span class="bold">@General.Genero:</span>
+                                <span data-bind="text: ObtenerGenero"></span>
+                            </div>
+                            <div>
+                                <span class="bold">@General.NumeroImss:</span>
+                                <span data-bind="text: NumeroImss"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div>
+                                <span class="bold">@General.Rfc:</span>
+                                <span data-bind="text: Rfc"></span>
+                            </div>
+                            <div>
+                                <span class="bold">@General.Curp:</span>
+                                <span data-bind="text: Curp"></span>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/Scripts/knockout-2.2.0.js"></script>
+
+<script type="text/javascript">
+    var detallesEmpleado = (function () {
+
+        function buscar(idEmpleado) {
+            $.ajax({
+                data: "{idEmpleado: '" + idEmpleado + "'}",
+                dataType: "json",
+                contentType: "application/json",
+                type: "POST",
+                url: '@Url.Action("Obtener", "Empleado", new { area = "Catalogo" })',
+                beforeSend: function () {
+                    MostrarDivCargando("Cargando detalles...");
+                },
+                success: function (data) {
+                    data.ObtenerGenero = ko.computed(function () {
+                        return data["Sexo"] == 1 ? "Femenino" : "Masculino";
+                    }, data)
+                    ko.applyBindings(data);
+                    CerrarDivCargando();
+                    $("#mdlDetalles").modal();
+                },
+                error: function (error) {
+                    CerrarDivCargando();
+                },
+            });
+        }
+
+        
+
+        return {
+            Buscar: buscar
+        };
+    })();
+</script>

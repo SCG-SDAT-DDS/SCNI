@@ -1,0 +1,82 @@
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Datos.dll.config
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Datos.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Datos.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\EntityFramework.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Newtonsoft.Json.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Sistema.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.Helpers.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.Mvc.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.Razor.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.WebPages.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Sistema.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\EntityFramework.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Newtonsoft.Json.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\Newtonsoft.Json.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.Helpers.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.Mvc.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.Razor.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.WebPages.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\es\EntityFramework.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\es\System.Web.Helpers.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\es\System.Web.Mvc.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\es\System.Web.Razor.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\es\System.Web.WebPages.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\bin\Release\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\obj\Release\Datos.csproj.AssemblyReference.cache
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\obj\Release\Datos.Recursos.ExpresionesRegulares.resources
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\obj\Release\Datos.Recursos.General.resources
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\obj\Release\Datos.csproj.GenerateResource.cache
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\obj\Release\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\obj\Release\Datos.csproj.CopyComplete
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\obj\Release\Datos.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Datos\obj\Release\Datos.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Datos.dll.config
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Datos.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Datos.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\EntityFramework.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Newtonsoft.Json.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Sistema.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.Helpers.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.Mvc.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.Razor.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.WebPages.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Sistema.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\EntityFramework.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Newtonsoft.Json.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\Newtonsoft.Json.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.Helpers.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.Mvc.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.Razor.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.WebPages.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\es\EntityFramework.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\es\System.Web.Helpers.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\es\System.Web.Mvc.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\es\System.Web.Razor.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\es\System.Web.WebPages.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\bin\Release\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\obj\Release\Datos.csproj.AssemblyReference.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\obj\Release\Datos.Recursos.ExpresionesRegulares.resources
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\obj\Release\Datos.Recursos.General.resources
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\obj\Release\Datos.csproj.GenerateResource.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\obj\Release\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\obj\Release\Datos.csproj.CopyComplete
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\obj\Release\Datos.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Datos\obj\Release\Datos.pdb

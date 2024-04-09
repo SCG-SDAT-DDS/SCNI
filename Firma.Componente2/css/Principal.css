@@ -1,0 +1,73 @@
+﻿body {
+ margin:0;
+ padding:0;
+ width:90%;
+ margin:auto;
+ margin-top:10px;
+ -moz-box-shadow:3px 3px 4px rgba(0,0,0,0.4);
+ -webkit-box-shadow:3px 3px 4px rgba(0,0,0,0.4);
+ -o-box-shadow:3px 3px 4px rgba(0,0,0,0.4);
+ -ms-box-shadow:3px 3px 4px rgba(0,0,0,0.4);
+ box-shadow:3px 3px 4px rgba(0,0,0,0.4);
+}
+
+#header {
+ width:90%;
+ margin:auto;
+
+ height:100px;
+ -webkit-border-top-left-radius:5px;
+ -webkit-border-top-right-radius:5px;
+  -moz-border-top-left-radius:5px;
+ -moz-border-top-right-radius:5px;
+  -ms-border-top-left-radius:5px;
+ -ms-border-top-right-radius:5px;
+  -o-border-top-left-radius:5px;
+ -o-border-top-right-radius:5px;
+  border-top-left-radius:5px;
+ border-top-right-radius:5px;
+}
+
+#mainSection {
+ width:90%;
+ margin:auto;
+}
+
+#firmaSat,#firmaPfx {
+ width:90%;
+ margin:auto;
+}
+    #firmaSat header,#firmaPfx header {
+     text-align:center;
+     margin-bottom:20px;
+    }
+
+#opciones,#opciones2 {
+ display:none;
+}
+#archivos,#archivosPfx {
+ display:none;
+}
+#showProgress {
+ overflow:auto;
+}
+#footer {
+ width:90%;
+ margin:auto;
+ height:100px;
+ margin-bottom:10px;
+  -webkit-border-bottom-left-radius:5px;
+ -webkit-border-bottom-right-radius:5px;
+  -moz-border-bottom-left-radius:5px;
+ -moz-border-bottom-right-radius:5px;
+  -ms-border-bottom-left-radius:5px;
+ -ms-border-bottom-right-radius:5px;
+  -o-border-bottom-left-radius:5px;
+ -o-border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px;
+ border-bottom-right-radius:5px;
+}
+
+#verificaArchivo {
+ display:none;
+}

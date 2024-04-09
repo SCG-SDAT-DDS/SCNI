@@ -1,0 +1,35 @@
+﻿@using Datos.Recursos
+@model Datos.Empleado
+
+@{
+    ViewBag.Title = @General.GuardarUsuario;
+}
+
+@section HeaderScripts
+{
+    <link rel="stylesheet" href="/Content/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/Content/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/Content/css/fileinput.min.css" />
+}
+
+<div class="ibox bx-s bg-f">
+    @using (Html.BeginForm("Guardar", "Empleado", new { @idEmpleado = Request.QueryString["IdEmpleado"] },
+                        FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {<div class="ibox-content bg-f">
+         <div class="row">
+             @Html.Partial("Empleado/_GuardarEmpleado", Model)
+         </div>
+     </div>
+    <div class="ibox-footer bg-f">
+        <div class="row">
+            <div class="col-xs-12 end-xs">
+                @Html.ActionLink(General.Regresar, "Index", null, new { @class = "btn btn-default" })
+                <input type="submit" class="btn btn-primary" value="@General.Guardar" />
+            </div>
+            <div class="col-xs-12">
+                <small>Todos los campos marcados con <strong class="obligatorio">*</strong> son obligatorios.</small>
+            </div>
+        </div>
+    </div>
+    }
+</div>

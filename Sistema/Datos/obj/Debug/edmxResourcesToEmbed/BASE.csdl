@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BASE" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Colonia">
+    <Key>
+      <PropertyRef Name="IDColonia" />
+    </Key>
+    <Property Name="IDColonia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDEstado" Type="Int32" Nullable="false" />
+    <Property Name="IDMunicipio" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodigoPostal" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estado" Relationship="Self.FK_Colonia_Estado" FromRole="Colonia" ToRole="Estado" />
+    <NavigationProperty Name="Municipio" Relationship="Self.FK_Colonia_Municipio" FromRole="Colonia" ToRole="Municipio" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="IDEmpleado" />
+    </Key>
+    <Property Name="IDEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApellidoP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApellidoM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Celular" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Sexo" Type="Byte" Nullable="false" />
+    <Property Name="Rfc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IDPuesto" Type="Int32" Nullable="false" />
+    <Property Name="UrlFoto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Puesto" Relationship="Self.FK_Empleado_Puesto" FromRole="Empleado" ToRole="Puesto" />
+    <NavigationProperty Name="Usuario" Relationship="BASE.UsuarioEmpleado" FromRole="Empleado" ToRole="Usuario" />
+    <NavigationProperty Name="Firmas" Relationship="BASE.FK_Firma_Firma" FromRole="Empleado" ToRole="Firma" />
+    <Property Name="IDTitulo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Titulo" Relationship="BASE.FK_Empleado_Titulo" FromRole="Empleado" ToRole="Titulo" />
+    <Property Name="UrlFirma" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultFirma" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Carta" Relationship="BASE.FK_Carta_Empleado" FromRole="Empleado" ToRole="Carta" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="IDEstado" />
+    </Key>
+    <Property Name="IDEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Abreviatura" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Colonias" Relationship="Self.FK_Colonia_Estado" FromRole="Estado" ToRole="Colonia" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_Municipio_Estado" FromRole="Estado" ToRole="Municipio" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="IDMenu" />
+    </Key>
+    <Property Name="IDMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Opcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Destino" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Padre" Type="Int32" Nullable="false" />
+    <Property Name="Camino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Indice" Type="Int32" />
+    <Property Name="Visible" Type="Boolean" Nullable="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <Property Name="IconoCss" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Controlador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Accion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RolInicio" Relationship="Self.FK_Rol_Menu" FromRole="Menu" ToRole="Rol" />
+    <NavigationProperty Name="Rol" Relationship="Self.MenuRol" FromRole="Menu" ToRole="Rol" />
+    <NavigationProperty Name="Usuario" Relationship="BASE.MenuUsuario" FromRole="Menu" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Movmiento">
+    <Key>
+      <PropertyRef Name="IDMovimiento" />
+    </Key>
+    <Property Name="IDMovimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Catalogo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDRegistro" Type="Int32" />
+    <NavigationProperty Name="Usuario" Relationship="BASE.UsuarioMovimiento" FromRole="Movmiento" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Municipio">
+    <Key>
+      <PropertyRef Name="IDMunicipio" />
+      <PropertyRef Name="IDEstado" />
+    </Key>
+    <Property Name="IDMunicipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDEstado" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDMunicipioIFE" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Colonias" Relationship="Self.FK_Colonia_Municipio" FromRole="Municipio" ToRole="Colonia" />
+    <NavigationProperty Name="Estado" Relationship="Self.FK_Municipio_Estado" FromRole="Municipio" ToRole="Estado" />
+    <NavigationProperty Name="Persona" Relationship="BASE.FK_Persona_Municipio" FromRole="Municipio" ToRole="Persona" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="IDPuesto" />
+    </Key>
+    <Property Name="IDPuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Puesto" FromRole="Puesto" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IDRol" />
+    </Key>
+    <Property Name="IDRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <Property Name="PaginaInicio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Menu" Relationship="Self.FK_Rol_Menu" FromRole="Rol" ToRole="Menu" />
+    <NavigationProperty Name="MenuInicio" Relationship="Self.MenuRol" FromRole="Rol" ToRole="Menu" />
+    <NavigationProperty Name="Permisos" Relationship="BASE.RolPermisos" FromRole="Rol" ToRole="Permisos" />
+    <Property Name="TipoInicio" Type="BASE.TiposInicio" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="BASE.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="SolicitudContrasena">
+    <Key>
+      <PropertyRef Name="IDSolicitudContrasena" />
+    </Key>
+    <Property Name="IDSolicitudContrasena" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="Codigo" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usado" Type="Boolean" Nullable="false" />
+    <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TipoUsuario" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="BASE.FK_SolicitudContrasena_Empleado" FromRole="SolicitudContrasena" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_Colonia_Estado">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Colonia" Type="Self.Colonia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Colonia">
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colonia_Municipio">
+    <End Role="Municipio" Type="Self.Municipio" Multiplicity="1" />
+    <End Role="Colonia" Type="Self.Colonia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipio">
+        <PropertyRef Name="IDMunicipio" />
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Colonia">
+        <PropertyRef Name="IDMunicipio" />
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Puesto">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="IDPuesto" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="IDPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipio_Estado">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Municipio">
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rol_Menu">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="IDMenu" />
+      </Principal>
+      <Dependent Role="Rol">
+        <PropertyRef Name="PaginaInicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MenuRol">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Contexto" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Colonia" EntityType="Self.Colonia" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" />
+    <EntitySet Name="Movmiento" EntityType="Self.Movmiento" />
+    <EntitySet Name="Municipio" EntityType="Self.Municipio" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="SolicitudContrasena" EntityType="Self.SolicitudContrasena" />
+    <AssociationSet Name="FK_Colonia_Estado" Association="Self.FK_Colonia_Estado">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Colonia" EntitySet="Colonia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colonia_Municipio" Association="Self.FK_Colonia_Municipio">
+      <End Role="Municipio" EntitySet="Municipio" />
+      <End Role="Colonia" EntitySet="Colonia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Puesto" Association="Self.FK_Empleado_Puesto">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipio_Estado" Association="Self.FK_Municipio_Estado">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Municipio" EntitySet="Municipio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rol_Menu" Association="Self.FK_Rol_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Rol" EntitySet="Rol" />
+    </AssociationSet>
+    <AssociationSet Name="MenuRol" Association="Self.MenuRol">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Rol" EntitySet="Rol" />
+    </AssociationSet>
+    <FunctionImport Name="BuscarOpcionMenuAndOpcionesMenuInferiores" ReturnType="Collection(BASE.BuscarOpcionMenuAndOpcionesMenuInferiores_Result)">
+      <Parameter Name="MenuID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="BuscarOpcionMenuAndOpcionesMenuSuperiores" ReturnType="Collection(BASE.BuscarOpcionMenuAndOpcionesMenuSuperiores_Result)">
+      <Parameter Name="MenuID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CopiarMenuDeRolEnEmpleado" ReturnType="Collection(Int32)">
+      <Parameter Name="IDUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="IDRol" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Permisos" EntityType="BASE.Permisos" />
+    <AssociationSet Name="RolPermisos" Association="BASE.RolPermisos">
+      <End Role="Permisos" EntitySet="Permisos" />
+      <End Role="Rol" EntitySet="Rol" />
+    </AssociationSet>
+    <EntitySet Name="Entidad" EntityType="BASE.Entidad" />
+    <EntitySet Name="Persona" EntityType="BASE.Persona" />
+    <AssociationSet Name="FK_Persona_Municipio" Association="BASE.FK_Persona_Municipio">
+      <End Role="Municipio" EntitySet="Municipio" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+    <EntitySet Name="Lotes" EntityType="BASE.Lote" />
+    <EntitySet Name="Folios" EntityType="BASE.Folio" />
+    <EntitySet Name="Usuario" EntityType="BASE.Usuario" />
+    <AssociationSet Name="FK_Lote_Usuario" Association="BASE.FK_Lote_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Lote" EntitySet="Lotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="BASE.FK_Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudContrasena_Empleado" Association="BASE.FK_SolicitudContrasena_Empleado">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="SolicitudContrasena" EntitySet="SolicitudContrasena" />
+    </AssociationSet>
+    <AssociationSet Name="MenuUsuario" Association="BASE.MenuUsuario">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioEmpleado" Association="BASE.UsuarioEmpleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioMovimiento" Association="BASE.UsuarioMovimiento">
+      <End Role="Movmiento" EntitySet="Movmiento" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <EntitySet Name="UsuarioCertificado" EntityType="BASE.UsuarioCertificado" />
+    <AssociationSet Name="FK_UsuarioCertificado_Usuario" Association="BASE.FK_UsuarioCertificado_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioCertificado" EntitySet="UsuarioCertificado" />
+    </AssociationSet>
+    <EntitySet Name="Firmas" EntityType="BASE.Firma" />
+    <AssociationSet Name="FK_Firma_Lote" Association="BASE.FK_Firma_Lote">
+      <End Role="Lote" EntitySet="Lotes" />
+      <End Role="Firma" EntitySet="Firmas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Firma_Firma" Association="BASE.FK_Firma_Firma">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Firma" EntitySet="Firmas" />
+    </AssociationSet>
+    <EntitySet Name="Titulos" EntityType="BASE.Titulo" />
+    <AssociationSet Name="FK_Empleado_Titulo" Association="BASE.FK_Empleado_Titulo">
+      <End Role="Titulo" EntitySet="Titulos" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <EntitySet Name="Plantillas" EntityType="BASE.Plantilla" />
+    <EntitySet Name="PaseCaja" EntityType="BASE.PaseCaja" />
+    <EntitySet Name="Solicitud" EntityType="BASE.Solicitud" />
+    <AssociationSet Name="SolicitudEntidad" Association="BASE.SolicitudEntidad">
+      <End Role="Entidad" EntitySet="Entidad" />
+      <End Role="Solicitud" EntitySet="Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="SolicitudPersona" Association="BASE.SolicitudPersona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Solicitud" EntitySet="Solicitud" />
+    </AssociationSet>
+    <EntitySet Name="Cartas" EntityType="BASE.Carta" />
+    <AssociationSet Name="FK_Carta_Empleado" Association="BASE.FK_Carta_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Carta" EntitySet="Cartas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carta_Plantilla" Association="BASE.FK_Carta_Plantilla">
+      <End Role="Plantilla" EntitySet="Plantillas" />
+      <End Role="Carta" EntitySet="Cartas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carta_Solicitud" Association="BASE.FK_Carta_Solicitud">
+      <End Role="Solicitud" EntitySet="Solicitud" />
+      <End Role="Carta" EntitySet="Cartas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Firma_Carta" Association="BASE.FK_Firma_Carta">
+      <End Role="Carta" EntitySet="Cartas" />
+      <End Role="Firma" EntitySet="Firmas" />
+    </AssociationSet>
+    <EntitySet Name="Precio" EntityType="BASE.Precio" />
+    <AssociationSet Name="PrecioCarta" Association="BASE.PrecioCarta">
+      <End Role="Carta" EntitySet="Cartas" />
+      <End Role="Precio" EntitySet="Precio" />
+    </AssociationSet>
+    <EntitySet Name="Sancion" EntityType="BASE.Sancion" />
+    <AssociationSet Name="FK_Sancion_Entidad" Association="BASE.FK_Sancion_Entidad">
+      <End Role="Entidad" EntitySet="Entidad" />
+      <End Role="Sancion" EntitySet="Sancion" />
+    </AssociationSet>
+    <AssociationSet Name="CartaSancion" Association="BASE.CartaSancion">
+      <End Role="Carta" EntitySet="Cartas" />
+      <End Role="Sancion" EntitySet="Sancion" />
+    </AssociationSet>
+    <AssociationSet Name="PersonaSancion" Association="BASE.PersonaSancion">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Sancion" EntitySet="Sancion" />
+    </AssociationSet>
+  </EntityContainer>
+  <EnumType Name="TipoUsuario" UnderlyingType="Byte">
+    <Member Name="Empleado" Value="1" />
+    <Member Name="Otro" Value="2" />
+  </EnumType>
+  <ComplexType Name="BuscarOpcionMenuAndOpcionesMenuInferiores_Result">
+    <Property Type="Int32" Name="IDMenu" Nullable="true" />
+    <Property Type="String" Name="Opcion" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Padre" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="BuscarOpcionMenuAndOpcionesMenuSuperiores_Result">
+    <Property Type="Int32" Name="IDMenu" Nullable="true" />
+    <Property Type="String" Name="Opcion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Controlador" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Accion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Area" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Destino" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="IDPermiso" />
+    </Key>
+    <Property Name="IDPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Rol" Relationship="BASE.RolPermisos" FromRole="Permisos" ToRole="Rol" />
+  </EntityType>
+  <Association Name="RolPermisos">
+    <End Type="BASE.Permisos" Role="Permisos" Multiplicity="*" />
+    <End Type="BASE.Rol" Role="Rol" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Entidad">
+    <Key>
+      <PropertyRef Name="IDEntidad" />
+    </Key>
+    <Property Name="IDEntidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Abreviacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Solicitud" Relationship="BASE.SolicitudEntidad" FromRole="Entidad" ToRole="Solicitud" />
+    <NavigationProperty Name="Sancion" Relationship="BASE.FK_Sancion_Entidad" FromRole="Entidad" ToRole="Sancion" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="IDPersona" />
+    </Key>
+    <Property Name="IDPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Genero" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="CURP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoElectronico" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDEstado" Type="Int32" Nullable="false" />
+    <Property Name="IDMunicipio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Municipio" Relationship="BASE.FK_Persona_Municipio" FromRole="Persona" ToRole="Municipio" />
+    <NavigationProperty Name="Solicitud" Relationship="BASE.SolicitudPersona" FromRole="Persona" ToRole="Solicitud" />
+    <NavigationProperty Name="Sancion" Relationship="BASE.PersonaSancion" FromRole="Persona" ToRole="Sancion" />
+  </EntityType>
+  <Association Name="FK_Persona_Municipio">
+    <End Type="BASE.Municipio" Role="Municipio" Multiplicity="1" />
+    <End Type="BASE.Persona" Role="Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipio">
+        <PropertyRef Name="IDMunicipio" />
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="IDMunicipio" />
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Lote">
+    <Key>
+      <PropertyRef Name="IDLote" />
+    </Key>
+    <Property Name="IDLote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="BASE.LoteEstados" Nullable="false" />
+    <Property Name="Error" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="BASE.FK_Lote_Usuario" FromRole="Lote" ToRole="Usuario" />
+    <NavigationProperty Name="Firmas" Relationship="BASE.FK_Firma_Lote" FromRole="Lote" ToRole="Firma" />
+  </EntityType>
+  <EnumType Name="LoteEstados" UnderlyingType="Byte">
+    <Member Name="Empezado" Value="1" />
+    <Member Name="Terminado" Value="2" />
+    <Member Name="Error" Value="3" />
+  </EnumType>
+  <EnumType Name="FirmaEstados" UnderlyingType="Byte">
+    <Member Name="Terminado" Value="1" />
+    <Member Name="Error" Value="2" />
+  </EnumType>
+  <EnumType Name="TiposCarta">
+    <Member Name="NoInhabilitacion" Value="1" />
+    <Member Name="Inhabilitacion" Value="2" />
+  </EnumType>
+  <EnumType Name="TiposSancion">
+    <Member Name="Apercibimiento" Value="1" />
+    <Member Name="Amonestación" Value="3" />
+    <Member Name="Suspensión" Value="2" />
+    <Member Name="DestituciónDelPuesto" Value="5" />
+    <Member Name="SanciónEconómica" Value="6" />
+    <Member Name="Inhabilitación" Value="4" />
+    <Member Name="AmonestaciónPrivada" Value="8" />
+    <Member Name="AmonestaciónPública" Value="9" />
+    <Member Name="DejarSinEfecto" Value="7" />
+  </EnumType>
+  <EntityType Name="Folio">
+    <Key>
+      <PropertyRef Name="Anio" />
+    </Key>
+    <Property Name="Anio" Type="Int32" Nullable="false" />
+    <Property Name="Numero" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EnumType Name="TiposEntidad">
+    <Member Name="Dependencia" Value="1" />
+    <Member Name="Entidad" Value="2" />
+    <Member Name="Federal" Value="3" />
+    <Member Name="Municipal" Value="4" />
+  </EnumType>
+  <EnumType Name="GenerosPersona">
+    <Member Name="Femenino" Value="1" />
+    <Member Name="Masculino" Value="2" />
+  </EnumType>
+  <EnumType Name="TiposInicio" UnderlyingType="Byte">
+    <Member Name="Contraseña" Value="1" />
+    <Member Name="Fiel" Value="2" />
+  </EnumType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Contrasena" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDRol" Type="Int32" Nullable="false" />
+    <Property Name="UrlFoto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MenuPersonalizado" Type="Boolean" Nullable="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Lote" Relationship="BASE.FK_Lote_Usuario" FromRole="Usuario" ToRole="Lote" />
+    <NavigationProperty Name="Rol" Relationship="BASE.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+    <NavigationProperty Name="SolicitudContrasena" Relationship="BASE.FK_SolicitudContrasena_Empleado" FromRole="Usuario" ToRole="SolicitudContrasena" />
+    <NavigationProperty Name="Menu" Relationship="BASE.MenuUsuario" FromRole="Usuario" ToRole="Menu" />
+    <NavigationProperty Name="Empleado" Relationship="BASE.UsuarioEmpleado" FromRole="Usuario" ToRole="Empleado" />
+    <NavigationProperty Name="Movmiento" Relationship="BASE.UsuarioMovimiento" FromRole="Usuario" ToRole="Movmiento" />
+    <NavigationProperty Name="Certificado" Relationship="BASE.FK_UsuarioCertificado_Usuario" FromRole="Usuario" ToRole="UsuarioCertificado" />
+  </EntityType>
+  <Association Name="FK_Lote_Usuario">
+    <End Type="BASE.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="BASE.Lote" Role="Lote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Lote">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Type="BASE.Rol" Role="Rol" Multiplicity="1" />
+    <End Type="BASE.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IDRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IDRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudContrasena_Empleado">
+    <End Type="BASE.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="BASE.SolicitudContrasena" Role="SolicitudContrasena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="SolicitudContrasena">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MenuUsuario">
+    <End Type="BASE.Menu" Role="Menu" Multiplicity="*" />
+    <End Type="BASE.Usuario" Role="Usuario" Multiplicity="*" />
+  </Association>
+  <Association Name="UsuarioEmpleado">
+    <End Type="BASE.Empleado" Role="Empleado" Multiplicity="0..1" />
+    <End Type="BASE.Usuario" Role="Usuario" Multiplicity="0..1" />
+  </Association>
+  <Association Name="UsuarioMovimiento">
+    <End Type="BASE.Movmiento" Role="Movmiento" Multiplicity="*" />
+    <End Type="BASE.Usuario" Role="Usuario" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="UsuarioCertificado">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="Valor" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Usuario" Relationship="BASE.FK_UsuarioCertificado_Usuario" FromRole="UsuarioCertificado" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_UsuarioCertificado_Usuario">
+    <End Type="BASE.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="BASE.UsuarioCertificado" Role="UsuarioCertificado" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioCertificado">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="EstadosCarta" UnderlyingType="Byte">
+    <Member Name="NoFirmada" Value="1" />
+    <Member Name="Firmada" Value="2" />
+    <Member Name="Rechazada" Value="3" />
+  </EnumType>
+  <EntityType Name="Firma">
+    <Key>
+      <PropertyRef Name="IDFirma" />
+    </Key>
+    <Property Name="IDFirma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCarta" Type="Int32" Nullable="false" />
+    <Property Name="IDLote" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="BASE.FirmaEstados" Nullable="false" />
+    <Property Name="BovedaFiel_IDCadena" Type="Int64" />
+    <Property Name="BovedaFiel_IDTimeStamping" Type="Int64" />
+    <Property Name="UbicacionXml" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Error" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Lote" Relationship="BASE.FK_Firma_Lote" FromRole="Firma" ToRole="Lote" />
+    <Property Name="IDEmpleado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="BASE.FK_Firma_Firma" FromRole="Firma" ToRole="Empleado" />
+    <NavigationProperty Name="Carta" Relationship="BASE.FK_Firma_Carta" FromRole="Firma" ToRole="Carta" />
+  </EntityType>
+  <Association Name="FK_Firma_Lote">
+    <End Type="BASE.Lote" Role="Lote" Multiplicity="1" />
+    <End Type="BASE.Firma" Role="Firma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lote">
+        <PropertyRef Name="IDLote" />
+      </Principal>
+      <Dependent Role="Firma">
+        <PropertyRef Name="IDLote" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Firma_Firma">
+    <End Type="BASE.Empleado" Role="Empleado" Multiplicity="1" />
+    <End Type="BASE.Firma" Role="Firma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IDEmpleado" />
+      </Principal>
+      <Dependent Role="Firma">
+        <PropertyRef Name="IDEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Titulo">
+    <Key>
+      <PropertyRef Name="IDTitulo" />
+    </Key>
+    <Property Name="IDTitulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Abreviacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Empleados" Relationship="BASE.FK_Empleado_Titulo" FromRole="Titulo" ToRole="Empleado" />
+  </EntityType>
+  <Association Name="FK_Empleado_Titulo">
+    <End Type="BASE.Titulo" Role="Titulo" Multiplicity="1" />
+    <End Type="BASE.Empleado" Role="Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Titulo">
+        <PropertyRef Name="IDTitulo" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="IDTitulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EnumType Name="MediosSolicitud" UnderlyingType="Byte">
+    <Member Name="Presencial" Value="1" />
+    <Member Name="Web" Value="2" />
+  </EnumType>
+  <EnumType Name="TiposSolicitud" UnderlyingType="Byte">
+    <Member Name="Ciudadano" Value="1" />
+    <Member Name="Entidad" Value="2" />
+  </EnumType>
+  <EnumType Name="Origenes">
+    <Member Name="ResponsabilidadOficial" Value="1" />
+    <Member Name="SituaciónPatrimonial" Value="2" />
+    <Member Name="AdministraciónPúblicaMunicipal" Value="3" />
+  </EnumType>
+  <EntityType Name="Plantilla">
+    <Key>
+      <PropertyRef Name="IDPlantilla" />
+    </Key>
+    <Property Name="IDPlantilla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="NombrePlantilla" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Actual" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Carta" Relationship="BASE.FK_Carta_Plantilla" FromRole="Plantilla" ToRole="Carta" />
+  </EntityType>
+  <EntityType Name="PaseCaja">
+    <Key>
+      <PropertyRef Name="IDPaseCaja" />
+    </Key>
+    <Property Name="IDPaseCaja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Folio" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NombrePersona" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoElectronico" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="UbicacionArchivo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EstaPagado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Solicitud">
+    <Key>
+      <PropertyRef Name="IDSolicitud" />
+    </Key>
+    <Property Name="IDSolicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <Property Name="FolioPago" Type="String" Nullable="false" MaxLength="23" FixedLength="false" Unicode="false" />
+    <Property Name="Identificacion" Type="Int32" Nullable="false" />
+    <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="URLPapeleta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="URLIdentificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Medio" Type="BASE.MediosSolicitud" Nullable="false" />
+    <Property Name="Cancelada" Type="Boolean" Nullable="false" />
+    <Property Name="MotivoCancelacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroDeOficio" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Entidad" Relationship="BASE.SolicitudEntidad" FromRole="Solicitud" ToRole="Entidad" />
+    <NavigationProperty Name="Persona" Relationship="BASE.SolicitudPersona" FromRole="Solicitud" ToRole="Persona" />
+    <NavigationProperty Name="Carta" Relationship="BASE.FK_Carta_Solicitud" FromRole="Solicitud" ToRole="Carta" />
+    <Property Name="FolioPaseCaja" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="SolicitudEntidad">
+    <End Type="BASE.Entidad" Role="Entidad" Multiplicity="0..1" />
+    <End Type="BASE.Solicitud" Role="Solicitud" Multiplicity="*" />
+  </Association>
+  <Association Name="SolicitudPersona">
+    <End Type="BASE.Persona" Role="Persona" Multiplicity="0..1" />
+    <End Type="BASE.Solicitud" Role="Solicitud" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Carta">
+    <Key>
+      <PropertyRef Name="IDCarta" />
+    </Key>
+    <Property Name="IDCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumeroExpediente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="BASE.TiposCarta" Nullable="false" />
+    <Property Name="IDSolicitud" Type="Int32" Nullable="false" />
+    <Property Name="Cadena" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Estado" Type="BASE.EstadosCarta" Nullable="false" />
+    <Property Name="IDPlantilla" Type="Int32" Nullable="false" />
+    <Property Name="IDEmpleadoRechazo" Type="Int32" />
+    <Property Name="FechaRechazo" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Empleado" Relationship="BASE.FK_Carta_Empleado" FromRole="Carta" ToRole="Empleado" />
+    <NavigationProperty Name="Plantilla" Relationship="BASE.FK_Carta_Plantilla" FromRole="Carta" ToRole="Plantilla" />
+    <NavigationProperty Name="Solicitud" Relationship="BASE.FK_Carta_Solicitud" FromRole="Carta" ToRole="Solicitud" />
+    <NavigationProperty Name="Firma" Relationship="BASE.FK_Firma_Carta" FromRole="Carta" ToRole="Firma" />
+    <NavigationProperty Name="Precio" Relationship="BASE.PrecioCarta" FromRole="Carta" ToRole="Precio" />
+    <Property Name="Consultable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Sanciones" Relationship="BASE.CartaSancion" FromRole="Carta" ToRole="Sancion" />
+  </EntityType>
+  <Association Name="FK_Carta_Empleado">
+    <End Type="BASE.Empleado" Role="Empleado" Multiplicity="0..1" />
+    <End Type="BASE.Carta" Role="Carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IDEmpleado" />
+      </Principal>
+      <Dependent Role="Carta">
+        <PropertyRef Name="IDEmpleadoRechazo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carta_Plantilla">
+    <End Type="BASE.Plantilla" Role="Plantilla" Multiplicity="1" />
+    <End Type="BASE.Carta" Role="Carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plantilla">
+        <PropertyRef Name="IDPlantilla" />
+      </Principal>
+      <Dependent Role="Carta">
+        <PropertyRef Name="IDPlantilla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carta_Solicitud">
+    <End Type="BASE.Solicitud" Role="Solicitud" Multiplicity="1" />
+    <End Type="BASE.Carta" Role="Carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitud">
+        <PropertyRef Name="IDSolicitud" />
+      </Principal>
+      <Dependent Role="Carta">
+        <PropertyRef Name="IDSolicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Firma_Carta">
+    <End Type="BASE.Carta" Role="Carta" Multiplicity="1" />
+    <End Type="BASE.Firma" Role="Firma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carta">
+        <PropertyRef Name="IDCarta" />
+      </Principal>
+      <Dependent Role="Firma">
+        <PropertyRef Name="IDCarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Precio">
+    <Key>
+      <PropertyRef Name="IDPrecio" />
+    </Key>
+    <Property Name="IDPrecio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valor" Type="Double" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EsPrecioActual" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Carta" Relationship="BASE.PrecioCarta" FromRole="Precio" ToRole="Carta" />
+  </EntityType>
+  <Association Name="PrecioCarta">
+    <End Type="BASE.Carta" Role="Carta" Multiplicity="*" />
+    <End Type="BASE.Precio" Role="Precio" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Sancion">
+    <Key>
+      <PropertyRef Name="IDSancion" />
+    </Key>
+    <Property Name="IDSancion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoSancion" Type="Int32" Nullable="false" />
+    <Property Name="NumeroExpediente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaEjecutoria" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaResolucion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Tipo" Type="Int32" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Año" Type="Int32" Nullable="false" />
+    <Property Name="TiempoAños" Type="Int32" Nullable="false" />
+    <Property Name="TiempoMeses" Type="Int32" Nullable="false" />
+    <Property Name="TiempoDias" Type="Int32" Nullable="false" />
+    <Property Name="IDEntidad" Type="Int32" Nullable="false" />
+    <Property Name="EspecificarOtro" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <Property Name="PeriodoInicial" Type="DateTime" Precision="0" />
+    <Property Name="PeriodoFinal" Type="DateTime" Precision="0" />
+    <Property Name="FechaInscripcion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Entidad" Relationship="BASE.FK_Sancion_Entidad" FromRole="Sancion" ToRole="Entidad" />
+    <NavigationProperty Name="Carta" Relationship="BASE.CartaSancion" FromRole="Sancion" ToRole="Carta" />
+    <NavigationProperty Name="Persona" Relationship="BASE.PersonaSancion" FromRole="Sancion" ToRole="Persona" />
+  </EntityType>
+  <Association Name="FK_Sancion_Entidad">
+    <End Type="BASE.Entidad" Role="Entidad" Multiplicity="1" />
+    <End Type="BASE.Sancion" Role="Sancion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entidad">
+        <PropertyRef Name="IDEntidad" />
+      </Principal>
+      <Dependent Role="Sancion">
+        <PropertyRef Name="IDEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CartaSancion">
+    <End Type="BASE.Carta" Role="Carta" Multiplicity="*" />
+    <End Type="BASE.Sancion" Role="Sancion" Multiplicity="*" />
+  </Association>
+  <Association Name="PersonaSancion">
+    <End Type="BASE.Persona" Role="Persona" Multiplicity="0..1" />
+    <End Type="BASE.Sancion" Role="Sancion" Multiplicity="*" />
+  </Association>
+</Schema>

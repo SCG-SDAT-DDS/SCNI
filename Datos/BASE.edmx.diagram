@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fda8aff34e884d8e846864988969320a" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="BASE.Colonia" Width="1.5" PointX="16.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASE.Empleado" Width="1.5" PointX="12.875" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASE.Estado" Width="1.5" PointX="18.625" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASE.Menu" Width="1.5" PointX="7.875" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASE.Movmiento" Width="1.5" PointX="9.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASE.Municipio" Width="1.5" PointX="17.375" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASE.Puesto" Width="1.5" PointX="13.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASE.Rol" Width="1.5" PointX="11.125" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BASE.SolicitudContrasena" Width="2.25" PointX="11.125" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="BASE.FK_Colonia_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BASE.FK_Colonia_Municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="BASE.FK_Empleado_Puesto" ManuallyRouted="false" />
+        <AssociationConnector Association="BASE.FK_Municipio_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BASE.FK_Rol_Menu" ManuallyRouted="false" />
+        <AssociationConnector Association="BASE.MenuRol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BASE.Permisos" Width="1.5" PointX="11.125" PointY="14.25" />
+        <AssociationConnector Association="BASE.RolPermisos" />
+        <EntityTypeShape EntityType="BASE.Entidad" Width="1.5" PointX="25.625" PointY="11.375" />
+        <EntityTypeShape EntityType="BASE.Persona" Width="1.5" PointX="21" PointY="8.5" />
+        <AssociationConnector Association="BASE.FK_Persona_Municipio" />
+        <EntityTypeShape EntityType="BASE.Lote" Width="1.5" PointX="13.5" PointY="15.75" />
+        <EntityTypeShape EntityType="BASE.Folio" Width="1.5" PointX="7.375" PointY="3.625" />
+        <EntityTypeShape EntityType="BASE.Usuario" Width="1.5" PointX="16" PointY="2.25" />
+        <AssociationConnector Association="BASE.FK_Lote_Usuario" />
+        <AssociationConnector Association="BASE.FK_Usuario_Rol" />
+        <AssociationConnector Association="BASE.FK_SolicitudContrasena_Empleado" />
+        <AssociationConnector Association="BASE.MenuUsuario" />
+        <AssociationConnector Association="BASE.UsuarioEmpleado" />
+        <AssociationConnector Association="BASE.UsuarioMovimiento" />
+        <EntityTypeShape EntityType="BASE.UsuarioCertificado" Width="1.5" PointX="18.25" PointY="3.375" />
+        <AssociationConnector Association="BASE.FK_UsuarioCertificado_Usuario" />
+        <EntityTypeShape EntityType="BASE.Firma" Width="1.5" PointX="19.25" PointY="15.75" />
+        <AssociationConnector Association="BASE.FK_Firma_Lote" />
+        <AssociationConnector Association="BASE.FK_Firma_Firma" />
+        <EntityTypeShape EntityType="BASE.Titulo" Width="1.5" PointX="10.625" PointY="6.75" />
+        <AssociationConnector Association="BASE.FK_Empleado_Titulo" />
+        <EntityTypeShape EntityType="BASE.Plantilla" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BASE.PaseCaja" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BASE.Solicitud" Width="1.5" PointX="27.875" PointY="9.125" />
+        <AssociationConnector Association="BASE.SolicitudEntidad" />
+        <AssociationConnector Association="BASE.SolicitudPersona" />
+        <EntityTypeShape EntityType="BASE.Carta" Width="1.5" PointX="30.125" PointY="5" />
+        <AssociationConnector Association="BASE.FK_Carta_Empleado" />
+        <AssociationConnector Association="BASE.FK_Carta_Plantilla" />
+        <AssociationConnector Association="BASE.FK_Carta_Solicitud" />
+        <AssociationConnector Association="BASE.FK_Firma_Carta" />
+        <EntityTypeShape EntityType="BASE.Precio" Width="1.5" PointX="32.5" PointY="5.75" />
+        <AssociationConnector Association="BASE.PrecioCarta" />
+        <EntityTypeShape EntityType="BASE.Sancion" Width="1.5" PointX="32.375" PointY="8.875" />
+        <AssociationConnector Association="BASE.FK_Sancion_Entidad" />
+        <AssociationConnector Association="BASE.CartaSancion" />
+        <AssociationConnector Association="BASE.PersonaSancion" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,161 @@
+﻿@using Datos
+@model Datos.DTO.Infraestructura.ViewModels.BusquedaConstanciaViewModel
+@{
+    ViewBag.Title = "Validación";
+}
+
+@if (string.IsNullOrEmpty(Model.Codigo))
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="middle-box animated fadeInDown" style="max-width: 450px">
+                <div id="caja" class="container-fluid box">
+                    <div class="col-xs-12 p-lateral-0 text-center">
+                        <h2>BÚSQUEDA E IMPRESIÓN DE CONSTANCIA</h2>
+                        <hr/>
+                        @using (Html.BeginForm("Index", "Validacion", new {}, FormMethod.Post, new {@class = "form-horizontal text-left"}))
+                        {
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Folio"><strong class="obligatorio">*</strong>Folio Pago</label>
+                                    <div class="col-sm-6">
+                                        @Html.TextBoxFor(c => c.Folio, new {@class = "form-control input-sm", @onkeypress = "return soloNumeros(event)", @maxlength = 12 })
+                                        @Html.ValidationMessageFor(c => c.Folio, null, new {@class = "label label-warning"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Nombre"><strong class="obligatorio">*</strong>Nombre</label>
+                                    <div class="col-sm-9">
+                                        @Html.TextBoxFor(c => c.Nombre, new {@class = "form-control input-sm uppercase"})
+                                        @Html.ValidationMessageFor(c => c.Nombre, null, new {@class = "label label-warning"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Paterno"><strong class="obligatorio">*</strong>Primer Apellido</label>
+                                    <div class="col-sm-9">
+                                        @Html.TextBoxFor(c => c.Paterno, new {@class = "form-control input-sm uppercase" })
+                                        @Html.ValidationMessageFor(c => c.Paterno, null, new {@class = "label label-warning"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="Materno">Segundo Apellido</label>
+                                    <div class="col-sm-9">
+                                        @Html.TextBoxFor(c => c.Materno, new {@class = "form-control input-sm uppercase" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <hr/>
+                            </div>
+
+                            <div id='recaptcha' class="g-recaptcha"
+                                 data-sitekey="@(System.Configuration.ConfigurationManager.AppSettings["CaptchaSitioKey"])"
+                                 data-callback="onSubmit"
+                                 data-size="invisible"></div>
+                            <input type="submit" class="btn btn-primary block full-width m-b" id="btnBuscar"
+                                    value="Buscar" />
+                        }
+
+                        <small>Todos los campos marcados con <strong class="obligatorio">*</strong> son obligatorios.</small>
+                        <br/>
+                        <a href="@Url.Action("Index", "SolicitudWeb")">Regresar al menú</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (Model.Solicitud == null)
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="middle-box animated fadeInDown">
+                <div id="caja" class="container-fluid">
+                    <div class="col-xs-12 p-lateral-0 text-center">
+                        <h2>SIN REGISTROS DE SOLICITUD.</h2>
+                        <p>Para más información comuníquese al teléfono 217-21-68 y/o 213-63-07 extensión 1307 o al correo electrónico constancias@sonora.gob.mx</p>
+                        <a href="@Url.Action("Index")">Buscar mi solicitud</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (Model.Carta == null || Model.Carta.Estado == EstadosCarta.NoFirmada)
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="middle-box animated fadeInDown">
+                <div id="caja" class="container-fluid">
+                    <div class="col-xs-12 p-lateral-0 text-center">
+                        <h2>SU SOLICITUD SE ENCUENTRA EN REVISIÓN.</h2>
+                        <h4>FOLIO DE PAGO: @Model.Solicitud.FolioPago</h4>
+                        <p>Para más información comuníquese al teléfono 217-21-68 y/o 213-63-07 extensión 1307 o al correo electrónico constancias@sonora.gob.mx</p>
+                        <a href="@Url.Action("Index")">Realizar una nueva búsqueda</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center" style="height: 100%">
+        <h3>Folio: @Model.Solicitud.FolioPago</h3>
+
+        <a href="@Url.Action("Carta", "Descargar", new {idCarta = Model.Carta.IDCarta})">DESCARGAR CONSTANCIA</a>
+        |
+        <a target="_blank" href="https://docs.google.com/viewer?embedded=true&url=@(Model.UrlDescargarCarta + "?idCarta=" + Model.Carta.IDCarta)">
+            IMPRIMIR CONSTANCIA
+        </a>
+        |
+        <a href="@Url.Action("Index")">BUSCAR SOLICITUD</a>
+
+        <iframe id="ifCarta"
+                src="https://docs.google.com/viewer?embedded=true&url=@(Model.UrlDescargarCarta + "?idCarta=" + Model.Carta.IDCarta)"
+                style="width: 100%; height: 100%; margin-top: 10px; padding-bottom: 50px" frameborder="0"></iframe>
+    </div>
+}
+
+@section FooterScripts
+{
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onSubmit = function (token) {
+            $('form').submit();
+        };
+
+        $(function () {
+
+            $('#btnBuscar').click(function (e) {
+                e.preventDefault();
+
+                if ($('form').valid() === true) {
+                    grecaptcha.execute();
+                }
+            });
+
+            $(window).resize(function () {
+                $('#caja').css("margin-top", altura.alturaVentana);
+            });
+
+            $(window).resize();
+        });
+
+        var altura = (function () {
+            var alturaVentana = $(window).height() / 2;
+            var alturaCaja = $("#caja").height() / 2;
+            return {
+                alturaVentana: alturaVentana - alturaCaja - 120
+            };
+        })();
+    </script>
+}

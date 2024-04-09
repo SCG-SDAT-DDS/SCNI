@@ -1,0 +1,45 @@
+﻿@using Datos.Recursos
+@using Datos.Repositorios.Catalogos
+@{
+    ViewBag.Title = General.Calendario;
+}
+
+@section HeaderScripts
+{
+    <link href="/Content/css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <link href="/Content/css/plugins/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print" />
+}
+
+<div class="ibox-content bx-s bg-f">
+    <div id="calendar" class="fc fc-ltr fc-unthemed">
+    </div>
+</div>
+<input type="hidden" id="hdnCumpleanios" value="@EmpleadoRepostorio.ObtenerEstructuraCalendario()" />
+
+@section FooterScripts
+{
+    <script src="/Scripts/plugins/fullcalendar/moment.min.js" type="text/javascript"></script>
+    <script src="/Scripts/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="/Scripts/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+    <script src="/Scripts/Fecha.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var calendario = $("#calendar");
+        var hdnFechas = $("#hdnCumpleanios");
+
+        $(document).ready(function () {
+            VaciarDatosEnCalendario();
+        });
+
+        function VaciarDatosEnCalendario() {
+            var datos = JSON.parse(hdnFechas.val());
+            calendario.fullCalendar({
+                lang: 'es',
+                events: datos,
+                eventRender: function (event, element) {
+                    element.attr('title', event.tooltip);
+                }
+            });
+        }
+
+    </script>
+}

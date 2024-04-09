@@ -1,0 +1,293 @@
+﻿@using Datos
+@using Datos.Enums
+@using Datos.DTO.Infraestructura
+@using Presentacion.Helpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    @*<title>@ViewBag.Title</title>*@
+    <title>SCNI</title>
+    <link rel="icon" type="image/x-icon" href="~/Content/img/favicon.jpg" />
+    <link rel="stylesheet" href="~/Content/css/flexboxgrid.min.css" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/css/animate.css" />
+    <link rel="stylesheet" href="~/Content/css/style.css" />
+    <link rel="stylesheet" href="~/Content/themes/blitzer/jquery-ui.css"/>
+    <link rel="stylesheet" href="~/Content/themes/blitzer/theme.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" href="~/Scripts/plugins/datepicker/datepicker.css" />
+    
+    
+
+    <link rel="stylesheet" href="~/Content/css/Estilos.css" />
+    <link rel="stylesheet" href="~/Content/css/general.css" />
+    <link rel="stylesheet" href="~/Content/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+
+    <script type="text/javascript" src="~/Scripts/libs/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="~/Scripts/libs/pagina.js?v=1"></script>
+    <script type="text/javascript" src="~/Scripts/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script type="text/javascript" src="~/Scripts/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/inspinia.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/jquery.validate.unobtrusive.js"></script>    
+    <script type="text/javascript" src="~/scripts/ValidacionInputs.js"></script>
+    <script type="text/javascript" src="~/Scripts/plugins/datepicker/bootstrap-datepicker.js"></script>
+
+        <script>
+            $(document).on("ready", function () {
+                $("input[type=text]").blur(function() {
+                    $(this).val($(this).val().toUpperCase());
+                });
+
+                $.datepicker.regional['es'] = {
+                    dateFormat: 'dd/mm/yyyy',
+                    closeText: 'Cerrar',
+                    viewMode: 2,
+                    prevText: '< Anterior',
+                    nextText: 'Siguiente >',
+                    currentText: 'Hoy',
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', '1Diciembre'],
+                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                    weekHeader: 'Sm',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: ''
+                };
+
+                $.datepicker.setDefaults({ regional: 'es', dateFormat: 'dd/mm/yyyy' });
+
+                $("i.icon-arrow-left").addClass("fa fa-chevron-left");
+                $("i.icon-arrow-left").removeClass("icon-arrow-left");
+                $("i.icon-arrow-right").addClass("fa fa-chevron-right");
+                $("i.icon-arrow-right").removeClass("icon-arrow-right");
+            });
+
+        </script>
+
+    @RenderSection("HeaderScripts", required: false)
+</head>
+<body>
+
+    @{
+        var usuario = ((SistemaUsuario)Session[Enumerados.VariablesSesion.Aplicacion.ToString()]);
+    }
+    <!-- Menu -->
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div>
+            <ul class="nav metismenu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span>
+                            @*<img id="imgFotoPerfil" class="img-circle img-50px" src="@Url.Content(usuario.UrlFoto)" />*@
+                        </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">
+                                        <label>@usuario.Nombre</label>
+                                    </strong>
+                                </span>
+                                <span class="text-muted block">
+                                    <label>@usuario.NombreRol</label>
+                                    <b class="caret"></b>
+                                </span>
+                            </span>
+                        </a>
+
+
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li>
+                                @Html.ActionLinkCifrado(Resources.General.ModificarPerfil, "Guardar", "Empleado", "Catalogo", new Dictionary<string, int> { { "idEmpleado", usuario.IdEmpleado } })
+                            </li>
+                            @*<li>
+                                    @Html.ActionLink(Resources.General.CambiarContrasena, "CambiarContrasena", "Usuario", new { area = "Catalogo" }, null)
+                                </li>*@
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#mdlCerrarSesion">@Resources.General.CerrarSesion</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        SCNI
+                    </div>
+                </li>
+            </ul>
+            <div id="menu">
+                @Html.Partial("Menus/_Menu")
+            </div>
+        </div>
+    </nav>
+    <!-- End Menu -->
+
+    <div id="page-wrapper" class="gray-bg" style="min-height: 643px;">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top col-xs-12 between-xs" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header m-t-7">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                    <div class="pull-left m-l-18">
+                        <img src="~/Content/img/logo-sonora-unidos-logramos-mas-01.png" class="img-responsive w-180" alt="">
+                    </div>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li style="margin-left: 17px">
+                        <img src="~/Content/img/logo_01_.png" class="img-responsive w-180 m-b-5" alt="">
+                    </li>
+                    <li class="m-l-10 m-t-10">
+                        <a href="#" data-toggle="modal" class="col-xs-12" data-target="#mdlCerrarSesion">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>
+                    @ViewBag.Title
+                </h2>
+                <ul class="breadcrumb f-s-14">
+                    @foreach (var menu in usuario.MenuBreadcrumb)
+                    {
+                        <li>
+                            @if (menu.Destino == "#")
+                            {
+                                var area = !string.IsNullOrEmpty(menu.Area) ? menu.Area + "/" : "";
+                                var controlador = !string.IsNullOrEmpty(menu.Controlador) ? menu.Controlador + "/" : "";
+                                var accion = !string.IsNullOrEmpty(menu.Accion) ? menu.Accion + "/" : "";
+                                var destino = (area == "" ? "#" : area + controlador + accion);
+                                if (destino == "#")
+                                {
+                                    <a href="#">@menu.Opcion</a>
+                                }
+                                else
+                                {
+                                    <a href="~/@destino">@menu.Opcion</a>
+                                }
+
+                            }
+                            else
+                            {
+                                <a href="@menu.Destino">@menu.Opcion</a>
+                            }
+
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+        <!-- Wrapper -->
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                @Html.Partial("Controls/_Alerta")
+                <div class="col-xs-12 p-all-0">
+                    <div>
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Wrapper-->
+        <div id="divCargando" style="display: none;"></div>
+
+        <!--Footer-->
+        <div class="footer">
+            <div class="pull-right">
+                Gasca Tecnologías
+            </div>
+            <div>
+                <strong>Copyright</strong>
+            </div>
+        </div>
+
+    </div>
+    <!--Visor Gallery-->
+    <div id="blueimp-gallery" class="blueimp-gallery" hidden="" data-hide-page-scrollbars="false">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <ol class="indicator"></ol>
+    </div>
+    @RenderSection("Modales", required: false)
+    <!-- Modal Cerrar Session -->
+    <div class="modal fade" id="mdlCerrarSesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <div class="row center-xs">
+                            <h3><i class="fa fa-exclamation-triangle"></i><span> CUIDADO <i class="fa fa-exclamation-triangle"></i></span></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body p-b-0 p-t-0" style="height: 140px;">
+                    <div class="row center-xs" style="height: 140px;">
+                        <div class="col-xs-12"><img src="~/Content/img/!2.png" height="50" style="width: 150px;height: 150px;opacity: .2;" /></div>
+                        <div class="col-xs-12" style="position: relative; z-index: 9000000; top: -100px;">
+                            <h3><strong>¿SEGURO QUE DESEA CERRAR LA SESIÓN ACTUAL?</strong></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row center-xs">
+                        <button class="btn btn-primary" data-dismiss="modal">@*@Resources.General.Cancelar*@NO</button>
+                        @Html.ActionLink("SI", "CerrarSesion", "Login", new { area = string.Empty }, new { @class = "btn btn-warning" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/Firma.js?v=2"></script>
+    <script type="text/javascript" src="~/Scripts/Fiel.js?v=2"></script>
+
+    <script type="text/javascript">
+        var firma = new fielnet.Firma({
+            subDirectory: "../../Scripts/Firma",
+            ajaxAsync: false,
+            controller: "../../Scripts/firma/Controlador.ashx"
+        });
+        $(document).ready(function () {
+            
+
+            $.validator.addMethod('date',
+                function (value, element) {
+                    if (this.optional(element)) {
+                        return true;
+                    }
+
+                    var ok = true;
+                    try {
+                        $.datepicker.parseDate('dd/mm/yy', value);
+                    }
+                    catch (err) {
+                        ok = false;
+                    }
+                    return ok;
+                });
+
+            $(document).submit(function () {
+                if ($("form").valid() && window.mostrarDivCargando !== false) MostrarDivCargando();
+            });
+        });
+    </script>
+    @RenderSection("FooterScripts", required: false)
+</body>
+</html>

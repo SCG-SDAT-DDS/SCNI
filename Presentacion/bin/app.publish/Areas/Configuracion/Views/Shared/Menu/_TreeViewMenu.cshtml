@@ -1,0 +1,30 @@
+﻿@using Datos.DTO.Infraestructura.ViewModels
+@using Presentacion.Helpers
+@model Datos.DTO.Infraestructura.ViewModels.MenuViewModel
+
+@if (Model.MenuTreeView.Any(m => m.Padre == Model.RaizArbol))
+{
+    <ul>
+        @foreach (var menu in Model.MenuTreeView)
+        {
+            if (menu.Padre != Model.RaizArbol)
+            {
+                continue;
+            }
+
+            var nodoInterno =
+                new MenuViewModel
+                {
+                    RaizArbol = menu.IDMenu,
+                    MenuTreeView = Model.MenuTreeView
+                };
+        
+
+            <li>
+                @Html.ActionLinkCifrado(menu.Opcion, "Index", "Menu", "Configuracion",
+                                        new Dictionary<string, int> { { "idMenuPadre", menu.IDMenu } })
+                @Html.Partial("Menu/_TreeViewMenu", nodoInterno)
+            </li>
+        }
+    </ul>
+}

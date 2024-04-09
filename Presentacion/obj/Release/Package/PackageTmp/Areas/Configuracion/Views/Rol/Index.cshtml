@@ -1,0 +1,114 @@
+﻿@using Presentacion.Helpers
+@model Datos.DTO.Infraestructura.ViewModels.RolViewModel
+
+@{
+    ViewBag.Title = Resources.General.BuscarRol;
+}
+<div class="ibox bx-s">
+    <div class="ibox-heading">
+        <div class="col-xs-12">
+            @using (Html.BeginForm())
+            {
+                <div class="row p-t-20">
+                    
+                    <div class="col-xs-12 col-sm-10 form-horizontal">
+                        <div class="col-xs-2 p-l-0 end-xs">
+                            @Html.LabelFor(m => m.Rol.Nombre, new {@class = "m-t-12"})
+                        </div>
+                        <div class="input-group col-sm-6 col-xs-12">
+                            @{ Html.EnableClientValidation(false); }
+                            @Html.TextBoxFor(m => m.Rol.Nombre, new {@class = "form-control input-sm m-t-0"})
+                            @{ Html.EnableClientValidation(true); }
+                            <span class="input-group-btn">
+                                <input type="submit" class="btn btn-sm btn-primary" value="@Resources.General.Buscar" />
+                            </span>
+                            <span class="input-group-btn p-t-0">
+                                @Html.ActionLink(Resources.General.Nuevo, "Guardar", null, new {@class = "btn btn-sm btn-default"})
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="row">
+
+                            <div class="col-md-6 col-xs-12 m-xc-13">
+                                <div class="checkbox checkbox-success">
+                                    @Html.CheckBoxFor(m => m.Rol.Habilitado, new {@checked = true})
+                                    @Html.LabelFor(m => m.Rol.Habilitado)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+           }
+        </div>
+    </div>
+    <div class="ibox-content p-l-10 p-r-10 bg-f">
+        <div class="row">
+            <div class="col-xs-12 text-right m-t-20">
+                <label class="label label-success">
+                    Encontrados: @Model.Roles.Count
+                </label>
+            </div>
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(m => m.Rol.Nombre)</th>
+                                <th>@Html.DisplayNameFor(m => m.Rol.Descripcion)</th>
+                                <th>@Html.DisplayNameFor(m => m.Rol.PaginaInicio)</th>
+                                <th>@Html.DisplayNameFor(m => m.Rol.TipoInicio)</th>
+                                <th class="text-center">@Resources.General.Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var rol in Model.Roles)
+                            {
+                                <tr>
+                                    <td>@rol.Nombre</td>
+                                    <td>@rol.Descripcion</td>
+                                    <td>@(rol.Menu != null ? rol.Menu.Opcion : string.Empty)</td>
+                                    <td>@rol.TipoInicio.ToString()</td>
+                                    <td class="text-center">
+                                        @if (rol.Habilitado)
+                                        {
+                                            @Html.ActionLinkCifrado(Resources.General.GestionarRol, "Index", "Menu", "Configuracion",
+                                            "btn btn-success btn-circle", "fa fa-bars",
+                                            new Dictionary<string, int> { { "idRol", rol.IDRol } })
+
+                                            @Html.ActionLinkCifrado(Resources.General.Modificar, "Guardar", "Rol", "Configuracion",
+                                            "btn btn-warning btn-circle", "fa fa-pencil",
+                                            new Dictionary<string, int> { { "idRol", rol.IDRol } })
+
+                                            @Html.ActionLinkCifrado(Resources.General.Deshabilitar, "Deshabilitar", "Rol", "Configuracion",
+                                            "btn btn-danger btn-circle deshabilitar", "fa fa-times",
+                                            new Dictionary<string, int> { { "idRol", rol.IDRol } })
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLinkCifrado(Resources.General.Habilitar, "Habilitar", "Rol", "Configuracion",
+                                            "btn btn-primary btn-circle habilitar", "fa fa-check",
+                                            new Dictionary<string, int> { { "idRol", rol.IDRol } })
+                                        }
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            @Html.Partial("Controls/_ModalHabilitar")
+        </div>
+    </div>
+</div>
+@section FooterScripts
+{
+    <script type="text/javascript" src="~/Content/js/plugins/iCheck/icheck.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            habilitar.Iniciar('@Resources.General.Rol');
+        });
+    </script>
+}

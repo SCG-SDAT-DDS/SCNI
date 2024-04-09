@@ -1,0 +1,159 @@
+﻿<div class="modal fade" id="mdlDetalles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@Resources.General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#divUsuario" aria-controls="home" role="tab" data-toggle="tab">Usuario</a>
+                    </li>
+                    <li role="presentation" data-bind="attr: {class: Empleado == null ? 'hidden' : 'visible'}">
+                        <a href="#divEmpleado" aria-controls="home" role="tab" data-toggle="tab">Empleado</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="tabs-content">
+                    <div id="divUsuario" role="tabpanel" class="tab-pane active">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="widget-head-color-box gray-bg p-xxs text-center">
+                                <div class="m-b-5">
+                                    <h2 class="font-bold no-margins" data-bind="text: NombreUsuario"></h2>
+                                    <small>@Resources.General.TipoUsuario: <span data-bind="text: TipoUsuario"></span></small>
+                                </div>
+                                <!--Foto Usuario-->
+                                @*<img src="#" data-bind="attr: { src: UrlFoto }" class="img-circle circle-border m-b-md img-150" alt="foto" />*@
+                            </div>
+                            <div class="widget-text-box p-all-10 container-fluid">
+                                <div class="col-md-6 text-center">
+                                    <h5>@Resources.General.Rol:</h5>
+                                    <span data-bind="text: Rol"></span>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <h5>@Resources.General.Contacto: </h5>
+                                    <abbr title="Teléfono">
+                                        @Resources.General.Correo. <span data-bind="text: Email"></span>
+                                    </abbr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divEmpleado" role="tabpanel" class="tab-pane">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="widget-head-color-box gray-bg p-xxs text-center">
+                                <div class="m-b-5">
+                                    <h2 class="font-bold no-margins" data-bind="text: Empleado.NombreCompleto"></h2>
+                                    <small data-bind="text: Empleado.Puesto"></small>
+                                </div>
+                                <!--FotoEmpleado-->
+                                @*<img src="#" data-bind="attr: { src: Empleado.UrlFoto }" class="img-circle circle-border img-150" alt="foto" />*@
+                            </div>
+                            <div class="widget-text-box p-all-10 container-fluid">
+                                <div class="col-md-6 text-center">
+                                    <h5>@Resources.General.Direccion:</h5>
+                                    <span data-bind="text: Empleado.Direccion"></span>
+                                    <span data-bind="text: Empleado.DireccionNumero"></span>.<br />
+                                    @Resources.General.Entre <span data-bind="text: Empleado.EntreCalles1"></span>
+                                    @Resources.General.Y <span data-bind="text: Empleado.EntreCalles2"></span>.<br />
+                                    @Resources.General.Col. <span data-bind="text: Empleado.Colonia"></span>,
+                                    @Resources.General.CP <span data-bind="text: Empleado.CodigoPostal"></span>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <h5>@Resources.General.Contacto: </h5>
+                                    <abbr title="Teléfono">
+                                        @Resources.General.Tel. <span data-bind="text: Empleado.Telefono"></span>
+                                    </abbr>
+                                    <br />
+                                    <abbr title="Celular">
+                                        @Resources.General.Cel. <span data-bind="text: Empleado.Celular"></span>
+                                    </abbr>
+                                    <br />
+                                    <abbr title="Correo">
+                                        @Resources.General.Correo: <span data-bind="text: Empleado.Email"></span>
+                                    </abbr>
+                                </div>
+                                <div class="col-md-12 text-center p-t-5 p-b-5 gray-bg m-t-10 m-b-10">
+                                    <span class="bold">Información adicional</span>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div>
+                                        <span class="bold">@Resources.General.FechaNacimiento:</span>
+                                        <span data-bind="text: Empleado.FechaNacimiento"></span>
+                                    </div>
+                                    <div>
+                                        <span class="bold">@Resources.General.Genero:</span>
+                                        <span data-bind="text: Empleado.Sexo"></span>
+                                    </div>
+                                    <div>
+                                        <span class="bold">@Resources.General.NumeroImss:</span>
+                                        <span data-bind="text: Empleado.NumeroImss"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div>
+                                        <span class="bold">@Resources.General.Rfc:</span>
+                                        <span data-bind="text: Empleado.Rfc"></span>
+                                    </div>
+                                    <div>
+                                        <span class="bold">@Resources.General.Curp:</span>
+                                        <span data-bind="text: Empleado.Curp"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" tabindex="2">@Resources.General.Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/scripts/libs/knockout-2.2.0.js"></script>
+<script type="text/javascript">
+    var detallesUsuario = (function () {
+        var divDetallesEmpleado;
+
+        function buscar(idUsuario) {
+            $.ajax({
+                data: "{idUsuario: '" + idUsuario + "'}",
+                dataType: "json",
+                contentType: "application/json",
+                type: "POST",
+                url: '@Url.Action("Obtener", "Usuario", new { area = "Catalogo" })',
+                beforeSend: function () {
+                    MostrarDivCargando("Cargando detalles...");
+                },
+                success: function (data) {
+                    if (data.Empleado == null) {
+                        divDetallesEmpleado = $("#divEmpleado").clone();
+                        $("#divEmpleado").remove();
+                    } else {
+                        $("#tabs-content").append(divDetallesEmpleado);
+                    }
+
+                    ko.applyBindings(data);
+                    CerrarDivCargando();
+                    $("#mdlDetalles").modal();
+                },
+                error: function (error) {
+                    CerrarDivCargando();
+                },
+            });
+        }
+
+        return {
+            Buscar: buscar,
+        };
+
+    })();
+
+</script>
+
+

@@ -1,0 +1,21 @@
+﻿@model Int32
+@{
+    ViewBag.Title = "Descargar";
+    Layout = "~/Views/Shared/Layouts/_LayoutValidacion.cshtml";
+}
+
+<div class="text-center" style="height: 100%">
+    <h3>Folio: @ViewBag.Folio</h3>
+
+    <a href="@Url.Action("PaseCaja", "Descargar", new { idPaseCaja = Model })">DESCARGAR PASE A CAJA</a>
+    |
+    <a target="_blank" href="https://docs.google.com/viewer?embedded=true&url=@ViewBag.UrlSitio?idPaseCaja=@Model">
+        IMPRIMIR PASE A CAJA
+    </a>
+    |
+    <a href="@Url.Action("Index","SolicitudWeb")">REGRESAR</a>
+
+    <iframe id="ifCarta"
+            src="https://docs.google.com/viewer?embedded=true&url=@ViewBag.UrlSitio?idPaseCaja=@Model"
+            style="width: 100%; height: 100%; margin-top: 10px; padding-bottom: 50px" frameborder="0"></iframe>
+</div>

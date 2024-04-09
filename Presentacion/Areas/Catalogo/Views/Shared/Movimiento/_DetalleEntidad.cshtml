@@ -1,0 +1,542 @@
+﻿@using Datos.Recursos
+
+<div class="modal fade" id="mdlDetalleColonia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Colonia</th>
+                            <th>Estado</th>
+                            <th>Municipio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-bind="text: Nombre"></td>
+                            <td data-bind="text: Estado"></td>
+                            <td data-bind="text: Municipio"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>   @* Modal Colonia *@
+<div class="modal fade" id="mdlDetalleFirma" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Número de Expediente</th>
+                            <th>Firmado por</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-bind="text: NumeroExpediente"></td>
+                            <td data-bind="text: Empleado.NombreCompleto"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>   @* Modal Firma *@
+<div class="modal fade" id="mdlDetalleEmpleado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>  @* Modal Empleado *@
+<div class="modal fade" id="mdlDetalleEntidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Abreviación</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-bind="text: Abreviacion"></td>
+                            <td data-bind="text: Nombre"></td>
+                            <td data-bind="text: Tipo"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>   @* Modal Entidad *@
+<div class="modal fade" id="mdlDetalleMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Opción</th>
+                            <th>Destino</th>
+                            <th>Visible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-bind="text: Opcion"></td>
+                            <td data-bind="text: Destino"></td>
+                            <td data-bind="text: Visible"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>      @* Modal Menu *@
+<div class="modal fade" id="mdlDetallePuesto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>    @* Modal Puesto *@
+<div class="modal fade" id="mdlDetalleSancion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <div class="col-md-12">
+                            <h4>Datos de la Sanción</h4>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Sancion_Tipo">Tipo</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: Tipo"></div>
+                        </div>
+                        <div class="col-md-12" data-bind="visible: MostrarEspecificar">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Sancion_EspecificarOtro">Especificar</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: Especificar"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 col-xs-12 p-t-5">
+                                <label for="Sancion_NumeroExpediente">Número de Expediente</label>
+                            </div>
+                            <div class="col-md-7 col-xs-12" data-bind="text: NumeroExpediente"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Sancion_FechaEjecutoria">Fecha de Ejecutoría</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: FechaEjecutoria"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Fecha_Resolucion">Fecha de Resolución</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: FechaResolucion"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Sancion_Año">Año de la sanción</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: Año"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Sancion_TipoSancion">Tipo de sanción</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: TipoSancion"></div>
+                        </div>
+                        <div class="col-md-12" data-bind="visible: MostrarMonto">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Sancion_Monto">Monto de la sanción</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: Monto"></div>
+                        </div>
+                        <div class="col-md-12" data-bind="visible: MostrarTiempos">
+                            <div class="col-md-5 p-t-5">
+                                <label>Tiempo de la sanción</label>
+                            </div>
+                            <div class="col-md-2" data-bind="text: TiempoAños">
+                                Años
+                            </div>
+                            <div class="col-md-2" data-bind="text: TiempoMeses">
+                                Meses
+                            </div>
+                            <div class="col-md-3" data-bind="text: TiempoDias">
+                                Días
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5">
+                                <label>Observaciones</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: Observaciones"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        <div class="col-md-12"><h4>Datos del Sancionado</h4></div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Sancion_Persona_RFC">RFC:</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: Persona.RFC"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5">
+                                <label for="Sancion_Persona_Nombre">Nombre:</label>
+                            </div>
+                            <div class="col-md-7" data-bind="text: Persona.Nombre"></div>
+                        </div>
+                        <div class="col-md-12"><h4>Datos de la Dependencia-Entidad</h4></div>
+                        <div class="col-md-12">
+                            <div class="col-md-5">
+                                <label>Nombre:</label>
+                            </div>
+                            <div class="col-md-7 p-t-10" data-bind="text: Entidad.Nombre"></div>
+                            <div class="col-md-5">
+                                <label>Tipo:</label>
+                            </div>
+                            <div class="col-md-7 p-t-10" data-bind="text: Entidad.Tipo"></div>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>  @* Modal Sancion *@
+<div class="modal fade" id="mdlDetalleSolicitud" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="col-md-12"><h2>Datos de la Solicitud</h2></div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5"><label>Tipo:</label></div>
+                            <div class="col-md-7" data-bind="text: TipoSolicitud"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5"><label>Folio de Pago:</label></div>
+                            <div class="col-md-7" data-bind="text: FolioPago"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5"><label>Fecha de Pago:</label></div>
+                            <div class="col-md-7" data-bind="text: FechaPago"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5"><label>Identificación:</label></div>
+                            <div class="col-md-7" data-bind="text: Identificacion"></div>
+                        </div>
+                        <div class="col-md-12" data-bind="visible: Mostrar">
+                            <div class="col-md-5 p-t-5"><label>Tipo de Dependencia-Entidad:</label></div>
+                            <div class="col-md-7" data-bind="text: Entidad.Tipo"></div>
+                        </div>
+                        <div class="col-md-12" data-bind="visible: Mostrar">
+                            <div class="col-md-5 p-t-5"><label>Nombre Dependencia-Entidad:</label></div>
+                            <div class="col-md-7" data-bind="text: Entidad.Nombre"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="col-md-12"><h2>Datos del Solicitante</h2></div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 p-t-5"><label>RFC:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.RFC"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 p-t-5"><label>Nombre:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.Nombre"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 p-t-5"><label>Género:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.Genero"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 p-t-5"><label>CURP:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.CURP"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3"><label>Correo:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.Email"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div> @* Modal SolicitudWeb *@
+<div class="modal fade" id="mdlDetalleSolicitudWeb" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="col-md-12"><h2>Datos de la Solicitud</h2></div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5"><label>Tipo:</label></div>
+                            <div class="col-md-7" data-bind="text: TipoSolicitud"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5"><label>Folio de Pago:</label></div>
+                            <div class="col-md-7" data-bind="text: FolioPago"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5"><label>Fecha de Pago:</label></div>
+                            <div class="col-md-7" data-bind="text: FechaPago"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-5 p-t-5"><label>Identificación:</label></div>
+                            <div class="col-md-7" data-bind="text: Identificacion"></div>
+                        </div>
+                        <div class="col-md-12" data-bind="visible: Mostrar">
+                            <div class="col-md-5 p-t-5"><label>Tipo de Dependencia-Entidad:</label></div>
+                            <div class="col-md-7" data-bind="text: Entidad.Tipo"></div>
+                        </div>
+                        <div class="col-md-12" data-bind="visible: Mostrar">
+                            <div class="col-md-5 p-t-5"><label>Nombre Dependencia-Entidad:</label></div>
+                            <div class="col-md-7" data-bind="text: Entidad.Nombre"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="col-md-12"><h2>Datos del Solicitante</h2></div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 p-t-5"><label>RFC:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.RFC"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 p-t-5"><label>Nombre:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.Nombre"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 p-t-5"><label>Género:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.Genero"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3 p-t-5"><label>CURP:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.CURP"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-3"><label>Correo:</label></div>
+                            <div class="col-md-9" data-bind="text: Persona.Email"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div> @* Modal Solicitud *@
+<div class="modal fade" id="mdlDetalleRol" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Rol</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-bind="text: Nombre"></td>
+                            <td data-bind="text: Descripcion"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>       @* Modal Rol *@
+<div class="modal fade" id="mdlDetalleUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Detalles</label>
+                </h3>
+            </div>
+            <div class="modal-body container-fluid">
+                <div class="col-md-12">
+                    <div class="widget-head-color-box gray-bg p-xxs text-center">
+                        <div class="m-b-5">
+                            <h2 class="font-bold no-margins" data-bind="text: NombreCompleto"></h2>
+                            <small data-bind="text: Puesto"></small>
+                        </div>
+                        <img src="#" data-bind="attr: { src: UrlFoto }" id="imgFotoEmpleado" class="img-circle circle-border" alt="foto" />
+                    </div>
+                    <div class="widget-text-box p-all-10 container-fluid">
+                        <div class="col-md-12 text-center p-t-5 p-b-5 gray-bg m-t-10 m-b-10">
+                            <span class="bold">Información personal</span>
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-xs-12">
+                            <div>
+                                <span class="bold">@General.Genero: </span>
+                                <span data-bind="text: ObtenerGenero"></span>
+                            </div>
+                            <div>
+                                <span class="bold">@General.Rfc:</span>
+                                <span data-bind="text: Rfc"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                            <div>
+                                <span class="bold">@General.Celular:</span>
+                                <span data-bind="text: Celular"></span>
+                            </div>
+                            <div>
+                                <span class="bold">@General.Correo:</span>
+                                <span data-bind="text: Email"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>   @* Modal Usuario *@
+
+<script type="text/javascript" src="/Scripts/knockout-2.2.0.js"></script>
+
+<script type="text/javascript">
+    var detallesMovimiento = (function () {
+
+        function buscar(id, modulo) {
+            $.ajax({
+                data: "{id: '" + id + "', modulo: '" + modulo + "'}",
+                dataType: "json",
+                contentType: "application/json",
+                type: "POST",
+                url: '@Url.Action("Detalle", "Movimiento", new { area = "Catalogo" })',
+                beforeSend: function () {
+                    MostrarDivCargando("Cargando detalles...");
+                },
+                success: function (data) {
+                    data.Mostrar = ko.observable(data["TipoEntidad"]);
+                    data.ObtenerGenero = ko.computed(function () {
+                        return data["Sexo"] == 1 ? "Femenino" : "Masculino";
+                    }, data)
+                    ko.applyBindings(data, document.getElementById('mdlDetalle' + removeDiacritics(modulo)));
+                    CerrarDivCargando();
+                    $("#mdlDetalle" + removeDiacritics(modulo)).modal();
+                },
+                error: function (error) {
+                    CerrarDivCargando();
+                },
+            });
+        }
+
+        return {
+            Buscar: buscar
+        };
+    })();
+</script>

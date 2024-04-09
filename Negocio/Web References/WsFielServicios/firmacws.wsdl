@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://contraloria.sonora.gob.mx" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://contraloria.sonora.gob.mx/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://contraloria.sonora.gob.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://contraloria.sonora.gob.mx">
+      <s:element name="AutenticarCertificado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="certificado" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutenticarCertificadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutenticarCertificadoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VerificarPkCS7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pkcs7" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarPkCS7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificarPkCS7Result" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarPkCS7Multiple">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pkcs7" type="tns:ArrayOfBase64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VerificarPkCS7MultipleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificarPkCS7MultipleResult" type="tns:ArrayOfListaVerificacionPKCS7" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListaVerificacionPKCS7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaVerificacionPKCS7" nillable="true" type="tns:ListaVerificacionPKCS7" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ListaVerificacionPKCS7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="respuesta" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GenerarEstampillaTiempo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="datos" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarEstampillaTiempoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarEstampillaTiempoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarMultipleEstampillaTiempo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="datos" type="tns:ArrayOfBase64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarMultipleEstampillaTiempoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarMultipleEstampillaTiempoResult" type="tns:ArrayOfTimeStampingList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTimeStampingList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TimeStampingList" nillable="true" type="tns:TimeStampingList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TimeStampingList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="response" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DecodificarPkcs7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pkcs7" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecodificarPkcs7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecodificarPkcs7Result" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DecodificarArregloPkcs7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pkcs7" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecodificarArregloPkcs7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecodificarArregloPkcs7Result" type="tns:ArrayOfListaInformacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListaInformacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaInformacion" nillable="true" type="tns:ListaInformacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ListaInformacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="firmante" type="tns:ArrayOfArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="ArrayOfArrayOfString" nillable="true" type="tns:ArrayOfArrayOfString" />
+      <s:element name="ArrayOfListaInformacion" nillable="true" type="tns:ArrayOfListaInformacion" />
+    </s:schema>
+    <s:schema targetNamespace="http://contraloria.sonora.gob.mx/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AutenticarCertificadoSoapIn">
+    <wsdl:part name="parameters" element="tns:AutenticarCertificado" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarCertificadoSoapOut">
+    <wsdl:part name="parameters" element="tns:AutenticarCertificadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarPkCS7SoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarPkCS7" />
+  </wsdl:message>
+  <wsdl:message name="VerificarPkCS7SoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarPkCS7Response" />
+  </wsdl:message>
+  <wsdl:message name="VerificarPkCS7MultipleSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarPkCS7Multiple" />
+  </wsdl:message>
+  <wsdl:message name="VerificarPkCS7MultipleSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarPkCS7MultipleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarEstampillaTiempoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarEstampillaTiempo" />
+  </wsdl:message>
+  <wsdl:message name="GenerarEstampillaTiempoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarEstampillaTiempoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarMultipleEstampillaTiempoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarMultipleEstampillaTiempo" />
+  </wsdl:message>
+  <wsdl:message name="GenerarMultipleEstampillaTiempoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarMultipleEstampillaTiempoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarPkcs7SoapIn">
+    <wsdl:part name="parameters" element="tns:DecodificarPkcs7" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarPkcs7SoapOut">
+    <wsdl:part name="parameters" element="tns:DecodificarPkcs7Response" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarArregloPkcs7SoapIn">
+    <wsdl:part name="parameters" element="tns:DecodificarArregloPkcs7" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarArregloPkcs7SoapOut">
+    <wsdl:part name="parameters" element="tns:DecodificarArregloPkcs7Response" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarCertificadoHttpGetIn">
+    <wsdl:part name="certificado" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarCertificadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="VerificarPkCS7HttpGetIn">
+    <wsdl:part name="pkcs7" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarPkCS7HttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GenerarEstampillaTiempoHttpGetIn">
+    <wsdl:part name="datos" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerarEstampillaTiempoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarPkcs7HttpGetIn">
+    <wsdl:part name="pkcs7" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarPkcs7HttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarArregloPkcs7HttpGetIn">
+    <wsdl:part name="pkcs7" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarArregloPkcs7HttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfListaInformacion" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarCertificadoHttpPostIn">
+    <wsdl:part name="certificado" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutenticarCertificadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="VerificarPkCS7HttpPostIn">
+    <wsdl:part name="pkcs7" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarPkCS7HttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GenerarEstampillaTiempoHttpPostIn">
+    <wsdl:part name="datos" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerarEstampillaTiempoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarPkcs7HttpPostIn">
+    <wsdl:part name="pkcs7" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarPkcs7HttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarArregloPkcs7HttpPostIn">
+    <wsdl:part name="pkcs7" type="s1:StringArray" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DecodificarArregloPkcs7HttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfListaInformacion" />
+  </wsdl:message>
+  <wsdl:portType name="FirmaCWSSoap">
+    <wsdl:operation name="AutenticarCertificado">
+      <wsdl:input message="tns:AutenticarCertificadoSoapIn" />
+      <wsdl:output message="tns:AutenticarCertificadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7">
+      <wsdl:input message="tns:VerificarPkCS7SoapIn" />
+      <wsdl:output message="tns:VerificarPkCS7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7Multiple">
+      <wsdl:input message="tns:VerificarPkCS7MultipleSoapIn" />
+      <wsdl:output message="tns:VerificarPkCS7MultipleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarEstampillaTiempo">
+      <wsdl:input message="tns:GenerarEstampillaTiempoSoapIn" />
+      <wsdl:output message="tns:GenerarEstampillaTiempoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarMultipleEstampillaTiempo">
+      <wsdl:input message="tns:GenerarMultipleEstampillaTiempoSoapIn" />
+      <wsdl:output message="tns:GenerarMultipleEstampillaTiempoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarPkcs7">
+      <wsdl:input message="tns:DecodificarPkcs7SoapIn" />
+      <wsdl:output message="tns:DecodificarPkcs7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarArregloPkcs7">
+      <wsdl:input message="tns:DecodificarArregloPkcs7SoapIn" />
+      <wsdl:output message="tns:DecodificarArregloPkcs7SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FirmaCWSHttpGet">
+    <wsdl:operation name="AutenticarCertificado">
+      <wsdl:input message="tns:AutenticarCertificadoHttpGetIn" />
+      <wsdl:output message="tns:AutenticarCertificadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7">
+      <wsdl:input message="tns:VerificarPkCS7HttpGetIn" />
+      <wsdl:output message="tns:VerificarPkCS7HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarEstampillaTiempo">
+      <wsdl:input message="tns:GenerarEstampillaTiempoHttpGetIn" />
+      <wsdl:output message="tns:GenerarEstampillaTiempoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarPkcs7">
+      <wsdl:input message="tns:DecodificarPkcs7HttpGetIn" />
+      <wsdl:output message="tns:DecodificarPkcs7HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarArregloPkcs7">
+      <wsdl:input message="tns:DecodificarArregloPkcs7HttpGetIn" />
+      <wsdl:output message="tns:DecodificarArregloPkcs7HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FirmaCWSHttpPost">
+    <wsdl:operation name="AutenticarCertificado">
+      <wsdl:input message="tns:AutenticarCertificadoHttpPostIn" />
+      <wsdl:output message="tns:AutenticarCertificadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7">
+      <wsdl:input message="tns:VerificarPkCS7HttpPostIn" />
+      <wsdl:output message="tns:VerificarPkCS7HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarEstampillaTiempo">
+      <wsdl:input message="tns:GenerarEstampillaTiempoHttpPostIn" />
+      <wsdl:output message="tns:GenerarEstampillaTiempoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarPkcs7">
+      <wsdl:input message="tns:DecodificarPkcs7HttpPostIn" />
+      <wsdl:output message="tns:DecodificarPkcs7HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarArregloPkcs7">
+      <wsdl:input message="tns:DecodificarArregloPkcs7HttpPostIn" />
+      <wsdl:output message="tns:DecodificarArregloPkcs7HttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FirmaCWSSoap" type="tns:FirmaCWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutenticarCertificado">
+      <soap:operation soapAction="http://contraloria.sonora.gob.mx/AutenticarCertificado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7">
+      <soap:operation soapAction="http://contraloria.sonora.gob.mx/VerificarPkCS7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7Multiple">
+      <soap:operation soapAction="http://contraloria.sonora.gob.mx/VerificarPkCS7Multiple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarEstampillaTiempo">
+      <soap:operation soapAction="http://contraloria.sonora.gob.mx/GenerarEstampillaTiempo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarMultipleEstampillaTiempo">
+      <soap:operation soapAction="http://contraloria.sonora.gob.mx/GenerarMultipleEstampillaTiempo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarPkcs7">
+      <soap:operation soapAction="http://contraloria.sonora.gob.mx/DecodificarPkcs7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarArregloPkcs7">
+      <soap:operation soapAction="http://contraloria.sonora.gob.mx/DecodificarArregloPkcs7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FirmaCWSSoap12" type="tns:FirmaCWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutenticarCertificado">
+      <soap12:operation soapAction="http://contraloria.sonora.gob.mx/AutenticarCertificado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7">
+      <soap12:operation soapAction="http://contraloria.sonora.gob.mx/VerificarPkCS7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7Multiple">
+      <soap12:operation soapAction="http://contraloria.sonora.gob.mx/VerificarPkCS7Multiple" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarEstampillaTiempo">
+      <soap12:operation soapAction="http://contraloria.sonora.gob.mx/GenerarEstampillaTiempo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarMultipleEstampillaTiempo">
+      <soap12:operation soapAction="http://contraloria.sonora.gob.mx/GenerarMultipleEstampillaTiempo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarPkcs7">
+      <soap12:operation soapAction="http://contraloria.sonora.gob.mx/DecodificarPkcs7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarArregloPkcs7">
+      <soap12:operation soapAction="http://contraloria.sonora.gob.mx/DecodificarArregloPkcs7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FirmaCWSHttpGet" type="tns:FirmaCWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AutenticarCertificado">
+      <http:operation location="/AutenticarCertificado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7">
+      <http:operation location="/VerificarPkCS7" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarEstampillaTiempo">
+      <http:operation location="/GenerarEstampillaTiempo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarPkcs7">
+      <http:operation location="/DecodificarPkcs7" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarArregloPkcs7">
+      <http:operation location="/DecodificarArregloPkcs7" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FirmaCWSHttpPost" type="tns:FirmaCWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AutenticarCertificado">
+      <http:operation location="/AutenticarCertificado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarPkCS7">
+      <http:operation location="/VerificarPkCS7" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarEstampillaTiempo">
+      <http:operation location="/GenerarEstampillaTiempo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarPkcs7">
+      <http:operation location="/DecodificarPkcs7" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecodificarArregloPkcs7">
+      <http:operation location="/DecodificarArregloPkcs7" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FirmaCWS">
+    <wsdl:port name="FirmaCWSSoap" binding="tns:FirmaCWSSoap">
+      <soap:address location="http://172.16.101.51/firmawstest/firmacws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FirmaCWSSoap12" binding="tns:FirmaCWSSoap12">
+      <soap12:address location="http://172.16.101.51/firmawstest/firmacws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FirmaCWSHttpGet" binding="tns:FirmaCWSHttpGet">
+      <http:address location="http://172.16.101.51/firmawstest/firmacws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FirmaCWSHttpPost" binding="tns:FirmaCWSHttpPost">
+      <http:address location="http://172.16.101.51/firmawstest/firmacws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,41 @@
+﻿@using Datos.Recursos
+@model Datos.Titulo
+
+@{
+    ViewBag.Title = General.GuardarTitulo;
+}
+
+<div class="ibox bx-s">
+    <div class="ibox-content p-l-20 p-r-10 bg-f">
+        <div class="row center-xs">
+            <div class="form-horizontal col-xs-12">
+                @using (Html.BeginForm())
+            {
+
+                    <div class="form-group">
+                        <div class="col-sm-4 m-t-5 end-sm start-xs">
+                            @*@Html.LabelFor(m => m.Abreviacion)*@
+                            <label for="Abreviacion"><strong class="obligatorio">*</strong>Abreviación:</label>
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(m => m.Abreviacion, new { @class = "form-control input-sm", @onkeypress = "return abreviacion(event)", @maxlength = 30 })
+                            @Html.ValidationMessageFor(m => m.Abreviacion, null, new { @class = "label label-warning" })
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <div class="col-sm-6 col-sm-offset-2">
+                        <div class="pull-right">
+                            @Html.ActionLink(General.Regresar, "Index", "Titulo",
+                                new {area = "Catalogo"}, new {@class = "btn btn-default"})
+                            <input type="submit" value="@General.Guardar" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 p-all-0">
+                    <small>Todos los campos marcados con <strong class="obligatorio">*</strong> son obligatorios.</small>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

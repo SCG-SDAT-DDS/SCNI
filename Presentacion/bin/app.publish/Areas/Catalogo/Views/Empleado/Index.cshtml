@@ -1,0 +1,252 @@
+﻿@using System.Globalization
+@using Datos.Recursos
+@using Presentacion.Helpers
+@using Sistema
+@using Datos.Enums;
+@model Datos.DTO.Infraestructura.ViewModels.EmpleadoViewModel
+
+@{
+    var usuarioSession = Model.Permisos;
+    var aaa = PermisosRol.CrearUsuario;
+    var tiene = usuarioSession.Any(x => x.IDPermiso == (int)PermisosRol.CrearUsuario);
+    ViewBag.Title = General.BuscarUsuario;
+}
+
+@section HeaderScripts
+{
+    <link rel="stylesheet" href="~/Content/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+    <link rel="stylesheet" href="~/Content/css/plugins/iCheck/custom.css" />
+}
+
+@using (Html.BeginForm())
+{
+    <div class="ibox bx-s">
+        <div class="ibox-content p-l-20 p-r-10 bg-f">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    @{ Html.EnableClientValidation(false); }
+                    <div class="col-md-6 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.LabelFor(m => m.Empleado.Nombre)
+                            </div>
+                            <div class="col-md-9 ">
+                                @Html.TextBoxFor(m => m.Empleado.Nombre, new { @class = "form-control input-sm uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 50 })
+                                @Html.ValidationMessageFor(m => m.Empleado.Nombre, null, new { @class = "label label-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.LabelFor(m => m.Empleado.Habilitado)
+                            </div>
+                            <div class="col-md-9 ">
+                                <div class="checkbox checkbox-success">
+                                    @Html.CheckBoxFor(m => m.Empleado.Habilitado, new { @checked = true })
+                                    @Html.LabelFor(m => m.Empleado.Habilitado)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divBusquedaAvanzada" class="col-md-12 no-padding">
+                        <div class="col-md-6 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label for="Empleado_ApellidoP">Primer Apellido</label>
+                                </div>
+                                <div class="col-md-9 ">
+                                    @Html.TextBoxFor(m => m.Empleado.ApellidoP, new { @class = "form-control input-sm uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 30 })
+                                    @Html.ValidationMessageFor(m => m.Empleado.ApellidoP, null, new { @class = "label label-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label for="Empleado_ApellidoM">Segundo Apellido</label>
+                                </div>
+                                <div class="col-md-9 ">
+                                    @Html.TextBoxFor(m => m.Empleado.ApellidoM, new { @class = "form-control input-sm uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 30 })
+                                    @Html.ValidationMessageFor(m => m.Empleado.ApellidoM, null, new { @class = "label label-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    @Html.LabelFor(m => m.Empleado.Sexo)
+                                </div>
+                                <div class="col-md-9 ">
+                                    @Html.DropDownListFor(m => m.Empleado.Sexo, Listas.ObtenerListaGenero(), new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label for="Empleado_Puesto_Nombre">Puesto</label>
+                                </div>
+                                <div class="col-md-9 ">
+                                    @Html.TextBoxFor(m => m.Empleado.Puesto.Nombre, new { @class = "form-control input-sm", @maxlength = 30 })
+                                    @Html.ValidationMessageFor(m => m.Empleado.Puesto.Nombre, null, new { @class = "label label-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-md-6 col-md-offset-6">
+                            <div class="pull-right">
+                                @if (usuarioSession.Any(x => x.IDPermiso == (int)PermisosRol.NuevoEmpleado))
+                                {
+                                    @Html.ActionLink(General.Nuevo, "Guardar", null, new { @class = "btn btn-default btn-sm" })
+                                }
+                                <input type="submit" class="btn btn-primary btn-sm" value="@General.Buscar" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12 m-t-20 p-internos-0 m-b-5">
+                    <div class="col-md-6 bold">
+                        @Html.DropDownListFor(m => m.TamanoPagina, Listas.ObtenerListaCantidadPagina())
+                        @General.TamanoPagina
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <label class="label label-success">
+                            @General.Encontrados: @Model.TotalEncontrados
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped" id="tblBusqueda">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.Empleado.Nombre)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Empleado.Puesto)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Empleado.Usuario)</th>
+                                    <th class="text-center">@General.Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var empleado in Model.Empleados)
+                                {
+
+                                    <tr>
+                                        <td class="nombreEmpleado">
+                                            <span>@string.Format("{0} {1} {2}", empleado.Nombre, empleado.ApellidoP, empleado.ApellidoM)</span>
+                                            <div>
+                                                <img src="@Url.Content(string.IsNullOrEmpty(empleado.UrlFoto) ? "/Content/img/usuario.png" : empleado.UrlFoto)"
+                                                     alt="foto" class="img-100 img-circle border-2" />
+                                            </div>
+                                        </td>
+                                        <td>@empleado.Puesto.Nombre</td>
+                                        <td>
+                                            @{
+                                                if (empleado.Usuario != null)
+                                                {
+                                                    @Html.Raw(empleado.Usuario.NombreUsuario)
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(General.SinUsuario)
+                                                }
+                                            }
+                                        </td>
+                                        <td class="text-center">
+                                            @if (empleado.Habilitado)
+                                            {
+                                                if (empleado.Usuario != null)
+                                                {
+                                                    //valida si permite crear menu personalizado
+                                                    if (usuarioSession.Any(x => x.IDPermiso == (int)PermisosRol.AsignarMenu))
+                                                    {
+                                                        @Html.ActionLinkCifrado(General.AsignarMenu, "AsignarMenu", "Empleado", "Catalogo",
+                                                "btn btn-success btn-circle", "fa fa-bars",
+                                                new Dictionary<string, int> { { "idEmpleado", empleado.IDEmpleado } })
+                                                    }
+
+                                                }
+
+                                                //detalle empleado
+                                                if (usuarioSession.Any(x => x.IDPermiso == (int)PermisosRol.DetallesEmpleado))
+                                                {
+                                                    @Html.ActionLink(General.Detalles, "detalles", "#", "btn btn-info btn-circle", "fa fa-search")
+                                                }
+                                                //valida que tenga permisos guardar
+                                                if (usuarioSession.Any(x => x.IDPermiso == (int)PermisosRol.CrearUsuario))
+                                                {
+                                                    if (empleado.Usuario == null)
+                                                    {
+                                                        @Html.ActionLinkCifrado(General.CrearUsuario, "CrearUsuario", "Empleado", "Catalogo",
+                                                "btn btn-primary btn-circle", "fa fa-key",
+                                                new Dictionary<string, int> { { "idEmpleado", empleado.IDEmpleado } })
+                                                    }
+                                                }
+                                                //modificar
+                                                if (usuarioSession.Any(x => x.IDPermiso == (int)PermisosRol.ModificarEmpleado))
+                                                {
+                                                    @Html.ActionLinkCifrado(General.Modificar, "Guardar", "Empleado", "Catalogo",
+                                            "btn btn-warning btn-circle", "fa fa-pencil",
+                                            new Dictionary<string, int> { { "idEmpleado", empleado.IDEmpleado } })
+                                                }
+                                                //deshabilitar
+                                                if (usuarioSession.Any(x => x.IDPermiso == (int)PermisosRol.DeshabilitarEmpleado))
+                                                {
+                                                    @Html.ActionLinkCifrado(General.Deshabilitar, "Deshabilitar", "Empleado", "Catalogo",
+                                            "btn btn-danger btn-circle deshabilitar", "fa fa-times",
+                                            new Dictionary<string, int> { { "idEmpleado", empleado.IDEmpleado } })
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLinkCifrado(General.Habilitar, "Habilitar", "Empleado", "Catalogo",
+                                        "btn btn-primary btn-circle habilitar", "fa fa-check",
+                                        new Dictionary<string, int> { { "idEmpleado", empleado.IDEmpleado } })
+                                            }
+                                            @Html.HiddenCifrado("idEmpleado", empleado.IDEmpleado.ToString(CultureInfo.InvariantCulture))
+                                        </td>
+                                    </tr>
+                                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        @Html.Partial("_Paginacion", Model)
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+}
+@section Modales
+{
+    @Html.Partial("Controls/_ModalHabilitar")
+    @Html.Partial("Empleado/_DetallesEmpleado")
+}
+@section FooterScripts
+{
+    <script type="text/javascript" src="/Scripts/plugins/iCheck/icheck.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.tablesorter.js"></script>
+    <script type="text/javascript">
+                    $(function () {
+                        $('.i-checks').iCheck({
+                            checkboxClass: 'icheckbox_square-green',
+                            radioClass: 'iradio_square-green',
+                        });
+                        $("#tblBusqueda").tablesorter();
+                        habilitar.Iniciar('@General.Empleado');
+
+                        $(".detalles").click(function (e) {
+                            e.preventDefault();
+                            var id = $(this).parent().find("input[type=hidden]").val();
+                            detallesEmpleado.Buscar(id);
+                        });
+                    });
+
+    </script>
+}

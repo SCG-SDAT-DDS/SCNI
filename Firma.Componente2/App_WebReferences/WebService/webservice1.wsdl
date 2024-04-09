@@ -1,0 +1,3680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="www.XMLWebServiceSoapHeaderAuth.net" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="www.XMLWebServiceSoapHeaderAuth.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="www.XMLWebServiceSoapHeaderAuth.net">
+      <s:element name="GeneraFirmaMemoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="etxCadena" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTipoDigestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTipoCodificacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeneraFirmaMemoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GeneraFirmaMemoriaResult" type="tns:FirmaVar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FirmaVar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="B64Sign" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreFirmante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerieFirmante" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthSoapHd" type="tns:AuthSoapHd" />
+      <s:complexType name="AuthSoapHd">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Entidad" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="ObtieneSelloOriginal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcTsa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcDigestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtieneSelloOriginalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtieneSelloOriginalResult" type="tns:SelloVar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SelloVar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Respuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Momento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaFinaliza" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidaOcsp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaOcspResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidaOcspResult" type="tns:OcspVar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OcspVar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StrDateProcess" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDateRevocate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AgregarPfx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eimCertificado" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="privateKey" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarPfxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarPfxResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeneraFirmaMemoriaExtendida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="etxCadena" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTipoDigestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTipoCodificacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcRfc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCurp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTsa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeneraFirmaMemoriaExtendidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GeneraFirmaMemoriaExtendidaResult" type="tns:FirmaVar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuTransferencia_Cn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCodigoActivacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuTransferencia_CnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuTransferencia_CnResult" type="tns:TransVar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransVar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Descript" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oper" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperDescript" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PwuOperFirmaCadena_Cn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ebgTransferencia" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuOperFirmaCadena_CnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PwuOperFirmaCadena_CnResult" type="tns:ArrayOfArregloCadenaVar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArregloCadenaVar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArregloCadenaVar" type="tns:ArregloCadenaVar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArregloCadenaVar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdOper" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDigestion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CadenaB64" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PwuOperFirmaDigestionArchivo_Cn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ebgTransferencia" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuOperFirmaDigestionArchivo_CnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PwuOperFirmaDigestionArchivo_CnResult" type="tns:ArrayOfArregloDigestionVar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArregloDigestionVar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArregloDigestionVar" type="tns:ArregloDigestionVar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArregloDigestionVar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdArchivo" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDigestion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Digestion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PwuOperFirmaCadenaProc_Rg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCodigoActivacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ebgTransferencia" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ebgOperFirmaCadena" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcNombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcSerie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuOperFirmaCadenaProc_RgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuOperFirmaCadenaProc_RgResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransState">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descript" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PwuTransferenciaCierre_Rg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCodigoActivacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ebgTransferencia" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuTransferenciaCierre_RgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuTransferenciaCierre_RgResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuOperFirmaDigestionArchivo_Rg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCodigoActivacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ebgTransferencia" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ebgArchivoFirma" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcNombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcSerie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuOperFirmaDigestionArchivo_RgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuOperFirmaDigestionArchivo_RgResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuJar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCodigoActivacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuJarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PwuJarResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtienePdfSimple">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transferencias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtienePdfSimpleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtienePdfSimpleResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtienePdfSimplePersonal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="archivoFirmas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtienePdfSimplePersonalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtienePdfSimplePersonalResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtienePdfSimplePersonalExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="archivoFirmas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pathDigital" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="origen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destino" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtienePdfSimplePersonalExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtienePdfSimplePersonalExtResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroTransferencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcOperacionJar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcAtributoFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcValor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="einVigencia" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroTransferenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistroTransferenciaResult" type="tns:TransCodigoActivacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransCodigoActivacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Transferencia" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FirmaCadena">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ebgTransferencia" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTipoDigestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="etxCadenaB64" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcDescripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmaCadenaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FirmaCadenaResult" type="tns:TransFirma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransFirma">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdRegistro" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FirmaDigestionArchivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ebgTransferencia" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTipoOrigen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcDescripcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcArchivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmaDigestionArchivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FirmaDigestionArchivoResult" type="tns:TransFirma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferenciaEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ebgTransferencia" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferenciaEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TransferenciaEstadoResult" type="tns:TransEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransEstado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PwuDigestionExtendida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcDigestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFecha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuDigestionExtendidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PwuDigestionExtendidaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuDecodificaCertificado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcOper" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTsa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuDecodificaCertificadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuDecodificaCertificadoResult" type="tns:CertificadoPropiedades" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CertificadoPropiedades">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaInicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaFin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCorreo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectOrganizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectDepartamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectPais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectRFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCurp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerCorreo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerOrganizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerDepartamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerPais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerRFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerCurp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LlavePublica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Huella" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Evidencia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PwuDecodificaCertificadoExtendido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcOper" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTsa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuDecodificaCertificadoExtendidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuDecodificaCertificadoExtendidoResult" type="tns:CertificadoPropiedadesExtendido" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CertificadoPropiedadesExtendido">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaInicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaFin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCorreo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectOrganizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectDepartamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectPais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectRFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCurp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerCorreo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerOrganizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerDepartamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerPais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerRFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerCurp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LlavePublica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Huella" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Evidencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspResponse" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RequestTsa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDigest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestTsaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTsaResult" type="tns:TsaProperties" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TsaProperties">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descript" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrNow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateNow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InternalDigest" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PwuPkcs1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCadena" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuPkcs1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuPkcs1Result" type="tns:Estado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Error" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Evidencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Huella" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HexSerie" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PwuPkcs1Extendido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCadena" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuPkcs1ExtendidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuPkcs1ExtendidoResult" type="tns:Estado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuPkcs1Evidencias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCadena" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuPkcs1EvidenciasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuPkcs1EvidenciasResult" type="tns:Estado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuPkcs1ExtendidoEvidencias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcCadena" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcCertificado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuPkcs1ExtendidoEvidenciasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuPkcs1ExtendidoEvidenciasResult" type="tns:Estado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuObtienePkcs7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="referencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuObtienePkcs7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuObtienePkcs7Result" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuObtienePkcs7Ns">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="referencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ens" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuObtienePkcs7NsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuObtienePkcs7NsResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuObtienePdf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuObtienePdfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuObtienePdfResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuObtienePdfSeguro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PwuObtienePdfSeguroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PwuObtienePdfSeguroResult" type="tns:TransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenPdfSignature">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcEntidadCodigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcUsuarioOper" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcClave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTsa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSourcePDF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTargetPDF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenPdfSignatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenPdfSignatureResult" type="tns:PdfEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PdfEstado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descript" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PdfTarget" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GenPdfSignatureMemory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcEntidadCodigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcUsuarioOper" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcClave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTsa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64Source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenPdfSignatureMemoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenPdfSignatureMemoryResult" type="tns:PdfEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenPdfSignatureCrypto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcEntidadCodigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcUsuarioOper" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcClave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTsa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSourcePDF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTargetPDF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenPdfSignatureCryptoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenPdfSignatureCryptoResult" type="tns:PdfEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenPdfSignatureMemoryCrypto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcEntidadCodigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcUsuarioOper" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcClave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirmante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTsa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64Source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenPdfSignatureMemoryCryptoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GenPdfSignatureMemoryCryptoResult" type="tns:PdfEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignChaingCentral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oper" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kindData" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strData" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kindDigest" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignChaingCentralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SignChaingCentralResult" type="tns:RespYucSignCentral" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RespYucSignCentral">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrSign" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificateCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificateSerial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FingerPrint" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrNow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strBegin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEnd" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ComisionesFirmaPkcs1Rg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="einComisiones" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTipoFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcNombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcSerie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcInicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcFirma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcTipoDigestion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComisionesFirmaPkcs1RgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ComisionesFirmaPkcs1RgResult" type="tns:RespYucRegistro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RespYucRegistro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ComisionesEstadoRg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="einComisiones" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="einEstadoComisiones" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="evcEstadoComisiones" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComisionesEstadoRgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ComisionesEstadoRgResult" type="tns:RespYucEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RespYucEstado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSReportDigest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strDigest" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSReportDigestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSReportDigestResult" type="tns:WSResultReportDigest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultReportDigest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrNow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrVector" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthSoap" type="tns:AuthSoap" />
+      <s:complexType name="AuthSoap">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Entity" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="WSReportPkcs7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSign" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCertificate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSReportPkcs7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSReportPkcs7Result" type="tns:WSResultReportPkcs7" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultReportPkcs7">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Now" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Evidence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FingerPrint" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HexSerie" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSReportPkcs1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chain" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSign" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCertificate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSReportPkcs1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSReportPkcs1Result" type="tns:WSResultReportPkcs1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultReportPkcs1">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Now" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Evidence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FingerPrint" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HexSerie" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSSignCentral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="signer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kindData" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strData" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="kindDigest" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSSignCentralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSSignCentralResult" type="tns:WSResultSignCentral" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultSignCentral">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrSign" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificateCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificateSerial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FingerPrint" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrNow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strBegin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEnd" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSDecodeCertificate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="operation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCertificate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSDecodeCertificateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSDecodeCertificateResult" type="tns:WSResultDecodeCertificate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultDecodeCertificate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrBegin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectOrganization" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectDepartament" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectRFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCurp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectLocality" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectTelephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectNoEmploy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectAdemicDegree" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerOrganization" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerDepartament" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerRFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuerCurp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PublicKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FingerPrint" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Acuse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspResponse" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSRequestTsa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDigest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSRequestTsaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSRequestTsaResult" type="tns:WSResultTsa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultTsa">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrNow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateNow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InternalDigest" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSRequestNom151">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nameExpedient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSRequestNom151Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSRequestNom151Result" type="tns:WSResultNom151" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultNom151">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrConstancy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Moment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Parcials" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NamePsc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialPsc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSPkcs7InformationFromNs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ens" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSPkcs7InformationFromNsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSPkcs7InformationFromNsResult" type="tns:ArrayOfWSResultPkcs7InformationFromNs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSResultPkcs7InformationFromNs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSResultPkcs7InformationFromNs" type="tns:WSResultPkcs7InformationFromNs" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSResultPkcs7InformationFromNs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sign" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignerCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignerHexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignerBegin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignerEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignMoment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignAlgo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspHexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspBegin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspNow" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OcspState" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspRevocate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspIssuerCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsHexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsBegin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsNow" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TsIndex" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsDigest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsIssuerCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSPkcs7InformationStrFromNs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ens" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSPkcs7InformationStrFromNsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSPkcs7InformationStrFromNsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSInformationOcspFromNs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ens" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSInformationOcspFromNsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSInformationOcspFromNsResult" type="tns:ArrayOfWSResultInformationOcspFromNs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSResultInformationOcspFromNs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSResultInformationOcspFromNs" type="tns:WSResultInformationOcspFromNs" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSResultInformationOcspFromNs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OcspCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspHexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspBegin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspNow" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OcspState" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspRevocate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspIssuerCn" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSInformationTspFromNs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ens" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSInformationTspFromNsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSInformationTspFromNsResult" type="tns:ArrayOfWSResultInformationTspFromNs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSResultInformationTspFromNs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSResultInformationTspFromNs" type="tns:WSResultInformationTspFromNs" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSResultInformationTspFromNs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TsCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsHexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsBegin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsNow" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TsIndex" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsDigest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsIssuerCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSFromHtmlToPdf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strHtml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSFromHtmlToPdfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSFromHtmlToPdfResult" type="tns:WSResultFromHtmlToPdf" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultFromHtmlToPdf">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrPdf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificateCn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrCertificateSerial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrNow" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSFromHTML2PDFSecure">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strHtml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSFromHTML2PDFSecureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSFromHTML2PDFSecureResult" type="tns:WSResultFromHtmlToPdf" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePkcs7FromNs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="referencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ens" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePkcs7FromNsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSCreatePkcs7FromNsResult" type="tns:WSTransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSTransState">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSCreatePdf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSCreatePdfResult" type="tns:WSTransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfEvidence">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evidence" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfEvidenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSCreatePdfEvidenceResult" type="tns:WSTransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfEvidenceSecure">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evidence" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfEvidenceSecureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSCreatePdfEvidenceSecureResult" type="tns:WSTransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSNom151ForPkcs1Ns">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ens" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSNom151ForPkcs1NsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSNom151ForPkcs1NsResult" type="tns:WSResultNom151ForPkcs1Ns" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultNom151ForPkcs1Ns">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrNow" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Moment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PscName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PscSerial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Constance" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Parcials" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSTransfer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSTransferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSTransferResult" type="tns:WSResultTransfer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSResultTransfer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs1Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs1KindDigest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs1Chain" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs1Digest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs1Sign" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs1Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs1Serie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs1Certificate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs7KindDigest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs7Digest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs7Sign" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs7Pkcs7" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs7Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs7Serie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkcs7Certificate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspUserSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspUserCurp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspUserRfc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspMoment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspMomentRevocate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspOcsp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspResponderName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspResponderSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OcspResponderCertificate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaKindDigest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaDigest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaStamping" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsaCertificate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom151Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom151Index" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom151Moment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom151ConstanceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom151Constance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom151Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom151Serie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom151Certificate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSDownloadCertificate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rfc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSDownloadCertificateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSDownloadCertificateResult" type="tns:WSResultDecodeCertificate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfEvidenceBC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evidence" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfEvidenceBCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSCreatePdfEvidenceBCResult" type="tns:WSTransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfEvidenceSecureBC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="signer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evidence" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePdfEvidenceSecureBCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSCreatePdfEvidenceSecureBCResult" type="tns:WSTransState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePkcs7NOM151FromNodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="evcReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nameExpedient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSCreatePkcs7NOM151FromNodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSCreatePkcs7NOM151FromNodesResult" type="tns:WSTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSTransaction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrConstancy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Moment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Parcials" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NamePsc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialPsc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSGeneratePkcs7EvidencesFromSimplePkcs7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pathSimplePkcs7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pathPkcs7Evidences" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSGeneratePkcs7EvidencesFromSimplePkcs7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSGeneratePkcs7EvidencesFromSimplePkcs7Result" type="tns:WSState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSState">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrNow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FingerPrint" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HexSerie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Acuse" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSGeneratePkcs7EvidencesFromPiecesPkcs7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSimplePkcs7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOcspResponse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTsaResponse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tsaName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSGeneratePkcs7EvidencesFromPiecesPkcs7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSGeneratePkcs7EvidencesFromPiecesPkcs7Result" type="tns:WSState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GeneraFirmaMemoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:GeneraFirmaMemoria" />
+  </wsdl:message>
+  <wsdl:message name="GeneraFirmaMemoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:GeneraFirmaMemoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GeneraFirmaMemoriaAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneSelloOriginalSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtieneSelloOriginal" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneSelloOriginalSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtieneSelloOriginalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneSelloOriginalAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="ValidaOcspSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaOcsp" />
+  </wsdl:message>
+  <wsdl:message name="ValidaOcspSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaOcspResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaOcspAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="AgregarPfxSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarPfx" />
+  </wsdl:message>
+  <wsdl:message name="AgregarPfxSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarPfxResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarPfxAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="GeneraFirmaMemoriaExtendidaSoapIn">
+    <wsdl:part name="parameters" element="tns:GeneraFirmaMemoriaExtendida" />
+  </wsdl:message>
+  <wsdl:message name="GeneraFirmaMemoriaExtendidaSoapOut">
+    <wsdl:part name="parameters" element="tns:GeneraFirmaMemoriaExtendidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GeneraFirmaMemoriaExtendidaAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuTransferencia_CnSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuTransferencia_Cn" />
+  </wsdl:message>
+  <wsdl:message name="PwuTransferencia_CnSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuTransferencia_CnResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuOperFirmaCadena_CnSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuOperFirmaCadena_Cn" />
+  </wsdl:message>
+  <wsdl:message name="PwuOperFirmaCadena_CnSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuOperFirmaCadena_CnResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuOperFirmaDigestionArchivo_CnSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuOperFirmaDigestionArchivo_Cn" />
+  </wsdl:message>
+  <wsdl:message name="PwuOperFirmaDigestionArchivo_CnSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuOperFirmaDigestionArchivo_CnResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuOperFirmaCadenaProc_RgSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuOperFirmaCadenaProc_Rg" />
+  </wsdl:message>
+  <wsdl:message name="PwuOperFirmaCadenaProc_RgSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuOperFirmaCadenaProc_RgResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuTransferenciaCierre_RgSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuTransferenciaCierre_Rg" />
+  </wsdl:message>
+  <wsdl:message name="PwuTransferenciaCierre_RgSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuTransferenciaCierre_RgResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuOperFirmaDigestionArchivo_RgSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuOperFirmaDigestionArchivo_Rg" />
+  </wsdl:message>
+  <wsdl:message name="PwuOperFirmaDigestionArchivo_RgSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuOperFirmaDigestionArchivo_RgResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuJarSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuJar" />
+  </wsdl:message>
+  <wsdl:message name="PwuJarSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuJarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimpleSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtienePdfSimple" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimpleSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtienePdfSimpleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimpleAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimplePersonalSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtienePdfSimplePersonal" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimplePersonalSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtienePdfSimplePersonalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimplePersonalAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimplePersonalExtSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtienePdfSimplePersonalExt" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimplePersonalExtSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtienePdfSimplePersonalExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtienePdfSimplePersonalExtAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="RegistroTransferenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistroTransferencia" />
+  </wsdl:message>
+  <wsdl:message name="RegistroTransferenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistroTransferenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistroTransferenciaAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="FirmaCadenaSoapIn">
+    <wsdl:part name="parameters" element="tns:FirmaCadena" />
+  </wsdl:message>
+  <wsdl:message name="FirmaCadenaSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmaCadenaResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmaCadenaAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="FirmaDigestionArchivoSoapIn">
+    <wsdl:part name="parameters" element="tns:FirmaDigestionArchivo" />
+  </wsdl:message>
+  <wsdl:message name="FirmaDigestionArchivoSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmaDigestionArchivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmaDigestionArchivoAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="TransferenciaEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:TransferenciaEstado" />
+  </wsdl:message>
+  <wsdl:message name="TransferenciaEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:TransferenciaEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferenciaEstadoAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuDigestionExtendidaSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuDigestionExtendida" />
+  </wsdl:message>
+  <wsdl:message name="PwuDigestionExtendidaSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuDigestionExtendidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuDecodificaCertificadoSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuDecodificaCertificado" />
+  </wsdl:message>
+  <wsdl:message name="PwuDecodificaCertificadoSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuDecodificaCertificadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuDecodificaCertificadoAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuDecodificaCertificadoExtendidoSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuDecodificaCertificadoExtendido" />
+  </wsdl:message>
+  <wsdl:message name="PwuDecodificaCertificadoExtendidoSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuDecodificaCertificadoExtendidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuDecodificaCertificadoExtendidoAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="RequestTsaSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestTsa" />
+  </wsdl:message>
+  <wsdl:message name="RequestTsaSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestTsaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestTsaAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1SoapIn">
+    <wsdl:part name="parameters" element="tns:PwuPkcs1" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1SoapOut">
+    <wsdl:part name="parameters" element="tns:PwuPkcs1Response" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1AuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1ExtendidoSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuPkcs1Extendido" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1ExtendidoSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuPkcs1ExtendidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1ExtendidoAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1EvidenciasSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuPkcs1Evidencias" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1EvidenciasSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuPkcs1EvidenciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1EvidenciasAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1ExtendidoEvidenciasSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuPkcs1ExtendidoEvidencias" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1ExtendidoEvidenciasSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuPkcs1ExtendidoEvidenciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuPkcs1ExtendidoEvidenciasAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePkcs7SoapIn">
+    <wsdl:part name="parameters" element="tns:PwuObtienePkcs7" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePkcs7SoapOut">
+    <wsdl:part name="parameters" element="tns:PwuObtienePkcs7Response" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePkcs7AuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePkcs7NsSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuObtienePkcs7Ns" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePkcs7NsSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuObtienePkcs7NsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePkcs7NsAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePdfSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuObtienePdf" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePdfSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuObtienePdfResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePdfAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePdfSeguroSoapIn">
+    <wsdl:part name="parameters" element="tns:PwuObtienePdfSeguro" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePdfSeguroSoapOut">
+    <wsdl:part name="parameters" element="tns:PwuObtienePdfSeguroResponse" />
+  </wsdl:message>
+  <wsdl:message name="PwuObtienePdfSeguroAuthSoapHd">
+    <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+  </wsdl:message>
+  <wsdl:message name="GenPdfSignatureSoapIn">
+    <wsdl:part name="parameters" element="tns:GenPdfSignature" />
+  </wsdl:message>
+  <wsdl:message name="GenPdfSignatureSoapOut">
+    <wsdl:part name="parameters" element="tns:GenPdfSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenPdfSignatureMemorySoapIn">
+    <wsdl:part name="parameters" element="tns:GenPdfSignatureMemory" />
+  </wsdl:message>
+  <wsdl:message name="GenPdfSignatureMemorySoapOut">
+    <wsdl:part name="parameters" element="tns:GenPdfSignatureMemoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenPdfSignatureCryptoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenPdfSignatureCrypto" />
+  </wsdl:message>
+  <wsdl:message name="GenPdfSignatureCryptoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenPdfSignatureCryptoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenPdfSignatureMemoryCryptoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenPdfSignatureMemoryCrypto" />
+  </wsdl:message>
+  <wsdl:message name="GenPdfSignatureMemoryCryptoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenPdfSignatureMemoryCryptoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SignChaingCentralSoapIn">
+    <wsdl:part name="parameters" element="tns:SignChaingCentral" />
+  </wsdl:message>
+  <wsdl:message name="SignChaingCentralSoapOut">
+    <wsdl:part name="parameters" element="tns:SignChaingCentralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComisionesFirmaPkcs1RgSoapIn">
+    <wsdl:part name="parameters" element="tns:ComisionesFirmaPkcs1Rg" />
+  </wsdl:message>
+  <wsdl:message name="ComisionesFirmaPkcs1RgSoapOut">
+    <wsdl:part name="parameters" element="tns:ComisionesFirmaPkcs1RgResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComisionesEstadoRgSoapIn">
+    <wsdl:part name="parameters" element="tns:ComisionesEstadoRg" />
+  </wsdl:message>
+  <wsdl:message name="ComisionesEstadoRgSoapOut">
+    <wsdl:part name="parameters" element="tns:ComisionesEstadoRgResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSReportDigestSoapIn">
+    <wsdl:part name="parameters" element="tns:WSReportDigest" />
+  </wsdl:message>
+  <wsdl:message name="WSReportDigestSoapOut">
+    <wsdl:part name="parameters" element="tns:WSReportDigestResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSReportDigestAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSReportPkcs7SoapIn">
+    <wsdl:part name="parameters" element="tns:WSReportPkcs7" />
+  </wsdl:message>
+  <wsdl:message name="WSReportPkcs7SoapOut">
+    <wsdl:part name="parameters" element="tns:WSReportPkcs7Response" />
+  </wsdl:message>
+  <wsdl:message name="WSReportPkcs7AuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSReportPkcs1SoapIn">
+    <wsdl:part name="parameters" element="tns:WSReportPkcs1" />
+  </wsdl:message>
+  <wsdl:message name="WSReportPkcs1SoapOut">
+    <wsdl:part name="parameters" element="tns:WSReportPkcs1Response" />
+  </wsdl:message>
+  <wsdl:message name="WSReportPkcs1AuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSSignCentralSoapIn">
+    <wsdl:part name="parameters" element="tns:WSSignCentral" />
+  </wsdl:message>
+  <wsdl:message name="WSSignCentralSoapOut">
+    <wsdl:part name="parameters" element="tns:WSSignCentralResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSSignCentralAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSDecodeCertificateSoapIn">
+    <wsdl:part name="parameters" element="tns:WSDecodeCertificate" />
+  </wsdl:message>
+  <wsdl:message name="WSDecodeCertificateSoapOut">
+    <wsdl:part name="parameters" element="tns:WSDecodeCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSDecodeCertificateAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSRequestTsaSoapIn">
+    <wsdl:part name="parameters" element="tns:WSRequestTsa" />
+  </wsdl:message>
+  <wsdl:message name="WSRequestTsaSoapOut">
+    <wsdl:part name="parameters" element="tns:WSRequestTsaResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSRequestTsaAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSRequestNom151SoapIn">
+    <wsdl:part name="parameters" element="tns:WSRequestNom151" />
+  </wsdl:message>
+  <wsdl:message name="WSRequestNom151SoapOut">
+    <wsdl:part name="parameters" element="tns:WSRequestNom151Response" />
+  </wsdl:message>
+  <wsdl:message name="WSRequestNom151AuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSPkcs7InformationFromNsSoapIn">
+    <wsdl:part name="parameters" element="tns:WSPkcs7InformationFromNs" />
+  </wsdl:message>
+  <wsdl:message name="WSPkcs7InformationFromNsSoapOut">
+    <wsdl:part name="parameters" element="tns:WSPkcs7InformationFromNsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSPkcs7InformationFromNsAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSPkcs7InformationStrFromNsSoapIn">
+    <wsdl:part name="parameters" element="tns:WSPkcs7InformationStrFromNs" />
+  </wsdl:message>
+  <wsdl:message name="WSPkcs7InformationStrFromNsSoapOut">
+    <wsdl:part name="parameters" element="tns:WSPkcs7InformationStrFromNsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSPkcs7InformationStrFromNsAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSInformationOcspFromNsSoapIn">
+    <wsdl:part name="parameters" element="tns:WSInformationOcspFromNs" />
+  </wsdl:message>
+  <wsdl:message name="WSInformationOcspFromNsSoapOut">
+    <wsdl:part name="parameters" element="tns:WSInformationOcspFromNsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSInformationOcspFromNsAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSInformationTspFromNsSoapIn">
+    <wsdl:part name="parameters" element="tns:WSInformationTspFromNs" />
+  </wsdl:message>
+  <wsdl:message name="WSInformationTspFromNsSoapOut">
+    <wsdl:part name="parameters" element="tns:WSInformationTspFromNsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSInformationTspFromNsAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSFromHtmlToPdfSoapIn">
+    <wsdl:part name="parameters" element="tns:WSFromHtmlToPdf" />
+  </wsdl:message>
+  <wsdl:message name="WSFromHtmlToPdfSoapOut">
+    <wsdl:part name="parameters" element="tns:WSFromHtmlToPdfResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSFromHtmlToPdfAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSFromHTML2PDFSecureSoapIn">
+    <wsdl:part name="parameters" element="tns:WSFromHTML2PDFSecure" />
+  </wsdl:message>
+  <wsdl:message name="WSFromHTML2PDFSecureSoapOut">
+    <wsdl:part name="parameters" element="tns:WSFromHTML2PDFSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSFromHTML2PDFSecureAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePkcs7FromNsSoapIn">
+    <wsdl:part name="parameters" element="tns:WSCreatePkcs7FromNs" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePkcs7FromNsSoapOut">
+    <wsdl:part name="parameters" element="tns:WSCreatePkcs7FromNsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePkcs7FromNsAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfSoapIn">
+    <wsdl:part name="parameters" element="tns:WSCreatePdf" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfSoapOut">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceSoapIn">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfEvidence" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceSoapOut">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfEvidenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceSecureSoapIn">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfEvidenceSecure" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceSecureSoapOut">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfEvidenceSecureResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceSecureAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSNom151ForPkcs1NsSoapIn">
+    <wsdl:part name="parameters" element="tns:WSNom151ForPkcs1Ns" />
+  </wsdl:message>
+  <wsdl:message name="WSNom151ForPkcs1NsSoapOut">
+    <wsdl:part name="parameters" element="tns:WSNom151ForPkcs1NsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSNom151ForPkcs1NsAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSTransferSoapIn">
+    <wsdl:part name="parameters" element="tns:WSTransfer" />
+  </wsdl:message>
+  <wsdl:message name="WSTransferSoapOut">
+    <wsdl:part name="parameters" element="tns:WSTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSTransferAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSDownloadCertificateSoapIn">
+    <wsdl:part name="parameters" element="tns:WSDownloadCertificate" />
+  </wsdl:message>
+  <wsdl:message name="WSDownloadCertificateSoapOut">
+    <wsdl:part name="parameters" element="tns:WSDownloadCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSDownloadCertificateAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceBCSoapIn">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfEvidenceBC" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceBCSoapOut">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfEvidenceBCResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceBCAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceSecureBCSoapIn">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfEvidenceSecureBC" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceSecureBCSoapOut">
+    <wsdl:part name="parameters" element="tns:WSCreatePdfEvidenceSecureBCResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePdfEvidenceSecureBCAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePkcs7NOM151FromNodesSoapIn">
+    <wsdl:part name="parameters" element="tns:WSCreatePkcs7NOM151FromNodes" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePkcs7NOM151FromNodesSoapOut">
+    <wsdl:part name="parameters" element="tns:WSCreatePkcs7NOM151FromNodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSCreatePkcs7NOM151FromNodesAuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSGeneratePkcs7EvidencesFromSimplePkcs7SoapIn">
+    <wsdl:part name="parameters" element="tns:WSGeneratePkcs7EvidencesFromSimplePkcs7" />
+  </wsdl:message>
+  <wsdl:message name="WSGeneratePkcs7EvidencesFromSimplePkcs7SoapOut">
+    <wsdl:part name="parameters" element="tns:WSGeneratePkcs7EvidencesFromSimplePkcs7Response" />
+  </wsdl:message>
+  <wsdl:message name="WSGeneratePkcs7EvidencesFromSimplePkcs7AuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:message name="WSGeneratePkcs7EvidencesFromPiecesPkcs7SoapIn">
+    <wsdl:part name="parameters" element="tns:WSGeneratePkcs7EvidencesFromPiecesPkcs7" />
+  </wsdl:message>
+  <wsdl:message name="WSGeneratePkcs7EvidencesFromPiecesPkcs7SoapOut">
+    <wsdl:part name="parameters" element="tns:WSGeneratePkcs7EvidencesFromPiecesPkcs7Response" />
+  </wsdl:message>
+  <wsdl:message name="WSGeneratePkcs7EvidencesFromPiecesPkcs7AuthSoap">
+    <wsdl:part name="AuthSoap" element="tns:AuthSoap" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="GeneraFirmaMemoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:GeneraFirmaMemoriaSoapIn" />
+      <wsdl:output message="tns:GeneraFirmaMemoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSelloOriginal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:ObtieneSelloOriginalSoapIn" />
+      <wsdl:output message="tns:ObtieneSelloOriginalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaOcsp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:ValidaOcspSoapIn" />
+      <wsdl:output message="tns:ValidaOcspSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPfx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:AgregarPfxSoapIn" />
+      <wsdl:output message="tns:AgregarPfxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneraFirmaMemoriaExtendida">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:GeneraFirmaMemoriaExtendidaSoapIn" />
+      <wsdl:output message="tns:GeneraFirmaMemoriaExtendidaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuTransferencia_Cn">
+      <wsdl:input message="tns:PwuTransferencia_CnSoapIn" />
+      <wsdl:output message="tns:PwuTransferencia_CnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaCadena_Cn">
+      <wsdl:input message="tns:PwuOperFirmaCadena_CnSoapIn" />
+      <wsdl:output message="tns:PwuOperFirmaCadena_CnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaDigestionArchivo_Cn">
+      <wsdl:input message="tns:PwuOperFirmaDigestionArchivo_CnSoapIn" />
+      <wsdl:output message="tns:PwuOperFirmaDigestionArchivo_CnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaCadenaProc_Rg">
+      <wsdl:input message="tns:PwuOperFirmaCadenaProc_RgSoapIn" />
+      <wsdl:output message="tns:PwuOperFirmaCadenaProc_RgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuTransferenciaCierre_Rg">
+      <wsdl:input message="tns:PwuTransferenciaCierre_RgSoapIn" />
+      <wsdl:output message="tns:PwuTransferenciaCierre_RgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaDigestionArchivo_Rg">
+      <wsdl:input message="tns:PwuOperFirmaDigestionArchivo_RgSoapIn" />
+      <wsdl:output message="tns:PwuOperFirmaDigestionArchivo_RgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuJar">
+      <wsdl:input message="tns:PwuJarSoapIn" />
+      <wsdl:output message="tns:PwuJarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimple">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:ObtienePdfSimpleSoapIn" />
+      <wsdl:output message="tns:ObtienePdfSimpleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimplePersonal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:ObtienePdfSimplePersonalSoapIn" />
+      <wsdl:output message="tns:ObtienePdfSimplePersonalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimplePersonalExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:ObtienePdfSimplePersonalExtSoapIn" />
+      <wsdl:output message="tns:ObtienePdfSimplePersonalExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTransferencia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:RegistroTransferenciaSoapIn" />
+      <wsdl:output message="tns:RegistroTransferenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaCadena">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:FirmaCadenaSoapIn" />
+      <wsdl:output message="tns:FirmaCadenaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmaDigestionArchivo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:FirmaDigestionArchivoSoapIn" />
+      <wsdl:output message="tns:FirmaDigestionArchivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferenciaEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:TransferenciaEstadoSoapIn" />
+      <wsdl:output message="tns:TransferenciaEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuDigestionExtendida">
+      <wsdl:input message="tns:PwuDigestionExtendidaSoapIn" />
+      <wsdl:output message="tns:PwuDigestionExtendidaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuDecodificaCertificado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuDecodificaCertificadoSoapIn" />
+      <wsdl:output message="tns:PwuDecodificaCertificadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuDecodificaCertificadoExtendido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuDecodificaCertificadoExtendidoSoapIn" />
+      <wsdl:output message="tns:PwuDecodificaCertificadoExtendidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestTsa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:RequestTsaSoapIn" />
+      <wsdl:output message="tns:RequestTsaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuPkcs1SoapIn" />
+      <wsdl:output message="tns:PwuPkcs1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1Extendido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuPkcs1ExtendidoSoapIn" />
+      <wsdl:output message="tns:PwuPkcs1ExtendidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1Evidencias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuPkcs1EvidenciasSoapIn" />
+      <wsdl:output message="tns:PwuPkcs1EvidenciasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1ExtendidoEvidencias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuPkcs1ExtendidoEvidenciasSoapIn" />
+      <wsdl:output message="tns:PwuPkcs1ExtendidoEvidenciasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePkcs7">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuObtienePkcs7SoapIn" />
+      <wsdl:output message="tns:PwuObtienePkcs7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePkcs7Ns">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuObtienePkcs7NsSoapIn" />
+      <wsdl:output message="tns:PwuObtienePkcs7NsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePdf">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuObtienePdfSoapIn" />
+      <wsdl:output message="tns:PwuObtienePdfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePdfSeguro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:PwuObtienePdfSeguroSoapIn" />
+      <wsdl:output message="tns:PwuObtienePdfSeguroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignature">
+      <wsdl:input message="tns:GenPdfSignatureSoapIn" />
+      <wsdl:output message="tns:GenPdfSignatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureMemory">
+      <wsdl:input message="tns:GenPdfSignatureMemorySoapIn" />
+      <wsdl:output message="tns:GenPdfSignatureMemorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureCrypto">
+      <wsdl:input message="tns:GenPdfSignatureCryptoSoapIn" />
+      <wsdl:output message="tns:GenPdfSignatureCryptoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureMemoryCrypto">
+      <wsdl:input message="tns:GenPdfSignatureMemoryCryptoSoapIn" />
+      <wsdl:output message="tns:GenPdfSignatureMemoryCryptoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignChaingCentral">
+      <wsdl:input message="tns:SignChaingCentralSoapIn" />
+      <wsdl:output message="tns:SignChaingCentralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesFirmaPkcs1Rg">
+      <wsdl:input message="tns:ComisionesFirmaPkcs1RgSoapIn" />
+      <wsdl:output message="tns:ComisionesFirmaPkcs1RgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesEstadoRg">
+      <wsdl:input message="tns:ComisionesEstadoRgSoapIn" />
+      <wsdl:output message="tns:ComisionesEstadoRgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSReportDigest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSReportDigestSoapIn" />
+      <wsdl:output message="tns:WSReportDigestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSReportPkcs7">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSReportPkcs7SoapIn" />
+      <wsdl:output message="tns:WSReportPkcs7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSReportPkcs1">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSReportPkcs1SoapIn" />
+      <wsdl:output message="tns:WSReportPkcs1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSSignCentral">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSSignCentralSoapIn" />
+      <wsdl:output message="tns:WSSignCentralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSDecodeCertificate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSDecodeCertificateSoapIn" />
+      <wsdl:output message="tns:WSDecodeCertificateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSRequestTsa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSRequestTsaSoapIn" />
+      <wsdl:output message="tns:WSRequestTsaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSRequestNom151">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSRequestNom151SoapIn" />
+      <wsdl:output message="tns:WSRequestNom151SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSPkcs7InformationFromNs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSPkcs7InformationFromNsSoapIn" />
+      <wsdl:output message="tns:WSPkcs7InformationFromNsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSPkcs7InformationStrFromNs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSPkcs7InformationStrFromNsSoapIn" />
+      <wsdl:output message="tns:WSPkcs7InformationStrFromNsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSInformationOcspFromNs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSInformationOcspFromNsSoapIn" />
+      <wsdl:output message="tns:WSInformationOcspFromNsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSInformationTspFromNs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSInformationTspFromNsSoapIn" />
+      <wsdl:output message="tns:WSInformationTspFromNsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSFromHtmlToPdf">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSFromHtmlToPdfSoapIn" />
+      <wsdl:output message="tns:WSFromHtmlToPdfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSFromHTML2PDFSecure">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSFromHTML2PDFSecureSoapIn" />
+      <wsdl:output message="tns:WSFromHTML2PDFSecureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePkcs7FromNs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSCreatePkcs7FromNsSoapIn" />
+      <wsdl:output message="tns:WSCreatePkcs7FromNsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdf">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSCreatePdfSoapIn" />
+      <wsdl:output message="tns:WSCreatePdfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidence">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSCreatePdfEvidenceSoapIn" />
+      <wsdl:output message="tns:WSCreatePdfEvidenceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceSecure">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSCreatePdfEvidenceSecureSoapIn" />
+      <wsdl:output message="tns:WSCreatePdfEvidenceSecureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSNom151ForPkcs1Ns">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSNom151ForPkcs1NsSoapIn" />
+      <wsdl:output message="tns:WSNom151ForPkcs1NsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSTransfer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSTransferSoapIn" />
+      <wsdl:output message="tns:WSTransferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSDownloadCertificate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSDownloadCertificateSoapIn" />
+      <wsdl:output message="tns:WSDownloadCertificateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceBC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSCreatePdfEvidenceBCSoapIn" />
+      <wsdl:output message="tns:WSCreatePdfEvidenceBCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceSecureBC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSCreatePdfEvidenceSecureBCSoapIn" />
+      <wsdl:output message="tns:WSCreatePdfEvidenceSecureBCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePkcs7NOM151FromNodes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSCreatePkcs7NOM151FromNodesSoapIn" />
+      <wsdl:output message="tns:WSCreatePkcs7NOM151FromNodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSGeneratePkcs7EvidencesFromSimplePkcs7">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSGeneratePkcs7EvidencesFromSimplePkcs7SoapIn" />
+      <wsdl:output message="tns:WSGeneratePkcs7EvidencesFromSimplePkcs7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSGeneratePkcs7EvidencesFromPiecesPkcs7">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método SoapHeader</wsdl:documentation>
+      <wsdl:input message="tns:WSGeneratePkcs7EvidencesFromPiecesPkcs7SoapIn" />
+      <wsdl:output message="tns:WSGeneratePkcs7EvidencesFromPiecesPkcs7SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GeneraFirmaMemoria">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GeneraFirmaMemoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GeneraFirmaMemoriaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSelloOriginal">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ObtieneSelloOriginal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ObtieneSelloOriginalAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaOcsp">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ValidaOcsp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidaOcspAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPfx">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/AgregarPfx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AgregarPfxAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneraFirmaMemoriaExtendida">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GeneraFirmaMemoriaExtendida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GeneraFirmaMemoriaExtendidaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuTransferencia_Cn">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuTransferencia_Cn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaCadena_Cn">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuOperFirmaCadena_Cn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaDigestionArchivo_Cn">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuOperFirmaDigestionArchivo_Cn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaCadenaProc_Rg">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuOperFirmaCadenaProc_Rg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuTransferenciaCierre_Rg">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuTransferenciaCierre_Rg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaDigestionArchivo_Rg">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuOperFirmaDigestionArchivo_Rg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuJar">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuJar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimple">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ObtienePdfSimple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ObtienePdfSimpleAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimplePersonal">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ObtienePdfSimplePersonal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ObtienePdfSimplePersonalAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimplePersonalExt">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ObtienePdfSimplePersonalExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ObtienePdfSimplePersonalExtAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTransferencia">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/RegistroTransferencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RegistroTransferenciaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaCadena">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/FirmaCadena" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FirmaCadenaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaDigestionArchivo">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/FirmaDigestionArchivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FirmaDigestionArchivoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferenciaEstado">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/TransferenciaEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TransferenciaEstadoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuDigestionExtendida">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuDigestionExtendida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuDecodificaCertificado">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuDecodificaCertificado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuDecodificaCertificadoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuDecodificaCertificadoExtendido">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuDecodificaCertificadoExtendido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuDecodificaCertificadoExtendidoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestTsa">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/RequestTsa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RequestTsaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuPkcs1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuPkcs1AuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1Extendido">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuPkcs1Extendido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuPkcs1ExtendidoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1Evidencias">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuPkcs1Evidencias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuPkcs1EvidenciasAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1ExtendidoEvidencias">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuPkcs1ExtendidoEvidencias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuPkcs1ExtendidoEvidenciasAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePkcs7">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuObtienePkcs7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuObtienePkcs7AuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePkcs7Ns">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuObtienePkcs7Ns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuObtienePkcs7NsAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePdf">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuObtienePdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuObtienePdfAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePdfSeguro">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuObtienePdfSeguro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PwuObtienePdfSeguroAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignature">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GenPdfSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureMemory">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GenPdfSignatureMemory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureCrypto">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GenPdfSignatureCrypto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureMemoryCrypto">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GenPdfSignatureMemoryCrypto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignChaingCentral">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/SignChaingCentral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesFirmaPkcs1Rg">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ComisionesFirmaPkcs1Rg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesEstadoRg">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ComisionesEstadoRg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSReportDigest">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSReportDigest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSReportDigestAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSReportPkcs7">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSReportPkcs7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSReportPkcs7AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSReportPkcs1">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSReportPkcs1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSReportPkcs1AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSSignCentral">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSSignCentral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSSignCentralAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSDecodeCertificate">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSDecodeCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSDecodeCertificateAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSRequestTsa">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSRequestTsa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSRequestTsaAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSRequestNom151">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSRequestNom151" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSRequestNom151AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSPkcs7InformationFromNs">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSPkcs7InformationFromNs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSPkcs7InformationFromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSPkcs7InformationStrFromNs">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSPkcs7InformationStrFromNs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSPkcs7InformationStrFromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSInformationOcspFromNs">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSInformationOcspFromNs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSInformationOcspFromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSInformationTspFromNs">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSInformationTspFromNs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSInformationTspFromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSFromHtmlToPdf">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSFromHtmlToPdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSFromHtmlToPdfAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSFromHTML2PDFSecure">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSFromHTML2PDFSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSFromHTML2PDFSecureAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePkcs7FromNs">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePkcs7FromNs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSCreatePkcs7FromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdf">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSCreatePdfAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidence">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdfEvidence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSCreatePdfEvidenceAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceSecure">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdfEvidenceSecure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSCreatePdfEvidenceSecureAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSNom151ForPkcs1Ns">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSNom151ForPkcs1Ns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSNom151ForPkcs1NsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSTransfer">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSTransferAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSDownloadCertificate">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSDownloadCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSDownloadCertificateAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceBC">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdfEvidenceBC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSCreatePdfEvidenceBCAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceSecureBC">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdfEvidenceSecureBC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSCreatePdfEvidenceSecureBCAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePkcs7NOM151FromNodes">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePkcs7NOM151FromNodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSCreatePkcs7NOM151FromNodesAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSGeneratePkcs7EvidencesFromSimplePkcs7">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSGeneratePkcs7EvidencesFromSimplePkcs7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSGeneratePkcs7EvidencesFromSimplePkcs7AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSGeneratePkcs7EvidencesFromPiecesPkcs7">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSGeneratePkcs7EvidencesFromPiecesPkcs7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WSGeneratePkcs7EvidencesFromPiecesPkcs7AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GeneraFirmaMemoria">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GeneraFirmaMemoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GeneraFirmaMemoriaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSelloOriginal">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ObtieneSelloOriginal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ObtieneSelloOriginalAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaOcsp">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ValidaOcsp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidaOcspAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarPfx">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/AgregarPfx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AgregarPfxAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneraFirmaMemoriaExtendida">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GeneraFirmaMemoriaExtendida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GeneraFirmaMemoriaExtendidaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuTransferencia_Cn">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuTransferencia_Cn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaCadena_Cn">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuOperFirmaCadena_Cn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaDigestionArchivo_Cn">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuOperFirmaDigestionArchivo_Cn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaCadenaProc_Rg">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuOperFirmaCadenaProc_Rg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuTransferenciaCierre_Rg">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuTransferenciaCierre_Rg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuOperFirmaDigestionArchivo_Rg">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuOperFirmaDigestionArchivo_Rg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuJar">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuJar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimple">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ObtienePdfSimple" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ObtienePdfSimpleAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimplePersonal">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ObtienePdfSimplePersonal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ObtienePdfSimplePersonalAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePdfSimplePersonalExt">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ObtienePdfSimplePersonalExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ObtienePdfSimplePersonalExtAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroTransferencia">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/RegistroTransferencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RegistroTransferenciaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaCadena">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/FirmaCadena" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:FirmaCadenaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmaDigestionArchivo">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/FirmaDigestionArchivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:FirmaDigestionArchivoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferenciaEstado">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/TransferenciaEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TransferenciaEstadoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuDigestionExtendida">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuDigestionExtendida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuDecodificaCertificado">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuDecodificaCertificado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuDecodificaCertificadoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuDecodificaCertificadoExtendido">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuDecodificaCertificadoExtendido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuDecodificaCertificadoExtendidoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestTsa">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/RequestTsa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RequestTsaAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuPkcs1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuPkcs1AuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1Extendido">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuPkcs1Extendido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuPkcs1ExtendidoAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1Evidencias">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuPkcs1Evidencias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuPkcs1EvidenciasAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuPkcs1ExtendidoEvidencias">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuPkcs1ExtendidoEvidencias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuPkcs1ExtendidoEvidenciasAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePkcs7">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuObtienePkcs7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuObtienePkcs7AuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePkcs7Ns">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuObtienePkcs7Ns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuObtienePkcs7NsAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePdf">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuObtienePdf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuObtienePdfAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PwuObtienePdfSeguro">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/PwuObtienePdfSeguro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PwuObtienePdfSeguroAuthSoapHd" part="AuthSoapHd" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignature">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GenPdfSignature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureMemory">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GenPdfSignatureMemory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureCrypto">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GenPdfSignatureCrypto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenPdfSignatureMemoryCrypto">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GenPdfSignatureMemoryCrypto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignChaingCentral">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/SignChaingCentral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesFirmaPkcs1Rg">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ComisionesFirmaPkcs1Rg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComisionesEstadoRg">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ComisionesEstadoRg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSReportDigest">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSReportDigest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSReportDigestAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSReportPkcs7">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSReportPkcs7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSReportPkcs7AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSReportPkcs1">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSReportPkcs1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSReportPkcs1AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSSignCentral">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSSignCentral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSSignCentralAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSDecodeCertificate">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSDecodeCertificate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSDecodeCertificateAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSRequestTsa">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSRequestTsa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSRequestTsaAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSRequestNom151">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSRequestNom151" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSRequestNom151AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSPkcs7InformationFromNs">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSPkcs7InformationFromNs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSPkcs7InformationFromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSPkcs7InformationStrFromNs">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSPkcs7InformationStrFromNs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSPkcs7InformationStrFromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSInformationOcspFromNs">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSInformationOcspFromNs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSInformationOcspFromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSInformationTspFromNs">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSInformationTspFromNs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSInformationTspFromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSFromHtmlToPdf">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSFromHtmlToPdf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSFromHtmlToPdfAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSFromHTML2PDFSecure">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSFromHTML2PDFSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSFromHTML2PDFSecureAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePkcs7FromNs">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePkcs7FromNs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSCreatePkcs7FromNsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdf">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSCreatePdfAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidence">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdfEvidence" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSCreatePdfEvidenceAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceSecure">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdfEvidenceSecure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSCreatePdfEvidenceSecureAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSNom151ForPkcs1Ns">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSNom151ForPkcs1Ns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSNom151ForPkcs1NsAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSTransfer">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSTransfer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSTransferAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSDownloadCertificate">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSDownloadCertificate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSDownloadCertificateAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceBC">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdfEvidenceBC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSCreatePdfEvidenceBCAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePdfEvidenceSecureBC">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePdfEvidenceSecureBC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSCreatePdfEvidenceSecureBCAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSCreatePkcs7NOM151FromNodes">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSCreatePkcs7NOM151FromNodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSCreatePkcs7NOM151FromNodesAuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSGeneratePkcs7EvidencesFromSimplePkcs7">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSGeneratePkcs7EvidencesFromSimplePkcs7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSGeneratePkcs7EvidencesFromSimplePkcs7AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSGeneratePkcs7EvidencesFromPiecesPkcs7">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/WSGeneratePkcs7EvidencesFromPiecesPkcs7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WSGeneratePkcs7EvidencesFromPiecesPkcs7AuthSoap" part="AuthSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://10.10.50.3/wsCommercefiel/webservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://10.10.50.3/wsCommercefiel/webservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

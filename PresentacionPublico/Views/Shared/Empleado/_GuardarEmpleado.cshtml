@@ -1,0 +1,301 @@
+﻿@using Datos.Recursos
+@using Datos.Repositorios.Catalogos
+@using Datos.Repositorios.Configuracion
+@using Sistema
+@model Datos.Empleado
+
+
+<div class="col-xs-12 col-sm-6 p-all-0">
+    <div class="col-xs-12 form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3">
+                <strong class="obligatorio">*</strong> @Html.LabelFor(e => e.Titulo)
+            </div>
+            <div class="col-md-9">
+                @Html.DropDownListFor(e => e.IDTitulo, TituloRepositorio.Buscar(), new { @class = "form-control input-sm empleado" })
+                @*@Html.ValidationMessageFor(e => e.IDTitulo, null, new { @class = "label label-warning" })*@
+            </div>
+        </div>
+    </div>@* Empleado.Titulo *@ 
+    <div class="col-xs-12 form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="Nombre"><strong class="obligatorio">*</strong>Nombre</label>
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(e => e.Nombre, new {@class = "form-control input-sm empleado uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 50 })
+                @*@Html.ValidationMessageFor(e => e.Nombre, null, new {@class = "label label-warning"})*@
+            </div>
+        </div>
+    </div>@* Empleado.Nombre *@
+    <div class="col-xs-12 form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="ApellidoP"><strong class="obligatorio">*</strong>Primer Apellido</label>
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(e => e.ApellidoP, new {@class = "form-control input-sm empleado uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 30 })
+                @Html.ValidationMessageFor(e => e.ApellidoP, null, new {@class = "label label-warning"})
+            </div>
+        </div>
+    </div>@* Empleado.ApellidoP *@
+    <div class="col-xs-12 form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="ApellidoM"><strong class="obligatorio">*</strong>Segundo Apellido</label>
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(e => e.ApellidoM, new {@class = "form-control input-sm empleado uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 30 })
+                @Html.ValidationMessageFor(e => e.ApellidoM, null, new {@class = "label label-warning"})
+            </div>
+        </div>
+    </div>@* Empleado.ApellidoM *@
+    @*<div class="col-md-12 form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="Rfc"><strong class="obligatorio">*</strong>RFC</label>
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(e => e.Rfc, new {@class = "form-control input-sm empleado uppercase", @maxlength = 13})
+                @Html.ValidationMessageFor(e => e.Rfc, null, new {@class = "label label-warning"})
+            </div>
+        </div>
+    </div>*@
+    @* Empleado.RFC *@
+</div>
+    <div class="col-xs-12 col-sm-6 p-all-0">
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <strong class="obligatorio">*</strong>@Html.LabelFor(e => e.Sexo)
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownListFor(e => e.Sexo, Listas.ObtenerListaGenero(), new { @class = "form-control input-sm empleado"})
+                    @*@Html.ValidationMessageFor(e => e.Sexo, null, new { @class = "label label-warning" })*@
+                </div>
+            </div>
+        </div>@* Empleado.Sexo *@ 
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.LabelFor(e => e.Celular)
+                </div>
+                <div class="col-md-9">
+                    @Html.TextBoxFor(e => e.Celular, new { @class = "form-control input-sm empleado", @onkeypress = "return soloNumeros(event)", @maxlength = 10 })
+                    @*@Html.ValidationMessageFor(e => e.Celular, null, new { @class = "label label-warning" })*@
+                </div>
+            </div>
+        </div>@* Empleado.Celular *@ 
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.LabelFor(e => e.Email)
+                </div>
+                <div class="col-md-9">
+                    @Html.TextBoxFor(e => e.Email, new { @class = "form-control input-sm empleado", @Type = "email", @maxlength = 50 })
+                    @*@Html.ValidationMessageFor(e => e.Email, null, new { @class = "label label-warning" })*@
+                </div>
+            </div>
+        </div>@* Empleado.Email *@ 
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="IDPuesto"><strong class="obligatorio">*</strong>Puesto</label>
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownListFor(e => e.IDPuesto, PuestoRepostorio.Buscar(), new { @class = "form-control input-sm empleado" })
+                    @*@Html.ValidationMessageFor(e => e.IDPuesto, null, new { @class = "label label-warning" })*@
+                </div>
+            </div>
+        </div>@* Empleado.IDPuesto *@
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label>&nbsp;</label>
+                </div>
+                <div class="col-md-9">
+                    <span>&nbsp;</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label>&nbsp;</label>
+                </div>
+                <div class="col-md-9">
+                    <span>&nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 p-all-0">
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="fotoEmpleado">@General.Foto</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <input type="file" id="fotoEmpleado" name="archivos" class="file-loading" accept=".jpg, .jpeg, .png" />
+                        <div id="divErrorImagen"></div>
+                        @Html.HiddenFor(e => e.UrlFoto)
+                    </div>
+                </div>
+            </div>
+        </div>@* Empleado.Foto *@ 
+    </div>
+    <div class="col-xs-12 col-sm-6 p-all-0">
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="Usuario_Rol_IDRol"><strong class="obligatorio">*</strong>Rol</label>
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownListFor(e => e.Usuario.Rol.IDRol, RolRepositorio.Buscar(), new { @class = "form-control input-sm" })
+                    @*@Html.ValidationMessageFor(e => e.Usuario.Rol.IDRol, null, new { @class = "label label-warning" })*@
+                </div>
+            </div>
+        </div>@* Empleado.Usuario.Rol *@
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="Usuario_NombreUsuario"><strong class="obligatorio">*</strong>Usuario</label>
+                </div>
+                <div class="col-md-9">
+                    @Html.HiddenFor(e => e.Usuario.IDUsuario)
+                    @Html.TextBoxFor(e => e.Usuario.NombreUsuario, new {@class = "form-control input-sm empleado", @maxlength = 30 })
+                    @Html.ValidationMessageFor(e => e.Usuario.NombreUsuario, null, new {@class = "label label-warning"})
+                </div>
+            </div>
+        </div>@* Empleado.Usuario.NombreUsuario *@
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="Usuario_Contrasena"><strong class="obligatorio">*</strong>Contraseña</label>
+                </div>
+                <div class="col-md-9">
+                    @Html.PasswordFor(e => e.Usuario.Contrasena, new { @class = "form-control input-sm empleado", @maxlength = 30 })
+                    @Html.ValidationMessageFor(e => e.Usuario.Contrasena, null, new { @class = "label label-warning" })
+                </div>
+            </div>
+        </div>@* Empleado.Usuario.Contrasena *@
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="Usuario_RepetirContrasena"><strong class="obligatorio">*</strong>Repetir Contraseña</label>
+                </div>
+                <div class="col-md-9">
+                    @Html.PasswordFor(e => e.Usuario.RepetirContrasena, new { @class = "form-control input-sm empleado", @maxlength = 30 })
+                    @Html.ValidationMessageFor(e => e.Usuario.RepetirContrasena, null, new { @class = "label label-warning" })
+                </div>
+            </div>
+        </div>@* Empleado.Usuario.NombreUsuario *@
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.LabelFor(e => e.Usuario.Certificado)
+                </div>
+                <div class="col-md-9">
+                    @Html.HiddenFor(e => e.Usuario.Certificado.IDUsuario)
+                    @Html.TextBox("archivos", string.Empty, new {type = "file", @class = "form-control input-sm empleado p-all-0 file-loading", accept = "application/x-x509-ca-cert", @id = "idCertificado" })
+                </div>
+            </div>
+        </div>@* Empleado.Usuario.Certificado *@
+        <div class="col-xs-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.LabelFor(e => e.UrlFirma)
+                </div>
+                <div class="col-md-9">
+                    @Html.HiddenFor(e => e.UrlFirma)
+                    @Html.TextBox("archivos", string.Empty, new { type = "file", @class = "form-control input-sm empleado p-all-0 file-loading", @id="idFirma", accept = "image/" })
+                </div>
+            </div>
+        </div>@* Empleado.Usuario.Certificado *@
+    </div>
+
+<script type="text/javascript" src="/Scripts/plugins/canvas-to-blob.min.js"></script>
+<script type="text/javascript" src="/Scripts/fileinput.min.js"></script>
+<script type="text/javascript" src="/Scripts/fileinput_locale_es.js"></script>
+<script type="text/javascript" src="/Scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/Scripts/Fecha.js"></script>
+<script type="text/javascript" src="/Scripts/CallInputFiles.js?v=2"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var regExp = /^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$/;
+
+        var controlesFecha = new Array();
+        var etiquetaImagen = '<img src="{ruta}" class="file-preview-image" alt="Foto">';
+        
+        var $hdnRutaFoto = $("#@Html.IdFor(m => m.UrlFoto)");
+        
+        controlesFecha.push($("#@Html.IdFor(m => m.FechaIngreso)"));
+        InicializarControlesConFecha(controlesFecha);
+
+        $("#fotoEmpleado").fileinput({
+            language: "es",
+            initialPreview: [
+                $hdnRutaFoto.val() != ""
+                    ? etiquetaImagen.format({ ruta: '@Url.Content(Model.UrlFoto ?? " ")' })
+                        : etiquetaImagen.format({ ruta: '@Url.Content("~/Content/img/usuario.png")' })
+            ],
+            previewFileType: "image",
+            browseClass: "btn btn-primary btn-block",
+            showCaption: false,
+            showRemove: false,
+            showUpload: false,
+            browseLabel: "&nbsp;Buscar",
+            allowedFileExtensions: ["jpg", "png", "jpeg"],
+            elErrorContainer: "#divErrorImagen",
+            maxFileSize: 1000
+        });
+
+        $("form").on("submit", function () {
+            // Validar campos vacios
+
+            var no_validos = 0;
+
+            no_validos += ValidarControl($("#IDTitulo")) ? 0 : 1;
+            no_validos += ValidarControl($("#Nombre")) ? 0 : 1;
+            //no_validos += ValidarControl($("#Rfc")) ? 0 : 1;
+            no_validos += ValidarControl($("#Sexo")) ? 0 : 1;
+            no_validos += ValidarControl($("#IDPuesto")) ? 0 : 1;
+            no_validos += ValidarControl($("#Usuario_Rol_IDRol")) ? 0 : 1;
+            no_validos += ValidarControl($("#Usuario_NombreUsuario")) ? 0 : 1;
+            no_validos += ValidarControl($("#ApellidoP")) ? 0 : 1;
+            no_validos += ValidarControl($("#ApellidoM")) ? 0 : 1;
+            @if(Model.IDEmpleado == 0) {
+                <text>
+                no_validos += ValidarControl($("#Usuario_Contrasena")) ? 0 : 1;
+                no_validos += ValidarControl($("#Usuario_RepetirContrasena")) ? 0 : 1;
+                no_validos += ValidarControl($("#Usuario_NombreUsuario")) ? 0 : 1;
+                </text>
+            }
+            if (no_validos > 0) {
+                var mensaje = "Los campos marcados en rojo no deben estar vacios.";
+                mostrarAlert(mensaje, "danger", true);
+
+                $('html,body').scrollTop(0);
+
+                event.preventDefault();
+                return false;
+            }
+
+            //var RFC = $("#Rfc").val().toUpperCase();
+            //if (!RFC.match(regExp)) {
+            //    var mensaje = "El formato del RFC no es correcto";
+            //    mostrarAlert(mensaje, "danger", true);
+
+            //    $('html,body').scrollTop(0);
+
+            //    event.preventDefault();
+            //    return false;
+            //}
+        });
+    });
+    CallInputFile("#idFirma");
+    CallCertificateFile("#idCertificado");
+
+</script>

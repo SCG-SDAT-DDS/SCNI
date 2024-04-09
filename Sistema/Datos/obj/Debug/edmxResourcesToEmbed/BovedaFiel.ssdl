@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BovedaFielModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cadenas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="digestion" Type="varbinary(max)" Nullable="false" />
+    <Property Name="pkcs7" Type="varbinary(max)" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="idoperacion" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="decodificacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCadena" Type="bigint" Nullable="false" />
+    <Property Name="firma" Type="varbinary(max)" Nullable="false" />
+    <Property Name="certificado" Type="varbinary(max)" Nullable="false" />
+    <Property Name="serie" Type="varchar(max)" Nullable="false" />
+    <Property Name="campos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idOperacion" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="operaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="operacion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="resultadoOperacion" Type="varchar(max)" Nullable="false" />
+    <Property Name="certificadoUsuario" Type="varbinary" MaxLength="8000" Nullable="false" />
+    <Property Name="serieCertificado" Type="varchar(max)" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idtoken" Type="bigint" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="timestamping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="timestamp" Type="varbinary(max)" Nullable="false" />
+    <Property Name="idcadena" Type="bigint" Nullable="false" />
+    <Property Name="idoperacion" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tokens">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="token" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="idwscall" Type="bigint" Nullable="false" />
+    <Property Name="validoDesde" Type="datetime" Nullable="false" />
+    <Property Name="validoHasta" Type="datetime" Nullable="false" />
+    <Property Name="appid" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WSLoginCalls">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="serieCertificado" Type="varchar(max)" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="mensaje" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="xml">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rutaxml" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="foliogenerado" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="idoperacion" Type="bigint" Nullable="false" />
+    <Property Name="idcadena" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_cadenas_operaciones">
+    <End Role="operaciones" Type="Self.operaciones" Multiplicity="1" />
+    <End Role="cadenas" Type="Self.cadenas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operaciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cadenas">
+        <PropertyRef Name="idoperacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decodificacion_cadenas">
+    <End Role="cadenas" Type="Self.cadenas" Multiplicity="1" />
+    <End Role="decodificacion" Type="Self.decodificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cadenas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="decodificacion">
+        <PropertyRef Name="idCadena" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decodificacion_operaciones">
+    <End Role="operaciones" Type="Self.operaciones" Multiplicity="1" />
+    <End Role="decodificacion" Type="Self.decodificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operaciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="decodificacion">
+        <PropertyRef Name="idOperacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operaciones_tokens">
+    <End Role="tokens" Type="Self.tokens" Multiplicity="1" />
+    <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tokens">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="operaciones">
+        <PropertyRef Name="idtoken" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_timestamping_cadenas">
+    <End Role="cadenas" Type="Self.cadenas" Multiplicity="1" />
+    <End Role="timestamping" Type="Self.timestamping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cadenas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="timestamping">
+        <PropertyRef Name="idcadena" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tokens_WSLoginCalls">
+    <End Role="WSLoginCalls" Type="Self.WSLoginCalls" Multiplicity="1" />
+    <End Role="tokens" Type="Self.tokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WSLoginCalls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tokens">
+        <PropertyRef Name="idwscall" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_xml_cadenas">
+    <End Role="cadenas" Type="Self.cadenas" Multiplicity="1" />
+    <End Role="xml" Type="Self.xml" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cadenas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="xml">
+        <PropertyRef Name="idcadena" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BovedaFielModeloStoreContainer">
+    <EntitySet Name="cadenas" EntityType="Self.cadenas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="decodificacion" EntityType="Self.decodificacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="operaciones" EntityType="Self.operaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="timestamping" EntityType="Self.timestamping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tokens" EntityType="Self.tokens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WSLoginCalls" EntityType="Self.WSLoginCalls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="xml" EntityType="Self.xml" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_cadenas_operaciones" Association="Self.FK_cadenas_operaciones">
+      <End Role="operaciones" EntitySet="operaciones" />
+      <End Role="cadenas" EntitySet="cadenas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decodificacion_cadenas" Association="Self.FK_decodificacion_cadenas">
+      <End Role="cadenas" EntitySet="cadenas" />
+      <End Role="decodificacion" EntitySet="decodificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decodificacion_operaciones" Association="Self.FK_decodificacion_operaciones">
+      <End Role="operaciones" EntitySet="operaciones" />
+      <End Role="decodificacion" EntitySet="decodificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operaciones_tokens" Association="Self.FK_operaciones_tokens">
+      <End Role="tokens" EntitySet="tokens" />
+      <End Role="operaciones" EntitySet="operaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_timestamping_cadenas" Association="Self.FK_timestamping_cadenas">
+      <End Role="cadenas" EntitySet="cadenas" />
+      <End Role="timestamping" EntitySet="timestamping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tokens_WSLoginCalls" Association="Self.FK_tokens_WSLoginCalls">
+      <End Role="WSLoginCalls" EntitySet="WSLoginCalls" />
+      <End Role="tokens" EntitySet="tokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_xml_cadenas" Association="Self.FK_xml_cadenas">
+      <End Role="cadenas" EntitySet="cadenas" />
+      <End Role="xml" EntitySet="xml" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

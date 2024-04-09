@@ -1,0 +1,30 @@
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\Sistema.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\Sistema.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\Newtonsoft.Json.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\System.Web.Mvc.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\Newtonsoft.Json.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\Newtonsoft.Json.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\System.Web.Mvc.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\Microsoft.Web.Infrastructure.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\bin\Release\es\System.Web.Mvc.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\obj\Release\Sistema.csproj.AssemblyReference.cache
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\obj\Release\Sistema.csproj.CoreCompileInputs.cache
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\obj\Release\Sistema.csproj.CopyComplete
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\obj\Release\Sistema.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Sistema\obj\Release\Sistema.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\Sistema.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\Sistema.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\Newtonsoft.Json.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\System.Web.Mvc.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\Newtonsoft.Json.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\Newtonsoft.Json.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\System.Web.Mvc.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\Microsoft.Web.Infrastructure.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Release\es\System.Web.Mvc.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Release\Sistema.csproj.AssemblyReference.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Release\Sistema.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Release\Sistema.csproj.CopyComplete
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Release\Sistema.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Release\Sistema.pdb

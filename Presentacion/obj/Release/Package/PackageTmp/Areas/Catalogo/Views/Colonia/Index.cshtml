@@ -1,0 +1,205 @@
+﻿@using Datos.Recursos
+@using Datos.Repositorios.Catalogos
+@using Presentacion.Helpers
+@using Sistema
+@model Datos.DTO.Infraestructura.ViewModels.ColoniaViewModel
+
+@{
+    ViewBag.Title = General.BuscarColonia;
+}
+
+@using (Html.BeginForm())
+{
+    <div class="ibox bx-s">
+        <div class="ibox-content p-l-20 p-r-10 bg-f">
+            <div class="row">
+                <div class="col-sm-12">
+                    @{ Html.EnableClientValidation(false); }
+
+                    <div class="col-sm-6 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3 col-xs-12">
+                                <label for="Colonia_Nombre">Nombre</label>
+                            </div>
+                            <div class="col-md-9 col-xs-12">
+                                @Html.TextBoxFor(m => m.Colonia.Nombre, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3 col-xs-12">
+                                <label for="Colonia_CodigoPostal">Código Postal</label>
+                            </div>
+                            <div class="col-md-9 col-xs-12">
+                                @Html.TextBoxFor(m => m.Colonia.CodigoPostal, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3 col-xs-12">
+                                <label for="Colonia_IDEstado">Estado</label>
+                            </div>
+                            <div class="col-md-9 col-xs-12">
+                                @Html.DropDownListFor(m => m.Colonia.IDEstado, EstadoRepositorio.Buscar(),
+                                new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3 col-xs-12">
+                                <label for="Colonia_IDMunicipio">Municipio</label>
+                            </div>
+                            <div class="col-md-9 col-xs-12">
+                                @Html.MunicipioDdl(m => m.Colonia.IDMunicipio, Model.Colonia.IDEstado, Model.Colonia.IDMunicipio)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.LabelFor(m => m.Colonia.Habilitado)
+                            </div>
+                            <div class="col-md-9 ">
+                                <div class="checkbox checkbox-success">
+                                    @Html.CheckBoxFor(m => m.Colonia.Habilitado, new { @checked = true })
+                                    @Html.LabelFor(m => m.Colonia.Habilitado)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 m-t-10">
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-sm btn-primary" value="@General.Buscar" />
+                            @Html.ActionLink(General.Nuevo, "Guardar", new { area = "Catalogo" },
+                            new { @class = "btn btn-sm btn-default" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 m-t-20 p-internos-0 m-b-5">
+                    <div class="col-md-6 bold">
+                        @Html.DropDownListFor(m => m.TamanoPagina, Listas.ObtenerListaCantidadPagina())
+                        @General.TamanoPagina
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <label class="label label-success">
+                            @General.Encontrados: @Model.TotalEncontrados
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped" id="tblBusqueda">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.Colonia.Nombre)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Colonia.Estado)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Colonia.Municipio)</th>
+                                    <th class="text-center">@General.Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var colonia in Model.Colonias)
+                                {
+                                    <tr>
+                                        <td>@colonia.Nombre</td>
+                                        <td>@colonia.Estado.Nombre</td>
+                                        <td>@colonia.Municipio.Nombre</td>
+                                        <td class="text-center">
+                                            @if (colonia.Habilitado)
+                                            {
+                                                @Html.ActionLinkCifrado(General.Modificar, "Guardar", "Colonia", "Catalogo",
+                                            "btn btn-warning btn-circle", "fa fa-pencil",
+                                            new Dictionary<string, int> { { "idColonia", colonia.IDColonia } })
+
+                                                @Html.ActionLinkCifrado(General.Deshabilitar, "Deshabilitar", "Colonia", "Catalogo",
+                                            "btn btn-danger btn-circle deshabilitar", "fa fa-times",
+                                            new Dictionary<string, int> { { "idColonia", colonia.IDColonia } })
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLinkCifrado(General.Habilitar, "Habilitar", "Colonia", "Catalogo",
+                                            "btn btn-primary btn-circle habilitar", "fa fa-check",
+                                            new Dictionary<string, int> { { "idColonia", colonia.IDColonia } })
+                                            }
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        @Html.Partial("Controls/_Paginacion", Model)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="modal fade" id="mdlConfirmar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title">
+                                <label>@General.Cuidado</label>
+                            </h3>
+                        </div>
+                        <div class="modal-body text-center">
+                            <label id="lblModal"></label>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Cancelar</button>
+                            <button id="btnConfirmar" class="btn btn-primary">@General.Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("Controls/_ModalHabilitar")
+                        }
+@section FooterScripts
+{
+    <script type="text/javascript" src="/Scripts/plugins/iCheck/icheck.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.tablesorter.js"></script>
+    <script type="text/javascript">
+
+                    $(function () {
+                        $('.i-checks').iCheck({
+                            checkboxClass: 'icheckbox_square-green',
+                            radioClass: 'iradio_square-green',
+                        });
+
+                        habilitar.Iniciar('@General.Colonia');
+                    })
+
+                    $(document).ready(function () {
+
+
+                        var enlaceEnEspera;
+                        var confirmado = false;
+
+                        $("#tblBusqueda").tablesorter();
+
+                        $(".eliminar").click(function (e) {
+                            if (!confirmado) {
+                                enlaceEnEspera = this;
+                                e.preventDefault();
+                                $("#lblModal").html('@string.Format(General.PreguntaEliminar, General.Colonia)');
+                                $("#mdlConfirmar").modal("show");
+                            }
+                        });
+
+                        $("#btnConfirmar").click(function (e) {
+                            e.preventDefault();
+                            confirmado = true;
+                            enlaceEnEspera.click();
+                        });
+
+                    });
+    </script>
+}

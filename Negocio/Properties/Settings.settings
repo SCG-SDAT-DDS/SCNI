@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Negocio.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Negocio_WsPagoRegistroCivil_Productivo_SI_PagoRegistroCivil_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_PRO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_PagoRegistroCivil_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FPORTAL%2FWS%2FPagoRegistroCivil</Value>
+    </Setting>
+    <Setting Name="Negocio_WsValidarPago_Productivo_SI_ConsultaRo_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_PRO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_ConsultaRo_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoEnLinea</Value>
+    </Setting>
+    <Setting Name="Negocio_WsPaseCaja_Productivo_SI_PaseCaja_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_PRO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_PaseCaja_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FPORTAL%2FWS%2FPaseAcaja</Value>
+    </Setting>
+    <Setting Name="Negocio_WsPaseCaja_Desarrollo_SI_PaseCaja_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.32.1.103:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_PaseCaja_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FPORTAL%2FWS%2FPaseAcaja</Value>
+    </Setting>
+    <Setting Name="Negocio_WsPagoRegistroCivil_Desarrollo_SI_PagoRegistroCivil_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.32.1.103:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_PagoRegistroCivil_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FPORTAL%2FWS%2FPagoRegistroCivil</Value>
+    </Setting>
+    <Setting Name="Negocio_WsValidarPago_Calidad_SI_ConsultaRo_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gespiqci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_QA&amp;receiverParty=&amp;receiverService=&amp;interface=SI_ConsultaRo_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoEnLinea</Value>
+    </Setting>
+    <Setting Name="Negocio_WsPaseCaja_Calidad_SI_PaseCaja_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.32.1.123:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_QA&amp;receiverParty=&amp;receiverService=&amp;interface=SI_PaseCaja_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FPORTAL%2FWS%2FPaseAcaja</Value>
+    </Setting>
+    <Setting Name="Negocio_WsPagoRegistroCivil_Calidad_SI_PagoRegistroCivil_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.32.1.123:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_QA&amp;receiverParty=&amp;receiverService=&amp;interface=SI_PagoRegistroCivil_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FPORTAL%2FWS%2FPagoRegistroCivil</Value>
+    </Setting>
+    <Setting Name="Negocio_WebReferenceFirma_WebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://sfirmapruebas.sonora.gob.mx/WSPSFIEL/webservice.asmx</Value>
+    </Setting>
+    <Setting Name="Negocio_mx_gob_sonora_claro_gespipci_SI_ConsultaRo_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_PRO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_ConsultaRo_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoEnLinea</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

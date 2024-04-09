@@ -1,0 +1,234 @@
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\ApplicationInsights.config
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\csc.exe
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\vbc.exe
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\VBCSCompiler.exe
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Presentacion.dll.config
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Presentacion.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Presentacion.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Datos.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\EntityFramework.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\EntityFramework.SqlServer.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.Web.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Negocio.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Newtonsoft.Json.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Sistema.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Helpers.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Mvc.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Razor.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Webpages.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Webpages.Razor.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\DocX.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\QRCoder.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\EPPlus.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\itextsharp.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\UnityEngine.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Datos.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Datos.dll.config
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Negocio.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Negocio.dll.config
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Sistema.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\EntityFramework.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\EntityFramework.SqlServer.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.Web.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Newtonsoft.Json.pdb
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\Newtonsoft.Json.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Razor.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Webpages.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Webpages.Razor.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Helpers.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\System.Web.Mvc.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\EPPlus.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\itextsharp.xml
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\es\EntityFramework.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\es\System.Web.Razor.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\es\System.Web.Webpages.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\es\System.Web.Webpages.Deployment.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\es\System.Web.Webpages.Razor.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\obj\Debug\Presentacion.dll
+C:\Users\Soporte\Desktop\Codigo fuente sistema de constancias version septiembre del 2022\1 Código fuente\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\ApplicationInsights.config
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\csc.exe
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\vbc.exe
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\VBCSCompiler.exe
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Presentacion.dll.config
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Presentacion.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Presentacion.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Datos.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EntityFramework.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EntityFramework.SqlServer.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.Web.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Negocio.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Newtonsoft.Json.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Sistema.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Helpers.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Mvc.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Razor.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.Razor.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\DocX.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\QRCoder.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EPPlus.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\itextsharp.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\UnityEngine.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Datos.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Datos.dll.config
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Negocio.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Negocio.dll.config
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Sistema.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EntityFramework.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EntityFramework.SqlServer.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.Web.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Newtonsoft.Json.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Newtonsoft.Json.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Razor.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.Razor.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Helpers.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Mvc.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EPPlus.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\itextsharp.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\EntityFramework.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Razor.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Webpages.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Webpages.Deployment.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Webpages.Razor.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.pdb
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\ApplicationInsights.config
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\csc.exe
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.CSharp.Core.targets
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\Microsoft.VisualBasic.Core.targets
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\System.Collections.Immutable.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\System.Reflection.Metadata.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\vbc.exe
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\VBCSCompiler.exe
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\roslyn\VBCSCompiler.exe.config
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Presentacion.dll.config
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Presentacion.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Presentacion.pdb
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Datos.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EntityFramework.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EntityFramework.SqlServer.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.Agent.Intercept.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.DependencyCollector.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.PerfCounterCollector.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.ServerTelemetryChannel.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.Web.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.WindowsServer.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.ApplicationInsights.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.Web.Infrastructure.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Negocio.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Newtonsoft.Json.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Sistema.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Helpers.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Mvc.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Razor.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.Deployment.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.Razor.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\DocX.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\QRCoder.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EPPlus.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\itextsharp.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\UnityEngine.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Datos.pdb
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Datos.dll.config
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Negocio.pdb
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Negocio.dll.config
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Sistema.pdb
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EntityFramework.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EntityFramework.SqlServer.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.DependencyCollector.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.ServerTelemetryChannel.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.Web.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.AI.WindowsServer.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.ApplicationInsights.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Newtonsoft.Json.pdb
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\Newtonsoft.Json.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Razor.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.Deployment.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Webpages.Razor.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Helpers.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\System.Web.Mvc.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\EPPlus.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\itextsharp.xml
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\EntityFramework.resources.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\EntityFramework.SqlServer.resources.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Razor.resources.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Webpages.resources.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Webpages.Deployment.resources.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Webpages.Razor.resources.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Helpers.resources.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\bin\es\System.Web.Mvc.resources.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presenta.BC77CD05.Up2Date
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.dll
+\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\obj\Debug\Presentacion.pdb

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl?p=sa/1624f1eee3603b7b80cfe0b52fc2bc3f" filename="SI_ConsultaRo_out.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

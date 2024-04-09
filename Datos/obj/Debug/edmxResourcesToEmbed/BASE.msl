@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BASEStoreContainer" CdmEntityContainer="Contexto">
+    <EntitySetMapping Name="Colonia">
+      <EntityTypeMapping TypeName="BASE.Colonia">
+        <MappingFragment StoreEntitySet="Colonia">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="IDColonia" ColumnName="IDColonia" />
+          <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+          <ScalarProperty Name="IDMunicipio" ColumnName="IDMunicipio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="BASE.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="DefaultFirma" ColumnName="DefaultFirma" />
+          <ScalarProperty Name="UrlFirma" ColumnName="UrlFirma" />
+          <ScalarProperty Name="IDTitulo" ColumnName="IDTitulo" />
+          <ScalarProperty Name="IDEmpleado" ColumnName="IDEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoP" ColumnName="ApellidoP" />
+          <ScalarProperty Name="ApellidoM" ColumnName="ApellidoM" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
+          <ScalarProperty Name="UrlFoto" ColumnName="UrlFoto" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado">
+      <EntityTypeMapping TypeName="BASE.Estado">
+        <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="BASE.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+          <ScalarProperty Name="Opcion" ColumnName="Opcion" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+          <ScalarProperty Name="Padre" ColumnName="Padre" />
+          <ScalarProperty Name="Camino" ColumnName="Camino" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="IconoCss" ColumnName="IconoCss" />
+          <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movmiento">
+      <EntityTypeMapping TypeName="BASE.Movmiento">
+        <MappingFragment StoreEntitySet="Movmiento">
+          <ScalarProperty Name="IDRegistro" ColumnName="IDRegistro" />
+          <ScalarProperty Name="Catalogo" ColumnName="Catalogo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IDMovimiento" ColumnName="IDMovimiento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipio">
+      <EntityTypeMapping TypeName="BASE.Municipio">
+        <MappingFragment StoreEntitySet="Municipio">
+          <ScalarProperty Name="IDMunicipio" ColumnName="IDMunicipio" />
+          <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IDMunicipioIFE" ColumnName="IDMunicipioIFE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puesto">
+      <EntityTypeMapping TypeName="BASE.Puesto">
+        <MappingFragment StoreEntitySet="Puesto">
+          <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="BASE.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="TipoInicio" ColumnName="TipoInicio" />
+          <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="PaginaInicio" ColumnName="PaginaInicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SolicitudContrasena">
+      <EntityTypeMapping TypeName="BASE.SolicitudContrasena">
+        <MappingFragment StoreEntitySet="SolicitudContrasena">
+          <ScalarProperty Name="IDSolicitudContrasena" ColumnName="IDSolicitudContrasena" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Usado" ColumnName="Usado" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MenuRol" TypeName="BASE.MenuRol" StoreEntitySet="MenuRol">
+      <EndProperty Name="Menu">
+        <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+      </EndProperty>
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="BuscarOpcionMenuAndOpcionesMenuInferiores" FunctionName="BASE.Store.BuscarOpcionMenuAndOpcionesMenuInferiores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BASE.BuscarOpcionMenuAndOpcionesMenuInferiores_Result">
+          <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+          <ScalarProperty Name="Opcion" ColumnName="Opcion" />
+          <ScalarProperty Name="Padre" ColumnName="Padre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BuscarOpcionMenuAndOpcionesMenuSuperiores" FunctionName="BASE.Store.BuscarOpcionMenuAndOpcionesMenuSuperiores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BASE.BuscarOpcionMenuAndOpcionesMenuSuperiores_Result">
+          <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+          <ScalarProperty Name="Opcion" ColumnName="Opcion" />
+          <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CopiarMenuDeRolEnEmpleado" FunctionName="BASE.Store.CopiarMenuDeRolEnEmpleado" />
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="BASE.Permisos">
+        <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IDPermiso" ColumnName="IDPermiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RolPermisos" TypeName="BASE.RolPermisos" StoreEntitySet="RolPermisos">
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+      </EndProperty>
+      <EndProperty Name="Permisos">
+        <ScalarProperty Name="IDPermiso" ColumnName="IDPermiso" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Entidad">
+      <EntityTypeMapping TypeName="BASE.Entidad">
+        <MappingFragment StoreEntitySet="Entidad">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Abreviacion" ColumnName="Abreviacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="IDEntidad" ColumnName="IDEntidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persona">
+      <EntityTypeMapping TypeName="BASE.Persona">
+        <MappingFragment StoreEntitySet="Persona">
+          <ScalarProperty Name="IDMunicipio" ColumnName="IDMunicipio" />
+          <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="CURP" ColumnName="CURP" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="ApellidoM" ColumnName="ApellidoM" />
+          <ScalarProperty Name="ApellidoP" ColumnName="ApellidoP" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IDPersona" ColumnName="IDPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lotes">
+      <EntityTypeMapping TypeName="BASE.Lote">
+        <MappingFragment StoreEntitySet="Lote">
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="IDLote" ColumnName="IDLote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Folios">
+      <EntityTypeMapping TypeName="BASE.Folio">
+        <MappingFragment StoreEntitySet="Folio">
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="BASE.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="MenuPersonalizado" ColumnName="MenuPersonalizado" />
+          <ScalarProperty Name="UrlFoto" ColumnName="UrlFoto" />
+          <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MenuUsuario" TypeName="BASE.MenuUsuario" StoreEntitySet="MenuUsuario">
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+      </EndProperty>
+      <EndProperty Name="Menu">
+        <ScalarProperty Name="IDMenu" ColumnName="IDMenu" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UsuarioEmpleado" TypeName="BASE.UsuarioEmpleado" StoreEntitySet="UsuarioEmpleado">
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+      </EndProperty>
+      <EndProperty Name="Empleado">
+        <ScalarProperty Name="IDEmpleado" ColumnName="IDEmpleado" />
+      </EndProperty>
+      <Condition ColumnName="IDEmpleado" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UsuarioMovimiento" TypeName="BASE.UsuarioMovimiento" StoreEntitySet="UsuarioMovimiento">
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+      </EndProperty>
+      <EndProperty Name="Movmiento">
+        <ScalarProperty Name="IDMovimiento" ColumnName="IDMovimiento" />
+      </EndProperty>
+      <Condition ColumnName="IDUsuario" IsNull="false" />
+    </AssociationSetMapping>
+    <EntitySetMapping Name="UsuarioCertificado">
+      <EntityTypeMapping TypeName="BASE.UsuarioCertificado">
+        <MappingFragment StoreEntitySet="UsuarioCertificado">
+          <ScalarProperty Name="Valor" ColumnName="Certificado" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Firmas">
+      <EntityTypeMapping TypeName="BASE.Firma">
+        <MappingFragment StoreEntitySet="Firma">
+          <ScalarProperty Name="IDEmpleado" ColumnName="IDEmpleado" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="UbicacionXml" ColumnName="UbicacionXml" />
+          <ScalarProperty Name="BovedaFiel_IDTimeStamping" ColumnName="BovedaFiel_IDTimeStamping" />
+          <ScalarProperty Name="BovedaFiel_IDCadena" ColumnName="BovedaFiel_IDCadena" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IDLote" ColumnName="IDLote" />
+          <ScalarProperty Name="IDCarta" ColumnName="IDCarta" />
+          <ScalarProperty Name="IDFirma" ColumnName="IDFirma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Titulos">
+      <EntityTypeMapping TypeName="BASE.Titulo">
+        <MappingFragment StoreEntitySet="Titulo">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Abreviacion" ColumnName="Abreviacion" />
+          <ScalarProperty Name="IDTitulo" ColumnName="IDTitulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plantillas">
+      <EntityTypeMapping TypeName="BASE.Plantilla">
+        <MappingFragment StoreEntitySet="Plantilla">
+          <ScalarProperty Name="Actual" ColumnName="Actual" />
+          <ScalarProperty Name="NombrePlantilla" ColumnName="NombrePlantilla" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDPlantilla" ColumnName="IDPlantilla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaseCaja">
+      <EntityTypeMapping TypeName="BASE.PaseCaja">
+        <MappingFragment StoreEntitySet="PaseCaja">
+          <ScalarProperty Name="EstaPagado" ColumnName="EstaPagado" />
+          <ScalarProperty Name="UbicacionArchivo" ColumnName="UbicacionArchivo" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="NombrePersona" ColumnName="NombrePersona" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="IDPaseCaja" ColumnName="IDPaseCaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitud">
+      <EntityTypeMapping TypeName="BASE.Solicitud">
+        <MappingFragment StoreEntitySet="Solicitud">
+          <ScalarProperty Name="FolioPaseCaja" ColumnName="FolioPaseCaja" />
+          <ScalarProperty Name="NumeroDeOficio" ColumnName="NumeroDeOficio" />
+          <ScalarProperty Name="MotivoCancelacion" ColumnName="MotivoCancelacion" />
+          <ScalarProperty Name="Cancelada" ColumnName="Cancelada" />
+          <ScalarProperty Name="Medio" ColumnName="Medio" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="URLIdentificacion" ColumnName="URLIdentificacion" />
+          <ScalarProperty Name="URLPapeleta" ColumnName="URLPapeleta" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="FolioPago" ColumnName="FolioPago" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IDSolicitud" ColumnName="IDSolicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SolicitudEntidad" TypeName="BASE.SolicitudEntidad" StoreEntitySet="SolicitudEntidad">
+      <EndProperty Name="Solicitud">
+        <ScalarProperty Name="IDSolicitud" ColumnName="IDSolicitud" />
+      </EndProperty>
+      <EndProperty Name="Entidad">
+        <ScalarProperty Name="IDEntidad" ColumnName="IDEntidad" />
+      </EndProperty>
+      <Condition ColumnName="IDEntidad" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SolicitudPersona" TypeName="BASE.SolicitudPersona" StoreEntitySet="SolicitudPersona">
+      <EndProperty Name="Solicitud">
+        <ScalarProperty Name="IDSolicitud" ColumnName="IDSolicitud" />
+      </EndProperty>
+      <EndProperty Name="Persona">
+        <ScalarProperty Name="IDPersona" ColumnName="IDPersona" />
+      </EndProperty>
+      <Condition ColumnName="IDPersona" IsNull="false" />
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Cartas">
+      <EntityTypeMapping TypeName="BASE.Carta">
+        <MappingFragment StoreEntitySet="Carta">
+          <ScalarProperty Name="Consultable" ColumnName="Consultable" />
+          <ScalarProperty Name="FechaRechazo" ColumnName="FechaRechazo" />
+          <ScalarProperty Name="IDEmpleadoRechazo" ColumnName="IDEmpleadoRechazo" />
+          <ScalarProperty Name="IDPlantilla" ColumnName="IDPlantilla" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Cadena" ColumnName="Cadena" />
+          <ScalarProperty Name="IDSolicitud" ColumnName="IDSolicitud" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="NumeroExpediente" ColumnName="NumeroExpediente" />
+          <ScalarProperty Name="IDCarta" ColumnName="IDCarta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Precio">
+      <EntityTypeMapping TypeName="BASE.Precio">
+        <MappingFragment StoreEntitySet="Precio">
+          <ScalarProperty Name="EsPrecioActual" ColumnName="EsPrecioActual" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="IDPrecio" ColumnName="IDPrecio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PrecioCarta" TypeName="BASE.PrecioCarta" StoreEntitySet="PrecioCarta">
+      <EndProperty Name="Precio">
+        <ScalarProperty Name="IDPrecio" ColumnName="IDPrecio" />
+      </EndProperty>
+      <EndProperty Name="Carta">
+        <ScalarProperty Name="IDCarta" ColumnName="IDCarta" />
+      </EndProperty>
+      <Condition ColumnName="IDPrecio" IsNull="false" />
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Sancion">
+      <EntityTypeMapping TypeName="BASE.Sancion">
+        <MappingFragment StoreEntitySet="Sancion">
+          <ScalarProperty Name="FechaInscripcion" ColumnName="FechaInscripcion" />
+          <ScalarProperty Name="PeriodoFinal" ColumnName="PeriodoFinal" />
+          <ScalarProperty Name="PeriodoInicial" ColumnName="PeriodoInicial" />
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="EspecificarOtro" ColumnName="EspecificarOtro" />
+          <ScalarProperty Name="IDEntidad" ColumnName="IDEntidad" />
+          <ScalarProperty Name="TiempoDias" ColumnName="TiempoDias" />
+          <ScalarProperty Name="TiempoMeses" ColumnName="TiempoMeses" />
+          <ScalarProperty Name="TiempoAños" ColumnName="TiempoAños" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="FechaResolucion" ColumnName="FechaResolucion" />
+          <ScalarProperty Name="FechaEjecutoria" ColumnName="FechaEjecutoria" />
+          <ScalarProperty Name="NumeroExpediente" ColumnName="NumeroExpediente" />
+          <ScalarProperty Name="TipoSancion" ColumnName="TipoSancion" />
+          <ScalarProperty Name="IDSancion" ColumnName="IDSancion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CartaSancion" TypeName="BASE.CartaSancion" StoreEntitySet="CartaSancion">
+      <EndProperty Name="Sancion">
+        <ScalarProperty Name="IDSancion" ColumnName="IDSancion" />
+      </EndProperty>
+      <EndProperty Name="Carta">
+        <ScalarProperty Name="IDCarta" ColumnName="IDCarta" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonaSancion" TypeName="BASE.PersonaSancion" StoreEntitySet="PersonaSancion">
+      <EndProperty Name="Sancion">
+        <ScalarProperty Name="IDSancion" ColumnName="IDSancion" />
+      </EndProperty>
+      <EndProperty Name="Persona">
+        <ScalarProperty Name="IDPersona" ColumnName="IDPersona" />
+      </EndProperty>
+      <Condition ColumnName="IDPersona" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

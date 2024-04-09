@@ -1,0 +1,349 @@
+12/10/2016 02:05:07 p. m. ==> Nombre de usuario o contraseña incorrecta
+15/10/2016 10:51:51 a. m. ==> Error al guardar el/la Municipio
+15/10/2016 10:52:16 a. m. ==> Error al guardar el/la Municipio
+15/10/2016 11:08:39 a. m. ==> Error al guardar el/la Municipio
+15/10/2016 12:12:55 p. m. ==> Error al guardar el/la Municipio
+15/10/2016 12:13:03 p. m. ==> Error al guardar el/la Municipio
+19/10/2016 09:11:13 a. m. ==> Nombre de usuario o contraseña incorrecta
+19/10/2016 04:07:19 p. m. ==> Nombre de usuario o contraseña incorrecta
+19/10/2016 04:07:23 p. m. ==> Nombre de usuario o contraseña incorrecta
+19/10/2016 04:07:31 p. m. ==> Nombre de usuario o contraseña incorrecta
+20/10/2016 05:00:40 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:00:50 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:00:55 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:01:38 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:10:00 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:10:57 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:11:59 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:12:25 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:13:11 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:14:56 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 05:41:09 p. m. ==> Error al guardar el/la Colonia
+20/10/2016 06:01:12 p. m. ==> Error al guardar el/la Colonia
+21/10/2016 10:04:38 a. m. ==> Error al guardar el/la Colonia
+21/10/2016 10:05:34 a. m. ==> Error al guardar el/la Colonia
+31/10/2016 11:35:58 a. m. ==> Occurrio un error con la base de datos: An error occurred while preparing the command definition. See the inner exception for details.
+31/10/2016 11:36:01 a. m. ==> Occurrio un error con la base de datos: An error occurred while preparing the command definition. See the inner exception for details.
+31/10/2016 11:36:06 a. m. ==> Occurrio un error con la base de datos: An error occurred while preparing the command definition. See the inner exception for details.
+31/10/2016 11:36:10 a. m. ==> Occurrio un error con la base de datos: An error occurred while preparing the command definition. See the inner exception for details.
+31/10/2016 11:36:12 a. m. ==> Occurrio un error con la base de datos: An error occurred while preparing the command definition. See the inner exception for details.
+31/10/2016 03:47:31 p. m. ==> Nombre de usuario o contraseña incorrecta
+02/11/2016 01:52:47 p. m. ==> Error al guardar el/la Entidad
+02/11/2016 01:53:03 p. m. ==> Error al guardar el/la Entidad
+02/11/2016 01:55:14 p. m. ==> Error al guardar el/la Entidad
+04/11/2016 02:35:12 p. m. ==> Nombre de usuario o contraseña incorrecta
+07/11/2016 02:27:02 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:28:07 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:32:00 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:34:34 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:35:36 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:36:41 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:39:37 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:42:07 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:43:40 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 02:48:48 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 03:15:39 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 03:32:07 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 03:32:46 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 03:42:39 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 03:43:43 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 03:47:26 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 03:55:45 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 03:57:42 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 04:24:34 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 04:26:32 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 04:28:46 p. m. ==> Error al guardar el/la Solicitud
+07/11/2016 04:29:48 p. m. ==> Nombre de usuario o contraseña incorrecta
+07/11/2016 04:31:29 p. m. ==> Error al guardar el/la Solicitud
+15/11/2016 09:39:56 a. m. ==> Nombre de usuario o contraseña incorrecta
+15/11/2016 10:12:06 a. m. ==> Referencia a objeto no establecida como instancia de un objeto.
+15/11/2016 10:12:06 a. m. ==> Error al guardar el/la Empleado
+15/11/2016 10:12:44 a. m. ==> Referencia a objeto no establecida como instancia de un objeto.
+15/11/2016 10:12:44 a. m. ==> Error al guardar el/la Empleado
+15/11/2016 10:18:43 a. m. ==> An error occurred while updating the entries. See the inner exception for details.
+15/11/2016 10:18:43 a. m. ==> Error al guardar el/la Empleado
+15/11/2016 10:20:29 a. m. ==> An error occurred while updating the entries. See the inner exception for details.
+15/11/2016 10:20:29 a. m. ==> Error al guardar el/la Empleado
+15/11/2016 10:39:15 a. m. ==> An error occurred while updating the entries. See the inner exception for details.
+15/11/2016 10:39:15 a. m. ==> Error al guardar el/la Empleado
+15/11/2016 11:06:15 a. m. ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+15/11/2016 11:06:18 a. m. ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+15/11/2016 11:14:39 a. m. ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+15/11/2016 11:14:46 a. m. ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+15/11/2016 11:16:26 a. m. ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+15/11/2016 03:44:08 p. m. ==> Nombre de usuario o contraseña incorrecta
+15/11/2016 04:06:56 p. m. ==> Nombre de usuario o contraseña incorrecta
+15/11/2016 04:20:24 p. m. ==> Nombre de usuario o contraseña incorrecta
+15/11/2016 04:21:29 p. m. ==> Falló al habilitar el/la Rol
+15/11/2016 04:22:01 p. m. ==> Falló al habilitar el/la Rol
+15/11/2016 04:23:27 p. m. ==> Falló al habilitar el/la Rol
+15/11/2016 04:24:48 p. m. ==> Falló al habilitar el/la Rol
+15/11/2016 04:28:30 p. m. ==> Falló al habilitar el/la Rol
+15/11/2016 05:59:47 p. m. ==> Falló al deshabilitar el/la Entidad
+15/11/2016 05:59:54 p. m. ==> Falló al deshabilitar el/la Entidad
+15/11/2016 06:02:39 p. m. ==> Falló al deshabilitar el/la Entidad
+15/11/2016 06:02:45 p. m. ==> Falló al deshabilitar el/la Entidad
+15/11/2016 06:04:24 p. m. ==> Falló al deshabilitar el/la Entidad
+15/11/2016 06:04:33 p. m. ==> Falló al deshabilitar el/la Entidad
+15/11/2016 06:07:37 p. m. ==> Falló al deshabilitar el/la Entidad
+15/11/2016 06:09:53 p. m. ==> Falló al deshabilitar el/la Entidad
+16/11/2016 11:46:08 ==> Falló al habilitar el/la Puesto
+16/11/2016 18:15:24 ==> Error al guardar el/la Solicitud
+16/11/2016 18:20:00 ==> Error al guardar el/la Solicitud
+16/11/2016 18:20:57 ==> Nombre de usuario o contraseña incorrecta
+16/11/2016 18:21:49 ==> Error al guardar el/la Solicitud
+16/11/2016 18:26:00 ==> Error al guardar el/la Solicitud
+16/11/2016 18:29:05 ==> Error al guardar el/la Solicitud
+16/11/2016 18:31:21 ==> Error al guardar el/la Solicitud
+16/11/2016 18:33:05 ==> Error al guardar el/la Solicitud
+17/11/2016 12:45:02 ==> Falló al habilitar el/la Menú
+17/11/2016 12:49:48 ==> Falló al habilitar el/la Menú
+17/11/2016 12:51:35 ==> Falló al habilitar el/la Menú
+17/11/2016 18:07:20 ==> Error al guardar el/la Solicitud
+17/11/2016 18:08:27 ==> Error al guardar el/la Solicitud
+17/11/2016 18:12:04 ==> Error al guardar el/la Solicitud
+17/11/2016 18:15:45 ==> Error al guardar el/la Solicitud
+17/11/2016 18:16:19 ==> Error al guardar el/la Solicitud
+17/11/2016 18:23:09 ==> Error al guardar el/la Solicitud
+17/11/2016 18:31:09 ==> Error al guardar el/la Solicitud
+17/11/2016 18:35:14 ==> Error al guardar el/la Solicitud
+17/11/2016 18:40:39 ==> Error al guardar el/la Solicitud
+17/11/2016 18:44:41 ==> Error al guardar el/la Solicitud
+17/11/2016 18:52:41 ==> Error al guardar el/la Solicitud
+17/11/2016 18:53:29 ==> Error al guardar el/la Solicitud
+19/11/2016 12:49:50 ==> Error al guardar el/la Solicitud
+19/11/2016 12:51:08 ==> Error al guardar el/la Solicitud
+19/11/2016 12:57:02 ==> Error al guardar el/la Solicitud
+19/11/2016 13:23:36 ==> Error al guardar el/la Solicitud
+19/11/2016 13:31:30 ==> Error al guardar el/la Solicitud
+19/11/2016 13:32:27 ==> Error al guardar el/la Solicitud
+19/11/2016 13:33:44 ==> Error al guardar el/la Solicitud
+22/11/2016 11:56:28 ==> Error al guardar el/la Solicitud
+22/11/2016 12:06:38 ==> Error al guardar el/la Solicitud
+22/11/2016 12:12:29 ==> Error al guardar el/la Solicitud
+22/11/2016 12:14:50 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:12 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:15 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:18 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:20 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:25 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:26 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:28 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:34 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:37 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:38 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:38 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:38 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:39 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:39 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:39 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:39 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:39 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:39 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:40 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:40 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:40 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:40 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:44 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:45 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:45 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:46 ==> Error al guardar el/la Solicitud
+22/11/2016 12:15:52 ==> Error al guardar el/la Solicitud
+22/11/2016 12:17:17 ==> Error al guardar el/la Solicitud
+22/11/2016 12:18:00 ==> Error al guardar el/la Solicitud
+22/11/2016 12:18:38 ==> Error al guardar el/la Solicitud
+22/11/2016 12:18:55 ==> Error al guardar el/la Solicitud
+22/11/2016 12:19:30 ==> Error al guardar el/la Solicitud
+22/11/2016 12:20:21 ==> Error al guardar el/la Solicitud
+22/11/2016 12:24:09 ==> Error al guardar el/la Solicitud
+22/11/2016 15:20:29 ==> Error con el empleado a guardar
+22/11/2016 15:20:59 ==> Error con el empleado a guardar
+22/11/2016 15:52:26 ==> Error al guardar el/la Solicitud
+23/11/2016 14:24:22 ==> Nombre de usuario o contraseña incorrecta
+23/11/2016 14:24:24 ==> Nombre de usuario o contraseña incorrecta
+28/11/2016 17:11:34 ==> Occurrio un error con la base de datos: The underlying provider failed on Open.
+28/11/2016 17:12:35 ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+28/11/2016 17:14:28 ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+28/11/2016 17:17:13 ==> Occurrio un error con la base de datos: The underlying provider failed on Open.
+28/11/2016 17:18:42 ==> Occurrio un error con la base de datos: The underlying provider failed on Open.
+28/11/2016 17:24:55 ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+28/11/2016 17:29:32 ==> Occurrio un error con la base de datos: An error occurred while executing the command definition. See the inner exception for details.
+29/11/2016 11:21:25 ==> LINQ to Entities does not recognize the method 'System.Linq.IQueryable`1[Datos.Empleado] Distinct[Empleado](System.Linq.IQueryable`1[Datos.Empleado], System.Collections.Generic.IEqualityComparer`1[Datos.Empleado])' method, and this method cannot be translated into a store expression.
+29/11/2016 11:22:38 ==> LINQ to Entities does not recognize the method 'System.Linq.IQueryable`1[Datos.Empleado] Distinct[Empleado](System.Linq.IQueryable`1[Datos.Empleado], System.Collections.Generic.IEqualityComparer`1[Datos.Empleado])' method, and this method cannot be translated into a store expression.
+29/11/2016 11:23:34 ==> LINQ to Entities does not recognize the method 'System.Linq.IQueryable`1[Datos.Empleado] Distinct[Empleado](System.Linq.IQueryable`1[Datos.Empleado], System.Collections.Generic.IEqualityComparer`1[Datos.Empleado])' method, and this method cannot be translated into a store expression.
+29/11/2016 11:26:02 ==> LINQ to Entities does not recognize the method 'System.Linq.IQueryable`1[Datos.Empleado] Distinct[Empleado](System.Linq.IQueryable`1[Datos.Empleado], System.Collections.Generic.IEqualityComparer`1[Datos.Empleado])' method, and this method cannot be translated into a store expression.
+29/11/2016 15:06:51 ==> LINQ to Entities does not recognize the method 'System.Linq.IQueryable`1[Datos.Empleado] Distinct[Empleado](System.Linq.IQueryable`1[Datos.Empleado], System.Collections.Generic.IEqualityComparer`1[Datos.Empleado])' method, and this method cannot be translated into a store expression.
+29/11/2016 15:48:38 ==> An error occurred while updating the entries. See the inner exception for details.
+29/11/2016 15:48:38 ==> Error al guardar el/la Empleado
+29/11/2016 15:50:09 ==> An error occurred while updating the entries. See the inner exception for details.
+29/11/2016 15:50:09 ==> Error al guardar el/la Empleado
+29/11/2016 15:57:42 ==> The entity type HashSet`1 is not part of the model for the current context.
+29/11/2016 15:57:42 ==> Error al guardar el/la Empleado
+29/11/2016 16:05:55 ==> La secuencia contiene más de un elemento
+29/11/2016 16:19:48 ==> Nombre de usuario o contraseña incorrecta
+29/11/2016 16:19:53 ==> Nombre de usuario o contraseña incorrecta
+29/11/2016 16:25:11 ==> Nombre de usuario o contraseña incorrecta
+29/11/2016 16:25:14 ==> Nombre de usuario o contraseña incorrecta
+29/11/2016 16:25:45 ==> Nombre de usuario o contraseña incorrecta
+29/11/2016 16:28:50 ==> Nombre de usuario o contraseña incorrecta
+29/11/2016 19:11:25 ==> Error al guardar el/la Sanción
+29/11/2016 19:13:54 ==> Error al guardar el/la Sanción
+29/11/2016 19:15:53 ==> Error al guardar el/la Sanción
+29/11/2016 19:18:36 ==> Error al guardar el/la Sanción
+30/11/2016 12:23:30 ==> Error al guardar el/la Sanción
+30/11/2016 12:24:26 ==> Error al guardar el/la Sanción
+30/11/2016 14:42:57 ==> Occurrio un error con la base de datos: An error occurred while preparing the command definition. See the inner exception for details.
+30/11/2016 14:43:02 ==> Occurrio un error con la base de datos: An error occurred while preparing the command definition. See the inner exception for details.
+30/11/2016 14:43:55 ==> Occurrio un error con la base de datos: An error occurred while preparing the command definition. See the inner exception for details.
+1/12/2016 10:32:38 ==> Nombre de usuario o contraseña incorrecta
+1/12/2016 10:36:13 ==> Nombre de usuario o contraseña incorrecta
+1/12/2016 16:26:05 ==> No se admite el formato proporcionado de la ruta de acceso.
+1/12/2016 16:26:05 ==> Error al guardar el/la Empleado
+1/12/2016 16:34:13 ==> Error al guardar el/la Solicitud
+1/12/2016 16:43:31 ==> Error al guardar el/la Solicitud
+1/12/2016 16:53:41 ==> Error al guardar el/la Solicitud
+1/12/2016 16:54:27 ==> Error al guardar el/la Solicitud
+1/12/2016 16:56:17 ==> Error al guardar el/la Solicitud
+1/12/2016 16:58:38 ==> Error al guardar el/la Solicitud
+1/12/2016 17:00:16 ==> Error al guardar el/la Solicitud
+1/12/2016 17:02:01 ==> Error al guardar el/la Solicitud
+1/12/2016 17:07:14 ==> Error al guardar el/la Solicitud
+2/12/2016 14:52:47 ==> Error al guardar el/la Solicitud
+2/12/2016 14:55:06 ==> Error al guardar el/la Solicitud
+2/12/2016 14:55:58 ==> Error al guardar el/la Solicitud
+2/12/2016 14:58:51 ==> Error al guardar el/la Solicitud
+5/12/2016 17:36:00 ==> Nombre de usuario o contraseña incorrecta
+5/12/2016 18:38:05 ==> Error al guardar el/la Validación
+5/12/2016 18:38:33 ==> Error al guardar el/la Validación
+5/12/2016 18:41:18 ==> Error al guardar el/la Validación
+5/12/2016 18:42:16 ==> Error al guardar el/la Validación
+5/12/2016 18:42:28 ==> Error al guardar el/la Validación
+5/12/2016 18:42:51 ==> Error al guardar el/la Validación
+5/12/2016 18:44:20 ==> Error al guardar el/la Validación
+5/12/2016 18:46:43 ==> Error al guardar el/la Validación
+5/12/2016 18:50:31 ==> Error al guardar el/la Validación
+6/12/2016 17:57:39 ==> La contraseña es requerida.
+6/12/2016 18:01:04 ==> Error al guardar el/la Solicitud
+8/12/2016 10:22:43 ==> Error al guardar el/la Solicitud
+8/12/2016 10:25:41 ==> Error al guardar el/la Solicitud
+8/12/2016 10:44:54 ==> Error al guardar el/la Solicitud
+8/12/2016 10:51:38 ==> Error al guardar el/la Solicitud
+8/12/2016 10:53:35 ==> Error al guardar el/la Solicitud
+10/12/2016 11:42:33 ==> Nombre de usuario o contraseña incorrecta
+12/12/2016 12:40:26 ==> Nombre de usuario o contraseña incorrecta
+12/12/2016 16:33:23 ==> El nombre de usuario es requerido.
+14/12/2016 10:02:36 ==> Nombre de usuario o contraseña incorrecta
+14/12/2016 17:29:42 ==> Error al guardar el/la Solicitud
+14/12/2016 18:30:14 ==> No se admite el formato proporcionado de la ruta de acceso.
+14/12/2016 18:30:14 ==> No se admite el formato proporcionado de la ruta de acceso.
+14/12/2016 18:31:36 ==> No se admite el formato proporcionado de la ruta de acceso.
+14/12/2016 18:31:36 ==> No se admite el formato proporcionado de la ruta de acceso.
+14/12/2016 18:36:32 ==> No se admite el formato proporcionado de la ruta de acceso.
+14/12/2016 18:36:32 ==> No se admite el formato proporcionado de la ruta de acceso.
+15/12/2016 10:27:46 ==> Nombre de usuario o contraseña incorrecta
+15/12/2016 14:57:06 ==> Nombre de usuario o contraseña incorrecta
+15/12/2016 15:33:58 ==> Error al guardar el/la Sanción
+15/12/2016 18:14:25 ==> Error al guardar el/la Solicitud
+15/12/2016 18:16:12 ==> Error al guardar el/la Solicitud
+15/12/2016 18:16:15 ==> Error al guardar el/la Solicitud
+19/12/2016 09:36:04 ==> Nombre de usuario o contraseña incorrecta
+19/12/2016 10:11:07 ==> Nombre de usuario o contraseña incorrecta
+19/12/2016 10:12:22 ==> Error al guardar el/la Sanción
+19/12/2016 10:14:03 ==> Error al guardar el/la Sanción
+19/12/2016 10:14:38 ==> Error al guardar el/la Sanción
+19/12/2016 10:16:52 ==> Error al guardar el/la Sanción
+19/12/2016 10:22:45 ==> Error al guardar el/la Sanción
+19/12/2016 10:26:49 ==> Error al guardar el/la Sanción
+19/12/2016 10:28:20 ==> Error al guardar el/la Sanción
+19/12/2016 10:53:34 ==> Nombre de usuario o contraseña incorrecta
+19/12/2016 15:15:17 ==> Error al guardar el/la Validación
+19/12/2016 15:16:09 ==> Error al guardar el/la Validación
+19/12/2016 15:16:36 ==> Error al guardar el/la Validación
+19/12/2016 15:17:55 ==> Error al guardar el/la Validación
+19/12/2016 15:20:00 ==> Error al guardar el/la Validación
+19/12/2016 15:21:44 ==> Error al guardar el/la Validación
+19/12/2016 15:22:53 ==> Error al guardar el/la Validación
+19/12/2016 15:24:25 ==> Error al guardar el/la Validación
+19/12/2016 15:25:10 ==> Error al guardar el/la Validación
+20/12/2016 10:43:47 ==> La contraseña es requerida.
+20/12/2016 10:43:56 ==> Nombre de usuario o contraseña incorrecta
+20/12/2016 12:30:52 ==> Nombre de usuario o contraseña incorrecta
+20/12/2016 14:54:19 ==> Nombre de usuario o contraseña incorrecta
+20/12/2016 16:58:31 ==> Nombre de usuario o contraseña incorrecta
+20/12/2016 18:21:52 ==> Error al guardar el/la Validación
+5/1/2017 10:50:08 ==> Nombre de usuario o contraseña incorrecta
+11/1/2017 13:04:05 ==> Nombre de usuario o contraseña incorrecta
+11/1/2017 13:04:30 ==> Nombre de usuario o contraseña incorrecta
+12/1/2017 18:01:17 ==> Error al guardar el/la Solicitud
+19/1/2017 10:33:03 ==> Error al guardar el/la Solicitud
+26/1/2017 14:36:25 ==> Error al guardar el/la Solicitud
+26/1/2017 14:40:44 ==> Error al guardar el/la Solicitud
+26/1/2017 14:40:52 ==> Error al guardar el/la Solicitud
+26/1/2017 14:41:33 ==> Error al guardar el/la Solicitud
+2/2/2017 15:43:27 ==> An error occurred while updating the entries. See the inner exception for details.
+2/2/2017 15:43:27 ==> Error al guardar el/la Puesto
+07/02/2017 17:03:44 ==> Capcha incorrecto.
+07/02/2017 17:06:03 ==> Capcha incorrecto.
+07/02/2017 17:07:29 ==> Capcha incorrecto.
+07/02/2017 17:11:00 ==> Error al guardar el/la Solicitud
+07/02/2017 17:18:25 ==> Capcha inválido.
+07/02/2017 17:20:09 ==> Capcha inválido.
+07/02/2017 17:20:43 ==> Capcha inválido.
+07/02/2017 17:23:07 ==> Capcha inválido.
+07/02/2017 17:25:04 ==> Capcha inválido.
+07/02/2017 17:26:47 ==> Capcha inválido.
+07/02/2017 17:27:40 ==> Capcha inválido.
+07/02/2017 17:47:26 ==> Referencia a objeto no establecida como instancia de un objeto.
+07/02/2017 17:47:40 ==> Referencia a objeto no establecida como instancia de un objeto.
+07/02/2017 17:48:09 ==> Referencia a objeto no establecida como instancia de un objeto.
+07/02/2017 19:03:01 ==> Capcha inválido.
+28/02/2017 9:51:07 ==> Error al guardar el/la Solicitud
+01/03/2017 13:01:57 ==> La firma para ingresar es requerida.
+01/03/2017 01:02:07 p.m. ==> El nombre de usuario es requerido.
+01/03/2017 01:02:15 p.m. ==> La firma para ingresar es requerida.
+01/03/2017 01:02:17 p.m. ==> La firma para ingresar es requerida.
+01/03/2017 13:05:07 ==> La firma para ingresar es requerida.
+01/03/2017 13:05:35 ==> La firma para ingresar es requerida.
+01/03/2017 13:15:12 ==> La firma para ingresar es requerida.
+01/03/2017 13:15:19 ==> La firma para ingresar es requerida.
+01/03/2017 13:20:02 ==> La firma para ingresar es requerida.
+21/03/2017 17:51:43 ==> Error al guardar el/la Solicitud
+10/04/2017 10:52:27 a.m. ==> Server was unable to process request. ---> Value cannot be null.
+Parameter name: value
+10/04/2017 10:53:56 a.m. ==> Server was unable to process request. ---> Value cannot be null.
+Parameter name: value
+10/04/2017 10:55:56 a.m. ==> Server was unable to process request. ---> Value cannot be null.
+Parameter name: value
+10/04/2017 10:57:07 a.m. ==> Server was unable to process request. ---> Value cannot be null.
+Parameter name: value
+10/04/2017 11:39:49 a.m. ==> Server was unable to process request. ---> Value cannot be null.
+Parameter name: value
+15/05/2017 16:42:50 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:48:09 ==> Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+15/05/2017 16:48:09 ==> Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+15/05/2017 16:48:21 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:48:21 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:48:25 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:48:25 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:49:01 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:49:01 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:55:05 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:55:05 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:57:10 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 16:57:10 ==> An error occurred while updating the entries. See the inner exception for details.
+15/05/2017 17:01:12 ==> Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+15/05/2017 17:01:12 ==> Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+15/05/2017 17:01:50 ==> Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+15/05/2017 17:01:50 ==> Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+15/05/2017 17:02:48 ==> Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+15/05/2017 17:02:48 ==> Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+15/05/2017 17:07:26 ==> Referencia a objeto no establecida como instancia de un objeto.
+15/05/2017 17:07:26 ==> Referencia a objeto no establecida como instancia de un objeto.

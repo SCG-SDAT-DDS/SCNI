@@ -1,0 +1,708 @@
+﻿/*******************************************************/
+/****************** Tamaños General ********************/
+/*******************************************************/
+.min-h-30 {
+    min-height: 30px;
+}
+
+.min-h-40 {
+    min-height: 40px;
+}
+
+.min-h-50 {
+    min-height: 50px;
+}
+
+.background-gray {
+    background-color: #F3F3F4;
+}
+
+.background-black {
+    background-color: #000;
+}
+
+.background-white {
+    background-color: #FFF !important;
+}
+
+.div-centro {
+    margin: 0 auto;
+}
+
+.height-100per {
+    height: 100%;
+}
+
+#divCargando {
+    width: 100%;
+    background-color: #000;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    opacity: 0.6;
+    text-align: center;
+}
+
+    #divCargando:before {
+        content: ' ';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+
+    #divCargando #divCargandoElementos {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .f-z {
+        font-size: 35px!important;
+    }
+.bg-i {
+    background-color: #067460;
+    color: white;
+}
+
+.bg-e {
+    background-color: #ddd !important;
+}
+
+.br-c {
+    border-color: #d5d6d7 !important;
+}
+
+.bg-f {
+    background-color: #f0f0f0 !important;
+}
+
+.bx-s {
+    box-shadow: 0 0 2px 0px #7A6A6A !important;
+}
+.obligatorio {
+   color: #b00000 !important;
+}
+/*******************************************************/
+/****************** Padding General ********************/
+/*******************************************************/
+.p-internos-0 > div {
+    padding: 0 !important;
+}
+
+    .p-internos-0 > div div {
+        padding: 0;
+    }
+
+.p-lateral-0 {
+    padding: 0 !important;
+}
+
+.p-all-5 {
+    padding: 5px !important;
+}
+
+.p-all-10 {
+    padding: 10px !important;
+}
+
+.p-all-18 {
+    padding: 18px !important;
+}
+
+.p-all-20 {
+    padding: 20px !important;
+}
+
+.p-all-30 {
+    padding: 30px !important;
+}
+
+.p-all-40 {
+    padding: 41px !important;
+}
+
+.p-all-0 {
+    padding: 0 !important;
+}
+.p-r-0 {
+    padding-right: 0px !important;
+}
+.p-r-3 {
+    padding-right: 3px !important;
+}
+
+.p-r-5 {
+    padding-right: 5px !important;
+}
+
+.p-r-10 {
+    padding-right: 10px !important;
+}
+
+.p-r-15 {
+    padding-right: 15px !important;
+}
+
+.p-r-20 {
+    padding-right: 20px !important;
+}
+
+.p-r-25 {
+    padding-right: 25px !important;
+}
+
+.p-r-30 {
+    padding-right: 30px !important;
+}
+
+.p-l-3 {
+    padding-left: 3px !important;
+}
+
+.p-l-0 {
+    padding-left: 0px !important;
+}
+
+.p-l-5 {
+    padding-left: 5px !important;
+}
+
+.p-l-10 {
+    padding-left: 10px !important;
+}
+
+.p-l-15 {
+    padding-left: 15px !important;
+}
+
+.p-l-20 {
+    padding-left: 20px !important;
+}
+
+.p-l-25 {
+    padding-left: 25px !important;
+}
+
+.p-l-30 {
+    padding-left: 30px !important;
+}
+
+.p-t-0 {
+    padding-top: 0px !important;
+}
+
+.p-t-5 {
+    padding-top: 5px !important;
+}
+
+.p-t-10 {
+    padding-top: 10px !important;
+}
+
+.p-t-15 {
+    padding-top: 15px !important;
+}
+
+.p-t-20 {
+    padding-top: 20px !important;
+}
+
+.p-t-25 {
+    padding-top: 25px !important;
+}
+
+.p-t-30 {
+    padding-top: 30px !important;
+}
+
+.p-l-10 {
+    padding-left: 10px !important;
+}
+
+.p-l-20 {
+    padding-left: 20px !important;
+}
+
+.p-l-30 {
+    padding-left: 30px !important;
+}
+
+.p-all-15 {
+    padding: 15px !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0px !important;
+}
+
+.p-b-3 {
+    padding-bottom: 3px !important;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.p-b-10 {
+    padding-bottom: 10px !important;
+}
+
+.p-b-15 {
+    padding-bottom: 15px !important;
+}
+/*******************************************************/
+/****************** Margen General ********************/
+/*******************************************************/
+.m-xc-13 {
+    margin-left: 13% !important;
+    padding-left: 23px;
+}
+.m-b-internos-5 > div {
+    margin-bottom: 5px !important;
+}
+
+.m-all-10 {
+    margin: 10px !important;
+}
+
+.m-t-3 {
+    margin-top: 3px !Important;
+}
+
+.m-t-5 {
+    margin-top: 5px !Important;
+}
+
+.m-t-10 {
+    margin-top: 10px !Important;
+}
+.m-t-12 {
+    margin-top: 12px !Important;
+}
+.m-t-15 {
+    margin-top: 15px !Important;
+}
+
+.m-t-20 {
+    margin-top: 20px !Important;
+}
+
+.m-t-6 {
+    margin-top: 6px !Important;
+}
+
+.m-t-7 {
+    margin-top: 7px !Important;
+}
+
+.m-t-40 {
+    margin-top: 40px !Important;
+}
+
+.m-t-50 {
+    margin-top: 50px !Important;
+}
+
+.m-l-40 {
+    margin-left: 40px !important;
+}
+
+.m-l-20 {
+    margin-left: 40px !important;
+}
+
+.m-l-18 {
+    margin-left: 18px !important;
+}
+
+.m-l-10 {
+    margin-left: 10px !important;
+}
+
+
+.m-l-5 {
+    margin-left: 5px !important;
+}
+
+.m-r-20 {
+    margin-right: 20px !important;
+}
+
+.m-r-25 {
+    margin-right: 25px !important;
+}
+
+
+.m-r-40 {
+    margin-right: 40px !important;
+}
+
+.m-r-5 {
+    margin-right: 5px !important;
+}
+
+.m-b-3 {
+    margin-bottom: 3px !Important;
+}
+
+.m-b-5 {
+    margin-bottom: 5px !Important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px !Important;
+}
+
+.m-b-15 {
+    margin-bottom: 15px !Important;
+}
+
+.m-b-40 {
+    margin-bottom: 40px !Important;
+}
+
+.m-b-50 {
+    margin-bottom: 50px !Important;
+}
+
+.m-0 {
+    margin: 0 !Important;
+}
+
+.m-b-20 {
+    margin-bottom: 20px !important;
+}
+
+.m-b-30 {
+    margin-bottom: 30px !important;
+}
+
+.form-group-xxs {
+    margin-bottom: 5px;
+}
+
+.form-group-xs {
+    margin-bottom: 10px;
+}
+
+/*******************************************************/
+/****************** Border *****************************/
+/*******************************************************/
+
+.border {
+    border: 1px solid #F3F3F4;
+}
+
+.border-5 {
+    border: 5px solid #000000;
+}
+
+.border-2 {
+    border: 2px solid #BDBDBD;
+}
+
+.border-r {
+    border-right: 1px solid #BDBDBD;
+}
+
+.border-b {
+    border-bottom: 1px solid #F3F3F4;
+}
+
+/*******************************************************/
+/****************** Columnas****************************/
+/*******************************************************/
+.col-center {
+    text-align: center;
+}
+
+/*******************************************************/
+/****************** Fuentes****************************/
+/*******************************************************/
+
+.italica {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.no-bold {
+    font-weight: normal !important;
+}
+
+    .no-bold label {
+        font-weight: normal !important;
+    }
+
+.f-b-700 {
+    font-weight: 700 !Important;
+}
+
+.f-s-50 {
+    font-size: 50px;
+}
+
+.f-s-24 {
+    font-size: 24px;
+}
+
+.f-s-18 {
+    font-size: 18px;
+}
+
+.font-white {
+    color: #FFF;
+}
+
+.f-s-26 {
+    font-size: 26px;
+}
+
+.f-s-30 {
+    font-size: 30px;
+}
+
+.font-green {
+    color: #006400;
+}
+
+.font-primary {
+    color: #18A689;
+}
+
+.font-red {
+    color: #dc143c;
+}
+
+.font-black {
+    color: #4c4c4c;
+}
+
+.f-s-20em {
+    font-size: 20em !important;
+}
+
+.f-s-16em {
+    font-size: 16em !important;
+}
+
+.f-s-10em {
+    font-size: 13em !important;
+}
+
+.f-s-6em {
+    font-size: 6em !important;
+}
+
+.f-s-2em {
+    font-size: 2em !important;
+}
+
+.f-s-12 {
+    font-size: 12px;
+}
+
+.f-s-14 {
+    font-size: 14px;
+}
+
+.text-shadow-white {
+    text-shadow: 0 0 100px #FFF;
+}
+
+/*******************************************************/
+/****************** Componentes****************************/
+/*******************************************************/
+.fieldset-l-20 fieldset legend {
+    font-size: 18px;
+}
+
+.linea {
+    width: 100%;
+    border-top: 2px solid #eee;
+    float: left;
+    margin: 15px 0px;
+}
+
+.reloj {
+    font-size: 70px;
+    color: #7f7f7f;
+}
+
+.tarjeta {
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 0 0 10px #e7eaec;
+    display: table;
+    clear: both;
+    background-color: #FFF;
+}
+
+.activo {
+    background-color: #ffffff;
+    border-radius: 40%;
+}
+
+.tarjeta-lg {
+    width: 100%;
+    height: 580px;
+    padding: 0 0;
+    margin-top: 10px;
+    box-shadow: 0 0 10px #e7eaec;
+    display: table;
+    clear: both;
+    background-color: #FFF;
+}
+
+.tarjeta-titulo {
+    width: 100%;
+    height: auto;
+    width: 100%;
+    padding: 10px 10px;
+    display: table;
+    clear: both;
+}
+
+.tarjeta-cuerpo {
+    width: 100%;
+    min-height: 300px;
+    padding: 0 20px;
+}
+
+.tarjeta-renglon {
+    padding: 10px 20px;
+    min-height: 30px;
+    width: 100%;
+    display: table;
+    clear: both;
+    border-bottom: 1px dotted #a9a9a9;
+}
+
+.tarjeta-renglon-overflowy {
+    max-height: 300px;
+    overflow-y: auto;
+    display: block;
+}
+
+.tarjeta-V2 {
+    width: 100%;
+    padding: 15px 0px;
+    margin-top: 15px;
+}
+
+.btn-cambio-inicio {
+    font-size: 10px;
+    padding: 3px !important;
+}
+
+.img-90 {
+    width: 90%;
+}
+
+.img-80 {
+    width: 80%;
+}
+
+
+.img-100 {
+    width: 100px;
+    height: 100px;
+}
+
+.img-150 {
+    width: 150px;
+    height: 150px;
+}
+
+
+.img-200 {
+    width: 200px;
+    height: 200px;
+}
+
+.img-50px {
+    width: 50px;
+    height: 50px;
+}
+
+.img-50 {
+    width: 50%;
+}
+
+.img-100per {
+    width: 100%;
+}
+
+.img-60 {
+    width: 60%;
+}
+
+.acceso-si {
+    background-color: #d1e7d1;
+}
+
+.acceso-no {
+    background-color: #e4bfbf;
+}
+
+.opacity-8 {
+    opacity: 0.8;
+}
+
+.redondo {
+    border-radius: 100%;
+}
+
+th.headerSortUp {
+    background-image: url(../img/asc.gif) !important;
+    background-color: #f2f2f2 !important;
+}
+
+th.headerSortDown {
+    background-image: url(../img/desc.gif) !important;
+    background-color: #f2f2f2 !important;
+}
+
+th.header {
+    background-image: url(../img/bg.gif);
+    cursor: pointer;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-left: 20px;
+    border-right: 1px solid #dad9c7;
+    margin-left: -1px;
+}
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+.tree-view {
+    max-height: 300px;
+    /*overflow-y: scroll;*/
+    background-color: #F3F3F4;
+}
+
+.max-h-500 {
+    max-height: 500px;
+    overflow-y: scroll;
+    background-color: #F3F3F4;
+}
+
+.min-h-200 {
+    min-height: 200px;
+}
+
+.overflow-y {
+    overflow-y: auto;
+}
+
+.overflow-x {
+    overflow-x: auto;
+}

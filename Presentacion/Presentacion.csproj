@@ -1,0 +1,1314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{849BD891-E8F5-46DA-ABB2-F3C63D3F31B5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Presentacion</RootNamespace>
+    <AssemblyName>Presentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\FotosEmpleados\a3a23c42-a3e5-42e3-b567-330428e0a9c1.png" />
+    <Content Include="Archivos\Ocx\TSigner.cab" />
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.PdfSecureResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSACAutoRevocateX509Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSACDownloadX509Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSACRegisterPkcs10Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSCreatePdfEvidenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSCreatePdfEvidenceSecureResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSCreatePdfFromPkcs1NsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSCreatePdfResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSCreatePkcs7FromNsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSCreatePkcs7NoDocFromNsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSDecodeCertificateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSDownloadCertificateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSFromHtmlToPdfResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSFromHtmlToPdfSecureResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSGeneratePdfFromPkcs1NsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSGetNom151V2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSInformationOcspFromNsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSInformationTspFromNsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSNom151ForPkcs1NsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSPkcs7InformationFromNsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSPkcs7InformationStrFromNsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSReportDigestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSReportPkcs1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSReportPkcs7ExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSReportPkcs7Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSRequestNom151Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSRequestTsaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultAutoRevocateX509.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultCreatePkcs7NoDocFromNs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultDecodeCertificate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultDownloadX509.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultFromHtmlToPdf.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultGeneratePdfFromPkcs1Ns.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultGetNom151V2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultInformationOcspFromNs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultInformationTspFromNs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultNom151.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultNom151ForPkcs1Ns.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultPdfSecure.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultPkcs7InformationFromNs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultRegisterPkcs10.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultReportDigest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultReportPkcs1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultReportPkcs7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultSignCentral.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultTransfer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultTsa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultXmlState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSResultXmlVerifyState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSSignCentralResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSTransferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSTransformResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSTransState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebServiceProd\Presentacion.WebServiceProd.WSVerifyXmlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\WebServiceProd\webservice.wsdl" />
+    <None Include="Connected Services\WebService\configuration91.svcinfo" />
+    <None Include="Connected Services\WebService\configuration.svcinfo" />
+    <None Include="Connected Services\WebServiceProd\configuration91.svcinfo" />
+    <None Include="Connected Services\WebServiceProd\configuration.svcinfo" />
+    <None Include="Connected Services\WebServiceProd\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultAutoRevocateX509.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultCreatePkcs7NoDocFromNs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultDecodeCertificate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultDownloadX509.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultFromHtmlToPdf.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultInformationOcspFromNs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultInformationTspFromNs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultNom151.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultNom151ForPkcs1Ns.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultPdfSecure.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultPkcs7InformationFromNs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultRegisterPkcs10.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultReportDigest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultReportPkcs1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultReportPkcs7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultSignCentral.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultSVIFingers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultSVIRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultTransfer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultTsa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultXmlState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSResultXmlVerifyState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WebService\Presentacion.WebService.WSTransState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\WebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Areas\Catalogo\Views\Entidad\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Entidad\Guardar.cshtml" />
+    <Content Include="Areas\Solicitud\Views\Buscar\Index.cshtml" />
+    <Content Include="Content\bootstrap-datetimepicker-build.less" />
+    <Content Include="Areas\Catalogo\Views\Shared\Movimiento\_DetalleEntidad.cshtml" />
+    <Content Include="Areas\Sancionados\Views\web.config" />
+    <Content Include="Areas\Sancionados\Views\Sanciones\Guardar.cshtml" />
+    <Content Include="Areas\Sancionados\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sancionados\Views\Sanciones\Index.cshtml" />
+    <Content Include="Areas\Solicitud\Views\Validar\DatosPersona.cshtml" />
+    <Content Include="Areas\Solicitud\Views\Validar\Index.cshtml" />
+    <Content Include="Archivos\Certificados\RESP-SistemaPrueba-Cert01.cer" />
+    <Content Include="Archivos\Certificados\SisGesDoc.cer" />
+    <Content Include="Areas\Carta\Views\web.config" />
+    <Content Include="Areas\Carta\Views\Buscar\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Titulo\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Titulo\Guardar.cshtml" />
+    <Content Include="Areas\Sancionados\Views\Sanciones\GuardarFederal.cshtml" />
+    <Content Include="Areas\Sancionados\Views\Sanciones\BuscarFederales.cshtml" />
+    <Content Include="Areas\Reporte\Views\web.config" />
+    <Content Include="Areas\Reporte\Views\Constancias\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\Sanciones\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Plantilla\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Plantilla\Guardar.cshtml" />
+    <Content Include="Areas\Carta\Views\Precio\Index.cshtml" />
+    <Content Include="Archivos\Plantillas\0726aa7c-db56-48fe-a2f1-c8b5f999b0e8.docx" />
+    <Content Include="Archivos\Plantillas\19a702f6-fbdb-4bb4-9bfb-cb6235a3d676.docx" />
+    <Content Include="Archivos\Plantillas\2cd71d4f-0162-4def-a172-f37906913bec.docx" />
+    <Content Include="Archivos\Plantillas\39bab05a-b927-4090-9b4b-646bad9e06d7.docx" />
+    <Content Include="Archivos\Plantillas\466e809e-0d52-4e97-8a33-4a9bcd83ad77.docx" />
+    <Content Include="Archivos\Plantillas\5fa18028-6823-40c2-8e71-e25f6131a12d.docx" />
+    <Content Include="Archivos\Plantillas\b3cc3f61-26b3-4fc6-907d-a6a38053abb5.docx" />
+    <Content Include="Archivos\Plantillas\e8c84f9e-e156-4072-9abd-5be9cfacc61c.docx" />
+    <Content Include="WebService1.asmx" />
+    <None Include="Connected Services\WebService\webservice.wsdl" />
+    <None Include="Content\bootstrap\build_standalone.less" />
+    <Content Include="Content\css\actions.menu.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\arbol.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\Estilos.css" />
+    <Content Include="Content\css\fileinput.min.css" />
+    <Content Include="Content\css\flexboxgrid.min.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\general.css" />
+    <Content Include="Content\css\handsontable.full.css" />
+    <Content Include="Content\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\css\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Content\css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\css\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_666666_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\css\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Content\css\jquery-ui.min.css" />
+    <Content Include="Content\css\jquery-ui.theme.min.css" />
+    <Content Include="Content\css\multistep.css" />
+    <Content Include="Content\css\patterns\1.png" />
+    <Content Include="Content\css\patterns\2.png" />
+    <Content Include="Content\css\patterns\3.png" />
+    <Content Include="Content\css\patterns\4.png" />
+    <Content Include="Content\css\patterns\5.png" />
+    <Content Include="Content\css\patterns\6.png" />
+    <Content Include="Content\css\patterns\7.png" />
+    <Content Include="Content\css\patterns\congruent_pentagon.png" />
+    <Content Include="Content\css\patterns\header-profile-skin-1.png" />
+    <Content Include="Content\css\patterns\header-profile-skin-2.png" />
+    <Content Include="Content\css\patterns\header-profile-skin-3.png" />
+    <Content Include="Content\css\patterns\header-profile.png" />
+    <Content Include="Content\css\patterns\otis_redding.png" />
+    <Content Include="Content\css\patterns\shattered.png" />
+    <Content Include="Content\css\patterns\triangular.png" />
+    <Content Include="Content\css\plugins\awesome-bootstrap-checkbox\awesome-bootstrap-checkbox.css" />
+    <Content Include="Content\css\plugins\blueimp\css\blueimp-gallery-indicator.css" />
+    <Content Include="Content\css\plugins\blueimp\css\blueimp-gallery-video.css" />
+    <Content Include="Content\css\plugins\blueimp\css\blueimp-gallery.css" />
+    <Content Include="Content\css\plugins\blueimp\css\blueimp-gallery.min.css" />
+    <Content Include="Content\css\plugins\blueimp\css\demo.css" />
+    <Content Include="Content\css\plugins\blueimp\img\error.png" />
+    <Content Include="Content\css\plugins\blueimp\img\error.svg" />
+    <Content Include="Content\css\plugins\blueimp\img\loading.gif" />
+    <Content Include="Content\css\plugins\blueimp\img\play-pause.png" />
+    <Content Include="Content\css\plugins\blueimp\img\play-pause.svg" />
+    <Content Include="Content\css\plugins\blueimp\img\video-play.png" />
+    <Content Include="Content\css\plugins\blueimp\img\video-play.svg" />
+    <Content Include="Content\css\plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="Content\css\plugins\fullcalendar\fullcalendar.print.css" />
+    <Content Include="Content\css\plugins\iCheck\custom.css" />
+    <Content Include="Content\css\plugins\iCheck\green%402x.png" />
+    <Content Include="Content\css\plugins\iCheck\green.png" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\style.min.css" />
+    <Content Include="Content\css\Treant.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\!.png" />
+    <Content Include="Content\img\!2.png" />
+    <Content Include="Content\img\asc.gif" />
+    <Content Include="Content\img\bg.gif" />
+    <Content Include="Content\img\bkg_01.jpg" />
+    <Content Include="Content\img\desc.gif" />
+    <Content Include="Content\img\favicon.jpg" />
+    <Content Include="Content\img\gears-anim.gif" />
+    <Content Include="Content\img\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\img\ife_no.png" />
+    <Content Include="Content\img\ife_si.png" />
+    <Content Include="Content\img\institucional_1215x389.png" />
+    <Content Include="Content\img\loading-sm.gif" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\logo-inferior-der.png" />
+    <Content Include="Content\img\logo-inferior-izq.png" />
+    <Content Include="Content\img\logo-sonora-unidos-logramos-mas-01.png" />
+    <Content Include="Content\img\logo_01.png" />
+    <Content Include="Content\img\logo_01_.png" />
+    <Content Include="Content\img\logo_01_c.png" />
+    <Content Include="Content\img\logo_gasca.png" />
+    <Content Include="Content\img\logo_nayarit_1566x595.png" />
+    <Content Include="Content\img\logo_nayarit_2.png" />
+    <Content Include="Content\img\logo_nayarit_3.png" />
+    <Content Include="Content\img\pdf.png" />
+    <Content Include="Content\img\sin-imagen-disponible.jpg" />
+    <Content Include="Content\img\solicitudes\docs\no-document.png" />
+    <Content Include="Content\img\sonoraColores-01_400x113.png" />
+    <Content Include="Content\img\usuario.png" />
+    <Content Include="Content\js\Fecha.js" />
+    <Content Include="Content\js\fileinput.min.js" />
+    <Content Include="Content\js\fileinput_locale_es.js" />
+    <Content Include="Content\js\jquery-ui.min.js" />
+    <Content Include="Content\js\jquery.tablesorter.js" />
+    <Content Include="Content\js\knockout-2.2.0.js" />
+    <Content Include="Content\js\pagina.js" />
+    <Content Include="Content\js\plugins\blueimp\jquery.blueimp-gallery.min.js" />
+    <Content Include="Content\js\plugins\canvas-to-blob.min.js" />
+    <Content Include="Content\js\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Content\js\plugins\fullcalendar\lang-all.js" />
+    <Content Include="Content\js\plugins\fullcalendar\moment.min.js" />
+    <Content Include="Content\js\plugins\iCheck\icheck.min.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="Content\themes\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\blitzer\jquery-ui.css" />
+    <Content Include="Content\themes\blitzer\jquery-ui.min.css" />
+    <Content Include="Content\themes\blitzer\theme.css" />
+    <Content Include="Content\themes\flat\images\animated-overlay.gif" />
+    <Content Include="Content\themes\flat\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\flat\images\ui-bg_flat_55_fbf9ee_40x100.png" />
+    <Content Include="Content\themes\flat\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Content\themes\flat\images\ui-bg_flat_75_cccccc_40x100.png" />
+    <Content Include="Content\themes\flat\images\ui-bg_flat_75_dadada_40x100.png" />
+    <Content Include="Content\themes\flat\images\ui-bg_flat_75_e6e6e6_40x100.png" />
+    <Content Include="Content\themes\flat\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\flat\images\ui-bg_flat_95_fef1ec_40x100.png" />
+    <Content Include="Content\themes\flat\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\flat\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\flat\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\flat\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\flat\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\flat\jquery-ui-1.10.3.css" />
+    <Content Include="Content\themes\flat\jquery-ui-1.10.3.min.css" />
+    <Content Include="Content\themes\flat\jquery-ui.theme.css" />
+    <Content Include="Content\themes\flat\jquery-ui.theme.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Logs\LogErrores.txt" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CallInputFiles.js" />
+    <Content Include="Scripts\Fecha.js" />
+    <Content Include="Scripts\Fiel.js" />
+    <Content Include="Scripts\Firma.js" />
+    <Content Include="Scripts\firma\asn1\asn1-1.0.js" />
+    <Content Include="Scripts\firma\asn1\asn1.js" />
+    <Content Include="Scripts\firma\asn1\asn1hex-1.1.js" />
+    <Content Include="Scripts\firma\asn1\base64.js" />
+    <Content Include="Scripts\firma\cryptojs\crypto-1.1.js" />
+    <Content Include="Scripts\firma\cryptojs\enc-base64.js" />
+    <Content Include="Scripts\firma\cryptojs\pbkdf2.js" />
+    <Content Include="Scripts\firma\cryptojs\tripledes.js" />
+    <Content Include="Scripts\firma\forge\aes.js" />
+    <Content Include="Scripts\firma\forge\aesCipherSuites.js" />
+    <Content Include="Scripts\firma\forge\asn1.js" />
+    <Content Include="Scripts\firma\forge\cipher.js" />
+    <Content Include="Scripts\firma\forge\cipherModes.js" />
+    <Content Include="Scripts\firma\forge\debug.js" />
+    <Content Include="Scripts\firma\forge\des.js" />
+    <Content Include="Scripts\firma\forge\forge.js" />
+    <Content Include="Scripts\firma\forge\form.js" />
+    <Content Include="Scripts\firma\forge\hmac.js" />
+    <Content Include="Scripts\firma\forge\http.js" />
+    <Content Include="Scripts\firma\forge\jsbn.js" />
+    <Content Include="Scripts\firma\forge\kem.js" />
+    <Content Include="Scripts\firma\forge\log.js" />
+    <Content Include="Scripts\firma\forge\md.js" />
+    <Content Include="Scripts\firma\forge\md5.js" />
+    <Content Include="Scripts\firma\forge\mgf.js" />
+    <Content Include="Scripts\firma\forge\mgf1.js" />
+    <Content Include="Scripts\firma\forge\oids.js" />
+    <Content Include="Scripts\firma\forge\pbe.js" />
+    <Content Include="Scripts\firma\forge\pbkdf2.js" />
+    <Content Include="Scripts\firma\forge\pem.js" />
+    <Content Include="Scripts\firma\forge\pkcs1.js" />
+    <Content Include="Scripts\firma\forge\pkcs12.js" />
+    <Content Include="Scripts\firma\forge\pkcs7.js" />
+    <Content Include="Scripts\firma\forge\pkcs7asn1.js" />
+    <Content Include="Scripts\firma\forge\pki.js" />
+    <Content Include="Scripts\firma\forge\prime.js" />
+    <Content Include="Scripts\firma\forge\prime.worker.js" />
+    <Content Include="Scripts\firma\forge\prng.js" />
+    <Content Include="Scripts\firma\forge\pss.js" />
+    <Content Include="Scripts\firma\forge\random.js" />
+    <Content Include="Scripts\firma\forge\rc2.js" />
+    <Content Include="Scripts\firma\forge\rsa.js" />
+    <Content Include="Scripts\firma\forge\sha1.js" />
+    <Content Include="Scripts\firma\forge\sha256.js" />
+    <Content Include="Scripts\firma\forge\sha512.js" />
+    <Content Include="Scripts\firma\forge\socket.js" />
+    <Content Include="Scripts\firma\forge\ssh.js" />
+    <Content Include="Scripts\firma\forge\task.js" />
+    <Content Include="Scripts\firma\forge\tls.js" />
+    <Content Include="Scripts\firma\forge\tlssocket.js" />
+    <Content Include="Scripts\firma\forge\util.js" />
+    <Content Include="Scripts\firma\forge\x509.js" />
+    <Content Include="Scripts\firma\forge\xhr.js" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\firma\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\firma\jquery-1.7.1.js" />
+    <Content Include="Scripts\firma\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\firma\jsbn\jsbn.js" />
+    <Content Include="Scripts\firma\jsbn\jsbn2.js" />
+    <Content Include="Scripts\firma\jsrsasign\asn1-1.0.js" />
+    <Content Include="Scripts\firma\jsrsasign\base64.js" />
+    <Content Include="Scripts\firma\jsrsasign\crypto-1.1.js" />
+    <Content Include="Scripts\firma\jsrsasign\rsasign-1.2.js" />
+    <Content Include="Scripts\firma\jsrsasign\x509-1.1.js" />
+    <Content Include="Scripts\firma\rsa\rsa.js" />
+    <Content Include="Scripts\firma\rsa\rsa2.js" />
+    <Content Include="Scripts\firma\rsa\rsasign-1.2.js" />
+    <Content Include="Scripts\firma\rsa\SecureRandom.js" />
+    <Content Include="Scripts\firma\sjcl\sha1.js" />
+    <Content Include="Scripts\firma\sjcl\sjcl.js" />
+    <Content Include="Scripts\firma\yahoo\yahoo-min.js" />
+    <Content Include="Scripts\libs\actions.menu.js" />
+    <Content Include="Scripts\fileinput.min.js" />
+    <Content Include="Scripts\fileinput_locale_es.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.tablesorter.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\libs\bootstrap.js" />
+    <Content Include="Scripts\libs\bootstrap.min.js" />
+    <Content Include="Scripts\libs\Fecha.js" />
+    <Content Include="Scripts\libs\fileinput.min.js" />
+    <Content Include="Scripts\libs\fileinput_locale_es.js" />
+    <Content Include="Scripts\libs\functions.js" />
+    <Content Include="Scripts\libs\handsontable.full.js" />
+    <Content Include="Scripts\libs\inputmask.js" />
+    <Content Include="Scripts\libs\inputmask.numeric.extensions.js" />
+    <Content Include="Scripts\libs\inspinia.js" />
+    <Content Include="Areas\Test\Views\web.config" />
+    <Content Include="Areas\Catalogo\Views\web.config" />
+    <Content Include="Areas\Configuracion\Views\web.config" />
+    <Content Include="Areas\Catalogo\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Usuario\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Colonia\Delete.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Colonia\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Colonia\Guardar.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Empleado\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Empleado\Guardar.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Puesto\Create.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Puesto\Delete.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Puesto\Details.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Puesto\Edit.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Puesto\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Shared\Usuario\_DetallesUsuario.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Estado\Create.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Estado\Delete.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Estado\Details.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Estado\Edit.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Estado\Index.cshtml" />
+    <Content Include="Areas\Configuracion\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Menu\Guardar.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Usuario\CrearUsuario.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Rol\Index.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Rol\Guardar.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Estado\Guardar.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Municipio\Index.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Municipio\Guardar.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Shared\Menu\_TreeViewMenu.cshtml" />
+    <Content Include="Areas\Configuracion\Views\Shared\Menu\IconosMenu.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Puesto\Guardar.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Movimiento\Index.cshtml" />
+    <Content Include="Areas\Solicitud\Views\web.config" />
+    <Content Include="Areas\Solicitud\Views\Registro\Index.cshtml" />
+    <Content Include="Areas\Solicitud\Views\_ViewStart.cshtml" />
+    <Content Include="Content\bootstrap\wells.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\utilities.less" />
+    <Content Include="Content\bootstrap\type.less" />
+    <Content Include="Content\bootstrap\tooltip.less" />
+    <Content Include="Content\bootstrap\thumbnails.less" />
+    <Content Include="Content\bootstrap\theme.less" />
+    <Content Include="Content\bootstrap\tables.less" />
+    <Content Include="Content\bootstrap\scaffolding.less" />
+    <Content Include="Content\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\bootstrap\responsive-embed.less" />
+    <Content Include="Content\bootstrap\progress-bars.less" />
+    <Content Include="Content\bootstrap\print.less" />
+    <Content Include="Content\bootstrap\popovers.less" />
+    <Content Include="Content\bootstrap\panels.less" />
+    <Content Include="Content\bootstrap\pagination.less" />
+    <Content Include="Content\bootstrap\pager.less" />
+    <Content Include="Content\bootstrap\normalize.less" />
+    <Content Include="Content\bootstrap\navs.less" />
+    <Content Include="Content\bootstrap\navbar.less" />
+    <Content Include="Content\bootstrap\modals.less" />
+    <Content Include="Content\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap\mixins\table-row.less" />
+    <Content Include="Content\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap\mixins\size.less" />
+    <Content Include="Content\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap\mixins\resize.less" />
+    <Content Include="Content\bootstrap\mixins\reset-text.less" />
+    <Content Include="Content\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap\mixins\panels.less" />
+    <Content Include="Content\bootstrap\mixins\pagination.less" />
+    <Content Include="Content\bootstrap\mixins\opacity.less" />
+    <Content Include="Content\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap\mixins\list-group.less" />
+    <Content Include="Content\bootstrap\mixins\labels.less" />
+    <Content Include="Content\bootstrap\mixins\image.less" />
+    <Content Include="Content\bootstrap\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap\mixins\grid.less" />
+    <Content Include="Content\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap\mixins\gradients.less" />
+    <Content Include="Content\bootstrap\mixins\forms.less" />
+    <Content Include="Content\bootstrap\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap\mixins\center-block.less" />
+    <Content Include="Content\bootstrap\mixins\buttons.less" />
+    <Content Include="Content\bootstrap\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap\mixins\alerts.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Content\bootstrap\media.less" />
+    <Content Include="Content\bootstrap\list-group.less" />
+    <Content Include="Content\bootstrap\labels.less" />
+    <Content Include="Content\bootstrap\jumbotron.less" />
+    <Content Include="Content\bootstrap\input-groups.less" />
+    <Content Include="Content\bootstrap\grid.less" />
+    <Content Include="Content\bootstrap\glyphicons.less" />
+    <Content Include="Content\bootstrap\forms.less" />
+    <Content Include="Content\bootstrap\dropdowns.less" />
+    <Content Include="Content\bootstrap\component-animations.less" />
+    <Content Include="Content\bootstrap\code.less" />
+    <Content Include="Content\bootstrap\close.less" />
+    <Content Include="Content\bootstrap\carousel.less" />
+    <Content Include="Content\bootstrap\buttons.less" />
+    <Content Include="Content\bootstrap\button-groups.less" />
+    <Content Include="Content\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\bootstrap\bootstrap.less" />
+    <Content Include="Content\bootstrap\badges.less" />
+    <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\_bootstrap-datetimepicker.less" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Scripts\libs\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\libs\jquery-1.8.2.js" />
+    <Content Include="Scripts\libs\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\libs\jquery-2.1.1.js" />
+    <Content Include="Scripts\libs\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\libs\jquery-easing.js" />
+    <Content Include="Scripts\libs\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Scripts\libs\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\libs\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\libs\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\libs\jquery-ui.custom.min.js" />
+    <Content Include="Scripts\libs\jquery-ui.min.js" />
+    <Content Include="Scripts\libs\jquery.inputmask.js" />
+    <Content Include="Scripts\libs\jquery.tablesorter.js" />
+    <Content Include="Scripts\libs\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\libs\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\libs\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\libs\jquery.validate.js" />
+    <Content Include="Scripts\libs\jquery.validate.min.js" />
+    <Content Include="Scripts\libs\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\libs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\libs\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\libs\knockout-2.2.0.js" />
+    <Content Include="Scripts\libs\modernizr-2.6.2.js" />
+    <Content Include="Scripts\libs\multistep.js" />
+    <Content Include="Scripts\libs\pagina.js" />
+    <Content Include="Scripts\pagina.js" />
+    <None Include="Scripts\libs\_references.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\plugins\canvas-to-blob.min.js" />
+    <Content Include="Scripts\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Scripts\plugins\datepicker\datepicker.css" />
+    <Content Include="Scripts\plugins\flot\curvedLines.js" />
+    <Content Include="Scripts\plugins\flot\excanvas.min.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.spline.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.symbol.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.time.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Scripts\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Scripts\plugins\fullcalendar\lang-all.js" />
+    <Content Include="Scripts\plugins\fullcalendar\moment.min.js" />
+    <Content Include="Scripts\plugins\iCheck\icheck.min.js" />
+    <Content Include="Scripts\plugins\jquery.maskMoney.js" />
+    <Content Include="Scripts\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="Scripts\plugins\pace\pace.min.js" />
+    <Content Include="Scripts\plugins\slimscroll\jquery.slimscroll.js" />
+    <Content Include="Scripts\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\plugins\Treant\Treant.min.js" />
+    <Content Include="Scripts\plugins\Treant\vendor\jquery.easing.js" />
+    <Content Include="Scripts\plugins\Treant\vendor\jquery.min.js" />
+    <Content Include="Scripts\plugins\Treant\vendor\jquery.mousewheel.js" />
+    <Content Include="Scripts\plugins\Treant\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Scripts\plugins\Treant\vendor\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Scripts\plugins\Treant\vendor\raphael.js" />
+    <Content Include="Scripts\plugins\treeview\intro.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.changed.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.checkbox.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.conditionalselect.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.contextmenu.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.dnd.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.massload.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.search.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.sort.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.state.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.types.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.unique.js" />
+    <Content Include="Scripts\plugins\treeview\jstree.wholerow.js" />
+    <Content Include="Scripts\plugins\treeview\misc.js" />
+    <Content Include="Scripts\plugins\treeview\outro.js" />
+    <Content Include="Scripts\plugins\treeview\sample.js" />
+    <Content Include="Scripts\plugins\treeview\themes\default-dark\32px.png" />
+    <Content Include="Scripts\plugins\treeview\themes\default-dark\40px.png" />
+    <Content Include="Scripts\plugins\treeview\themes\default-dark\style.css" />
+    <Content Include="Scripts\plugins\treeview\themes\default-dark\throbber.gif" />
+    <Content Include="Scripts\plugins\treeview\themes\default\32px.png" />
+    <Content Include="Scripts\plugins\treeview\themes\default\40px.png" />
+    <Content Include="Scripts\plugins\treeview\themes\default\style.css" />
+    <Content Include="Scripts\plugins\treeview\themes\default\throbber.gif" />
+    <Content Include="Scripts\plugins\treeview\vakata-jstree.js" />
+    <Content Include="Scripts\ValidacionInputs.js" />
+    <Content Include="Views\Login\firma\asn1\asn1-1.0.js" />
+    <Content Include="Views\Login\firma\asn1\asn1.js" />
+    <Content Include="Views\Login\firma\asn1\asn1hex-1.1.js" />
+    <Content Include="Views\Login\firma\asn1\base64.js" />
+    <Content Include="Views\Login\firma\cryptojs\crypto-1.1.js" />
+    <Content Include="Views\Login\firma\cryptojs\enc-base64.js" />
+    <Content Include="Views\Login\firma\cryptojs\pbkdf2.js" />
+    <Content Include="Views\Login\firma\cryptojs\tripledes.js" />
+    <Content Include="Views\Login\firma\forge\aes.js" />
+    <Content Include="Views\Login\firma\forge\aesCipherSuites.js" />
+    <Content Include="Views\Login\firma\forge\asn1.js" />
+    <Content Include="Views\Login\firma\forge\cipher.js" />
+    <Content Include="Views\Login\firma\forge\cipherModes.js" />
+    <Content Include="Views\Login\firma\forge\debug.js" />
+    <Content Include="Views\Login\firma\forge\des.js" />
+    <Content Include="Views\Login\firma\forge\forge.js" />
+    <Content Include="Views\Login\firma\forge\form.js" />
+    <Content Include="Views\Login\firma\forge\hmac.js" />
+    <Content Include="Views\Login\firma\forge\http.js" />
+    <Content Include="Views\Login\firma\forge\jsbn.js" />
+    <Content Include="Views\Login\firma\forge\kem.js" />
+    <Content Include="Views\Login\firma\forge\log.js" />
+    <Content Include="Views\Login\firma\forge\md.js" />
+    <Content Include="Views\Login\firma\forge\md5.js" />
+    <Content Include="Views\Login\firma\forge\mgf.js" />
+    <Content Include="Views\Login\firma\forge\mgf1.js" />
+    <Content Include="Views\Login\firma\forge\oids.js" />
+    <Content Include="Views\Login\firma\forge\pbe.js" />
+    <Content Include="Views\Login\firma\forge\pbkdf2.js" />
+    <Content Include="Views\Login\firma\forge\pem.js" />
+    <Content Include="Views\Login\firma\forge\pkcs1.js" />
+    <Content Include="Views\Login\firma\forge\pkcs12.js" />
+    <Content Include="Views\Login\firma\forge\pkcs7.js" />
+    <Content Include="Views\Login\firma\forge\pkcs7asn1.js" />
+    <Content Include="Views\Login\firma\forge\pki.js" />
+    <Content Include="Views\Login\firma\forge\prime.js" />
+    <Content Include="Views\Login\firma\forge\prime.worker.js" />
+    <Content Include="Views\Login\firma\forge\prng.js" />
+    <Content Include="Views\Login\firma\forge\pss.js" />
+    <Content Include="Views\Login\firma\forge\random.js" />
+    <Content Include="Views\Login\firma\forge\rc2.js" />
+    <Content Include="Views\Login\firma\forge\rsa.js" />
+    <Content Include="Views\Login\firma\forge\sha1.js" />
+    <Content Include="Views\Login\firma\forge\sha256.js" />
+    <Content Include="Views\Login\firma\forge\sha512.js" />
+    <Content Include="Views\Login\firma\forge\socket.js" />
+    <Content Include="Views\Login\firma\forge\ssh.js" />
+    <Content Include="Views\Login\firma\forge\task.js" />
+    <Content Include="Views\Login\firma\forge\tls.js" />
+    <Content Include="Views\Login\firma\forge\tlssocket.js" />
+    <Content Include="Views\Login\firma\forge\util.js" />
+    <Content Include="Views\Login\firma\forge\x509.js" />
+    <Content Include="Views\Login\firma\forge\xhr.js" />
+    <Content Include="Scripts\firma\Controlador.ashx" />
+    <None Include="Views\Login\firma\jquery-1.7.1.intellisense.js" />
+    <Content Include="Views\Login\firma\jquery-1.7.1.js" />
+    <Content Include="Views\Login\firma\jquery-1.7.1.min.js" />
+    <Content Include="Views\Login\firma\jsbn\jsbn.js" />
+    <Content Include="Views\Login\firma\jsbn\jsbn2.js" />
+    <Content Include="Views\Login\firma\jsrsasign\asn1-1.0.js" />
+    <Content Include="Views\Login\firma\jsrsasign\base64.js" />
+    <Content Include="Views\Login\firma\jsrsasign\crypto-1.1.js" />
+    <Content Include="Views\Login\firma\jsrsasign\rsasign-1.2.js" />
+    <Content Include="Views\Login\firma\jsrsasign\x509-1.1.js" />
+    <Content Include="Views\Login\firma\rsa\rsa.js" />
+    <Content Include="Views\Login\firma\rsa\rsa2.js" />
+    <Content Include="Views\Login\firma\rsa\rsasign-1.2.js" />
+    <Content Include="Views\Login\firma\rsa\SecureRandom.js" />
+    <Content Include="Views\Login\firma\sjcl\sha1.js" />
+    <Content Include="Views\Login\firma\sjcl\sjcl.js" />
+    <Content Include="Views\Login\firma\yahoo\yahoo-min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\plugins\treeview\themes\base.less" />
+    <Content Include="Scripts\plugins\treeview\themes\default-dark\style.less" />
+    <Content Include="Scripts\plugins\treeview\themes\default\style.less" />
+    <Content Include="Scripts\plugins\treeview\themes\main.less" />
+    <Content Include="Scripts\plugins\treeview\themes\mixins.less" />
+    <Content Include="Scripts\plugins\treeview\themes\responsive.less" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\Layouts\_LayoutLogin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Controller.cs" />
+    <Compile Include="App_GlobalResources\ExpresionesRegulares.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpresionesRegulares.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\General1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Carta\Controllers\BuscarController.cs" />
+    <Compile Include="Areas\Carta\CartaAreaRegistration.cs" />
+    <Compile Include="Areas\Carta\Controllers\CustomRedirectController .cs" />
+    <Compile Include="Areas\Carta\Controllers\PrecioController.cs" />
+    <Compile Include="Areas\Catalogo\CatalogoAreaRegistration.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\ColoniaController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\EntidadController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\EstadoController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\EmpleadoController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\MovimientoController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\MunicipioController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\PlantillaController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\PuestoController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\TituloController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\ConstanciasController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\SancionesController.cs" />
+    <Compile Include="Areas\Reporte\ReporteAreaRegistration.cs" />
+    <Compile Include="Areas\Sancionados\Controllers\SancionesController.cs" />
+    <Compile Include="Areas\Catalogo\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Catalogo\Models\EstadoModelo.cs" />
+    <Compile Include="Areas\Catalogo\Models\ViewModels\EstadoViewModel.cs" />
+    <Compile Include="Areas\Configuracion\ConfiguracionAreaRegistration.cs" />
+    <Compile Include="Areas\Configuracion\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Configuracion\Controllers\RolController.cs" />
+    <Compile Include="Areas\Sancionados\SancionadosAreaRegistration.cs" />
+    <Compile Include="Areas\Solicitud\Controllers\BuscarController.cs" />
+    <Compile Include="Areas\Solicitud\Controllers\PersonaController.cs" />
+    <Compile Include="Areas\Solicitud\Controllers\RegistroController.cs" />
+    <Compile Include="Areas\Solicitud\Controllers\ValidarController.cs" />
+    <Compile Include="Areas\Solicitud\SolicitudAreaRegistration.cs" />
+    <Compile Include="Areas\Test\TestAreaRegistration.cs" />
+    <Compile Include="Connected Services\WebServiceProd\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ControladorBase.cs" />
+    <Compile Include="Controllers\ControladorController.cs" />
+    <Compile Include="Controllers\DescargarController.cs" />
+    <Compile Include="Controllers\CustomRedirectController .cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SolicitudWebController.cs" />
+    <Compile Include="Controllers\ValidacionController.cs" />
+    <Compile Include="Fabrica\Factory.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ActionLinkPersonalizado.cs" />
+    <Compile Include="Helpers\ColoniaDropDownList.cs" />
+    <Compile Include="Helpers\EntidadDropDownList.cs" />
+    <Compile Include="Helpers\HiddenPersonalizado.cs" />
+    <Compile Include="Helpers\MunicipioDropDownList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\mx.gob.sonora.serviciosfirmaProd\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebService1.asmx.cs">
+      <DependentUpon>WebService1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Layouts\_Layout.cshtml" />
+    <Content Include="Views\Inicio\Index.cshtml" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\img\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\img\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\img\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Shared\Menus\_Menu.cshtml" />
+    <Content Include="Views\Shared\Controls\_ModalHabilitar.cshtml" />
+    <Content Include="Views\Shared\Controls\_MunicipioDdl.cshtml" />
+    <Content Include="Views\Shared\Controls\_Paginacion.cshtml" />
+    <Content Include="Views\Shared\Controls\_Alerta.cshtml" />
+    <Content Include="Views\Shared\_MunicipioDdl.cshtml" />
+    <Content Include="Views\Shared\_Paginacion.cshtml" />
+    <Content Include="Views\Shared\Empleado\_DetallesEmpleado.cshtml" />
+    <Content Include="Views\Shared\Empleado\_GuardarEmpleado.cshtml" />
+    <Content Include="Areas\Catalogo\Views\Empleado\Calendario.cshtml" />
+    <Content Include="Views\Shared\_ColoniaDdl.cshtml" />
+    <Content Include="Views\Error\Error404.cshtml" />
+    <Content Include="Views\Shared\_ModalHabilitar.cshtml" />
+    <Content Include="Views\Login\SolicitarContrasena.cshtml" />
+    <Content Include="Views\Login\RestablecerContrasena.cshtml" />
+    <Content Include="Views\Shared\_EntidadDdl.cshtml" />
+    <Content Include="Views\Shared\Layouts\_LayoutSolicitudWeb.cshtml" />
+    <Content Include="Views\SolicitudWeb\Index.cshtml" />
+    <Content Include="Views\SolicitudWeb\Ciudadano.cshtml" />
+    <Content Include="Views\SolicitudWeb\Entidad.cshtml" />
+    <Content Include="Views\Validacion\Index.cshtml" />
+    <Content Include="Views\Shared\Layouts\_LayoutValidacion.cshtml" />
+    <Content Include="Views\Validacion\Constancia.cshtml" />
+    <Content Include="Views\SolicitudWeb\Buscar.cshtml" />
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\mx.gob.sonora.serviciosfirmaProd\webservice.wsdl" />
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultAutoRevocateX509.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultCreatePkcs7NoDocFromNs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultDecodeCertificate.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultDownloadX509.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultFromHtmlToPdf.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultGeneratePdfFromPkcs1Ns.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultGetNom151V2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultInformationOcspFromNs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultInformationTspFromNs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultNom151.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultNom151ForPkcs1Ns.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultPdfSecure.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultPkcs7InformationFromNs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultRegisterPkcs10.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultReportDigest.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultReportPkcs1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultReportPkcs7.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultSignCentral.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultTransfer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultTsa.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultXmlState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSResultXmlVerifyState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\mx.gob.sonora.serviciosfirmaProd\WSTransState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="App_WebReferences\" />
+    <Folder Include="Archivos\Documentos\" />
+    <Folder Include="Archivos\Firmas\" />
+    <Folder Include="Archivos\FotosUsuarios\" />
+    <Folder Include="Archivos\Xml\" />
+    <Folder Include="Areas\Catalogo\Views\Sanciones\" />
+    <Folder Include="Areas\Configuracion\Models\" />
+    <Folder Include="Areas\Reporte\Models\" />
+    <Folder Include="Areas\Reporte\Views\Shared\" />
+    <Folder Include="Areas\Sancionados\Models\" />
+    <Folder Include="Areas\Sancionados\Views\Shared\" />
+    <Folder Include="Areas\Solicitud\Models\" />
+    <Folder Include="Areas\Solicitud\Views\Persona\" />
+    <Folder Include="Areas\Solicitud\Views\Shared\" />
+    <Folder Include="Areas\Test\Controllers\" />
+    <Folder Include="Areas\Test\Models\" />
+    <Folder Include="Areas\Test\Views\Shared\" />
+    <Folder Include="Content\build\" />
+    <Folder Include="Models\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\Controlador\" />
+    <Folder Include="Views\Descargar\" />
+    <Folder Include="Views\Firma\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{cba8aaf3-8f8b-4efc-87b7-0872ee91d432}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{626ab802-78b6-4ff1-bfc7-d5230edc6576}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sistema\Sistema.csproj">
+      <Project>{e8e0ab35-79c0-4e3f-9d49-d09f6c21c27c}</Project>
+      <Name>Sistema</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\General.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>General1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\ExpresionesRegulares.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ExpresionesRegulares.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WebServiceProd\" />
+    <WCFMetadataStorage Include="Connected Services\WebService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://serviciosfirma.sonora.gob.mx/wspsfiel/webservice.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\mx.gob.sonora.serviciosfirmaProd\</RelPath>
+      <UpdateFromURL>https://serviciosfirma.sonora.gob.mx/wspsfiel/webservice.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Presentacion_mx_gob_sonora_serviciosfirmaProd_WebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54926</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54927/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,209 @@
+﻿@using Datos.Recursos
+@using Sistema
+@using Sistema.Extensiones
+
+@model Datos.DTO.Infraestructura.ViewModels.PrecioViewModel
+
+@{
+    ViewBag.Title = "Precio";
+    Layout = "~/Views/Shared/Layouts/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="ibox bx-s">
+        <div class="ibox-content p-l-20 p-r-10 bg-f">
+            <div class="row">
+                <div class="col-xs-12 p-all-0">
+                    @{ Html.EnableClientValidation(false); }
+
+                    <div class="col-xs-12 m-t-10">
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-sm btn-info" id="btnNuevoPrecioActual">Nuevo Precio Actual</button>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 m-t-20 p-internos-0 m-b-5">
+                        <div class="col-xs-4 bold">
+                            @Html.DropDownListFor(m => m.TamanoPagina, Listas.ObtenerListaCantidadPagina())
+                            @General.TamanoPagina
+                        </div>
+                        <div class="col-xs-4">
+                            
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <label class="label label-success">
+                                @General.Encontrados: @Model.TotalEncontrados
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped" id="tblBusqueda">
+                                <thead>
+                                <tr>
+                                    <th>Precio</th>
+                                    <th>Fecha</th>
+                                    <th class="text-center">Precio Actual</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model?.Precios?.Count > 0)
+                                    {
+                                        foreach (var precio in Model?.Precios)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    $ @(precio.Valor % 1 == 0 ? precio.Valor + ".00" : precio.Valor.ToString().PadRight(precio.Valor.ToString().Length + 1, '0')) 
+                                                </td>
+                                                <td>@precio.FechaCreacion.ToString().AddSpaceBeforeUpper()</td>
+                                                <td class="text-center">
+                                                    <i class="fa fa-@(precio.EsPrecioActual ? "check text-success" : "times text-danger")"></i>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            @Html.Partial("Controls/_Paginacion", Model)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mdlAsignarPrecio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">
+                        <label>Asignar Precio</label>
+                    </h3>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="col-md-12 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3 col-xs-12">
+                                <span class="bold">Precio:</span>
+                            </div>
+                            <div class="col-md-9 col-xs-12">
+                                <div class="input-group">
+                                    <input type="number" class="form-control m-t-0" name="PrecioGlobal" id="PrecioGlobal" value="0.00" step="0.10" min="0.00" />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-dollar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnAsignarPrecioSeleccion" class="btn btn-default" tabindex="2">@General.Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlModificarPrecio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">
+                        <label>Asignar Precio</label>
+                        <input type="hidden" id="hdfIDCartaModificar" value="" />
+                    </h3>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="col-md-12 form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3 col-xs-12">
+                                <span class="bold">Precio:</span>
+                            </div>
+                            <div class="col-md-9 col-xs-12">
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-sm" id="txtModificarPrecio" name="PrecioCarta" value="0.00" step="0.10" />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-dollar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnModificarPrecio" class="btn btn-default" tabindex="2">@General.Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section FooterScripts
+{
+    <script type="text/javascript">
+        window.MostrarDivCargando = false;
+
+        $(document).ready(function () {
+            $("#btnNuevoPrecioActual").on("click", function () {
+                $('#mdlAsignarPrecio').modal('show');
+            });
+
+            $("#todasConstancias").click(function (e) {
+                e.preventDefault();
+                $("#tblBusqueda input[type=checkbox]").prop('checked', true);
+            });
+
+            $("#ningunaConstancia").click(function (e) {
+                e.preventDefault();
+                $("#tblBusqueda input[type=checkbox]").prop('checked', false);
+            });
+
+            $("#FechaInicio, #FechaFin").datepicker({
+                language: "es",
+
+                keyboardNavigation: true,
+                forceParse: false,
+                calendarWeeks: true,
+
+                viewMode: 1,
+                daysOfWeekHighlighted: "1,2,3,4,5",
+                today: "linked",
+                format: 'dd/mm/yyyy', autoclose: true
+            }).on('changeDate', function (ev) {
+                (ev.viewMode == 'days') ? $(this).datepicker('hide') : '';
+            });
+
+            $("#btnAsignarPrecioSeleccion").on("click", function () {
+
+                var precio = $("#PrecioGlobal").val();
+
+                if (precio > 0) {
+                    $.ajax({
+                        data: JSON.stringify({ "precio": precio }),
+                        dataType: "json",
+                        contentType: "application/json",
+                        type: "POST",
+                        url: '@Url.Action("AsignarPrecioTodos", "Precio", new { area = "Carta" })',
+                        beforeSend: function () {
+                        },
+                        success: function (data) {
+                            if (data.success) {
+                                window.location.reload();
+                            }
+                        },
+                        error: function (error) {
+                            CerrarDivCargando();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

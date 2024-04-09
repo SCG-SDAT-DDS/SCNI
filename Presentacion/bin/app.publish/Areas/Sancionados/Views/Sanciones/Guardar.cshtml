@@ -1,0 +1,787 @@
+﻿@using Datos
+@using Datos.Recursos
+
+@using Sistema
+
+@model Datos.DTO.Infraestructura.ViewModels.SancionViewModel
+
+@{
+    ViewBag.Title = "Guardar";
+    Layout = "~/Views/Shared/Layouts/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="ibox bx-s">
+        <div class="ibox-title bg-f ">
+            <h4>REGISTRO DE SANCIÓN</h4>
+        </div>
+    <div class="ibox-content p-l-20 p-r-10 bg-f br-c">
+    
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12">
+                <h4>Datos de la Sanción</h4>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5 p-t-5">
+                    <label for="Sancion_Tipo"><strong class="obligatorio">*</strong>Origen:</label>
+                </div>
+                <div class="col-md-7">
+                    @Html.DropDownListFor(m => m.Sancion.Tipo, Listas.ObtenerListaTipoSancionEstatal(), new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0" hidden id="especificar">
+                <div class="col-md-5 p-t-5">
+                    <label for="Sancion_EspecificarOtro">Especificar:</label>
+                </div>
+                <div class="col-md-7">
+                    @*@if (Model.Sancion.EspecificarOtro == null)
+                {
+                    @Html.TextBoxFor(m => m.Sancion.EspecificarOtro, new { @class = "form-control input-sm txtEs", @disabled = true })
+                }
+                else
+                {*@
+                    @Html.TextBoxFor(m => m.Sancion.EspecificarOtro, new { @class = "form-control input-sm txtEs", @maxlength = 200 })
+                    @*}*@
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5 col-xs-12 p-t-5">
+                    <label for="Sancion_NumeroExpediente"><strong class="obligatorio">*</strong>Número de Expediente:</label>
+                </div>
+                <div class="col-md-7 col-xs-12">
+                    @Html.TextBoxFor(m => m.Sancion.NumeroExpediente, new { @class = "form-control input-sm uppercase", @maxlength = 20 })
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5 p-t-5">
+                    <label for="Sancion_FechaEjecutoria">Fecha de Ejecutoría:</label>
+                </div>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Sancion.FechaEjecutoria, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @id = "fecha_ejecutoria", @maxlength = 10 })
+                        <label for="fecha_ejecutoria" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5 p-t-5">
+                    <label for="Fecha_Resolucion">Fecha de Resolución:</label>
+                </div>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Sancion.FechaResolucion, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @id = "fecha_resolucion", @maxlength = 10 })
+                        <label for="fecha_resolucion" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5 p-t-5">
+                    <label for="Fecha_Resolucion">Fecha de Inscripción:</label>
+                </div>
+                <div class="col-md-7">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Sancion.FechaInscripcion, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @id = "fecha_inscripcion", @maxlength = 10 })
+                        <label for="fecha_inscripcion" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5 p-t-5">
+                    <label for="Sancion_Año">Año de la sanción:</label>
+                </div>
+                <div class="col-md-7">
+                    @*@Html.TextBoxFor(m => m.Sancion.Año, new { @class = "form-control input-sm" })*@
+                    @Html.DropDownListFor(m => m.Sancion.Año, Listas.ObtenerListaAños(false), new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5 p-t-5">
+                    <label for="Sancion_TipoSancion">Tipo de sanción:</label>
+                </div>
+                <div class="col-md-7">
+                    @Html.DropDownListFor(m => m.Sancion.TipoSancion, Listas.ObtenerListaSancionesEstatal(), new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0" hidden id="div_monto">
+                <div class="col-md-5 p-t-5">
+                    <label for="Sancion_Monto"><strong class="obligatorio">*</strong>Monto de la sanción:</label>
+                </div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(m => m.Sancion.Monto, new { @class = "form-control input-sm", @onkeypress = "return soloNumeros(event)", @maxlength = 13 })
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0" hidden id="div_tiempo">
+                <div class="col-md-5 p-t-5">
+                    <label><strong class="obligatorio">*</strong>Tiempo de la sanción:</label>
+                </div>
+                <div class="col-md-3">
+                    @*@Html.TextBoxFor(m => m.Sancion.TiempoAños, new { @class = "form-control input-sm" })*@
+                    @Html.DropDownListFor(m => m.Sancion.TiempoAños, Listas.ObtenerListaNumerica(0, 100), new { @class = "form-control input-sm p-l-0" })
+                    Años
+                </div>
+                <div class="col-md-3">
+                    @*@Html.TextBoxFor(m => m.Sancion.TiempoMeses, new { @class = "form-control input-sm" })*@
+                    @Html.DropDownListFor(m => m.Sancion.TiempoMeses, Listas.ObtenerListaNumerica(0, 11), new { @class = "form-control input-sm p-l-0" })
+                    Meses
+                </div>
+                <div class="col-md-3 col-md-offset-8">
+                    @*@Html.TextBoxFor(m => m.Sancion.TiempoDias, new { @class = "form-control input-sm" })*@
+                    @Html.DropDownListFor(m => m.Sancion.TiempoDias, Listas.ObtenerListaNumerica(0, 364), new { @class = "form-control input-sm p-l-0" })
+                    Días
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0" hidden id="div_periodo">
+                <div class="col-xs-12 p-all-0">
+                    <div class="col-md-5 p-t-5">
+                        <label for="periodo_inicial"><strong class="obligatorio"></strong>Fecha Inicio:</label>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Sancion.PeriodoInicial, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @id = "periodo_inicial", @maxlength = 10 })
+                            <label for="periodo_inicial" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 p-all-0">
+                    <div class="col-md-5 p-t-5">
+                        <label for="periodo_final"><strong class="obligatorio"></strong>Fecha Final:</label>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Sancion.PeriodoFinal, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @id = "periodo_final", @maxlength = 10 })
+                            <label for="periodo_final" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5">
+                    @Html.LabelFor(m => m.Sancion.Habilitado):
+                </div>
+                <div class="col-md-7">
+                    <div class="checkbox checkbox-success">
+                        @Html.CheckBoxFor(m => m.Sancion.Habilitado, new { @checked = true })
+                        @Html.LabelFor(m => m.Sancion.Habilitado)
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 p-all-0">
+                <div class="col-md-5">
+                    @Html.LabelFor(m => m.Sancion.Observaciones):
+                </div>
+                <div class="col-md-7">
+                    @Html.TextAreaFor(m => m.Sancion.Observaciones, new { @class = "form-control w-max-min", @maxlength = 200 })
+                </div>
+            </div>
+        </div>
+    <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12"><h4>Datos del Sancionado</h4></div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label for="Sancion_Persona_RFC">RFC:</label>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.Sancion.Persona.RFC, new {@class = "form-control input-sm m-t-0 uppercase",  @maxlength = 13})
+                    <span id="Sancion_Persona_RFC_Buscar" class="input-group-addon btn"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label for="Sancion_Persona_Nombre"><strong class="obligatorio">*</strong>Nombre:</label>
+            </div>
+            <div class="col-md-8">
+                @Html.HiddenFor(m => m.Sancion.Persona.IDPersona)
+                @Html.TextBoxFor(m => m.Sancion.Persona.Nombre, new {@class = "form-control input-sm uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 50 })
+            </div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label for="Sancion_Persona_ApellidoP"><strong class="obligatorio">*</strong>Primer Apellido:</label>
+            </div>
+            <div class="col-md-8">@Html.TextBoxFor(m => m.Sancion.Persona.ApellidoP, new {@class = "form-control input-sm uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 50 })</div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label for="Sancion_Persona_ApellidoM">Segundo Apellido:</label>
+            </div>
+            <div class="col-md-8">@Html.TextBoxFor(m => m.Sancion.Persona.ApellidoM, new {@class = "form-control input-sm uppercase", @onkeypress = "return soloLetras(event)", @maxlength = 50 })</div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label for="Sancion_Persona_Genero"><strong class="obligatorio">*</strong>Género:</label>
+            </div>
+            <div class="col-md-8">
+                @Html.DropDownListFor(m => m.Sancion.Persona.Genero, Listas.ObtenerListaGenero(), new {@class = "form-control input-sm"})
+            </div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label for="persona_fecha_nacimiento">Fecha de Nacimiento:</label>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.Sancion.Persona.FechaNacimiento, "{0:dd/MM/yyyy}", new {@class = "form-control input-sm m-t-0", @id = "persona_fecha_nacimiento", @maxlength = 10 })
+                    <label class="input-group-addon btn" for="persona_fecha_nacimiento">
+                        <i class="fa fa-calendar"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label for="Sancion_Persona_CURP">CURP:</label>
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Sancion.Persona.CURP, new {@class = "form-control input-sm uppercase", @maxlength = 18 })
+            </div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4"><label for="Sancion_Persona_CorreoElectronico">Correo:</label>
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Sancion.Persona.CorreoElectronico, new {@class = "form-control input-sm", @Type="email", @maxlength = 50 })
+            </div>
+        </div>
+        @*<div class="col-md-12">
+                        <div class="col-md-4 p-t-5"><label for="Sancion_Persona_IDEstado">Estado:</label></div>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(m => m.Sancion.Persona.IDEstado, EstadoRepositorio.Buscar(), new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-4 p-t-5"><label for="Sancion_Persona_IDMunicipio">Municipio:</label></div>
+                        <div class="col-md-8">
+                            @Html.MunicipioDdl(m => m.Sancion.Persona.IDMunicipio, Model.Sancion.Persona.IDEstado, Model.Sancion.Persona.IDMunicipio)
+                            @Html.Hidden("hdf.idmunicipio", "0", new { @id = "hdf_idmunicipio_deafult" })
+                        </div>
+                    </div>*@
+        <div class="col-xs-12"><h4>Datos de la Dependencia-Entidad</h4></div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label><strong class="obligatorio">*</strong>Nombre:</label>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.Sancion.Entidad.Nombre, new { @class = "form-control input-sm m-t-0 uppercase", @onkeypress = "return soloLetras(event)" })
+                    <span id="Sancion_Entidad_Nombre_Buscar" class="input-group-addon btn"><i class="fa fa-search"></i></span>
+                </div>
+                @Html.HiddenFor(m => m.Sancion.Entidad.IDEntidad)
+            </div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label><strong class="obligatorio">*</strong>Tipo Dependencia-Entidad:</label>
+            </div>
+            <div class="col-md-8">
+                @Html.DropDownListFor(m => m.Sancion.Entidad.Tipo, Listas.ObtenerListaTipoEntidadEstatal(), new { @class = "form-control input-sm", @maxlength = 50 })
+            </div>
+        </div>
+        <div class="col-xs-12 p-all-0">
+            <div class="col-md-4 p-t-5"><label>Abreviación:</label>
+            </div>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.Sancion.Entidad.Abreviacion, new { @class = "form-control input-sm uppercase", @maxlength = 15, @onkeypress = "return soloLetras(event)" })
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="ibox-content col-xs-12 form-horizontal m-t-5 p-b-0 bg-f">
+                <div class="pull-right">
+                    <input type="submit" class="btn btn-sm btn-primary" value="@General.Guardar"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <small>Todos los campos marcados con <strong class="obligatorio">*</strong> son obligatorios.</small>
+        </div>
+    </div>
+    </div>
+    </div>
+}
+
+@section Modales
+{
+    <div class="modal fade" id="mdlPersona" tabindex="-1" role="dialog" aria-labelledby="lbl_ConfirmarPersona">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">
+                        <label>Coincidencia</label>
+                    </h3>
+                </div>
+                <div class="modal-body text-center">
+                    <h4><label class="col-md-12" id="lbl_persona_coincidencia">¿Es usted una da las siguientes personas esta persona?</label></h4>
+                    <br />
+                    <table class="table table-bordered table-striped" id="tbl_Persona_Coincidencia">
+                        <thead>
+                            <tr>
+                                <td>Nombre</td>
+                                <td>Primer Apellido</td>
+                                <td>Segundo Apellido</td>
+                                <td>RFC</td>
+                                <td>Acciones</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                @*<div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" tabindex="2">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                        <button data-dismiss="modal" id="mdlPersona_Aceptar" class="btn btn-primary">
+                            <i class="fa fa-check"></i> Si
+                        </button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlEntidad" tabindex="-1" role="dialog" aria-labelledby="lbl_ConfirmarPersona">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">
+                        <label>Coincidencia</label>
+                    </h3>
+                </div>
+                <div class="modal-body text-center">
+                    <h4><label class="col-md-12">Se encontraron las siguientes coincidencias</label></h4>
+                    <br />
+                    <table class="table table-bordered table-striped table-hover" id="tbl_Entidad_Coincidencia">
+                        <thead>
+                            <tr>
+                                <td>Abreviación</td>
+                                <td>Nombre</td>
+                                <td>Acciones</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" tabindex="2">
+                        <i class="fa fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlNoCoincidencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">
+                        <i class="fa fa-info-circle" style="font-size: 14pt;"></i>
+                        &nbsp;
+                        <label>Aviso</label>
+                    </h3>
+                </div>
+                <div class="modal-body text-center">
+                    No se encontraron coincidencias para el RFC: <label id="lbl_rfc_no_coincidencia"></label>
+                </div>
+                <div class="modal-footer">
+                    <a data-dismiss="modal" class="btn btn-primary">@General.Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlFolioDuplicado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">
+                        <i class="fa fa-info-circle" style="font-size: 14pt;"></i>
+                        &nbsp;
+                        <label>Aviso</label>
+                    </h3>
+                </div>
+                <div class="modal-body text-center">
+                    El Folio '<label id="lbl_folio_no_coincidencia"></label>' ya fue utilizado para realizar una solicitud.
+                </div>
+                <div class="modal-footer">
+                    <a data-dismiss="modal" class="btn btn-primary">@General.Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlNoCoincidenciaEntidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">
+                        <i class="fa fa-info-circle" style="font-size: 14pt;"></i>
+                        &nbsp;
+                        <label>Aviso</label>
+                    </h3>
+                </div>
+                <div class="modal-body text-center">
+                    No se encontraron coincidencias para la Dependencia-Entidad: <label id="lbl_entidad_no_coincidencia"></label>
+                </div>
+                <div class="modal-footer">
+                    <a data-dismiss="modal" class="btn btn-primary">@General.Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section FooterScripts
+{
+    <script type="text/javascript" src="~/Scripts/plugins/jquery.maskMoney.js"></script>
+
+    <script type="text/javascript">
+        var onSubmit = function (token) {
+            console.log(token);
+            $('form').submit();
+        };
+
+        $(document).on("ready", function () {
+            $("#Sancion_Monto").maskMoney();
+            $("#Sancion_Monto").maskMoney('mask');
+
+            var fechas = [
+                $("#Sancion_FechaEjecutoria"),
+                $("#Sancion_FechaResolucion"),
+                $("#fecha_ejecutoria"),
+                $("#fecha_resolucion"),
+                $("#fecha_inscripcion"),
+                $("#periodo_inicial"),
+                $("#periodo_final"),
+                $("#persona_fecha_nacimiento")
+            ];
+            var opciones = [1, "dd/mm/yyyy", true];
+            iniciarFechas(fechas, opciones);
+
+            var val1 = $("#Sancion_Entidad_Tipo").val();
+            var val2 = $("#Sancion_Entidad_Abreviacion").val();
+
+            if (val1 != "")
+                $("#Sancion_Entidad_Tipo").prop("disabled", true);
+            if (val2 != "")
+                $("#Sancion_Entidad_Abreviacion").prop("disabled", true);
+
+            $('#Sancion_FechaEjecutoria').datepicker('update', new Date());
+            $('#Sancion_FechaResolucion').datepicker('update', new Date());            
+            $('#fecha_ejecutoria').datepicker('update', new Date());
+            $('#fecha_resolucion').datepicker('update', new Date());
+            $('#fecha_inscripcion').datepicker('update', new Date());
+
+            $("i.icon-arrow-left").addClass("fa fa-chevron-left");
+            $("i.icon-arrow-left").removeClass("icon-arrow-left");
+            $("i.icon-arrow-right").addClass("fa fa-chevron-right");
+            $("i.icon-arrow-right").removeClass("icon-arrow-right");
+
+            $("#Sancion_Persona_RFC_Buscar").on("click", function () {
+                if (!ValidarControl($("#Sancion_Persona_RFC"))) {
+                    var mensaje = "RFC es requerido";
+                    mostrarAlert(mensaje, "danger", true);
+
+                    $('html,body').scrollTop(0);
+
+                    event.preventDefault();
+                    return false;
+                }
+                else if (!ValidarRfc($("#Sancion_Persona_RFC"), false)) {
+                    var mensaje = "El formato del RFC no es correcto";
+                    mostrarAlert(mensaje, "danger", true);
+
+                    $('html,body').scrollTop(0);
+
+                    event.preventDefault();
+                    return false;
+                }
+
+                var rfc = $("#Sancion_Persona_RFC").val();
+                datos = buscarPersonaPorRFC(rfc);
+
+                datos.success(function (data) {
+
+                    if (data.length == 0) {
+                        $('#lbl_rfc_no_coincidencia').html(rfc);
+                        $('#mdlNoCoincidencia').modal('show');
+                        return false;
+                    }
+                    $("#lbl_persona_coincidencia").html(data.length == 1 ? "¿Es usted esta persona?" : "¿Es usted alguna de las siguientes personas?");
+
+                    var tbdoy = "";
+
+                    $.each(data, function (i, item) {
+                        tbdoy += "<tr>";
+                        tbdoy += "<td>" + item["Nombre"] + "</td>";
+                        tbdoy += "<td>" + item["APaterno"] + "</td>";
+                        tbdoy += "<td>" + item["AMaterno"] + "</td>";
+                        tbdoy += "<td>" + item["RFC"] + "</td>";
+                        tbdoy += "<td>";
+                        tbdoy += "<a class='btn btn-primary btn-circle' onclick='seleccionarPersona(" + item["IDPersona"] + ")'><i class='fa fa-check'></i></a>"
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "' value='" + item["IDPersona"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_RFC' value='" + item["RFC"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_Nombre' value='" + item["Nombre"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_ApellidoP' value='" + item["APaterno"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_ApellidoM' value='" + item["AMaterno"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_FechaNacimiento' value='" + cambiarFormatoFecha(item["FechaNacimiento"]) + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_Genero' value='" + item["Genero"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_CURP' value='" + item["CURP"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_Correo' value='" + item["Correo"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_IDEstado' value='" + item["IDEstado"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_IDMunicipio' value='" + item["IDMunicipio"] + "'/>";
+                        tbdoy += "</td>";
+                        tbdoy += "</tr>";
+                    });
+
+                    $("#tbl_Persona_Coincidencia tbody").html(tbdoy);
+                    $('#mdlPersona').modal('show');
+
+                    //if (data.length > 0) {
+
+                    //    $("#mdlConfirmar_Nombre").html(data["Nombre"]);
+                    //    $("#mdlConfirmar_APaterno").html(data["APaterno"]);
+                    //    $("#mdlConfirmar_AMaterno").html(data["AMaterno"]);
+                    //    $("#mdlConfirmar_FechaNacimiento").html(data["FechaNacimiento"]);
+                    //    $("#mdlConfirmar_CURP").html(data["CURP"]);
+
+                    //    $('#mdlPersona').modal('show');
+
+                    //}
+                    //else {
+                    //    $('#lbl_rfc_no_coincidencia').html(rfc);
+                    //    $('#mdlNoCoincidencia').modal('show');
+
+                    //}
+                });
+            });
+
+            //$("#Sancion_Entidad_Nombre").on("blur", function() { $("#Sancion_Entidad_Nombre_Buscar").click() });
+
+            $("#mdlPersona_Aceptar").on("click", function() {
+
+                datos.success(function(data) {
+                    $("#Sancion_Persona_IDEstado").val(data["IDEstado"]);
+                    $("#hdf_idmunicipio_deafult").val(data["IDMunicipio"]);
+                    $("#Sancion_Persona_IDEstado").change();
+
+                    $("#Sancion_Persona_IDPersona").val(data["IDPersona"]);
+                    $("#Sancion_Persona_Nombre").val(data["Nombre"]);
+                    $("#Sancion_Persona_ApellidoP").val(data["APaterno"]);
+                    $("#Sancion_Persona_ApellidoM").val(data["AMaterno"]);
+                    $("#Sancion_Persona_Genero").val(parseInt(data["Genero"]));
+                    $("#Sancion_Persona_CorreoElectronico").val(data["Correo"]);
+                    $("#persona_fecha_nacimiento").val(data["FechaNacimiento"]);
+                    $("#Sancion_Persona_CURP").val(data["CURP"]);
+                    $("#Sancion_Persona_RFC").val(data["RFC"]);
+                });
+            });
+
+            $("#Sancion_Tipo").on("change", function() {
+                if ($(this).val() != "@((byte)TiposSancion.Suspensión)") {
+                    $('#especificar').fadeOut(); //oculto mediante id
+                    document.getElementsByClassName("txtEs").value = "";
+                } else {
+                    $('#especificar').fadeIn(); //muestro mediante id
+                }
+            });
+
+            $("#Sancion_TipoSancion").on("change", function() {
+                cambioTipoSancion($(this).val());
+
+                $("#Sancion_Monto").val("");
+                $("#Sancion_TiempoAños").val("0");
+                $("#Sancion_TiempoMeses").val("0");
+                $("#Sancion_TiempoDias").val("0");
+            });
+
+            cambioTipoSancion($("#Sancion_TipoSancion").val());
+
+            $("form").on("submit", function() {
+                var no_validos = 0;
+
+                no_validos += ValidarControl($("#Sancion_Tipo")) ? 0 : 1;
+                //no_validos += ValidarControl($("#Sancion_TipoSancion")) ? 0 : 1;
+                no_validos += ValidarControl($("#fecha_ejecutoria")) ? 0 : 1;
+                no_validos += ValidarControl($("#fecha_resolucion")) ? 0 : 1;
+                no_validos += ValidarControl($("#Sancion_NumeroExpediente")) ? 0 : 1;
+                no_validos += ValidarControl($("#Sancion_Persona_Nombre")) ? 0 : 1;
+                no_validos += ValidarControl($("#Sancion_Persona_ApellidoP")) ? 0 : 1;
+                no_validos += ValidarControl($("#Sancion_Persona_Genero")) ? 0 : 1;
+                no_validos += ValidarControl($("#Sancion_Entidad_Nombre")) ? 0 : 1;
+                no_validos += ValidarControl($("#Sancion_Entidad_Tipo")) ? 0 : 1;
+
+                var emailCorrecto = ValidarEmail($("#Sancion_Persona_CorreoElectronico"), true);
+                var mensajeEmail = "";
+                if (!emailCorrecto) {
+                    no_validos += 1;
+                    mensajeEmail = " <br/> Correo electrónico inválido.";
+                }
+
+                var rfcCorrecto = ValidarRfc($("#Sancion_Persona_RFC"), true);
+                var mensajeRfc = "";
+                if (!rfcCorrecto) {
+                    no_validos += 1;
+                    mensajeRfc = " <br/> RFC inválido.";
+                }
+
+                if ($('#Sancion_TiempoA_os').is(':visible')) {
+                    var selectAno = $('#Sancion_TiempoA_os');
+                    var selectMes = $('#Sancion_TiempoMeses');
+                    var selectDia = $('#Sancion_TiempoDias');
+
+                    if (selectAno.val() === "0" && selectMes.val() === "0" && selectDia.val() === "0") {
+                        no_validos += ValidarControl(selectAno) ? 0 : 1;
+                        no_validos += ValidarControl(selectMes) ? 0 : 1;
+                        no_validos += ValidarControl(selectDia) ? 0 : 1;
+                    }
+                }
+
+                //if ($('#periodo_inicial').is(':visible')) {
+                //    no_validos += ValidarControl($("#periodo_inicial")) ? 0 : 1;
+                //    no_validos += ValidarControl($("#periodo_final")) ? 0 : 1;
+                //}
+
+                if (no_validos > 0) {
+                    var mensaje = "Los campos marcados en rojo no deben estar vacios." + mensajeRfc + mensajeEmail;
+                    mostrarAlert(mensaje, "danger", true);
+
+                    $('html,body').scrollTop(0);
+
+                    event.preventDefault();
+                    return false;
+                } else {
+                    var monto = $("#Sancion_Monto").maskMoney('unmasked')[0];
+                    $("#Sancion_Monto").maskMoney('destroy');
+                    $("#Sancion_Monto").val(monto);
+                }
+
+            });
+        });
+
+        function buscarPersonaPorRFC(rfc) {
+            return $.ajax({
+                data: "{RFC: '" + rfc + "'}",
+                dataType: "json",
+                contentType: "application/json",
+                type: "POST",
+                url: '@Url.Action("ObtenerPersonaPorRFC", "SolicitudWeb", new {area = string.Empty})'
+            });
+        }
+
+        $("#Sancion_Entidad_Nombre_Buscar").on("click", function() {
+            var criterio = $("#Sancion_Entidad_Nombre").val();
+
+            datos = buscarEntidadesPorCriterio(criterio);
+
+            datos.success(function(result) {
+                if (result.length == 0) {
+                    $('#lbl_entidad_no_coincidencia').html(criterio);
+                    $('#mdlNoCoincidenciaEntidad').modal('show');
+                    return false;
+                }
+
+                var tbdoy = "";
+
+                $.each(result, function (i, item) {
+                    tbdoy += "<tr>";
+                    tbdoy += "<td>" + item["Abreviacion"] + "</td>";
+                    tbdoy += "<td>" + item["Nombre"] + "</td>";
+                    tbdoy += "<td>";
+                    tbdoy += "<a class='btn btn-primary btn-circle' onclick='seleccionarEntidad(" + item["IDEntidad"] + ")'><i class='fa fa-check'></i></a>"
+                    tbdoy += "<input type='hidden' id='hfd_Entidad_" + item["IDEntidad"] + "' value='" + item["IDEntidad"] + "'/>";
+                    tbdoy += "<input type='hidden' id='hfd_Entidad_" + item["IDEntidad"] + "_Tipo' value='" + item["Tipo"] + "'/>";
+                    tbdoy += "<input type='hidden' id='hfd_Entidad_" + item["IDEntidad"] + "_Nombre' value='" + item["Nombre"] + "'/>";
+                    tbdoy += "<input type='hidden' id='hfd_Entidad_" + item["IDEntidad"] + "_Abreviacion' value='" + item["Abreviacion"] + "'/>";
+                    tbdoy += "</td>";
+                    tbdoy += "</tr>";
+                });
+
+                $("#tbl_Entidad_Coincidencia tbody").html(tbdoy);
+                $('#mdlEntidad').modal('show');
+            });
+        });
+
+        function cambioTipoSancion(valor) {
+            switch (valor) {
+                case "@((byte)TiposSancion.SanciónEconómica)":
+                    $('#div_monto').fadeIn();
+                    $("#div_tiempo").fadeOut();
+                    $("#div_periodo").fadeOut();
+                    break;
+                case "@((byte)TiposSancion.Suspensión)":
+                    $('#div_tiempo').fadeIn();
+                    $("#div_periodo").fadeOut();
+                    $("#div_monto").fadeOut();
+                    break;
+                case "@((byte)TiposSancion.InhabilitaciónDesempeñar)":
+                case "@((byte)TiposSancion.InhabilitaciónParticipar)":
+                    $('#div_tiempo').fadeIn();
+                    $("#div_periodo").fadeIn();
+                    $("#div_monto").fadeOut();
+                    break;
+                default:
+                    $("#div_tiempo").fadeOut();
+                    $("#div_periodo").fadeOut();
+                    $("#div_monto").fadeOut();
+                    break;
+            }
+        }
+
+        function seleccionarPersona(id) {
+
+            var idPersona = $("#hfd_Persona_" + id).val();
+            var rfc = $("#hfd_Persona_" + id + "_RFC").val();
+            var nombre = $("#hfd_Persona_" + id + "_Nombre").val();
+            var apellidop = $("#hfd_Persona_" + id + "_ApellidoP").val();
+            var apellidom = $("#hfd_Persona_" + id + "_ApellidoM").val();
+            var fechanacimiento = $("#hfd_Persona_" + id + "_FechaNacimiento").val();
+            var genero = $("#hfd_Persona_" + id + "_Genero").val().trim();
+            var curp = $("#hfd_Persona_" + id + "_CURP").val();
+            var correo = $("#hfd_Persona_" + id + "_Correo").val();
+            var estado = $("#hfd_Persona_" + id + "_IDEstado").val();
+            var municipio = $("#hfd_Persona_" + id + "_IDMunicipio").val();
+
+            $("#Sancion_Persona_IDPersona").val(idPersona);
+            $("#Sancion_Persona_RFC").val(rfc).removeClass("input-validation-error");
+            $("#Sancion_Persona_Nombre").val(nombre).removeClass("input-validation-error");
+            $("#Sancion_Persona_ApellidoP").val(apellidop).removeClass("input-validation-error");
+            $("#Sancion_Persona_ApellidoM").val(apellidom);
+            $("#persona_fecha_nacimiento").val(fechanacimiento).removeClass("input-validation-error");
+            $("#Sancion_Persona_Genero").val(genero).removeClass("input-validation-error");
+            $("#Sancion_Persona_CURP").val(curp).removeClass("input-validation-error");
+            $("#Sancion_Persona_CorreoElectronico").val(correo).removeClass("input-validation-error");
+            $("#Sancion_Persona_IDEstado").val(estado);
+            $("#Sancion_Persona_IDMunicipio").val(municipio);
+            $("#hdf_idmunicipio_deafult").val(municipio);
+            $("#Sancion_Persona_IDEstado").change();
+
+            var dateParts = fechanacimiento.split("/");
+            var dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+            $('#persona_fecha_nacimiento').datepicker('update', dateObject);
+
+            $('#mdlPersona').modal('hide');
+        }
+
+        function seleccionarEntidad(id) {
+            $("#Sancion_Entidad_Nombre").val($("#hfd_Entidad_" + id + "_Nombre").val()).removeClass("input-validation-error");
+            $("#Sancion_Entidad_Tipo").val($("#hfd_Entidad_" + id + "_Tipo").val()).removeClass("input-validation-error");
+            $("#Sancion_Entidad_Abreviacion").val($("#hfd_Entidad_" + id + "_Abreviacion").val()).removeClass("input-validation-error");
+            $("#Sancion_Entidad_IDEntidad").val($("#hfd_Entidad_" + id).val());
+            
+            $("#Sancion_Entidad_Nombre").prop("disabled", true);
+            $("#Sancion_Entidad_Tipo").prop("disabled", true);
+            $("#Sancion_Entidad_Abreviacion").prop("disabled", true);
+
+            $('#mdlEntidad').modal('hide');
+        }
+
+        function buscarEntidadesPorCriterio(criterio) {
+            return $.ajax({
+                data: "{criterio: '" + criterio + "', tipo : '0', esEstatal : '1' }",
+                dataType: "json",
+                contentType: "application/json",
+                type: "POST",
+                url: '@Url.Action("ObtenerEntidadesPorCriterio", "SolicitudWeb", new {area = string.Empty})'
+            });
+        }
+
+    </script>
+
+}

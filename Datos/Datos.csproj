@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBA8AAF3-8F8B-4EFC-87B7-0872EE91D432}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Datos</RootNamespace>
+    <AssemblyName>Datos</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atributos\DisplayNameFromResource.cs" />
+    <Compile Include="Atributos\RegularExpressionFromResource.cs" />
+    <Compile Include="Atributos\RemoteFromResource.cs" />
+    <Compile Include="BASE.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BASE.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BASE.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BASE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BASE.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BovedaFiel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BovedaFiel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BovedaFiel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BovedaFiel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BovedaFiel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BovedaFiel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarOpcionMenuAndOpcionesMenuInferiores_Result.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarOpcionMenuAndOpcionesMenuSuperiores_Result.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cadena.cs">
+      <DependentUpon>BovedaFiel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Carta.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClasesParciales.cs" />
+    <Compile Include="Colonia.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="decodificacion.cs">
+      <DependentUpon>BovedaFiel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\EmpleadoFirmaDto.cs" />
+    <Compile Include="DTO\Infraestructura\SistemaUsuario.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\BusquedaConstanciaViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\BusquedaSolicitudDependencia.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\InicioViewModal.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\PaseCajaRequest.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\PersonaViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\AccesoViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\CartaViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\EntidadViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\EstadoViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\ColoniaViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\EmpleadoViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\MenuViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\MovimientoViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\MunicipioViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\PaginacionViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\PlantillaViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\PrecioViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\ReporteSancionViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\ReporteConstanciaViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\TituloViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\PuestoViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\RolViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\ValidacionConstanciaViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\ValidacionViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\SancionViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\SolicitudViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\UsuarioViewModel.cs" />
+    <Compile Include="DTO\PersonaCartaDto.cs" />
+    <Compile Include="DTO\PersonaSancionesDto.cs" />
+    <Compile Include="DTO\Reportes\ReporteConstanciaDto.cs" />
+    <Compile Include="DTO\Reportes\ReporteSancionadoDto.cs" />
+    <Compile Include="DTO\Reportes\ReporteSancionDto.cs" />
+    <Compile Include="DTO\SancionDto.cs" />
+    <Compile Include="DTO\Servicios\LstSanciones.cs" />
+    <Compile Include="Empleado.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidad.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\Enumerados.cs" />
+    <Compile Include="Enums\PermisosEnum.cs" />
+    <Compile Include="Estado.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadosCarta.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extensiones\ExtensionDateTime.cs" />
+    <Compile Include="Extensiones\Plantilla.cs" />
+    <Compile Include="Extensiones\Carta.cs" />
+    <Compile Include="Extensiones\Rol.cs" />
+    <Compile Include="Extensiones\Empleado.cs" />
+    <Compile Include="Extensiones\Usuario.cs" />
+    <Compile Include="Firma.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FirmaEstados.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Folio.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenerosPersona.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lote.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoteEstados.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MediosSolicitud.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movmiento.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Municipio.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="operacion.cs">
+      <DependentUpon>BovedaFiel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Origenes.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaseCaja.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persona.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Plantilla.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Precio.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Puesto.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos\ExpresionesRegulares.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpresionesRegulares.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos\General.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositorios\Carta\CartaPrecioRepositorio.cs" />
+    <Compile Include="Repositorios\Carta\CartasRepositorio.cs" />
+    <Compile Include="Repositorios\Carta\FoliosRepositorio.cs" />
+    <Compile Include="Repositorios\Catalogos\EmpleadoRepostorio.cs" />
+    <Compile Include="Repositorios\Catalogos\EntidadRepositorio.cs" />
+    <Compile Include="Repositorios\Catalogos\EstadoRepositorio.cs" />
+    <Compile Include="Repositorios\Catalogos\MovimientoRepositorio.cs" />
+    <Compile Include="Repositorios\Catalogos\MunicipoRepositorio.cs" />
+    <Compile Include="Repositorios\Catalogos\ColoniaRepositorio.cs" />
+    <Compile Include="Repositorios\Catalogos\PlantillaRepostorio.cs" />
+    <Compile Include="Repositorios\Catalogos\TituloRepositorio.cs" />
+    <Compile Include="Repositorios\Catalogos\SancionRepositorio.cs" />
+    <Compile Include="Repositorios\Configuracion\MenuRepositorio.cs" />
+    <Compile Include="Repositorios\Catalogos\PuestoRepostorio.cs" />
+    <Compile Include="Repositorios\Configuracion\RolRepositorio.cs" />
+    <Compile Include="Repositorios\Firma\RepositorioBodevaFiel.cs" />
+    <Compile Include="Repositorios\Firma\RepositorioFirmas.cs" />
+    <Compile Include="Repositorios\MenuRolRepositorio.cs" />
+    <Compile Include="Repositorios\MenuUsuarioRepositorio.cs" />
+    <Compile Include="Repositorios\Repositorio.cs" />
+    <Compile Include="Repositorios\Firma\RepositorioLotes.cs" />
+    <Compile Include="Repositorios\SolicitudContrasenaRepositorio.cs" />
+    <Compile Include="Repositorios\Solicitudes\PersonaRepositorio.cs" />
+    <Compile Include="Repositorios\Solicitudes\SolicitudRepositorio.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
+    <Compile Include="Rol.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sancion.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitud.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitudContrasena.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="timestamping.cs">
+      <DependentUpon>BovedaFiel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposCarta.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposEntidad.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposInicio.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposSancion.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposSolicitud.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoUsuario.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Titulo.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="token.cs">
+      <DependentUpon>BovedaFiel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioCertificado.cs">
+      <DependentUpon>BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSLoginCall.cs">
+      <DependentUpon>BovedaFiel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xml.cs">
+      <DependentUpon>BovedaFiel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="BASE.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BASE.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BASE.edmx.diagram">
+      <DependentUpon>BASE.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="BovedaFiel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BovedaFiel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BovedaFiel.edmx.diagram">
+      <DependentUpon>BovedaFiel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sistema\Sistema.csproj">
+      <Project>{e8e0ab35-79c0-4e3f-9d49-d09f6c21c27c}</Project>
+      <Name>Sistema</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Recursos\ExpresionesRegulares.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExpresionesRegulares.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos\General.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>General.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BASE.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BASE.edmx</DependentUpon>
+      <LastGenOutput>BASE.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BASE.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BASE.edmx</DependentUpon>
+      <LastGenOutput>BASE.cs</LastGenOutput>
+    </Content>
+    <Content Include="BovedaFiel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BovedaFiel.edmx</DependentUpon>
+      <LastGenOutput>BovedaFiel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BovedaFiel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BovedaFiel.edmx</DependentUpon>
+      <LastGenOutput>BovedaFiel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,42 @@
+﻿@model Datos.DTO.Infraestructura.ViewModels.SolicitudViewModel
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var $ddlTipoEntidad = $('#@Model.CampoEntidadTipo.Replace(".", "_")'),
+            $ddlEntidad = $('#@Model.CampoEntidadNombre.Replace(".", "_")')
+
+        $ddlTipoEntidad.change(function () {
+            cargarEntidadesDdl($ddlTipoEntidad.val());
+        });
+
+        function cargarEntidadesDdl(idEntidad) {
+            if (idEntidad > 0) {
+                $.ajax({
+                    data: "{Tipo: " + idEntidad + "}",
+                    dataType: "json",
+                    contentType: "application/json",
+                    type: "POST",
+                    url: '@Url.Action("ObtenerEntidades", "SolicitudWeb", new { area = string.Empty })',
+                    beforeSend: function () {
+                        MostrarMensajeCargando($ddlEntidad);
+                    },
+                    success: function (data) {
+                        CargarDdl($ddlEntidad, data);
+                        CerrarMensajeCargando();
+                    },
+                    error: function (error) {
+                        CerrarMensajeCargando();
+                    }
+                });
+            } else {
+                deshabilitarEntidad();
+            }
+        }
+
+
+        function deshabilitarEntidad() {
+            $ddlEntidad.empty();
+            $ddlEntidad.attr("disabled", "disabled");
+        }
+    });
+</script>

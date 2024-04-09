@@ -1,0 +1,1028 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BASE.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carta">
+    <Key>
+      <PropertyRef Name="IDCarta" />
+    </Key>
+    <Property Name="IDCarta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroExpediente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="IDSolicitud" Type="int" Nullable="false" />
+    <Property Name="Cadena" Type="varchar(max)" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Estado" Type="tinyint" Nullable="false" />
+    <Property Name="IDPlantilla" Type="int" Nullable="false" />
+    <Property Name="IDEmpleadoRechazo" Type="int" />
+    <Property Name="FechaRechazo" Type="datetime" />
+    <Property Name="Consultable" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CartaSancion">
+    <Key>
+      <PropertyRef Name="IDCarta" />
+      <PropertyRef Name="IDSancion" />
+    </Key>
+    <Property Name="IDCarta" Type="int" Nullable="false" />
+    <Property Name="IDSancion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Colonia">
+    <Key>
+      <PropertyRef Name="IDColonia" />
+    </Key>
+    <Property Name="IDColonia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDEstado" Type="int" Nullable="false" />
+    <Property Name="IDMunicipio" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CodigoPostal" Type="int" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="IDEmpleado" />
+    </Key>
+    <Property Name="IDEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoM" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rfc" Type="varchar" MaxLength="20" />
+    <Property Name="UrlFoto" Type="varchar" MaxLength="200" />
+    <Property Name="Sexo" Type="tinyint" Nullable="false" />
+    <Property Name="Celular" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="FechaIngreso" Type="date" Nullable="false" />
+    <Property Name="IDPuesto" Type="int" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+    <Property Name="IDTitulo" Type="int" Nullable="false" />
+    <Property Name="UrlFirma" Type="varchar" MaxLength="200" />
+    <Property Name="DefaultFirma" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entidad">
+    <Key>
+      <PropertyRef Name="IDEntidad" />
+    </Key>
+    <Property Name="IDEntidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Abreviacion" Type="varchar" MaxLength="15" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="IDEstado" />
+    </Key>
+    <Property Name="IDEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Abreviatura" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Firma">
+    <Key>
+      <PropertyRef Name="IDFirma" />
+    </Key>
+    <Property Name="IDFirma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCarta" Type="int" Nullable="false" />
+    <Property Name="IDLote" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="tinyint" Nullable="false" />
+    <Property Name="IDEmpleado" Type="int" Nullable="false" />
+    <Property Name="BovedaFiel_IDCadena" Type="bigint" />
+    <Property Name="BovedaFiel_IDTimeStamping" Type="bigint" />
+    <Property Name="UbicacionXml" Type="varchar(max)" />
+    <Property Name="Error" Type="varchar(max)" />
+    <Property Name="Valor" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Folio">
+    <Key>
+      <PropertyRef Name="Anio" />
+    </Key>
+    <Property Name="Anio" Type="int" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lote">
+    <Key>
+      <PropertyRef Name="IDLote" />
+    </Key>
+    <Property Name="IDLote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="FechaFin" Type="datetime" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="Total" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="tinyint" Nullable="false" />
+    <Property Name="Error" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="IDMenu" />
+    </Key>
+    <Property Name="IDMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Opcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Destino" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Padre" Type="int" Nullable="false" />
+    <Property Name="Camino" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Indice" Type="int" />
+    <Property Name="Visible" Type="bit" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+    <Property Name="IconoCss" Type="varchar" MaxLength="30" />
+    <Property Name="Controlador" Type="varchar" MaxLength="50" />
+    <Property Name="Accion" Type="varchar" MaxLength="50" />
+    <Property Name="Area" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MenuRol">
+    <Key>
+      <PropertyRef Name="IDMenu" />
+      <PropertyRef Name="IDRol" />
+    </Key>
+    <Property Name="IDMenu" Type="int" Nullable="false" />
+    <Property Name="IDRol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MenuUsuario">
+    <Key>
+      <PropertyRef Name="IDMenu" />
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDMenu" Type="int" Nullable="false" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Movmiento">
+    <Key>
+      <PropertyRef Name="IDMovimiento" />
+    </Key>
+    <Property Name="IDMovimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Catalogo" Type="varchar" MaxLength="50" />
+    <Property Name="IDRegistro" Type="int" />
+  </EntityType>
+  <EntityType Name="Municipio">
+    <Key>
+      <PropertyRef Name="IDMunicipio" />
+      <PropertyRef Name="IDEstado" />
+    </Key>
+    <Property Name="IDMunicipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDEstado" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="IDMunicipioIFE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaseCaja">
+    <Key>
+      <PropertyRef Name="IDPaseCaja" />
+    </Key>
+    <Property Name="IDPaseCaja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Folio" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="datetime" Nullable="false" />
+    <Property Name="NombrePersona" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="UbicacionArchivo" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="EstaPagado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="IDPermiso" />
+    </Key>
+    <Property Name="IDPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="IDPersona" />
+    </Key>
+    <Property Name="IDPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="ApellidoP" Type="varchar" MaxLength="50" />
+    <Property Name="ApellidoM" Type="varchar" MaxLength="50" />
+    <Property Name="Genero" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="date" />
+    <Property Name="CURP" Type="varchar" MaxLength="20" />
+    <Property Name="RFC" Type="varchar" MaxLength="20" />
+    <Property Name="CorreoElectronico" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDEstado" Type="int" Nullable="false" />
+    <Property Name="IDMunicipio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonaSancion">
+    <Key>
+      <PropertyRef Name="IDSancion" />
+    </Key>
+    <Property Name="IDPersona" Type="int" Nullable="false" />
+    <Property Name="IDSancion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Plantilla">
+    <Key>
+      <PropertyRef Name="IDPlantilla" />
+    </Key>
+    <Property Name="IDPlantilla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="400" Nullable="false" />
+    <Property Name="NombrePlantilla" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Actual" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Precio">
+    <Key>
+      <PropertyRef Name="IDPrecio" />
+    </Key>
+    <Property Name="IDPrecio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Valor" Type="float" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="EsPrecioActual" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrecioCarta">
+    <Key>
+      <PropertyRef Name="IDCarta" />
+    </Key>
+    <Property Name="IDCarta" Type="int" Nullable="false" />
+    <Property Name="IDPrecio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="IDPuesto" />
+    </Key>
+    <Property Name="IDPuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IDRol" />
+    </Key>
+    <Property Name="IDRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+    <Property Name="PaginaInicio" Type="int" Nullable="false" />
+    <Property Name="TipoInicio" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolPermisos">
+    <Key>
+      <PropertyRef Name="IDRol" />
+      <PropertyRef Name="IDPermiso" />
+    </Key>
+    <Property Name="IDRol" Type="int" Nullable="false" />
+    <Property Name="IDPermiso" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sancion">
+    <Key>
+      <PropertyRef Name="IDSancion" />
+    </Key>
+    <Property Name="IDSancion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoSancion" Type="int" Nullable="false" />
+    <Property Name="NumeroExpediente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaEjecutoria" Type="date" Nullable="false" />
+    <Property Name="FechaResolucion" Type="date" Nullable="false" />
+    <Property Name="Tipo" Type="int" />
+    <Property Name="Monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+    <Property Name="TiempoAños" Type="int" Nullable="false" />
+    <Property Name="TiempoMeses" Type="int" Nullable="false" />
+    <Property Name="TiempoDias" Type="int" Nullable="false" />
+    <Property Name="IDEntidad" Type="int" Nullable="false" />
+    <Property Name="EspecificarOtro" Type="varchar" MaxLength="200" />
+    <Property Name="Observaciones" Type="varchar" MaxLength="200" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+    <Property Name="PeriodoInicial" Type="date" />
+    <Property Name="PeriodoFinal" Type="date" />
+    <Property Name="FechaInscripcion" Type="date" />
+  </EntityType>
+  <EntityType Name="Solicitud">
+    <Key>
+      <PropertyRef Name="IDSolicitud" />
+    </Key>
+    <Property Name="IDSolicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="FolioPago" Type="varchar" MaxLength="23" Nullable="false" />
+    <Property Name="Identificacion" Type="int" Nullable="false" />
+    <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+    <Property Name="URLPapeleta" Type="varchar" MaxLength="100" />
+    <Property Name="URLIdentificacion" Type="varchar" MaxLength="100" />
+    <Property Name="Codigo" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Medio" Type="tinyint" Nullable="false" />
+    <Property Name="Cancelada" Type="bit" Nullable="false" />
+    <Property Name="MotivoCancelacion" Type="varchar" MaxLength="500" />
+    <Property Name="NumeroDeOficio" Type="varchar" MaxLength="25" />
+    <Property Name="FolioPaseCaja" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="SolicitudContrasena">
+    <Key>
+      <PropertyRef Name="IDSolicitudContrasena" />
+    </Key>
+    <Property Name="IDSolicitudContrasena" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Usado" Type="bit" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="TipoUsuario" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SolicitudEntidad">
+    <Key>
+      <PropertyRef Name="IDSolicitud" />
+    </Key>
+    <Property Name="IDSolicitud" Type="int" Nullable="false" />
+    <Property Name="IDEntidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SolicitudPersona">
+    <Key>
+      <PropertyRef Name="IDSolicitud" />
+    </Key>
+    <Property Name="IDSolicitud" Type="int" Nullable="false" />
+    <Property Name="IDPersona" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Titulo">
+    <Key>
+      <PropertyRef Name="IDTitulo" />
+    </Key>
+    <Property Name="IDTitulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Abreviacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="IDRol" Type="int" Nullable="false" />
+    <Property Name="UrlFoto" Type="varchar" MaxLength="200" />
+    <Property Name="MenuPersonalizado" Type="bit" Nullable="false" />
+    <Property Name="Habilitado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioCertificado">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="Certificado" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioEmpleado">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="IDEmpleado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioMovimiento">
+    <Key>
+      <PropertyRef Name="IDMovimiento" />
+    </Key>
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="IDMovimiento" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Carta_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IDEmpleado" />
+      </Principal>
+      <Dependent Role="Carta">
+        <PropertyRef Name="IDEmpleadoRechazo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carta_Plantilla">
+    <End Role="Plantilla" Type="Self.Plantilla" Multiplicity="1" />
+    <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plantilla">
+        <PropertyRef Name="IDPlantilla" />
+      </Principal>
+      <Dependent Role="Carta">
+        <PropertyRef Name="IDPlantilla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carta_Solicitud">
+    <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="1" />
+    <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitud">
+        <PropertyRef Name="IDSolicitud" />
+      </Principal>
+      <Dependent Role="Carta">
+        <PropertyRef Name="IDSolicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartaSancion_Carta">
+    <End Role="Carta" Type="Self.Carta" Multiplicity="1" />
+    <End Role="CartaSancion" Type="Self.CartaSancion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carta">
+        <PropertyRef Name="IDCarta" />
+      </Principal>
+      <Dependent Role="CartaSancion">
+        <PropertyRef Name="IDCarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartaSancion_Sancion">
+    <End Role="Sancion" Type="Self.Sancion" Multiplicity="1" />
+    <End Role="CartaSancion" Type="Self.CartaSancion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sancion">
+        <PropertyRef Name="IDSancion" />
+      </Principal>
+      <Dependent Role="CartaSancion">
+        <PropertyRef Name="IDSancion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colonia_Estado">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Colonia" Type="Self.Colonia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Colonia">
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colonia_Municipio">
+    <End Role="Municipio" Type="Self.Municipio" Multiplicity="1" />
+    <End Role="Colonia" Type="Self.Colonia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipio">
+        <PropertyRef Name="IDMunicipio" />
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Colonia">
+        <PropertyRef Name="IDMunicipio" />
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Firma">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Firma" Type="Self.Firma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IDEmpleado" />
+      </Principal>
+      <Dependent Role="Firma">
+        <PropertyRef Name="IDEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Puesto">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="IDPuesto" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="IDPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Titulo">
+    <End Role="Titulo" Type="Self.Titulo" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Titulo">
+        <PropertyRef Name="IDTitulo" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="IDTitulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Firma_Carta">
+    <End Role="Carta" Type="Self.Carta" Multiplicity="1" />
+    <End Role="Firma" Type="Self.Firma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carta">
+        <PropertyRef Name="IDCarta" />
+      </Principal>
+      <Dependent Role="Firma">
+        <PropertyRef Name="IDCarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Firma_Lote">
+    <End Role="Lote" Type="Self.Lote" Multiplicity="1" />
+    <End Role="Firma" Type="Self.Firma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lote">
+        <PropertyRef Name="IDLote" />
+      </Principal>
+      <Dependent Role="Firma">
+        <PropertyRef Name="IDLote" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lote_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Lote" Type="Self.Lote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Lote">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuRol_Menu">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="MenuRol" Type="Self.MenuRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="IDMenu" />
+      </Principal>
+      <Dependent Role="MenuRol">
+        <PropertyRef Name="IDMenu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuRol_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="MenuRol" Type="Self.MenuRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IDRol" />
+      </Principal>
+      <Dependent Role="MenuRol">
+        <PropertyRef Name="IDRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuUsuario_Menu">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="MenuUsuario" Type="Self.MenuUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="IDMenu" />
+      </Principal>
+      <Dependent Role="MenuUsuario">
+        <PropertyRef Name="IDMenu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuUsuario_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="MenuUsuario" Type="Self.MenuUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="MenuUsuario">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipio_Estado">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Municipio">
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Persona_Municipio">
+    <End Role="Municipio" Type="Self.Municipio" Multiplicity="1" />
+    <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipio">
+        <PropertyRef Name="IDMunicipio" />
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="IDMunicipio" />
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonaSancion_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="PersonaSancion" Type="Self.PersonaSancion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IDPersona" />
+      </Principal>
+      <Dependent Role="PersonaSancion">
+        <PropertyRef Name="IDPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonaSancion_Sancion">
+    <End Role="Sancion" Type="Self.Sancion" Multiplicity="1" />
+    <End Role="PersonaSancion" Type="Self.PersonaSancion" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Sancion">
+        <PropertyRef Name="IDSancion" />
+      </Principal>
+      <Dependent Role="PersonaSancion">
+        <PropertyRef Name="IDSancion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrecioCarta_Carta">
+    <End Role="Carta" Type="Self.Carta" Multiplicity="1" />
+    <End Role="PrecioCarta" Type="Self.PrecioCarta" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Carta">
+        <PropertyRef Name="IDCarta" />
+      </Principal>
+      <Dependent Role="PrecioCarta">
+        <PropertyRef Name="IDCarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrecioCarta_Precio">
+    <End Role="Precio" Type="Self.Precio" Multiplicity="1" />
+    <End Role="PrecioCarta" Type="Self.PrecioCarta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Precio">
+        <PropertyRef Name="IDPrecio" />
+      </Principal>
+      <Dependent Role="PrecioCarta">
+        <PropertyRef Name="IDPrecio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rol_Menu">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="IDMenu" />
+      </Principal>
+      <Dependent Role="Rol">
+        <PropertyRef Name="PaginaInicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolPermisos_Permisos">
+    <End Role="Permisos" Type="Self.Permisos" Multiplicity="1" />
+    <End Role="RolPermisos" Type="Self.RolPermisos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permisos">
+        <PropertyRef Name="IDPermiso" />
+      </Principal>
+      <Dependent Role="RolPermisos">
+        <PropertyRef Name="IDPermiso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolPermisos_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="RolPermisos" Type="Self.RolPermisos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IDRol" />
+      </Principal>
+      <Dependent Role="RolPermisos">
+        <PropertyRef Name="IDRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sancion_Entidad">
+    <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+    <End Role="Sancion" Type="Self.Sancion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entidad">
+        <PropertyRef Name="IDEntidad" />
+      </Principal>
+      <Dependent Role="Sancion">
+        <PropertyRef Name="IDEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudContrasena_Empleado">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="SolicitudContrasena" Type="Self.SolicitudContrasena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="SolicitudContrasena">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudEntidad_Entidad">
+    <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+    <End Role="SolicitudEntidad" Type="Self.SolicitudEntidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entidad">
+        <PropertyRef Name="IDEntidad" />
+      </Principal>
+      <Dependent Role="SolicitudEntidad">
+        <PropertyRef Name="IDEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudEntidad_Solicitud">
+    <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="1" />
+    <End Role="SolicitudEntidad" Type="Self.SolicitudEntidad" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitud">
+        <PropertyRef Name="IDSolicitud" />
+      </Principal>
+      <Dependent Role="SolicitudEntidad">
+        <PropertyRef Name="IDSolicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudPersona_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="SolicitudPersona" Type="Self.SolicitudPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IDPersona" />
+      </Principal>
+      <Dependent Role="SolicitudPersona">
+        <PropertyRef Name="IDPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudPersona_Solicitud">
+    <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="1" />
+    <End Role="SolicitudPersona" Type="Self.SolicitudPersona" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitud">
+        <PropertyRef Name="IDSolicitud" />
+      </Principal>
+      <Dependent Role="SolicitudPersona">
+        <PropertyRef Name="IDSolicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IDRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IDRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioCertificado_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="UsuarioCertificado" Type="Self.UsuarioCertificado" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioCertificado">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioEmpleado_Empleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="UsuarioEmpleado" Type="Self.UsuarioEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="IDEmpleado" />
+      </Principal>
+      <Dependent Role="UsuarioEmpleado">
+        <PropertyRef Name="IDEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioEmpleado_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="UsuarioEmpleado" Type="Self.UsuarioEmpleado" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioEmpleado">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioMovimiento_Movmiento">
+    <End Role="Movmiento" Type="Self.Movmiento" Multiplicity="1" />
+    <End Role="UsuarioMovimiento" Type="Self.UsuarioMovimiento" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Movmiento">
+        <PropertyRef Name="IDMovimiento" />
+      </Principal>
+      <Dependent Role="UsuarioMovimiento">
+        <PropertyRef Name="IDMovimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioMovimiento_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="UsuarioMovimiento" Type="Self.UsuarioMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioMovimiento">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="BuscarOpcionMenuAndOpcionesMenuInferiores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MenuID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="BuscarOpcionMenuAndOpcionesMenuSuperiores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MenuID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CopiarMenuDeRolEnEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDUsuario" Type="int" Mode="In" />
+    <Parameter Name="IDRol" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="BASEStoreContainer">
+    <EntitySet Name="Carta" EntityType="Self.Carta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CartaSancion" EntityType="Self.CartaSancion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Colonia" EntityType="Self.Colonia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Firma" EntityType="Self.Firma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Folio" EntityType="Self.Folio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lote" EntityType="Self.Lote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuRol" EntityType="Self.MenuRol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuUsuario" EntityType="Self.MenuUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movmiento" EntityType="Self.Movmiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Municipio" EntityType="Self.Municipio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaseCaja" EntityType="Self.PaseCaja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonaSancion" EntityType="Self.PersonaSancion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plantilla" EntityType="Self.Plantilla" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Precio" EntityType="Self.Precio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrecioCarta" EntityType="Self.PrecioCarta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolPermisos" EntityType="Self.RolPermisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sancion" EntityType="Self.Sancion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Solicitud" EntityType="Self.Solicitud" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SolicitudContrasena" EntityType="Self.SolicitudContrasena" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SolicitudEntidad" EntityType="Self.SolicitudEntidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SolicitudPersona" EntityType="Self.SolicitudPersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Titulo" EntityType="Self.Titulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioCertificado" EntityType="Self.UsuarioCertificado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioEmpleado" EntityType="Self.UsuarioEmpleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioMovimiento" EntityType="Self.UsuarioMovimiento" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Carta_Empleado" Association="Self.FK_Carta_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Carta" EntitySet="Carta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carta_Plantilla" Association="Self.FK_Carta_Plantilla">
+      <End Role="Plantilla" EntitySet="Plantilla" />
+      <End Role="Carta" EntitySet="Carta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carta_Solicitud" Association="Self.FK_Carta_Solicitud">
+      <End Role="Solicitud" EntitySet="Solicitud" />
+      <End Role="Carta" EntitySet="Carta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartaSancion_Carta" Association="Self.FK_CartaSancion_Carta">
+      <End Role="Carta" EntitySet="Carta" />
+      <End Role="CartaSancion" EntitySet="CartaSancion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartaSancion_Sancion" Association="Self.FK_CartaSancion_Sancion">
+      <End Role="Sancion" EntitySet="Sancion" />
+      <End Role="CartaSancion" EntitySet="CartaSancion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colonia_Estado" Association="Self.FK_Colonia_Estado">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Colonia" EntitySet="Colonia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colonia_Municipio" Association="Self.FK_Colonia_Municipio">
+      <End Role="Municipio" EntitySet="Municipio" />
+      <End Role="Colonia" EntitySet="Colonia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Firma" Association="Self.FK_Empleado_Firma">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Firma" EntitySet="Firma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Puesto" Association="Self.FK_Empleado_Puesto">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Titulo" Association="Self.FK_Empleado_Titulo">
+      <End Role="Titulo" EntitySet="Titulo" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Firma_Carta" Association="Self.FK_Firma_Carta">
+      <End Role="Carta" EntitySet="Carta" />
+      <End Role="Firma" EntitySet="Firma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Firma_Lote" Association="Self.FK_Firma_Lote">
+      <End Role="Lote" EntitySet="Lote" />
+      <End Role="Firma" EntitySet="Firma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lote_Usuario" Association="Self.FK_Lote_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Lote" EntitySet="Lote" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuRol_Menu" Association="Self.FK_MenuRol_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="MenuRol" EntitySet="MenuRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuRol_Rol" Association="Self.FK_MenuRol_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="MenuRol" EntitySet="MenuRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuUsuario_Menu" Association="Self.FK_MenuUsuario_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="MenuUsuario" EntitySet="MenuUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuUsuario_Usuario" Association="Self.FK_MenuUsuario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="MenuUsuario" EntitySet="MenuUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipio_Estado" Association="Self.FK_Municipio_Estado">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Municipio" EntitySet="Municipio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Persona_Municipio" Association="Self.FK_Persona_Municipio">
+      <End Role="Municipio" EntitySet="Municipio" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonaSancion_Persona" Association="Self.FK_PersonaSancion_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="PersonaSancion" EntitySet="PersonaSancion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonaSancion_Sancion" Association="Self.FK_PersonaSancion_Sancion">
+      <End Role="Sancion" EntitySet="Sancion" />
+      <End Role="PersonaSancion" EntitySet="PersonaSancion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrecioCarta_Carta" Association="Self.FK_PrecioCarta_Carta">
+      <End Role="Carta" EntitySet="Carta" />
+      <End Role="PrecioCarta" EntitySet="PrecioCarta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrecioCarta_Precio" Association="Self.FK_PrecioCarta_Precio">
+      <End Role="Precio" EntitySet="Precio" />
+      <End Role="PrecioCarta" EntitySet="PrecioCarta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rol_Menu" Association="Self.FK_Rol_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Rol" EntitySet="Rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolPermisos_Permisos" Association="Self.FK_RolPermisos_Permisos">
+      <End Role="Permisos" EntitySet="Permisos" />
+      <End Role="RolPermisos" EntitySet="RolPermisos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolPermisos_Rol" Association="Self.FK_RolPermisos_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="RolPermisos" EntitySet="RolPermisos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sancion_Entidad" Association="Self.FK_Sancion_Entidad">
+      <End Role="Entidad" EntitySet="Entidad" />
+      <End Role="Sancion" EntitySet="Sancion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudContrasena_Empleado" Association="Self.FK_SolicitudContrasena_Empleado">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="SolicitudContrasena" EntitySet="SolicitudContrasena" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudEntidad_Entidad" Association="Self.FK_SolicitudEntidad_Entidad">
+      <End Role="Entidad" EntitySet="Entidad" />
+      <End Role="SolicitudEntidad" EntitySet="SolicitudEntidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudEntidad_Solicitud" Association="Self.FK_SolicitudEntidad_Solicitud">
+      <End Role="Solicitud" EntitySet="Solicitud" />
+      <End Role="SolicitudEntidad" EntitySet="SolicitudEntidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudPersona_Persona" Association="Self.FK_SolicitudPersona_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="SolicitudPersona" EntitySet="SolicitudPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudPersona_Solicitud" Association="Self.FK_SolicitudPersona_Solicitud">
+      <End Role="Solicitud" EntitySet="Solicitud" />
+      <End Role="SolicitudPersona" EntitySet="SolicitudPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioCertificado_Usuario" Association="Self.FK_UsuarioCertificado_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioCertificado" EntitySet="UsuarioCertificado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioEmpleado_Empleado" Association="Self.FK_UsuarioEmpleado_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="UsuarioEmpleado" EntitySet="UsuarioEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioEmpleado_Usuario" Association="Self.FK_UsuarioEmpleado_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioEmpleado" EntitySet="UsuarioEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioMovimiento_Movmiento" Association="Self.FK_UsuarioMovimiento_Movmiento">
+      <End Role="Movmiento" EntitySet="Movmiento" />
+      <End Role="UsuarioMovimiento" EntitySet="UsuarioMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioMovimiento_Usuario" Association="Self.FK_UsuarioMovimiento_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioMovimiento" EntitySet="UsuarioMovimiento" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

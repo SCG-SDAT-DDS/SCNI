@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BovedaFielModeloStoreContainer" CdmEntityContainer="BovedaFielEntidades">
+    <EntitySetMapping Name="cadenas">
+      <EntityTypeMapping TypeName="BovedaFielModelo.cadena">
+        <MappingFragment StoreEntitySet="cadenas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="digestion" ColumnName="digestion" />
+          <ScalarProperty Name="pkcs7" ColumnName="pkcs7" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="operaciones">
+      <EntityTypeMapping TypeName="BovedaFielModelo.operacion">
+        <MappingFragment StoreEntitySet="operaciones">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="tipo" ColumnName="operacion" />
+          <ScalarProperty Name="resultadoOperacion" ColumnName="resultadoOperacion" />
+          <ScalarProperty Name="certificadoUsuario" ColumnName="certificadoUsuario" />
+          <ScalarProperty Name="serieCertificado" ColumnName="serieCertificado" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="idtoken" ColumnName="idtoken" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="timestampings">
+      <EntityTypeMapping TypeName="BovedaFielModelo.timestamping">
+        <MappingFragment StoreEntitySet="timestamping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="idcadena" ColumnName="idcadena" />
+          <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tokens">
+      <EntityTypeMapping TypeName="BovedaFielModelo.token">
+        <MappingFragment StoreEntitySet="tokens">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="valorToken" ColumnName="token" />
+          <ScalarProperty Name="idwscall" ColumnName="idwscall" />
+          <ScalarProperty Name="validoDesde" ColumnName="validoDesde" />
+          <ScalarProperty Name="validoHasta" ColumnName="validoHasta" />
+          <ScalarProperty Name="appid" ColumnName="appid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WSLoginCalls">
+      <EntityTypeMapping TypeName="BovedaFielModelo.WSLoginCall">
+        <MappingFragment StoreEntitySet="WSLoginCalls">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="serieCertificado" ColumnName="serieCertificado" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xmls">
+      <EntityTypeMapping TypeName="BovedaFielModelo.xml">
+        <MappingFragment StoreEntitySet="xml">
+          <ScalarProperty Name="idcadena" ColumnName="idcadena" />
+          <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+          <ScalarProperty Name="foliogenerado" ColumnName="foliogenerado" />
+          <ScalarProperty Name="rutaxml" ColumnName="rutaxml" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="decodificaciones">
+      <EntityTypeMapping TypeName="BovedaFielModelo.decodificacion">
+        <MappingFragment StoreEntitySet="decodificacion">
+          <ScalarProperty Name="idOperacion" ColumnName="idOperacion" />
+          <ScalarProperty Name="campos" ColumnName="campos" />
+          <ScalarProperty Name="serie" ColumnName="serie" />
+          <ScalarProperty Name="certificado" ColumnName="certificado" />
+          <ScalarProperty Name="firma" ColumnName="firma" />
+          <ScalarProperty Name="idCadena" ColumnName="idCadena" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

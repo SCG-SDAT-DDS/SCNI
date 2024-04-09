@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 Error</title>
+    <link rel="stylesheet" href="~/Content/css/flexboxgrid.min.css" />
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/Content/css/animate.css" rel="stylesheet">
+    <link href="/Content/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/css/Estilos.css" />
+</head>
+
+<body class="gray-bg">
+
+
+    <div class="container-fluid logo-upper-left">
+        <img alt="Gobierno del Estado de Sonora | SIDUR" src="~/Content/img/logo_01_.png" />
+    </div>
+
+    <div class="middle-box text-center animated fadeInDown cajaE">
+        <small><strong class="text-danger">ERROR</strong></small>
+        <h1>404</h1>
+        <h3 class="font-bold">La Página No Fue Encontrada</h3><i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i>
+        <small> Verifique la dirección</small>
+        <br/><br/>
+        <a href="@Url.Action("Index", "Inicio")" class="btn btn-success" title="Regresar a Inicio"><i class="fa fa-home"></i>Regresar a Inicio</a>
+    </div>
+    <div class="footer footer-info">
+        <div class="col-xs-3 pull-right" style="max-width: 200px;min-width: 200px;">
+            <img src="~/Content/img/logo-sonora-unidos-logramos-mas-01.png" class="img-responsive" height="49" />
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="~/Scripts/libs/jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(window).resize(function () {
+              
+                $('.cajaE').css({
+                    position: 'absolute',
+                    left: ($(window).width() - $('.cajaE').outerWidth()) / 2,
+                    top: ($(window).height() - $('.cajaE').outerHeight()) / 2
+                });
+
+            });
+    
+            $(window).resize();
+
+        });
+    </script>
+</body>
+
+</html>

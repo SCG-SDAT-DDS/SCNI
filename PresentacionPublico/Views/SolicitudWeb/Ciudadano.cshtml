@@ -1,0 +1,553 @@
+﻿@using Datos.Recursos;
+@using Datos.Repositorios.Catalogos;
+@using Presentacion.Helpers;
+@using Sistema;
+
+@model Datos.DTO.Infraestructura.ViewModels.SolicitudViewModel
+
+@{
+    ViewBag.Title = "Ciudadano";
+    Layout = "~/Views/Shared/Layouts/_LayoutSolicitudWeb.cshtml";
+}
+
+@section HeaderScripts
+{
+    <link rel="stylesheet" href="~/Content/css/fileinput.min.css" />
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div>
+            @using (Html.BeginForm("Ciudadano", "SolicitudWeb", new { @idSolicitud = Request.QueryString["idSolicitud"] },
+                FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                Html.EnableClientValidation(false);
+                <div class="middle-box animated fadeInDown" style="max-width: 100% !important;">
+                    <div id="caja" class="container-fluid" style="max-width: 1280px;">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Datos de la Solicitud</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info text-center" id="alertFolioPago">
+                                                Ingrese el número de folio del comprobante de pago para su validación.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_FolioPago"><strong class="obligatorio">*</strong>Folio:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.TextBoxFor(m => m.Solicitud.FolioPago, new {@class = "form-control input-sm m-t-0", @maxlength = "23", @required = true})
+                                                @Html.ValidationMessageFor(m => m.Solicitud.FolioPago, null, new {@class = "label label-warning"})
+                                                <div class="col-md-12 p-all-0">
+                                                    <label>*Pase a Caja: 15 dígitos</label>
+                                                    <br/>
+                                                    <label>**Recibo Oficial: 23 caracteres</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Fecha"><strong class="obligatorio">*</strong>Fecha de Pago:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    @Html.TextBoxFor(m => m.Solicitud.Fecha, "{0:dd/MM/yyyy}", new {@class = "form-control input-sm m-t-0", @maxlength = 10})
+                                                    <label class="input-group-addon btn" for="Solicitud_Fecha">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label><strong class="obligatorio">*</strong>Identificación:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    @Html.DropDownListFor(m => m.Solicitud.Identificacion, Listas.ObtenerListaTipoIdentificacion(), new {@class = "form-control input-sm m-t-0"})
+                                                    <span class="input-group-addon btn" onclick="buscarArchivo('urlIdentifiacion');">
+                                                        <i class="fa fa-upload"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Subir documentos</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <h4>Documento de Identificación</h4>
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <input type="file" id="urlIdentifiacion" name="archivoIdentificacion" class="file-loading" accept=".jpg, .jpeg, .png" />
+                                                @Html.HiddenFor(e => e.Solicitud.URLIdentificacion)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="divErrorImagen"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Datos del Solicitante</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Persona_RFC">RFC:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    @Html.TextBoxFor(m => m.Solicitud.Persona.RFC, new {@class = "form-control input-sm m-t-0 uppercase", @maxlength = 13})
+                                                    <span id="Solicitud_Persona_RFC_Buscar" class="input-group-addon btn"><i class="fa fa-search"></i></span>
+                                                </div>
+                                                <div class="col-md-12 p-all-0">
+                                                    <label>*Si ya ha realizado este trámite, solo ingrese su RFC y de clic en el icono de buscar y sus datos se cargaran automáticamente</label>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Persona_Nombre"><strong class="obligatorio">*</strong>Nombre:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.HiddenFor(m => m.Solicitud.Persona.IDPersona)
+                                                @Html.TextBoxFor(m => m.Solicitud.Persona.Nombre, new {@class = "form-control input-sm uppercase", @maxlength = 50})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Persona_ApellidoP"><strong class="obligatorio">*</strong>Primer Apellido:</label>
+                                            </div>
+                                            <div class="col-md-8">@Html.TextBoxFor(m => m.Solicitud.Persona.ApellidoP, new {@class = "form-control input-sm uppercase", @maxlength = 50})</div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Persona_ApellidoM">Segundo Apellido:</label>
+                                            </div>
+                                            <div class="col-md-8">@Html.TextBoxFor(m => m.Solicitud.Persona.ApellidoM, new {@class = "form-control input-sm uppercase", @maxlength = 50})</div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Persona_Genero"><strong class="obligatorio">*</strong>Género:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.DropDownListFor(m => m.Solicitud.Persona.Genero, Listas.ObtenerListaGenero(), new {@class = "form-control input-sm"})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="persona_fecha_nacimiento">Fecha de Nacimiento:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    @Html.TextBoxFor(m => m.Solicitud.Persona.FechaNacimiento, "{0:dd/MM/yyyy}", new {id = "persona_fecha_nacimiento", @class = "form-control input-sm m-t-0", @maxlength = 10})
+                                                    <label class="input-group-addon btn" for="persona_fecha_nacimiento">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Persona_CURP">CURP:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.TextBoxFor(m => m.Solicitud.Persona.CURP, new {@class = "form-control input-sm uppercase", @maxlength = 18})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4"><label for="Solicitud_Persona_CorreoElectronico"><strong class="obligatorio">*</strong>Correo:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.TextBoxFor(m => m.Solicitud.Persona.CorreoElectronico, new {@class = "form-control input-sm", @Type = "email", @maxlength = 50})
+                                                @Html.ValidationMessageFor(m => m.Solicitud.Persona.CorreoElectronico, null, new {@class = "label label-warning"})
+                                                <label>*Es importante capturar el correo electrónico en el cual se le hará llegar la constancia</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Persona_IDEstado"><strong class="obligatorio">*</strong>Estado:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.DropDownListFor(m => m.Solicitud.Persona.IDEstado, EstadoRepositorio.Buscar(), new {@class = "form-control input-sm"})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 p-t-5"><label for="Solicitud_Persona_IDMunicipio"><strong class="obligatorio">*</strong>Municipio:</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.MunicipioDdl(m => m.Solicitud.Persona.IDMunicipio, Model.Solicitud.Persona.IDEstado, Model.Solicitud.Persona.IDMunicipio)
+                                                @Html.Hidden("hdf.idmunicipio", "0", new {@id = "hdf_idmunicipio_deafult"})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <br/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>**FAVOR DE VERIFICAR SUS DATOS ANTES DE ENVIARLOS</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-12">
+                            <div class="col-md-9 col-xs-9 col-md-offset-3 col-xs-offset-3">
+                                <small>Todos los campos marcados con <strong class="obligatorio">*</strong> son obligatorios.</small>
+                            </div>
+                            <a href="@Url.Action("Index", "SolicitudWeb")" class="col-md-2 col-xs-2 btn btn-default">Regresar</a>
+                            <div id='recaptcha' class="g-recaptcha"
+                                 data-sitekey="@(System.Configuration.ConfigurationManager.AppSettings["CaptchaSitioKey"])"
+                                 data-callback="onSubmit"
+                                 data-size="invisible"></div>
+                            <input type="submit" class="btn btn-primary block col-md-9 col-xs-9 col-md-offset-1 col-xs-offset-1 m-b" id="btnBuscar"
+                                   value="Enviar"/>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        
+    </div>
+</div>
+
+@section Modales
+{
+<div class="modal fade" id="mdlPersona" tabindex="-1" role="dialog" aria-labelledby="lbl_ConfirmarPersona">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>Coincidencia</label>
+                </h3>
+            </div>
+            <div class="modal-body text-center">
+                <h4><label class="col-md-12" id="lbl_persona_coincidencia">¿Es usted una da las siguientes personas esta persona?</label></h4>
+                <br />
+                <table class="table table-bordered table-striped" id="tbl_Persona_Coincidencia">
+                    <thead>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Primer Apellido</td>
+                            <td>Segundo Apellido</td>
+                            <td>RFC</td>
+                            <td>Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlNoCoincidencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="moda
+                        l" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <i class="fa fa-info-circle" style="font-size: 14pt;"></i>
+                    &nbsp;
+                    <label>Aviso</label>
+                </h3>
+            </div>
+            <div class="modal-body text-center">
+                No se encontraron coincidencias para el RFC: <label id="lbl_rfc_no_coincidencia"></label>
+            </div>
+            <div class="modal-footer">
+                <a data-dismiss="modal" class="btn btn-primary">@General.Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+@section FooterScripts
+{
+    <script type="text/javascript" src="/Scripts/plugins/canvas-to-blob.min.js"></script>
+    <script type="text/javascript" src="/Scripts/fileinput.min.js"></script>
+    <script type="text/javascript" src="/Scripts/fileinput_locale_es.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onSubmit = function (token) {
+            $('form').submit();
+        };
+
+        $(document).on("ready", function () {
+            $("#Solicitud_FolioPago").change(function() {
+                var folioPago = $(this).val();
+                var longitudFolio = folioPago.length;
+
+                var divAlerta = $('#alertFolioPago');
+
+                if (longitudFolio !== 15 && longitudFolio !== 23) {
+                    divAlerta.attr('class', 'alert alert-danger text-center');
+                    divAlerta.html('El folio no tiene la longitud correcta.');
+                    return;
+                }
+
+                $.ajax({
+                    data: "{folioPago: '" + $(this).val() + "'}",
+                    dataType: "json",
+                    contentType: "application/json",
+                    type: "POST",
+                    url: '@Url.Action("ObtenerInformacionFolioPago", "SolicitudWeb", new { area = string.Empty })',
+                    beforeSend: function () {
+                        divAlerta.attr('class', 'alert alert-info text-center');
+                        divAlerta.html('Validando...');
+                    },
+                    success: function (datosFolioPago) {
+                        if (datosFolioPago.Existe) {
+                            divAlerta.attr('class', 'alert alert-danger text-center');
+                            divAlerta.html('El folio "<strong>' + folioPago + '</strong>" ya sido utilizado.');
+                            $("#Solicitud_FolioPago").val("");
+                        } else if (datosFolioPago.Nombre != null) {
+                            divAlerta.attr('class', 'alert alert-success text-center');
+                            divAlerta.html('El recibo de pago está a nombre de <br/> ' + datosFolioPago.Nombre);
+                        } else {
+                            divAlerta.attr('class', 'alert alert-danger text-center');
+                            divAlerta.html('No se encontró registro de pago con ese folio.');
+                        }
+                    },
+                    error: function (error) {
+                        divAlerta.attr('class', 'alert alert-danger text-center');
+                        divAlerta.html('Hubo un error al validar el folio ingresado.');
+                    }
+                });
+            });
+
+            $("#Solicitud_Persona_RFC").blur(function () {
+                if (!ValidarRfc($("#Solicitud_Persona_RFC"), true)) {
+                    mostrarAlert("RFC inválido.", "danger", true);
+                }
+            });
+
+            var etiquetaImagen = '<img src="{ruta}" class="file-preview-image" alt="Foto">';
+
+            var $hdnRutaIdentifiacion = $("#@Html.IdFor(m => m.Solicitud.URLIdentificacion)");
+
+            $("#urlIdentifiacion").fileinput({
+                language: 'es',
+                initialPreview: [
+                    $hdnRutaIdentifiacion.val() != ""
+                        ? etiquetaImagen.format({ ruta: '@Url.Content(Model.Solicitud.URLIdentificacion ?? " ")' })
+                            : etiquetaImagen.format({ ruta: '@Url.Content("/Content/img/solicitudes/docs/no-document.png")' })
+                ],
+                previewFileType: "image",
+                browseClass: "btn btn-primary btn-block",
+                showCaption: false,
+                showRemove: false,
+                showUpload: false,
+                browseLabel: "&nbsp;Buscar",
+                allowedFileExtensions: ["jpg", "png", "jpeg"],
+                elErrorContainer: "#divErrorImagen",
+                maxFileSize: 1000
+            });
+
+            var fechas = [
+                $("#persona_fecha_nacimiento"),
+                $("#Solicitud_Fecha")
+            ];
+            var opciones = [1, 'dd/mm/yyyy', true];
+            iniciarFechas(fechas, opciones);
+            $('#Solicitud_Fecha').datepicker('update', new Date());
+            $('#persona_fecha_nacimiento').datepicker('update', new Date());
+
+            $("#Solicitud_Persona_RFC_Buscar").on("click", function () {
+                if (!ValidarControl($("#Solicitud_Persona_RFC"))) {
+                    var mensaje = "RFC es requerido";
+                    mostrarAlert(mensaje, "danger", true);
+                    event.preventDefault();
+                    return false;
+                }
+                else if (!ValidarRfc($("#Solicitud_Persona_RFC"), false)) {
+                    var mensaje = "El formato del RFC no es correcto";
+                    mostrarAlert(mensaje, "danger", true);
+                    event.preventDefault();
+                    return false;
+                }
+
+                var rfc = $("#Solicitud_Persona_RFC").val();
+
+                datos = buscarPersonaPorRFC(rfc);
+
+                datos.success(function (data) {
+
+                    if (data.length == 0) {
+                        $('#lbl_rfc_no_coincidencia').html(rfc);
+                        $('#mdlNoCoincidencia').modal('show');
+                        return false;
+                    }
+                    $("#lbl_persona_coincidencia").html(data.length == 1 ? "¿Es usted esta persona?" : "¿Es usted alguna de las siguientes personas?");
+
+                    var tbdoy = "";
+
+                    $.each(data, function (i, item) {
+                        tbdoy += "<tr>";
+                        tbdoy += "<td>" + item["Nombre"] + "</td>";
+                        tbdoy += "<td>" + item["APaterno"] + "</td>";
+                        tbdoy += "<td>" + item["AMaterno"] + "</td>";
+                        tbdoy += "<td>" + item["RFC"] + "</td>";
+                        tbdoy += "<td>";
+                        tbdoy += "<a class='btn btn-primary btn-circle' onclick='seleccionarPersona(" + item["IDPersona"] + ")'><i class='fa fa-check'></i></a>"
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "' value='" + item["IDPersona"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_RFC' value='" + item["RFC"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_Nombre' value='" + item["Nombre"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_ApellidoP' value='" + item["APaterno"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_ApellidoM' value='" + item["AMaterno"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_FechaNacimiento' value='" + cambiarFormatoFecha(item["FechaNacimiento"]) + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_Genero' value='" + item["Genero"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_CURP' value='" + item["CURP"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_Correo' value='" + item["Correo"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_IDEstado' value='" + item["IDEstado"] + "'/>";
+                        tbdoy += "<input type='hidden' id='hfd_Persona_" + item["IDPersona"] + "_IDMunicipio' value='" + item["IDMunicipio"] + "'/>";
+                        tbdoy += "</td>";
+                        tbdoy += "</tr>";
+                    });
+
+                    $("#tbl_Persona_Coincidencia tbody").html(tbdoy);
+                    $('#mdlPersona').modal('show');
+                });
+            });
+
+            $("#mdlPersona_Aceptar").on("click", function () {
+                datos.success(function (data) {
+                    $("#Solicitud_Persona_IDEstado").val(data["IDEstado"]);
+                    $("#hdf_idmunicipio_deafult").val(data["IDMunicipio"]);
+                    $("#Solicitud_Persona_IDEstado").change();
+
+                    $("#Solicitud_Persona_IDPersona").val(data["IDPersona"]);
+                    $("#Solicitud_Persona_Nombre").val(data["Nombre"]);
+                    $("#Solicitud_Persona_ApellidoP").val(data["APaterno"]);
+                    $("#Solicitud_Persona_ApellidoM").val(data["AMaterno"]);
+                    $("#Solicitud_Persona_Genero").val(parseInt(data["Genero"]));
+                    $("#Solicitud_Persona_CorreoElectronico").val(data["Correo"]);
+                    $("#persona_fecha_nacimiento").val(data["FechaNacimiento"]);
+                    $("#Solicitud_Persona_CURP").val(data["CURP"]);
+                });
+            });
+
+            $("#btnBuscar").on("click", function (e) {
+                e.preventDefault();
+
+                var noValidos = 0;
+
+                noValidos += ValidarControl($("#Solicitud_FolioPago")) ? 0 : 1;
+                noValidos += ValidarControl($("#Solicitud_Fecha")) ? 0 : 1;
+                noValidos += ValidarControl($("#Solicitud_Identificacion")) ? 0 : 1;
+                noValidos += ValidarControl($("#Solicitud_Persona_Nombre")) ? 0 : 1;
+                noValidos += ValidarControl($("#Solicitud_Persona_Genero")) ? 0 : 1;
+                noValidos += ValidarControl($("#Solicitud_Persona_CorreoElectronico")) ? 0 : 1;
+                noValidos += ValidarControl($("#Solicitud_Persona_ApellidoP")) ? 0 : 1;
+                noValidos += ValidarControl($("#Solicitud_Persona_IDEstado")) ? 0 : 1;
+                noValidos += ValidarControl($("#Solicitud_Persona_IDMunicipio")) ? 0 : 1;
+
+                var hayNecesarios = noValidos > 0;
+                var mensajeError = "";
+
+                var longitudFolio = $("#Solicitud_FolioPago").val().length;
+                if (longitudFolio !== 15 && longitudFolio !== 23) {
+                    noValidos++;
+                    mensajeError = (hayNecesarios ? "<br/>" : "") + "El folio de pago es incorrecto.";
+                }
+
+                if (!$("#urlIdentifiacion").val()) {
+                    noValidos++;
+                    mensajeError += (mensajeError ? "<br/>" : "") + "Debe subir un documento de identificación.";
+                }
+
+                if (!ValidarRfc($("#Solicitud_Persona_RFC"), true)) {
+                    noValidos++;
+                    mensajeError = (mensajeError ? "<br/>" : "") + "RFC inválido.";
+                }
+
+                if (noValidos > 0) {
+                    var mensaje = (hayNecesarios ? "Los campos marcados en rojo no deben estar vacios." : "") + mensajeError;
+                    mostrarAlert(mensaje, "danger", true);
+                    return false;
+                }
+
+                grecaptcha.execute();
+            });
+        });
+
+        function buscarPersonaPorRFC(rfc) {
+            return $.ajax({
+                data: "{RFC: '" + rfc + "'}",
+                dataType: "json",
+                contentType: "application/json",
+                type: "POST",
+                url: '@Url.Action("ObtenerPersonaPorRFC", "SolicitudWeb", new { area = string.Empty })'
+            });
+        }
+
+        function buscarArchivo(id) {
+            $("#" + id).click();
+        }
+
+        function seleccionarPersona(id) {
+            var idPersona = $("#hfd_Persona_" + id).val();
+            var rfc = $("#hfd_Persona_" + id + "_RFC").val();
+            var nombre = $("#hfd_Persona_" + id + "_Nombre").val();
+            var apellidop = $("#hfd_Persona_" + id + "_ApellidoP").val();
+            var apellidom = $("#hfd_Persona_" + id + "_ApellidoM").val();
+            var fechanacimiento = $("#hfd_Persona_" + id + "_FechaNacimiento").val();
+            var genero = $("#hfd_Persona_" + id + "_Genero").val().trim();
+            var curp = $("#hfd_Persona_" + id + "_CURP").val();
+            var correo = $("#hfd_Persona_" + id + "_Correo").val();
+            var estado = $("#hfd_Persona_" + id + "_IDEstado").val();
+            var municipio = $("#hfd_Persona_" + id + "_IDMunicipio").val();
+
+            $("#Solicitud_Persona_IDPersona").val(idPersona);
+            $("#Solicitud_Persona_RFC").val(rfc).removeClass("input-validation-error");
+            $("#Solicitud_Persona_Nombre").val(nombre).removeClass("input-validation-error");
+            $("#Solicitud_Persona_ApellidoP").val(apellidop).removeClass("input-validation-error");
+            $("#Solicitud_Persona_ApellidoM").val(apellidom).removeClass("input-validation-error");
+            $("#persona_fecha_nacimiento").val(fechanacimiento).removeClass("input-validation-error");
+
+            $("#Solicitud_Persona_CURP").val(curp).removeClass("input-validation-error");
+            $("#Solicitud_Persona_CorreoElectronico").val(correo).removeClass("input-validation-error");
+            $("#Solicitud_Persona_IDEstado").val(estado).removeClass("input-validation-error");
+            $("#Solicitud_Persona_IDMunicipio").val(municipio).removeClass("input-validation-error");
+            $("#hdf_idmunicipio_deafult").val(municipio).removeClass("input-validation-error");
+            $("#Solicitud_Persona_IDEstado").change();
+
+            var dateParts = fechanacimiento.split("/");
+            var dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+            $('#persona_fecha_nacimiento').datepicker('update', dateObject);
+
+            $('#mdlPersona').modal('hide');
+        }
+
+        function ValidarControl(ctrl) {
+
+            if (ctrl[0].tagName == "INPUT" && !ctrl[0].disabled) {
+                if (ctrl[0].type == "text" || ctrl[0].type == "email") {
+                    if (ctrl[0].value.length == 0) {
+                        $(ctrl[0]).addClass("input-validation-error");
+                        return false;
+                    }
+
+                }
+            }
+            else if (ctrl[0].tagName == "SELECT" && !ctrl[0].disabled) {
+                if (ctrl[0].selectedIndex == 0) {
+                    $(ctrl[0]).addClass("input-validation-error");
+                    return false;
+                }
+            }
+            else if (ctrl[0].tagName == "TEXTAREA" && !ctrl[0].disabled) {
+            }
+
+            $(ctrl[0]).removeClass("input-validation-error");
+            return true;
+        }
+    </script>
+}

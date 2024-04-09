@@ -1,0 +1,68 @@
+﻿@using Datos.Recursos
+<div class="modal fade" id="mdlConfirmar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">
+                    <label>@General.Cuidado</label>
+                </h3>
+            </div>
+            <div class="modal-body text-center">
+                <label id="lblModal"></label>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Cancelar</button>
+                <button id="btnConfirmar" class="btn btn-primary">@General.Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var habilitar = (function () {
+        var enlaceEnEspera;
+        var confirmado = false;
+        var nombre = "";
+
+        $(".deshabilitar").click(function (e) {
+            if (!confirmado) {
+                enlaceEnEspera = this;
+                e.preventDefault();
+                mostrarModalConfirmar(true);
+            }
+        });
+
+        $(".habilitar").click(function (e) {
+            if (!confirmado) {
+                enlaceEnEspera = this;
+                e.preventDefault();
+                mostrarModalConfirmar(false);
+            }
+        });
+
+        $("#btnConfirmar").click(function (e) {
+            e.preventDefault();
+            confirmado = true;
+            enlaceEnEspera.click();
+        });
+
+        function mostrarModalConfirmar(habilitar) {
+            var mensaje = habilitar
+                ? '¿Está seguro que desea deshabilitar el/la ' + nombre + '?'
+                : '¿Está seguro que desea habilitar el/la ' + nombre + '?';
+
+            $("#lblModal").html(mensaje);
+            $("#mdlConfirmar").modal("show");
+        }
+
+        function iniciar(_nombre) {
+            nombre = _nombre;
+        }
+
+        return {
+            Iniciar: iniciar
+        };
+    })();
+</script>

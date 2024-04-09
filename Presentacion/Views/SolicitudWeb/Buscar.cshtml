@@ -1,0 +1,250 @@
+﻿@using Datos
+@using Sistema
+@using Datos.Recursos
+@using Presentacion.Helpers
+@using Sistema.Extensiones
+@model Datos.DTO.Infraestructura.ViewModels.BusquedaSolicitudDependencia
+@{
+    ViewBag.Title = "Validación";
+    Layout = "~/Views/Shared/Layouts/_LayoutSolicitudWeb.cshtml";
+}
+
+@if (Model.IDEntidad == 0)
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="middle-box animated fadeInDown" style="max-width: 450px">
+                <div id="caja" class="container-fluid box">
+                    <div class="col-xs-12 p-lateral-0 text-center">
+                        <h2>BÚSQUEDA DE SOLICITUD PARA DEPENDENCIA O ENTIDAD</h2>
+                        <hr />
+                        <p>Para realizar la búsqueda seleccione al menos la depenencia o entidad.</p>
+                        @using (Html.BeginForm("Buscar", "SolicitudWeb", new { }, FormMethod.Post, new { @class = "form-horizontal text-left" }))
+                        {
+                            <div class="col-md-12">
+                                <label class="col-sm-4 control-label" for="IDEntidad"><strong class="obligatorio">*</strong>Dependencia</label>
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(c => c.IDEntidad,  new SelectList(Model.Entidades, "Key", "Value"), "Seleccione...",new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(c => c.IDEntidad, null, new { @class = "label label-warning" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="col-sm-4 control-label" for="Oficio">Oficio</label>
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(c => c.Oficio, new {@class = "form-control uppercase" })
+                                        @Html.ValidationMessageFor(c => c.Oficio, null, new {@class = "label label-warning"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="col-sm-4 control-label" for="FechaInicio">Fecha Inicio</label>
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.FechaInicio, "{0:dd/MM/yyyy}", new {@class = "form-control m-t-0"})
+                                        <label class="input-group-addon btn" for="FechaInicio">
+                                            <i class="fa fa-calendar"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="col-sm-4 control-label" for="FechaFin">Fecha Fin</label>
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.FechaFin, "{0:dd/MM/yyyy}", new { @class = "form-control m-t-0" })
+                                        <label class="input-group-addon btn" for="FechaFin">
+                                            <i class="fa fa-calendar"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <hr />
+                            </div>
+
+                            <div id='recaptcha' class="g-recaptcha"
+                                 data-sitekey="@(System.Configuration.ConfigurationManager.AppSettings["CaptchaSitioKey"])"
+                                 data-callback="onSubmit"
+                                 data-size="invisible"></div>
+                            <input type="submit" class="btn btn-primary block full-width m-b" id="btnBuscar"
+                                   value="Buscar" />
+                        }
+                        <small>Todos los campos marcados con <strong class="obligatorio">*</strong> son obligatorios.</small>
+                        <br />
+                        <a href="@Url.Action("Index", "SolicitudWeb")">Regresar al menú</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (Model.Solicitudes != null && Model.Solicitudes.Any())
+{
+    using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.IDEntidad)
+        @Html.HiddenFor(m => m.Oficio)
+        @Html.HiddenFor(m => m.FechaInicio)
+        @Html.HiddenFor(m => m.FechaFin)
+        <input type="hidden" name="Paginacion" value="@Model.Paginacion.EncodeTo64()"/>
+
+        <div class="col-xs-12">
+            <div class="text-center">
+                <h2>Estado de Solicitudes De Constancias</h2>
+                <a href="@Url.Action("Buscar", "SolicitudWeb")">REGRESAR PARA NUEVA BÚSQUEDA</a>
+            </div>
+            <div class="col-xs-12 m-t-20 p-internos-0 m-b-5">
+                <div class="col-xs-12 text-right">
+                    <label class="label label-success">
+                        @General.Encontrados: @Model.TotalEncontrados
+                    </label>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped" id="tblBusqueda">
+                        <thead>
+                        <tr>
+                            <th>Oficio</th>
+                            <th>Fecha de Solicitud</th>
+                            <th>Folio de Pago</th>
+                            <th>RFC</th>
+                            <th>Nombre</th>
+                            <th class="text-center">Estado</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var solicitud in Model.Solicitudes)
+                        {
+                            <tr>
+                                <td>SCG-01-2016</td>
+                                <td>@solicitud.FechaSolicitud.ToString("dd/MM/yyyy")</td>
+                                <td>@solicitud.FolioPago</td>
+                                <td>@solicitud.Persona.RFC</td>
+                                <td>
+                                    @solicitud.Persona.ApellidoP
+                                    @solicitud.Persona.ApellidoM
+                                    @solicitud.Persona.Nombre
+                                </td>
+                                <td class="text-center">
+                                    @{ var carta = solicitud?.Carta.SingleOrDefault(); }
+                                    @if (carta != null && carta.Estado == EstadosCarta.Firmada)
+                                    {
+                                        <a class="btn btn-info btn-circle visualizar" href="#" id="visualizarCarta(@carta.IDCarta)" title="Visualizar"
+                                           data-id="@carta.IDCarta">
+                                            <i class="fa fa-search"></i>
+                                        </a>
+                                        <a class="btn btn-success btn-circle descargar" href="@Url.Action("Carta", "Descargar", new {Area = string.Empty, idCarta = carta.IDCarta})" id="descargar" title="Descargar">
+                                            <i class="fa fa-file-text-o"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa fa-times"></i>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                @Html.Partial("Controls/_Paginacion", Model)
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="middle-box animated fadeInDown">
+                <div id="caja" class="container-fluid" style="width: 450px">
+                    <div class="col-xs-12 p-lateral-0 text-center">
+                        <h2>SIN REGISTROS DE SOLICITUDES.</h2>
+                        <p>Para más información comuníquese al teléfono 217-21-68 y/o 213-63-07 extensión 1307 o al correo electrónico constancias@sonora.gob.mx</p>
+                        <a href="@Url.Action("Buscar")">Buscar de nuevo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Modales
+{
+    <div id="visualizarCarta" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width: 760px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Visualizar Carta</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe id="ifCarta" runat="server" width='700px' height='450px' frameborder='0'
+                            src=""></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section FooterScripts
+{
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onSubmit = function (token) {
+            $('form').submit();
+        };
+
+        $(document).ready(function() {
+            $('.visualizar').click(function() {
+                $('#ifCarta').attr('height', ($(window).height() - 250) + "px");
+                $('#visualizarCarta').modal('show');
+
+                var url = '@Model.UrlDescargarArchivo' + '?idCarta=' + $(this).data('id');
+
+                $('#ifCarta').attr('src', 'https://docs.google.com/viewer?embedded=true&url=' + url);
+            });
+
+            $('#visualizarCarta').on('hidden.bs.modal', function() {
+                $('#ifCarta').attr('src', '');
+            });
+
+            $('#btnBuscar').click(function (e) {
+                e.preventDefault();
+
+                if ($('form').valid() === true) {
+                    grecaptcha.execute();
+                }
+            });
+        });
+
+        $("#FechaInicio, #FechaFin").datepicker({
+            language: 'es'
+        });
+
+        $(function () {
+            $(window).resize(function () {
+                $('#caja').css("margin-top", altura.alturaVentana);
+            });
+
+            $(window).resize();
+        });
+
+        var altura = (function () {
+            var alturaVentana = $(window).height() / 2;
+            var alturaCaja = $("#caja").height() / 2;
+            return {
+                alturaVentana: alturaVentana - alturaCaja - 120
+            };
+        })();
+</script>
+}

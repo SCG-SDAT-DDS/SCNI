@@ -1,0 +1,253 @@
+﻿@using Datos.Recursos
+@using Presentacion.Helpers
+@using Sistema
+
+@model Datos.DTO.Infraestructura.ViewModels.SancionViewModel
+
+@{
+    ViewBag.Title = General.Buscar;
+    Layout = "~/Views/Shared/Layouts/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="ibox">
+        <div class="ibox-content p-l-20 p-r-10 bg-f bx-s">
+            <div class="row">
+                <div class="col-xs-12 p-all-0">
+                    @{ Html.EnableClientValidation(false); }
+
+                    <div class="col-sm-6">
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    <label for="Sancion_Tipo">Origen:</label>
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    @Html.DropDownListFor(m => m.Sancion.Tipo, Listas.ObtenerListaTipoSancionFederal(), new {@class = "form-control"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    <label for="Sancion_TipoSancion">Tipo de Sanción:</label>
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    @Html.DropDownListFor(m => m.Sancion.TipoSancion, Listas.ObtenerListaSancionesFederal(), new {@class = "form-control"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    <label for="Sancion_Año">Año:</label>
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    @*@Html.TextBoxFor(m => m.Sancion.Año, new { @class = "form-control" })*@
+                                    @Html.DropDownListFor(m => m.Sancion.Año, Listas.ObtenerListaAños(true), new {@class = "form-control"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    <label for="Sancion_NumeroExpediente">Expediente:</label>
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    @Html.TextBoxFor(m => m.Sancion.NumeroExpediente, new { @class = "form-control input-sm uppercase", @maxlength = 20 })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    <label for="FechaInicioEjecutaria">Fecha Ejecutoria:</label>
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.FechaInicioEjecutaria, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @maxlength = 10, placeholder = "Fecha inicio" })
+                                        <label for="FechaInicioEjecutaria" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.FechaFinEjecutaria, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @maxlength = 10, placeholder = "Fecha fin" })
+                                        <label for="FechaFinEjecutaria" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    <label for="FechaInicioResolucion">Fecha Resolución:</label>
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.FechaInicioResolucion, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @maxlength = 10, placeholder = "Fecha inicio" })
+                                        <label for="FechaInicioResolucion" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.FechaFinResolucion, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm m-t-0", @maxlength = 10, placeholder = "Fecha fin" })
+                                        <label for="FechaFinResolucion" class="input-group-addon btn"><i class="fa fa-calendar"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    @Html.LabelFor(m => m.Sancion.Persona.RFC)
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    @Html.TextBoxFor(m => m.Sancion.Persona.RFC, new {@class = "form-control input-sm", @maxlength = 13})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    @Html.LabelFor(m => m.Sancion.Persona.Nombre):
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    @Html.TextBoxFor(m => m.Sancion.Persona.Nombre, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 p-t-5"><label for="Solicitud_Tipo">Tipo de Dependencia-Entidad:</label></div>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.Sancion.Entidad.Tipo, Listas.ObtenerListaTipoEntidadFederal(), new { @class = "form-control input-sm", @disabled = true })
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 p-t-5"><label for="Solicitud_Entidad_IDEntidad">Nombre Dependencia-Entidad:</label></div>
+                                <div class="col-md-9">
+                                    @Html.EntidadDdl(m => m.Sancion.Entidad.IDEntidad, Model.Sancion.Entidad.Tipo, Model.Sancion.Entidad.IDEntidad)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    <label for="Sancion_Habilitado">Habilitadas</label>
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    @Html.CheckBoxFor(m => m.Sancion.Habilitado)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12 m-t-10">
+                        <div class="pull-right">
+                            <a href="@Url.Action("BuscarFederales")" class="btn-sm btn btn-info">Nueva búsqueda</a>
+                            <a href="@Url.Action("GuardarFederal", "Sanciones", new {@area = "Sancionados"})" class="btn btn-sm btn-default">Nuevo</a>
+                            <input type="submit" class="btn btn-sm btn-primary" value="@General.Buscar"/>
+                            <input type="submit" name="Imprimir" class="btn-sm btn-danger" value="Imprimir" />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 m-t-20 p-internos-0 m-b-5">
+                        <div class="col-xs-6 bold">
+                            @Html.DropDownListFor(m => m.TamanoPagina, Listas.ObtenerListaCantidadPagina())
+                            @General.TamanoPagina
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <label class="label label-success">
+                                @General.Encontrados: @Model.TotalEncontrados
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped" id="tblBusqueda">
+                            <thead>
+                                <tr>
+                                    <th>Número de Expediente</th>
+                                    <th>Sanción</th>
+                                    <th>Año</th>
+                                    <th>Nombre</th>
+                                    <th>Dependencia-Entidad</th>
+                                    <th class="text-center">@General.Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var sancion in Model.Sanciones)
+                                {
+                                    <tr>
+                                        <td>@sancion.NumeroExpediente</td>
+                                        <td>@Listas.ObtenerValorDeLista(Listas.ObtenerListaSancionesFederal(), sancion.TipoSancion)</td>
+                                        <td>@sancion.Año</td>
+                                        <td>
+                                            @sancion.Persona.ApellidoP&nbsp;
+                                            @sancion.Persona.ApellidoM&nbsp;
+                                            @sancion.Persona.Nombre
+                                        </td>
+                                        <td>@sancion.Entidad.Nombre</td>
+                                        <td class="text-center">
+
+                                            @Html.ActionLinkCifrado(General.Modificar, "GuardarFederal", "Sanciones", "Sancionados", "btn btn-warning btn-circle", "fa fa-pencil",
+                                                new Dictionary<string, int> { { "idSancion", sancion.IDSancion } })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        @Html.Partial("Controls/_Paginacion", Model)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section FooterScripts
+{
+    <script type="text/javascript" src="/Scripts/jquery.tablesorter.js"></script>
+    <script type="text/javascript">
+        window.mostrarDivCargando = false;
+
+        $(document).ready(function () {
+
+            var fechas = [
+                $("#FechaInicioResolucion"),
+                $("#FechaFinResolucion"),
+                $("#FechaInicioEjecutaria"),
+                $("#FechaFinEjecutaria")
+            ];
+            var opciones = [1, "dd/mm/yyyy", true];
+            iniciarFechas(fechas, opciones);
+
+            $("#tblBusqueda").tablesorter();
+
+        });
+    </script>
+}

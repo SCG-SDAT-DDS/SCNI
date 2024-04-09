@@ -1,0 +1,301 @@
+﻿
+.ui-datepicker-month,
+.ui-datepicker-year {
+    color: #000;
+}
+.checkbox-success input[type="checkbox"]:checked + input[type="hidden"] + label::before, 
+.checkbox-success input[type="radio"]:checked+ input[type="hidden"] + label::before {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+.checkbox-success input[type="checkbox"]:checked + input[type="hidden"] + label::before, 
+.checkbox-success input[type="radio"]:checked + input[type="hidden"] + label::before {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+
+.checkbox-success input[type="checkbox"]:checked + input[type="hidden"] + label::after, 
+.checkbox-success input[type="radio"]:checked + input[type="hidden"] + label::after {
+    color: #fff;
+}
+.checkbox input[type="checkbox"]:checked + input[type="hidden"] + label::after, 
+.checkbox input[type="radio"]:checked + input[type="hidden"] + label::after {
+    font-family: "FontAwesome";
+    content: "\f00c";
+}
+.checkbox-success input[type="checkbox"]:checked + input[type="hidden"] + label::after, 
+.checkbox-success input[type="radio"]:checked + input[type="hidden"] + label::after {
+    color: #fff;
+}
+.checkbox input[type="checkbox"]:checked + input[type="hidden"] + label::after, 
+.checkbox input[type="radio"]:checked + input[type="hidden"] + label::after {
+    font-family: "FontAwesome";
+    content: "\f00c";
+}
+
+.center-div {
+    display: table;
+    margin: 0 auto;
+}
+
+.contact-box.center-version {
+    text-align: center;
+}
+
+#imgFotoEmpleado {
+    width: 150px;
+    height: 150px;
+}
+
+.label {
+    font-family: "Arial";
+    font-size: 11px;
+}
+
+.label-warning {
+    background-color: red;
+}
+
+.input-validation-error {
+    border: 1px solid red;
+}
+
+.form-group {
+    margin-bottom: 5px !important;
+}
+
+.form-control {
+    padding: 0px 12px;
+}
+
+.btn-circle {
+    width: 24px;
+    height: 24px;
+    padding: 3px 0px;
+}
+
+.fa {
+    font-size: 14px;   
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, 
+.table > tfoot > tr > th, .table > thead > tr > td, 
+.table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 4px 8px;
+}
+
+/*****************************************************/
+/********************** ACCESO ***********************/
+/*****************************************************/
+
+.logo-upper-left {
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #CCC;
+    box-shadow: 0px 0px 15px #AAA;
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+}
+.logo-upper-left > img {
+    height: 100%;
+}
+.logo-bottom-right {
+    /*background: url('../img/bkg_01.jpg') no-repeat center;*/
+    background-size: cover;
+    position: absolute;
+    opacity: .8;
+    width: 100%;
+    height: 100%;
+    float: left;
+    z-index: 0;
+}
+
+.img-logo-inferior-izquierdo {
+    width: 35%;
+    height: auto;
+    position: absolute;
+    left: 0;
+}
+
+.img-logo-inferior-derecho {
+    width: 35%;
+    height: auto;
+    position: absolute;
+    right: 0;
+}
+
+.loginscreen.middle-box {
+    width: 400px;
+}
+
+.middle-box {
+    padding-top: 0;
+}
+
+.logo-name {
+    color: #fff;
+    font-size: 100px;
+    margin-left: -15px;
+    text-shadow: 0px 0px 2px #000;
+}
+#caja a {
+    color: black;
+    font-weight: bold;
+    text-shadow: 0px 0px 0px #59F;
+    text-decoration: underline;
+}
+.cbl label {
+    font-size: 14px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+.box {
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    border: 1px solid#e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 10px#666;
+    -moz-box-shadow: 0 0 10px#666;
+    box-shadow: 0 0 10px#666;
+}
+
+.cbl input[type="checkbox"] {
+    margin-top: 0;
+}
+
+.imgs-logos-80, .imgs-logos-50 {
+    width: auto;
+}
+
+.imgs-logos-80 {
+    height: 80px;
+}
+
+.imgs-logos-50 {
+    height: 50px;
+}
+
+.div-logos {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.informacion {
+    background-color: #F3F3F4;
+}
+
+#divEmpleados {
+    max-height: 380px;
+    overflow-y: auto;
+}
+
+.footer-info {
+    border-top: 1px solid #CCC;
+    box-shadow: 0px -1px 15px #AAA;
+    text-align: center;
+    font-size: 8pt;
+}
+.text-red,
+.text-green,
+.text-orange {
+    text-shadow: 0 0 4px #888;
+}
+.text-red {
+    color: #000;
+}
+.text-green {
+    color: #000;
+}
+.text-orange {
+    color: #000;
+}
+
+/*****************************************************/
+/********************** TABLAS ***********************/
+/*****************************************************/
+th {
+    border: none !important;
+    background-color: #FFF !important;
+    padding: 12px 6px !important;
+}
+
+.nombreEmpleado>div {
+    display: none;        
+}
+
+.nombreEmpleado:hover>div {
+    display: block;
+    position: fixed;
+    left: 20%;
+    z-index: 999;
+}
+
+/*  */
+.form-control {
+    margin-top: 5px !important;
+}
+.input-group {
+    padding-top: 5px !important;
+}
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+/*****************************************************/
+/****************** Solicitud Web ********************/
+/*****************************************************/
+.sw-header
+{
+    background-color: #FFF;
+    border-bottom: 1px solid #CCC;
+    box-shadow: 0px 1px 15px #AAA;
+
+    height: 80px;
+    width: 100%;
+
+    float: left;
+    position: fixed;
+    top: 0;
+    padding: 5px 15px;
+
+    
+}
+.sw-header img
+{
+    max-height: 70px;
+}
+.sw-content
+{
+    
+    padding-top: 94px;
+    padding-bottom: 90px;
+   
+}
+.sw-footer
+{
+    background-color: #FFF;
+    border-top: 1px solid #CCC;
+    box-shadow: 0px -1px 15px #AAA;
+
+    height: 65px;
+    width: 100%;
+    
+    float: left;
+    position: fixed;
+    bottom: 0;
+    z-index: 110;
+    padding: 10px 25px;
+
+}
+.sw-footer img
+{
+    max-height: 70px;
+}

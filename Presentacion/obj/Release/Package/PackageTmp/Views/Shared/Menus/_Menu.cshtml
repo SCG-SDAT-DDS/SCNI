@@ -1,0 +1,68 @@
+﻿@using Datos
+@using Datos.DTO.Infraestructura
+@using Datos.Enums
+@*@using Utilidades*@
+@{
+    var menu = ((SistemaUsuario)Session[Enumerados.VariablesSesion.Aplicacion.ToString()]).Menu;
+}
+
+<ul class="nav metismenu" id="side-menu">
+    @{
+        var listaRaices = menu.Where(m => m.Padre == 0).ToList();
+
+        foreach (var menuRaiz in listaRaices)
+        {
+            var idMenu = menuRaiz.IDMenu;
+            var tieneHijos = menu.Any(m => m.Padre == idMenu);
+
+            <li>
+                @if (tieneHijos)
+                {
+                    <a href="#">
+                        <i class="fa @menuRaiz.IconoCss"></i>
+                        <span class="nav-label">@menuRaiz.Opcion</span>
+                        <span class="fa arrow"></span>
+                    </a>
+
+                    <ul class="nav nav-second-level collapse">
+                        @foreach (var menuSegundNivel in menu.Where(m => m.Padre == idMenu))
+                        {
+                            var idMenuSegundoNivel = menuSegundNivel.IDMenu;
+                            tieneHijos = menu.Any(m => m.Padre == idMenuSegundoNivel);
+
+                            <li>
+                                @if (tieneHijos)
+                                {
+                                    <a href="#">
+                                        @menuSegundNivel.Opcion
+                                        <span class="fa arrow"></span>
+                                    </a>
+                                    <ul class="nav nav-third-level collapse">
+                                        @foreach (var menuTercerNivel in menu.Where(m => m.Padre == idMenuSegundoNivel))
+                                        {
+                                            <li>
+                                                <a href="@menuTercerNivel.Destino">@menuTercerNivel.Opcion</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <a href="@menuSegundNivel.Destino">@menuSegundNivel.Opcion</a>
+                                }
+                            </li>
+
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <a href="@menuRaiz.Destino">
+                        <i class="fa @menuRaiz.IconoCss"></i>
+                        <span>@menuRaiz.Opcion</span>
+                    </a>
+                }
+            </li>
+        }
+    }
+</ul>

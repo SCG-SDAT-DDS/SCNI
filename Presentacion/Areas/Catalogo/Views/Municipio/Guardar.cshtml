@@ -1,0 +1,53 @@
+﻿@using Datos.Recursos
+@using Datos.Repositorios.Catalogos
+@using Presentacion.Helpers
+@model Datos.Municipio
+
+@{
+    ViewBag.Title = "Guardar Municipio";
+}
+
+<div class="tarjeta bg-f">
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div></div>
+                <div class="col-md-4 text-right">
+                    @Html.LabelFor(m => m.Nombre)
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.Nombre, new {@class = "form-control input-sm"})
+                    @Html.ValidationMessageFor(m => m.Nombre, null, new {@class = "label label-warning"})
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 text-right">
+                    @Html.LabelFor(m => m.Estado.IDEstado)
+                </div>
+                <div class="col-md-4">
+                    @if (Model.Estado != null)
+                    {
+                        @Html.DropDownListFor(m => m.Estado.IDEstado, EstadoRepositorio.Buscar(), new { @class = "form-control input-sm empleado", @disabled = "disabled" })
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(m => m.Estado.IDEstado, EstadoRepositorio.Buscar(), new { @class = "form-control input-sm empleado" })
+                    }
+
+                    @Html.ValidationMessageFor(m => m.Estado.IDEstado, null, new { @class = "label label-warning" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="pull-right">
+                        @Html.ActionLink(General.Regresar, "Index", "Municipio", new {area = "Catalogo"}, new {@class = "btn btn-default"})
+                        <input type="submit" value="@General.Guardar" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

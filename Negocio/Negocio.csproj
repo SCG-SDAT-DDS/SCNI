@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{626AB802-78B6-4FF1-BFC7-D5230EDC6576}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Negocio</RootNamespace>
+    <AssemblyName>Negocio</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.0.0.22\lib\net40\DocX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.2.3\lib\net40\QRCoder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.2.3\lib\net40\UnityEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Carta\ConstructorCarta.cs" />
+    <Compile Include="Excepciones\ScniException.cs" />
+    <Compile Include="Carta\CadenaCarta.cs" />
+    <Compile Include="Firma\ConstructorFirmaCarta.cs" />
+    <Compile Include="Firma\FirmaCarta.cs" />
+    <Compile Include="Firma\OperacionesFiel.cs" />
+    <Compile Include="Firma\FielException.cs" />
+    <Compile Include="Firma\ServiciosWebFiel.cs" />
+    <Compile Include="Firma\XmlFiel.cs" />
+    <Compile Include="Firma\XmlFielEntrada.cs" />
+    <Compile Include="PaseCaja\Format\Declaracion.cs" />
+    <Compile Include="PaseCaja\Format\Documento.cs" />
+    <Compile Include="PaseCaja\Format\DocumentoEnum.cs" />
+    <Compile Include="PaseCaja\Format\DocumentoFactory.cs" />
+    <Compile Include="PaseCaja\Format\IDocumento.cs" />
+    <Compile Include="PaseCaja\GeneracionPaseCajaRepositorio.cs" />
+    <Compile Include="PaseCaja\PaseCajaRepository.cs" />
+    <Compile Include="PaseCaja\RepositorioPaseCaja.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesFormatos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportesFormatos.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\IServicio.cs" />
+    <Compile Include="Servicios\ServiciosAcceso.cs" />
+    <Compile Include="Servicios\ServiciosCarta.cs" />
+    <Compile Include="Servicios\ServiciosPaseCaja.cs" />
+    <Compile Include="Servicios\ServiciosReporte.cs" />
+    <Compile Include="Web References\mx.gob.sonora.claro.gespipci\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebReferenceFirma\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsFielServicios\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsFielSesion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsPagoRegistroCivil_Calidad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsPagoRegistroCivil_Desarrollo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsPagoRegistroCivil_Productivo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsPaseCaja_Calidad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsPaseCaja_Desarrollo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsPaseCaja_Productivo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsValidarPago_Calidad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WsValidarPago_Productivo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{cba8aaf3-8f8b-4efc-87b7-0872ee91d432}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sistema\Sistema.csproj">
+      <Project>{e8e0ab35-79c0-4e3f-9d49-d09f6c21c27c}</Project>
+      <Name>Sistema</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\ReporteConstancias.xlsx" />
+    <None Include="Resources\ReporteSancionado.xlsx" />
+    <None Include="Resources\ReporteSanciones.xlsx" />
+    <None Include="Web References\mx.gob.sonora.claro.gespipci\DT_Consulta_resp.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\mx.gob.sonora.claro.gespipci\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\mx.gob.sonora.claro.gespipci\SI_ConsultaRo_out.wsdl" />
+    <None Include="Web References\SI_PagoRegistroCivil_out_DEV.wsdl" />
+    <None Include="Web References\SI_PagoRegistroCivil_out_PRD.wsdl" />
+    <None Include="Web References\SI_PagoRegistroCivil_out_QA.wsdl" />
+    <None Include="Web References\SI_PaseCaja_outService_DEV.wsdl" />
+    <None Include="Web References\SI_PaseCaja_outService_PRD.wsdl" />
+    <None Include="Web References\SI_PaseCaja_outService_QA.wsdl" />
+    <None Include="Web References\SI_ValidaRegistroPortal_out_DEV.wsdl" />
+    <None Include="Web References\SI_ValidaRegistroPortal_out_PRD.wsdl" />
+    <None Include="Web References\SI_ValidaRegistroPortal_QA.wsdl" />
+    <None Include="Web References\WebReferenceFirma\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReferenceFirma\webservice.wsdl" />
+    <None Include="Web References\WebReferenceFirma\WSResultAutoRevocateX509.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultCreatePkcs7NoDocFromNs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultDecodeCertificate.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultDownloadX509.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultFromHtmlToPdf.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultInformationOcspFromNs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultInformationTspFromNs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultNom151.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultNom151ForPkcs1Ns.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultPdfSecure.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultPkcs7InformationFromNs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultRegisterPkcs10.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultReportDigest.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultReportPkcs1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultReportPkcs7.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultSignCentral.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultSVIFingers.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultSVIRequest.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultTransfer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultTsa.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultXmlState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSResultXmlVerifyState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReferenceFirma\WSTransState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsFielServicios\firmacws.wsdl" />
+    <None Include="Web References\WsFielServicios\ListaInformacion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsFielServicios\ListaVerificacionPKCS7.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsFielServicios\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsFielServicios\TimeStampingList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsFielSesion\firmaiws.wsdl" />
+    <None Include="Web References\WsFielSesion\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsPagoRegistroCivil_Calidad\DT_PagoRegistroCivil.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsPagoRegistroCivil_Calidad\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsPagoRegistroCivil_Calidad\SI_PagoRegistroCivil_out.wsdl" />
+    <None Include="Web References\WsPagoRegistroCivil_Desarrollo\DT_PagoRegistroCivil.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsPagoRegistroCivil_Desarrollo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsPagoRegistroCivil_Desarrollo\SI_PagoRegistroCivil_out.wsdl" />
+    <None Include="Web References\WsPagoRegistroCivil_Productivo\DT_PagoRegistroCivil.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsPagoRegistroCivil_Productivo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsPagoRegistroCivil_Productivo\SI_PagoRegistroCivil_out.wsdl" />
+    <None Include="Web References\WsPaseCaja_Calidad\DT_RespuestaPaseCaja.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsPaseCaja_Calidad\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsPaseCaja_Calidad\SI_PaseCaja_out.wsdl" />
+    <None Include="Web References\WsPaseCaja_Desarrollo\DT_RespuestaPaseCaja.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsPaseCaja_Desarrollo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsPaseCaja_Desarrollo\SI_PaseCaja_out.wsdl" />
+    <None Include="Web References\WsPaseCaja_Productivo\DT_RespuestaPaseCaja.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsPaseCaja_Productivo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsPaseCaja_Productivo\SI_PaseCaja_out.wsdl" />
+    <None Include="Web References\WsValidarPago_Calidad\DT_Consulta_resp.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsValidarPago_Calidad\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsValidarPago_Calidad\SI_ConsultaRo_out.wsdl" />
+    <None Include="Web References\WsValidarPago_Productivo\DT_Consulta_resp.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WsValidarPago_Productivo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WsValidarPago_Productivo\SI_ConsultaRo_out.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\ws\ConsultaRo.wsdl.xml">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsValidarPago_Productivo\</RelPath>
+      <UpdateFromURL>C:\ws\ConsultaRo.wsdl.xml</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsValidarPago_Productivo_SI_ConsultaRo_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\ws\PagoRegistroCivil.wsdl.xml">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsPagoRegistroCivil_Productivo\</RelPath>
+      <UpdateFromURL>C:\ws\PagoRegistroCivil.wsdl.xml</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsPagoRegistroCivil_Productivo_SI_PagoRegistroCivil_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\ws\PaseCaja.wsdl.xml">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsPaseCaja_Productivo\</RelPath>
+      <UpdateFromURL>C:\ws\PaseCaja.wsdl.xml</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsPaseCaja_Productivo_SI_PaseCaja_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://172.16.101.51/firmawstest/firmacws.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsFielServicios\</RelPath>
+      <UpdateFromURL>http://172.16.101.51/firmawstest/firmacws.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsFielServicios_FirmaCWS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://172.16.101.51/firmawstest/firmaiws.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsFielSesion\</RelPath>
+      <UpdateFromURL>http://172.16.101.51/firmawstest/firmaiws.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsFielSesion_FirmaIWS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://gespidci:50000/dir/wsdl%3fp=sa/23b5087183743b3ea9490126a1468ed0">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsPagoRegistroCivil_Desarrollo\</RelPath>
+      <UpdateFromURL>http://gespidci:50000/dir/wsdl%3fp=sa/23b5087183743b3ea9490126a1468ed0</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsPagoRegistroCivil_Desarrollo_SI_PagoRegistroCivil_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://gespidci:50000/dir/wsdl%3fp=sa/cb8c95233075351ca124123d4a99bb31">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsPaseCaja_Desarrollo\</RelPath>
+      <UpdateFromURL>http://gespidci:50000/dir/wsdl%3fp=sa/cb8c95233075351ca124123d4a99bb31</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsPaseCaja_Desarrollo_SI_PaseCaja_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://gespipci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/df46d86169b4334dbb43d81ca5f12341">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\mx.gob.sonora.claro.gespipci\</RelPath>
+      <UpdateFromURL>http://gespipci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/df46d86169b4334dbb43d81ca5f12341</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_mx_gob_sonora_claro_gespipci_SI_ConsultaRo_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/1624f1eee3603b7b80cfe0b52fc2bc3f">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsValidarPago_Calidad\</RelPath>
+      <UpdateFromURL>http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/1624f1eee3603b7b80cfe0b52fc2bc3f</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsValidarPago_Calidad_SI_ConsultaRo_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/53e4375455a5331ca201c592f645532c">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsPaseCaja_Calidad\</RelPath>
+      <UpdateFromURL>http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/53e4375455a5331ca201c592f645532c</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsPaseCaja_Calidad_SI_PaseCaja_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/cc4649e585eb364e98cfaca92351a490">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WsPagoRegistroCivil_Calidad\</RelPath>
+      <UpdateFromURL>http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/cc4649e585eb364e98cfaca92351a490</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WsPagoRegistroCivil_Calidad_SI_PagoRegistroCivil_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://sfirmapruebas.sonora.gob.mx/WSPSFIEL/webservice.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReferenceFirma\</RelPath>
+      <UpdateFromURL>http://sfirmapruebas.sonora.gob.mx/WSPSFIEL/webservice.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_WebReferenceFirma_WebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WsFielSesion\firmaiws.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WsFielServicios\firmacws.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportesFormatos.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>ReportesFormatos.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OpenAPIs\webservice.asmx">
+      <Namespace>WsComponent2</Namespace>
+      <ClassName>WsComponent2</ClassName>
+      <CodeGenerator>NSwagCSharp</CodeGenerator>
+      <SourceUri>http://sfirmapruebas.sonora.gob.mx/WSPSFIEL/webservice.asmx%3fWSDL</SourceUri>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

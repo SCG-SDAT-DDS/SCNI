@@ -1,0 +1,593 @@
+﻿@using Datos
+@using Datos.Extensiones
+@using Datos.Recursos
+@using Negocio.Firma
+@using Presentacion.Helpers
+@using Sistema
+@using Sistema.Extensiones
+@model Datos.DTO.Infraestructura.ViewModels.CartaViewModel
+
+@{
+    ViewBag.Title = "Firmar Constancia";
+    Layout = "~/Views/Shared/Layouts/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="ibox bx-s">
+        <div class="ibox-content p-l-20 p-r-10 bg-f">
+            <div class="row">
+                <div class="col-xs-12 p-all-0">
+                    @{ Html.EnableClientValidation(false); }
+
+                    <div class="col-md-6">
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    @Html.LabelFor(m => m.Carta.NumeroExpediente):
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    @Html.TextBoxFor(m => m.Carta.NumeroExpediente, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    @Html.LabelFor(m => m.Carta.Estado):
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    <select class="form-control input-sm valid" id="Carta_Estado" name="Carta.Estado" aria-invalid="false">
+                                        <option @(Model.Carta.Estado == EstadosCarta.NoFirmada ? "selected='selected'" : "") value="1">No Firmada</option>
+                                        <option @(Model.Carta.Estado == EstadosCarta.Firmada ? "selected='selected'" : "") value="2">Firmada</option>
+                                        <option @(Model.Carta.Estado == EstadosCarta.Rechazada ? "selected='selected'" : "") value="3">Rechazada</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    @Html.LabelFor(m => m.FechaInicio):
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.FechaInicio, "{0:dd/MM/yyyy}", new { @class = "form-control m-t-0", @maxlength = 10 })
+                                        <label class="input-group-addon btn" for="FechaInicio">
+                                            <i class="fa fa-calendar"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="col-md-12 form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-3 col-xs-12">
+                                    @Html.LabelFor(m => m.FechaFin):
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(m => m.FechaFin, "{0:dd/MM/yyyy}", new { @class = "form-control m-t-0", @maxlength = 10 })
+                                        <label class="input-group-addon btn" for="FechaFin">
+                                            <i class="fa fa-calendar"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 m-t-10">
+                        <div class="pull-right">
+                            <input type="submit" name="enviar" class="btn btn-sm btn-primary" value="@General.Buscar" />
+                            <a href="@Url.Action("Index")" class="btn-sm btn btn-info">Limpiar búsqueda</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <hr>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                @Html.Label("Firmar las constancias buscadas: ")
+                            </div>
+
+                            <div class="col-sm-1">
+                                <input type="submit" id="btnFirmar" name="enviar" class="btn btn-sm btn-primary m-l-18" value="Firmar" />
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="submit" id="btnRechazar" name="rechazar" class="btn btn-sm btn-danger m-l-18" value="Rechazar" />
+                            </div>
+                        </div>
+                        @*<input type="file" accept=".pfx" id="pfx" name="pfx" />*@ 
+                        @*<div class="col-sm-7">
+            @Html.HiddenFor(m => m.SerieCertificado)
+            @Html.DropDownList("ddlCertificados", Enumerable.Empty<SelectListItem>(),
+                    new { @class = "form-control input-sm  m-t-0" })
+        </div>*@
+                        @*<div class="col-sm-1">
+            <input type="submit" id="btnFirmar" name="enviar" class="btn btn-sm btn-primary m-l-18" value="Firmar" />
+        </div>
+        <div class="col-sm-1">
+            <input type="submit" id="btnRechazar" name="rechazar" class="btn btn-sm btn-danger m-l-18" value="Rechazar" />
+        </div>*@
+                    </div>
+                    <div class="col-xs-12">
+                        <hr>
+                    </div>
+                    <div class="col-xs-12 m-t-20 p-internos-0 m-b-5">
+                        <div class="col-xs-4 bold">
+                            @Html.DropDownListFor(m => m.TamanoPagina, Listas.ObtenerListaCantidadPagina())
+                            @General.TamanoPagina
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#" id="todasConstancias" data-tipo="seleccionar">Seleccionar todas</a> | <a href="#" id="ningunaConstancia" data-tipo="deseleccionar">Deseleccionar todas</a>
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <label class="label label-success">
+                                @General.Encontrados: @Model.TotalEncontrados
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped" id="tblBusqueda">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>@Html.DisplayNameFor(m => m.Carta.NumeroExpediente)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Carta.Fecha)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Carta.Estado)</th>
+                                        <th>@Html.DisplayNameFor(m => m.Carta.Solicitud.Persona.Nombre)</th>
+                                        <th class="text-center">@General.Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var carta in Model.Cartas)
+                                    {
+                                        <tr>
+                                            <td class="text-center">
+                                                @if (carta.Estado == EstadosCarta.NoFirmada)
+                                                {
+                                                    var fechaHoy = DateTime.Now.ObtenerFechaCompleta();
+
+                                                    carta.Cadena = Carta.ReemplazarFechaCadena(carta.Cadena, fechaHoy);
+
+                                                    var cadena = carta.Cadena + "|" + Model.NombreFirmante + "|" + Model.PuestoFirmante;
+                                                    var digestion = cadena; //OperacionesFiel.Generar64Digestion();
+                                                    var digestionHash = OperacionesFiel.Generar64Digestion(cadena);
+
+                                                    <input type="checkbox" name="IdCartasFirmar" value="@carta.IDCarta" checked>
+                                                    <input type="hidden" name="Digestiones" value="@digestion">
+                                                    <input type="hidden" name="DigestionesHash" value="@digestionHash">
+                                                    <input type="hidden" name="Pkcs7s">
+                                                    <input type="hidden" name="Fechas" value="@fechaHoy">
+                                                }
+                                            </td>
+                                            <td>
+                                                @carta.NumeroExpediente
+                                                <input type="hidden" name="Folios" value="@carta.NumeroExpediente">
+                                            </td>
+                                            <td>@carta.Fecha.ToString("dd/MM/yyyy")</td>
+                                            <td>@carta.Estado.ToString().AddSpaceBeforeUpper()</td>
+                                            <td>
+                                                @carta.Solicitud.Persona.Nombre
+                                                @carta.Solicitud.Persona.ApellidoP
+                                                @carta.Solicitud.Persona.ApellidoM
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="btn btn-info btn-circle visualizar" href="#" id="visualizarCarta(@carta.IDCarta)" title="Visualizar"
+                                                   data-id="@carta.IDCarta">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
+                                                <a class="btn btn-danger btn-circle imprimir"
+                                                   href="@("https://docs.google.com/viewer?embedded=false&url=" + Model.UrlDescargarArchivo + "?idCarta=" + carta.IDCarta)"
+                                                   target="_blank" title="Imprimir">
+                                                    <i class="fa fa-print"></i>
+                                                </a>
+                                                <a class="btn btn-success btn-circle descargar" href="@Url.Action("Carta", "Descargar", new {Area = string.Empty, idCarta = carta.IDCarta})" id="descargar" title="Descargar">
+                                                    <i class="fa fa-download"></i>
+                                                </a>
+                                                @if (carta.Estado == EstadosCarta.Firmada)
+                                                {
+                                                    <a class="btn btn-default btn-circle" title="Enviar al solicitante"
+                                                       onclick="enviarPorCorreo('@carta.Solicitud.Persona.CorreoElectronico', '@carta.Solicitud.Persona.Nombre @carta.Solicitud.Persona.ApellidoP @carta.Solicitud.Persona.ApellidoM', @carta.IDCarta);">
+                                                        <i class="fa fa-envelope-o"></i>
+                                                    </a>
+                                                    if (carta.Consultable)
+                                                    {
+                                                        <a class="btn btn-danger btn-circle consultable" title="Cancelar constancia firmada" data-id="@carta.IDCarta" data-estado="false">
+                                                            <i class="fa fa-minus"></i>
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a class="btn btn-primary btn-circle consultable" title="Reactivar constancia firmada" data-id="@carta.IDCarta" data-estado="true">
+                                                            <i class="fa fa-check"></i>
+                                                        </a>
+                                                    }
+
+                                                    if (carta.Solicitud.URLPapeleta != null)
+                                                    {
+                                                        <a class="btn btn-primary btn-circle documento" href="@(VaribalesWebconfig.UrlDocumentosSolicitante + carta.Solicitud.URLPapeleta)" title="Papeleta de Pago">
+                                                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                                        </a>
+                                                    }
+
+                                                    if (carta.Solicitud.URLIdentificacion != null)
+                                                    {
+                                                        <a class="btn btn-primary btn-circle documento" href="@(VaribalesWebconfig.UrlDocumentosSolicitante + carta.Solicitud.URLIdentificacion)" title="Identificación">
+                                                            <i class="fa fa-id-card" aria-hidden="true"></i>
+                                                        </a>
+                                                    }
+                                                }
+                                                else if (carta.Estado == EstadosCarta.NoFirmada)
+                                                {
+                                                    @Html.ActionLinkCifrado(General.Modificar, "DatosPersona", "Validar", "Solicitud",
+                                                        "btn btn-warning btn-circle", "fa fa-pencil",
+                                                        new Dictionary<string, int> { { "idSolicitud", carta.IDSolicitud } })
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            @Html.Partial("Controls/_Paginacion", Model)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Modales
+{
+    <div id="visualizarCarta" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width: 760px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Visualizar Carta</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe id="ifCarta" runat="server" width="700px" height="450px" frameborder="0"
+                            src=""></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="visualizarDocumentos" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width: 760px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ver documento de la solicitud</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe id="ifDocumento" width="700px" height="450px" frameborder="0"
+                            src=""></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm("EnviarConstanciaPorCorreo", "Buscar", FormMethod.Post))
+    {
+        <div id="mdlEnviarAlSolicitante" class="modal fade" role="dialog">
+            <div class="modal-dialog" style="width: 360px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Enviar al solicitante</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Solicitante</label>
+                            </div>
+                            <div class="col-md-9">
+                                <span id="spnSolicitanteNombre"></span>
+                                <input type="hidden" id="hdfIDCarta" name="idCarta" value="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Correo</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" name="correo" class="form-control input-sm" id="txtSolicitanteCorreo" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" id="btnEnviarCorreo">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+<script>
+    var rutaScripts = "@Url.Content("~/Script/Firma")";
+</script>
+
+@section FooterScripts
+{
+    @*<OBJECT ID="TSigner"
+            WIDTH=5
+            HEIGHT=5
+            CLASSID="CLSID:193DD77A-AB34-4C48-ABCB-38EC8B0E8927"
+            CODEBASE="@Url.Content("~/Archivos/Ocx/TSigner.cab")"></OBJECT>*@
+
+
+    <script type="text/javascript" src="~/Scripts/Fecha.js"></script>
+
+    @*<script type="text/javascript" src="~/Scripts/Firma.js?v=2"></script>
+    <script type="text/javascript" src="~/Scripts/Fiel.js?v=2"></script>*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //var ddlCertificados = $('#ddlCertificados');
+
+            //CargarCertificados(ddlCertificados, '@Model.SerieCertificado');
+
+
+
+
+            $('.consultable').click(function () {
+                var enlace = $(this);
+                var clases = enlace.attr('class');
+                var idCarta = $(this).data('id');
+                var esConsultable = $(this).data('estado');
+
+                $.ajax({
+                    data: JSON.stringify({ "idCarta": idCarta, "esConsultable": esConsultable }),
+                    dataType: "json",
+                    contentType: "application/json",
+                    type: "POST",
+                    url: '@Url.Action("CambiarEstadoConsultable", "Buscar", new { area = "Carta" })',
+                    beforeSend: function () {
+                        enlace.find('i').attr('class', 'fa fa-spinner');
+                    },
+                    success: function (data) {
+                        var nuevasClasesEnlace = esConsultable ? "btn btn-danger btn-circle consultable" : "btn btn-primary btn-circle consultable";
+                        var nuevasClasesIcono = esConsultable ? "fa fa-minus" : "fa fa-check";
+                        var nuevoTooltip = esConsultable ? "Cancelar constancia firmada" : "Reactivar constancia firmada";
+
+                        enlace.find('i').attr('class', nuevasClasesIcono);
+                        enlace.attr('class', nuevasClasesEnlace).attr('title', nuevoTooltip).data('estado', !esConsultable);
+                    },
+                    error: function() {
+                        enlace.attr('class', clases);
+                    }
+                });
+            });
+
+            $("#txtSolicitanteCorreo").change(function () {
+                var correo = $("#txtSolicitanteCorreo").val();
+
+                var correoValido = correo.length > 0 ? true : false;
+
+                if (correoValido) {
+                    correoValido = validateEmail(correo);
+                }
+
+                $("#btnEnviarCorreo").prop('disabled', !correoValido);
+            });
+
+            $("#todasConstancias").click(function (e) {
+                e.preventDefault();
+                $("#tblBusqueda input[type=checkbox]").prop('checked', true);
+            });
+
+            $("#ningunaConstancia").click(function (e) {
+                e.preventDefault();
+                $("#tblBusqueda input[type=checkbox]").prop('checked', false);
+            });
+
+            $('.visualizar').click(function () {
+                $('#ifCarta').attr('height', ($(window).height() - 250) + "px");
+                $('#visualizarCarta').modal('show');
+
+                var url = '@Model.UrlDescargarArchivo' + '?idCarta=' + $(this).data('id');
+
+                $('#ifCarta').attr('src', 'https://docs.google.com/viewer?embedded=true&url=' + url);
+            });
+
+            $('.documento').click(function (e) {
+                e.preventDefault();
+
+                $('#visualizarDocumentos').modal('show');
+
+                var url = $(this).attr('href');
+
+                $('#ifDocumento').attr('src', url);
+            });
+
+            $('#visualizarCarta').on('hidden.bs.modal', function () {
+                $('#ifCarta').attr('src', '');
+            });
+
+            $("#FechaInicio, #FechaFin").datepicker({
+                language: "es",
+
+                keyboardNavigation: true,
+                forceParse: false,
+                calendarWeeks: true,
+
+                viewMode: 1,
+                daysOfWeekHighlighted: "1,2,3,4,5",
+                today: "linked",
+                format: 'dd/mm/yyyy', autoclose: true
+            }).on('changeDate', function (ev) {
+                (ev.viewMode == 'days') ? $(this).datepicker('hide') : '';
+            });
+
+            $(".detalles").click(function (e) {
+                e.preventDefault();
+                var id = $(this).parent().find("input[type=hidden]").val();
+                detallesEmpleado.Buscar(id);
+            });
+
+
+            $("#btnFirmar").click(function (e) {
+
+               
+                //var certificado = $('#ddlCertificados').val();
+
+                //if (certificado.length === 0) {
+                //    alert("Seleccione un certificado para firmar.");
+                //    e.preventDefault();
+                //    return;
+                //}
+
+                var seleccion = $('input[type="checkbox"]:checked');
+
+                if (seleccion.length === 0) {
+                    alert('Seleccione al menos una constancia para firmar.');
+                    e.preventDefault();
+                    return;
+                }
+
+                if (!firma.validateWebBrowser()) {
+                    alert('Navegador no es compatible con la firma electronica.');
+                    e.preventDefault();
+                    return;
+                }
+
+                var confirmacion = confirm('¿Desea firmar las constancias seleccionadas?');
+                if (!confirmacion) {
+                    e.preventDefault();
+                    return;
+                }
+
+
+                
+                $.each(seleccion, function () {
+                    var acciones = $(this).parent().parent();
+
+                    var hdfs = acciones.find('input[type="hidden"]');
+
+                    var digestion = hdfs[0];
+                    var pkcs7 = acciones.find('input[name="Pkcs7s"]')[0]; // hdfs[1];
+                    var folio = acciones.find('input[name="Folios"]')[0];
+
+                    //var firma = Firmar(certificado, digestion.value);
+
+                    //new sign version ;
+
+
+                    const resultadoCarga = firma.loadCertificateAndPrivateKey(fielnet.Storages.SESSION_STORAGE, 'cert', 'pkey');
+
+                    if (resultadoCarga.state != 0) {
+                        alert(resultadoCarga.description);
+                        return;
+                    }
+
+                    //Codificacion = 2 (UTF-8)
+                    //tipoDigestion = 2 (SHA1)
+                    firma.setReferencia(folio.value);
+                    firma.signPKCS1(digestion.value, 2, 2, { tsa: { name: "tsages", algorithm: fielnet.Digest.SHA1 }, nom: { name: "NA" } }, function (data) {
+
+                        if (data.state == 0) {
+                            pkcs7.value = data.sign;
+                        }
+                        else {
+                            alert(data.description);
+                            e.preventDefault();
+                            return false;
+                        }
+
+                    });
+
+                    //remove
+                    //e.preventDefault();
+                    if (firma === false) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                    //pkcs7.value = digestion.value;
+                });
+            });
+
+            $("#btnRechazar").click(function (e) {
+                var certificado = $('#ddlCertificados').val();
+
+                if (certificado.length === 0) {
+                    alert("Seleccione un certificado para rechazar.");
+                    e.preventDefault();
+                    return;
+                }
+
+                var seleccion = $('input[type="checkbox"]:checked');
+
+                if (seleccion.length === 0) {
+                    alert('Seleccione al menos una constancia para rechazar.');
+                    e.preventDefault();
+                    return;
+                }
+
+                var confirmacion = confirm('¿Desea rechazar las constancias seleccionadas?');
+
+                if (!confirmacion) {
+                    e.preventDefault();
+                    return;
+                }
+
+                $.each(seleccion, function () {
+                    var acciones = $(this).parent().parent();
+
+                    var hdfs = acciones.find('input[type="hidden"]');
+
+                    var digestion = hdfs[0];
+                    var pkcs7 = hdfs[1];
+
+                    var firma = Firmar(certificado, digestion.value);
+
+                    if (firma === false) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                    pkcs7.value = firma;
+                });
+            });
+        });
+
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@@"]+(\.[^<>()\[\]\\.,;:\s@@"]+)*)|(".+"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+        function enviarPorCorreo(correo, nombre, idCarta) {
+            $("#spnSolicitanteNombre").html(nombre);
+            $("#hdfIDCarta").val(idCarta);
+            $("#txtSolicitanteCorreo").val(correo);
+            $("#txtSolicitanteCorreo").change();
+            $('#mdlEnviarAlSolicitante').modal('show');
+        }
+
+    </script>
+}

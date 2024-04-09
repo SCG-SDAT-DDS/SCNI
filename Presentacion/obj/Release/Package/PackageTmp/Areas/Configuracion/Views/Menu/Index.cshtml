@@ -1,0 +1,315 @@
+﻿@using System.Collections.Concurrent
+@using Datos;
+@using Datos.Repositorios.Configuracion;
+@using Datos.Enums;
+@using Newtonsoft.Json.Schema
+@using Presentacion.Helpers;
+@using Sistema;
+@model Datos.DTO.Infraestructura.ViewModels.MenuViewModel
+
+@{
+    ViewBag.Title = Resources.General.Menu;
+}
+
+@section HeaderScripts
+{
+    <link rel="stylesheet" href="~/scripts/plugins/treeview/themes/default/style.css" />
+    <link rel="stylesheet" href="~/Content/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+    <link rel="stylesheet" href="~/Content/css/plugins/iCheck/custom.css" />
+}
+
+@if (!string.IsNullOrEmpty(Model.NombreTipoGestion))
+{
+    <div class="tarjeta m-b-15">
+        <div class="col-md-12">
+            <label class="h4 m-0">
+                <span class="h4">@Model.TipoGestion:</span>
+                <span class="h3">@Model.NombreTipoGestion</span>
+            </label>
+        </div>
+    </div>
+}
+<div class="ibox bx-s">
+    <div class="ibox-content p-l-10 p-r-10 bg-f">
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+
+                <div class="form-group">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="col-md-1 col-xs-12"><label for="txtOpcion">@Resources.General.Opcion</label></div>
+                        <div class="col-md-11 col-xs-12">
+                            <input type="text" name="txtOpcion" id="txtOpcion" class="form-control input-sm m-t-0" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-xs-12">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-success">
+                                <input type="checkbox" id="cbxHabilitados" name="cbxHabilitados" checked="checked" />
+                                <label for="cbxHabilitados">@Resources.General.Habilitados</label>
+                            </div>
+                        </div>
+                    </div>
+                    @if (Model.TipoGestion == Enumerados.GestionMenu.Usuario)
+                    {
+                    <div class="col-md-2 col-xs-12">
+                        <div id="divActivaMenuPersonalizado" class="col-md-12">
+                            <div class="checkbox checkbox-success">
+                                @Html.CheckBoxFor(m => m.EsMenuPersonalizado, new { id = "idMenuPersonalizado" })
+                                @*@Html.LabelFor(m => m.EsMenuPersonalizado)*@
+                                <label><strong>Es menú personalizado</strong></label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    @*<div class="col-md-6 pull-right">
+                        <div class="col-md-12">
+                            <div id="divCopiarMenu" class="col-md-12 p-lateral-0">
+                                @*<div class="col-md-12 p-lateral-0">
+                                        <label>@Resources.General.CopiarMenuDe</label>
+                                        <div class="input-group col-md-12">
+                                            @if (Model.EsMenuPersonalizado)
+                                            {
+                                                @Html.DropDownList("roles", RolRepositorio.Buscar(), new { @class = "form-control input-sm" })
+                                                <span class="input-group-btn">
+                                                    <input type="submit" class="btn btn-primary btn-sm" value="@Resources.General.CopiarMenu" />
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                @Html.DropDownList("roles", RolRepositorio.Buscar(), new { @class = "form-control input-sm", disabled = true })
+                                                <span class="input-group-btn">
+                                                    <input type="submit" class="btn btn-primary btn-sm" value="@Resources.General.CopiarMenu" disabled/>
+                                                </span>
+                                            }
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>*@
+                    }
+                    <div class="col-md-2 col-xs-12">
+                        <div class="col-md-12">
+                            <span class="input-group-btn">
+                                <span>
+                                    <input type="submit" class="btn btn-sm btn-primary" value="@Resources.General.Buscar" />
+                                </span>
+                                <span>
+                                    &nbsp;
+                                </span>
+                                <span>
+                                    @Html.ActionLinkCifrado(Resources.General.Nuevo, "Guardar", "Menu", "Configuracion", "btn btn-sm btn-default", new Dictionary<string, int> { { "idMenuPadre", Model.IdPadre } })
+                                </span>
+                            </span>
+                            @*<span class="input-group-btn" runat="server" id="spnNuevo">
+                                
+                            </span>*@
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="col-xs-12 m-t-20">
+                <span class="h4">@Resources.General.Arbol</span>
+                <div class="scroll_content">
+                    <div class="tree-view col-md-12 background-white" id="tree">
+                        @Html.Partial("Menu/_TreeViewMenu", Model)
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-t-20">
+                <span class="h4">@Resources.General.Ruta</span>
+                <ul class="breadcrumb f-s-14">
+                    @foreach (var menu in Model.MenuBreadcrum) {
+                        <li>
+                            @Html.ActionLinkCifrado(menu.Nombre, "Index", "Menu", "Configuracion",
+                                            new Dictionary<string, int> { { "idMenuPadre", menu.Id } })
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="text-right">
+                    <label class="@Html.Raw(Model.MenuTabla.Count == 0 ? "label label-danger" : "label label-success")">
+                        Encontrados: @Model.MenuTabla.Count
+                    </label>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered" id="tblEntontrados">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(m => m.Menu.Opcion)</th>
+                                <th>@Html.DisplayNameFor(m => m.Menu.Destino)</th>
+                                <th>@Html.DisplayNameFor(m => m.Menu.Visible)</th>
+                                <th class="text-center">@Resources.General.Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var menu in Model.MenuTabla)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.ActionLinkCifrado(menu.Opcion, "Index", "Menu", "Configuracion",
+                                                        new Dictionary<string, int> { { "idMenuPadre", menu.IDMenu } })
+                                    </td>
+                                    <td>@menu.Destino</td>
+                                    <td>
+                                        @(menu.Visible ? "Si" : "No")
+                                    </td>
+                                    <td class="text-center">
+                                        @if ((Model.TipoGestion == Enumerados.GestionMenu.Rol || Model.EsMenuPersonalizado) && !menu.PoseeOpcionMenu)
+                                        {
+
+                                            @Html.ActionLinkCifrado(Resources.General.Agregar, "Agregar", "Menu", "Configuracion",
+                                                        "btn btn-primary btn-circle", "fa fa-plus",
+                                                        new Dictionary<string, int> { { "idMenu", menu.IDMenu } })
+
+                                        }
+                                        @if ((Model.TipoGestion == Enumerados.GestionMenu.Rol || Model.EsMenuPersonalizado) && menu.PoseeOpcionMenu)
+                                        {
+                                            @Html.ActionLinkCifrado(Resources.General.Quitar, "Quitar", "Menu", "Configuracion",
+                                                        "btn btn-danger btn-circle", "fa fa-minus",
+                                                        new Dictionary<string, int> { { "idMenu", menu.IDMenu } })
+                                        }
+                                        @if (Model.TipoGestion == Enumerados.GestionMenu.Menu && menu.Habilitado)
+                                        {
+                                            @Html.ActionLinkCifrado(Resources.General.Modificar, "Guardar", "Menu", "Configuracion",
+                                                        "btn btn-warning btn-circle", "fa fa-pencil",
+                                                        new Dictionary<string, int> { { "idMenu", menu.IDMenu } })
+
+                                            @Html.ActionLinkCifrado(Resources.General.Deshabilitar, "Deshabilitar", "Menu", "Configuracion",
+                                                        "btn btn-danger btn-circle", "fa fa-times",
+                                                        new Dictionary<string, int> { { "idMenu", menu.IDMenu } })
+                                        }
+                                        @if (Model.TipoGestion == Enumerados.GestionMenu.Menu && !menu.Habilitado)
+                                        {
+                                            @Html.ActionLinkCifrado(Resources.General.Habilitar, "Habilitar", "Menu", "Configuracion",
+                                                        "btn btn-primary btn-circle", "fa fa-check",
+                                                        new Dictionary<string, int> { { "idMenu", menu.IDMenu } })
+                                        }
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section FooterScripts
+{
+    <script type="text/javascript" src="~/scripts/plugins/treeview/jstree.js"></script>
+    <script type="text/javascript" src="~/scripts/plugins/iCheck/icheck.min.js"></script>
+<script src="~/scripts/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#cbxHabilitados").prop("checked", function() {
+                var habilitadoModelo = "@Html.Raw(Model.Habilitado)";
+                var habilitadoUrl = ObtenerParametro("habilitado");
+
+                return habilitadoUrl == "true"
+                    ? habilitadoModelo == "True" ? true : false
+                    : habilitadoUrl == "false"
+                    ? habilitadoModelo == "True" ? true : false
+                    : habilitadoUrl == ""
+                    ? habilitadoModelo == "True" ? true : false
+                    : false;
+            });
+
+            $("#tree").jstree({
+                "core": {
+                    "themes": {
+                        "icons": false
+                    }
+                }
+            }).bind("select_node.jstree", function(e, data) {
+                $('#jstree').jstree('save_state');
+            }).on("activate_node.jstree", function(e, data) {
+                if (data.node.a_attr.href == "#") {
+                    e.preventDefault();
+                } else {
+                    var url = data.node.a_attr.href + "&" + "habilitado=" + habilitado.activado();
+                    window.location.href = url;
+                }
+            });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green'
+            });
+
+            $("#tblEntontrados tbody tr td:first-child a").click(function() {
+                var url = $(this).attr("href") + "&" + "habilitado=" + habilitado.activado();
+                $(this).attr("href", url);
+            });
+
+            $('#idMenuPersonalizado').click(function() {
+                @*var menuPersonalizado = !$("#@Html.IdFor(m => m.EsMenuPersonalizado)").is(":checked");*@
+                var menuPersonalizado = false;
+                var idUsuario = ObtenerParametro("idUsuario");
+
+                if ($("#idMenuPersonalizado").is(':checked') == true) {
+                    menuPersonalizado = true;
+                }
+
+                $.ajax({
+                    data: "{idUsuario: '" + idUsuario + "', activar: " + menuPersonalizado + "}",
+                    dataType: "json",
+                    contentType: "application/json",
+                    type: "POST",
+                    url: '@Url.Action("ActivarMenuPersonalizado", "Menu", new {area = "Configuracion"})',
+                    beforeSend: function() {
+                        MostrarDivCargando("Activando menú personalizado");
+                    },
+                    success: function(data) {
+                        $("form").submit();
+                        @*window.location.href = '@Url.Action("Index", "Menu", new { area = "Configuracion" })';*@
+                    },
+                    error: function(error) {
+                        menuPersonalizado
+                            ? mostrarAlert("Falló al activar el menú personalizado", "danger", true)
+                            : mostrarAlert("Falló al desactivar el menú personalizado", "danger", true);
+                        CerrarDivCargando();
+                    }
+                });
+            });
+
+
+            @*$("#divActivaMenuPersonalizado").click(function() {
+                var menuPersonalizado = !$("#@Html.IdFor(m => m.EsMenuPersonalizado)").is(":checked");
+                var menuPersonalizado = false;
+                var idUsuario = ObtenerParametro("idUsuario");
+                $.ajax({
+                    data: "{idUsuario: '" + idUsuario + "', activar: " + menuPersonalizado + "}",
+                    dataType: "json",
+                    contentType: "application/json",
+                    type: "POST",
+                    url: '@Url.Action("ActivarMenuPersonalizado", "Menu", new {area = "Configuracion"})',
+                    beforeSend: function() {
+                        MostrarDivCargando("Activando menú personalizado");
+                    },
+                    success: function(data) {
+                        $("form").submit();
+                    },
+                    error: function(error) {
+                        menuPersonalizado
+                            ? mostrarAlert("Falló al activar el menú personalizado", "danger", true)
+                            : mostrarAlert("Falló al desactivar el menú personalizado", "danger", true);
+                        CerrarDivCargando();
+                    }
+                });
+            });*@
+        });
+    </script>
+<script>
+    $(document).ready(function () {
+        $('.scroll_content').slimscroll({
+            height: '145px'
+        });
+    });
+</script>
+}

@@ -1,0 +1,133 @@
+﻿@using Datos
+@using Datos.Recursos
+@model Datos.DTO.Infraestructura.ViewModels.AccesoViewModel
+<div class="col-xs-12">
+  
+    @using (Html.BeginForm())
+            {
+                Html.EnableClientValidation(false);
+        <div class="middle-box animated fadeInDown caja box-style" >
+            <div id="cajaid" class="container-fluid" style="width: 330px;">
+                <div class="col-xs-12 p-lateral-0">
+                    <div class="text-center">
+                        <span class="logo-name">SCNI</span>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-red">@General.InicioSesion</h3>
+                    </div>
+                    @Html.Partial("Controls/_Alerta")
+                    <div class="form-group text-center">
+                        @Html.RadioButtonFor(u => u.TipoInicio, TiposInicio.Contraseña)
+                        <label for=@TiposInicio.Contraseña>@TiposInicio.Contraseña</label>
+                        @Html.RadioButtonFor(u => u.TipoInicio, TiposInicio.Fiel)
+                        <label for=@TiposInicio.Fiel>@TiposInicio.Fiel</label>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(u => u.Usuario.NombreUsuario, new { @class = "text-green" })
+                        @Html.TextBoxFor(u => u.Usuario.NombreUsuario, new { @class = "form-control input-sm", @maxlength = 30 })
+                        @Html.ValidationMessageFor(u => u.Usuario.NombreUsuario, null, new { @class = "label label-warning" })
+                    </div>
+                    <div id="contrasena" class="form-group" style="display: @(Model.TipoInicio == TiposInicio.Contraseña ? "block" : "none")">
+                        @Html.LabelFor(u => u.Usuario.Contrasena, new { @class = "text-orange" })
+                        @Html.PasswordFor(u => u.Usuario.Contrasena, new { @class = "form-control input-sm", @maxlength = 30})
+                        @Html.ValidationMessageFor(u => u.Usuario.Contrasena, null, new { @class = "label label-warning" })
+                    </div>
+                    <div id="certificado" class="form-group" style="display: @(Model.TipoInicio == TiposInicio.Fiel ? "block" : "none")">
+                        @Html.Label("Certificado", new { @class = "text-green" })
+                        @Html.DropDownList("ddlCertificados", Enumerable.Empty<SelectListItem>(), new { @class = "form-control input-sm" })
+                        @Html.HiddenFor(h => h.Digestion)
+                        @Html.HiddenFor(h => h.Pkcs7)
+                    </div>
+
+                    <input type="submit" id="btnIniciarSesion" class="btn btn-primary block full-width m-b" value="@General.InicioSesion" />
+
+                    <div class="text-center">
+                        <div class="col-xs-12">
+                            @Html.ActionLink(General.OlvidasteContraseña, @"SolicitarContrasena")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+  
+</div>
+    @section FooterScripts
+{
+        <OBJECT ID="TSigner"
+                WIDTH=5
+                HEIGHT=5
+                CLASSID="CLSID:193DD77A-AB34-4C48-ABCB-38EC8B0E8927"
+                CODEBASE="@Url.Content("~/Archivos/Ocx/TSigner.cab")"></OBJECT>
+
+        <script type="text/javascript" src="~/Scripts/Fiel.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var ddlCertificados = $('#ddlCertificados');
+
+                CargarCertificados(ddlCertificados);
+
+                $('#btnIniciarSesion').click(function (e) {
+                    if ( $('input:radio[name=TipoInicio]:checked').val() === "Fiel") {
+                        var digestion = $('#Digestion').val();
+                        var certificado = ddlCertificados.val();
+
+                        if (!certificado) {
+                            mostrarAlert("Es necesario seleccionar un certicado.", "danger", true);
+                            e.preventDefault();
+                            return;
+                        }
+
+                        var pkcs7 = Firmar(certificado, digestion);
+
+                        if (pkcs7 === false) e.preventDefault();
+
+                        $('#Pkcs7').val(pkcs7);
+                    }
+                });
+
+                $('input[name=TipoInicio]:radio').change(function () {
+                    if ($(this).val() === "Contraseña") {
+                        $('#certificado').hide();
+                        $('#contrasena').fadeIn('slow');
+                    } else {
+                        $('#contrasena').hide();
+                        $('#certificado').fadeIn('slow');
+                    }
+                });
+
+                $("form").addClass("height-100per");
+            });
+
+            //$(function() {
+            //    $(window).resize(function() {
+            //        $('#caja').css("margin-top", altura.alturaVentana);
+            //    });
+
+            //    $(window).resize();
+            //});
+
+            //var altura = (function() {
+            //    var alturaVentana = $(window).height() / 2;
+            //    var alturaCaja = $("#caja").height() / 2;
+            //    return {
+            //        alturaVentana: alturaVentana - alturaCaja - 30
+            //    };
+            //})();
+            $(document).ready(function () {
+
+                $(window).resize(function () {
+
+                    $('.caja').css({
+                        position: 'absolute',
+                        left: ($(window).width() - $('.caja').outerWidth()) / 2,
+                        top: ($(window).height() - $('.caja').outerHeight()) / 2
+                    });
+
+                });
+
+                $(window).resize();
+
+            });
+        </script>
+    }

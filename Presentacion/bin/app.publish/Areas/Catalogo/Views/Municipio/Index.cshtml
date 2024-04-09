@@ -1,0 +1,139 @@
+﻿@using Datos.Recursos
+@using Datos.Repositorios.Catalogos
+@using Presentacion.Helpers
+@using Sistema
+@model Datos.DTO.Infraestructura.ViewModels.MunicipioViewModel
+
+@{
+    ViewBag.Title = "Buscar Municipio";
+}
+
+@using (@Html.BeginForm())
+{
+    <div class="tarjeta bg-f">
+        <div class="col-md-12">
+            @{ Html.EnableClientValidation(false); }
+            <div class="col-md-6 form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-3 col-xs-3">
+                        @Html.LabelFor(m => m.Municipio.Nombre)
+                    </div>
+                    <div class="col-md-9 col-xs-9">
+                        @Html.TextBoxFor(m => m.Municipio.Nombre, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-3 col-xs-3">
+                        @Html.LabelFor(m => m.Municipio.Estado)
+                    </div>
+                    <div class="col-md-9 col-xs-9">
+                        @Html.DropDownListFor(m => m.Municipio.Estado.IDEstado, EstadoRepositorio.Buscar(),
+                        new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 form-horizontal">
+                <div class="pull-left">
+                    <input type="submit" class="btn btn-sm btn-primary" value="@General.Buscar" />
+                    @Html.ActionLink(General.Nuevo, "Guardar", new { area = "Catalogo" },
+                        new { @class = "btn btn-sm btn-default" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 m-t-20 p-internos-0 m-b-5">
+            <div class="col-md-6 bold">
+                @Html.DropDownListFor(m => m.TamanoPagina, Listas.ObtenerListaCantidadPagina())
+                @General.TamanoPagina
+            </div>
+            <div class="col-md-6 text-right">
+                <label class="label label-success">
+                    @General.Encontrados: @Model.TotalEncontrados
+                </label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped" id="tblBusqueda">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(m => m.Municipio.Nombre)</th>
+                            <th>@Html.DisplayNameFor(m => m.Municipio.Estado.Nombre)</th>
+                            <th class="text-center">@General.Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var municipio in Model.Municipios)
+                        {
+                            <tr>
+                                <td>@municipio.Nombre</td>
+                                <td>@municipio.Estado.Nombre</td>
+                                <td class="text-center">
+                                    @Html.ActionLinkCifrado(General.Modificar, "Guardar", "Municipio", "Catalogo",
+                                        "btn btn-warning btn-circle", "fa fa-pencil",
+                                        new Dictionary<string, int> { { "idMunicipio", municipio.IDMunicipio }, { "idEstado", municipio.IDEstado } })
+                                    @Html.ActionLinkCifrado(General.Eliminar, "Eliminar", "Municipio", "Catalogo",
+                                        "btn btn-danger btn-circle eliminar", "fa fa-times",
+                                        new Dictionary<string, int> { { "idMunicipio", municipio.IDMunicipio } })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                @Html.Partial("Controls/_Paginacion", Model)
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlConfirmar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">
+                        <label>@General.Cuidado</label>
+                    </h3>
+                </div>
+                <div class="modal-body text-center">
+                    <label id="lblModal"></label>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" tabindex="2">@General.Cancelar</button>
+                    <button id="btnConfirmar" class="btn btn-primary">@General.Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                }
+
+@section FooterScripts
+{
+    <script type="text/javascript" src="/Content/js/jquery.tablesorter.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var enlaceEnEspera;
+            var confirmado = false;
+
+            $("#tblBusqueda").tablesorter();
+
+            $(".eliminar").click(function (e) {
+                if (!confirmado) {
+                    enlaceEnEspera = this;
+                    e.preventDefault();
+                    $("#lblModal").html('@string.Format(Resources.General.PreguntaEliminar, General.Municipio)');
+                    $("#mdlConfirmar").modal("show");
+                }
+            });
+
+            $("#btnConfirmar").click(function (e) {
+                e.preventDefault();
+                confirmado = true;
+                enlaceEnEspera.click();
+            });
+
+        });
+    </script>
+}

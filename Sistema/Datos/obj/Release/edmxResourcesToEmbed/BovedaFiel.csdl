@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BovedaFielModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cadena">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="digestion" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="pkcs7" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="idoperacion" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="operacion" Relationship="Self.FK_cadenas_operaciones" FromRole="cadenas" ToRole="operaciones" />
+    <NavigationProperty Name="timestampings" Relationship="Self.FK_timestamping_cadenas" FromRole="cadenas" ToRole="timestamping" />
+    <NavigationProperty Name="xml" Relationship="BovedaFielModelo.FK_xml_cadenas" FromRole="cadena" ToRole="xml" />
+    <NavigationProperty Name="decodificacion" Relationship="BovedaFielModelo.FK_decodificacion_cadenas" FromRole="cadena" ToRole="decodificacion" />
+  </EntityType>
+  <EntityType Name="operacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="tipo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="resultadoOperacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="certificadoUsuario" Type="Binary" MaxLength="8000" FixedLength="false" Nullable="false" />
+    <Property Name="serieCertificado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idtoken" Type="Int64" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cadenas" Relationship="Self.FK_cadenas_operaciones" FromRole="operaciones" ToRole="cadenas" />
+    <NavigationProperty Name="token" Relationship="Self.FK_operaciones_tokens" FromRole="operaciones" ToRole="tokens" />
+    <NavigationProperty Name="decodificacion" Relationship="BovedaFielModelo.FK_decodificacion_operaciones" FromRole="operacion" ToRole="decodificacion" />
+  </EntityType>
+  <EntityType Name="timestamping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="timestamp" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="idcadena" Type="Int64" Nullable="false" />
+    <Property Name="idoperacion" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="cadena" Relationship="Self.FK_timestamping_cadenas" FromRole="timestamping" ToRole="cadenas" />
+  </EntityType>
+  <EntityType Name="token">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="valorToken" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idwscall" Type="Int64" Nullable="false" />
+    <Property Name="validoDesde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="validoHasta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="appid" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="operaciones" Relationship="Self.FK_operaciones_tokens" FromRole="tokens" ToRole="operaciones" />
+    <NavigationProperty Name="WSLoginCall" Relationship="Self.FK_tokens_WSLoginCalls" FromRole="tokens" ToRole="WSLoginCalls" />
+  </EntityType>
+  <EntityType Name="WSLoginCall">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="serieCertificado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="mensaje" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tokens" Relationship="Self.FK_tokens_WSLoginCalls" FromRole="WSLoginCalls" ToRole="tokens" />
+  </EntityType>
+  <Association Name="FK_cadenas_operaciones">
+    <End Role="operaciones" Type="BovedaFielModelo.operacion" Multiplicity="1" />
+    <End Role="cadenas" Type="BovedaFielModelo.cadena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operaciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cadenas">
+        <PropertyRef Name="idoperacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_timestamping_cadenas">
+    <End Role="cadenas" Type="BovedaFielModelo.cadena" Multiplicity="1" />
+    <End Role="timestamping" Type="Self.timestamping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cadenas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="timestamping">
+        <PropertyRef Name="idcadena" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operaciones_tokens">
+    <End Role="tokens" Type="BovedaFielModelo.token" Multiplicity="1" />
+    <End Role="operaciones" Type="BovedaFielModelo.operacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tokens">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="operaciones">
+        <PropertyRef Name="idtoken" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tokens_WSLoginCalls">
+    <End Role="WSLoginCalls" Type="BovedaFielModelo.WSLoginCall" Multiplicity="1" />
+    <End Role="tokens" Type="BovedaFielModelo.token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WSLoginCalls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tokens">
+        <PropertyRef Name="idwscall" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BovedaFielEntidades" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cadenas" EntityType="BovedaFielModelo.cadena" />
+    <EntitySet Name="operaciones" EntityType="BovedaFielModelo.operacion" />
+    <EntitySet Name="timestampings" EntityType="Self.timestamping" />
+    <EntitySet Name="tokens" EntityType="BovedaFielModelo.token" />
+    <EntitySet Name="WSLoginCalls" EntityType="BovedaFielModelo.WSLoginCall" />
+    <AssociationSet Name="FK_cadenas_operaciones" Association="Self.FK_cadenas_operaciones">
+      <End Role="operaciones" EntitySet="operaciones" />
+      <End Role="cadenas" EntitySet="cadenas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_timestamping_cadenas" Association="Self.FK_timestamping_cadenas">
+      <End Role="cadenas" EntitySet="cadenas" />
+      <End Role="timestamping" EntitySet="timestampings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operaciones_tokens" Association="Self.FK_operaciones_tokens">
+      <End Role="tokens" EntitySet="tokens" />
+      <End Role="operaciones" EntitySet="operaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tokens_WSLoginCalls" Association="Self.FK_tokens_WSLoginCalls">
+      <End Role="WSLoginCalls" EntitySet="WSLoginCalls" />
+      <End Role="tokens" EntitySet="tokens" />
+    </AssociationSet>
+    <EntitySet Name="xmls" EntityType="BovedaFielModelo.xml" />
+    <AssociationSet Name="FK_xml_cadenas" Association="BovedaFielModelo.FK_xml_cadenas">
+      <End Role="cadena" EntitySet="cadenas" />
+      <End Role="xml" EntitySet="xmls" />
+    </AssociationSet>
+    <EntitySet Name="decodificaciones" EntityType="BovedaFielModelo.decodificacion" />
+    <AssociationSet Name="FK_decodificacion_cadenas" Association="BovedaFielModelo.FK_decodificacion_cadenas">
+      <End Role="cadena" EntitySet="cadenas" />
+      <End Role="decodificacion" EntitySet="decodificaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_decodificacion_operaciones" Association="BovedaFielModelo.FK_decodificacion_operaciones">
+      <End Role="operacion" EntitySet="operaciones" />
+      <End Role="decodificacion" EntitySet="decodificaciones" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="xml">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rutaxml" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="foliogenerado" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="idoperacion" Type="Int64" Nullable="false" />
+    <Property Name="idcadena" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="cadenas" Relationship="BovedaFielModelo.FK_xml_cadenas" FromRole="xml" ToRole="cadena" />
+  </EntityType>
+  <Association Name="FK_xml_cadenas">
+    <End Type="BovedaFielModelo.cadena" Role="cadena" Multiplicity="1" />
+    <End Type="BovedaFielModelo.xml" Role="xml" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cadena">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="xml">
+        <PropertyRef Name="idcadena" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="decodificacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCadena" Type="Int64" Nullable="false" />
+    <Property Name="firma" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="certificado" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="serie" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="campos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idOperacion" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="cadenas" Relationship="BovedaFielModelo.FK_decodificacion_cadenas" FromRole="decodificacion" ToRole="cadena" />
+    <NavigationProperty Name="operaciones" Relationship="BovedaFielModelo.FK_decodificacion_operaciones" FromRole="decodificacion" ToRole="operacion" />
+  </EntityType>
+  <Association Name="FK_decodificacion_cadenas">
+    <End Type="BovedaFielModelo.cadena" Role="cadena" Multiplicity="1" />
+    <End Type="BovedaFielModelo.decodificacion" Role="decodificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cadena">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="decodificacion">
+        <PropertyRef Name="idCadena" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_decodificacion_operaciones">
+    <End Type="BovedaFielModelo.operacion" Role="operacion" Multiplicity="1" />
+    <End Type="BovedaFielModelo.decodificacion" Role="decodificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="decodificacion">
+        <PropertyRef Name="idOperacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
