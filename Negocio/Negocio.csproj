@@ -108,16 +108,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportesFormatos.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ConsultaPaseCajaQA\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Servicios\IServicio.cs" />
     <Compile Include="Servicios\ServiciosAcceso.cs" />
     <Compile Include="Servicios\ServiciosCarta.cs" />
     <Compile Include="Servicios\ServiciosPaseCaja.cs" />
     <Compile Include="Servicios\ServiciosReporte.cs" />
-    <Compile Include="Web References\mx.gob.sonora.claro.gespipci\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="Web References\WebReferenceFirma\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,14 +196,13 @@
     <None Include="Resources\ReporteConstancias.xlsx" />
     <None Include="Resources\ReporteSancionado.xlsx" />
     <None Include="Resources\ReporteSanciones.xlsx" />
-    <None Include="Web References\mx.gob.sonora.claro.gespipci\DT_Consulta_resp.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\ConsultaPaseCajaQA\Negocio.ConsultaPaseCajaQA.DT_Consulta_resp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\mx.gob.sonora.claro.gespipci\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Service References\ConsultaPaseCajaQA\Negocio.ConsultaPaseCajaQA.SI_ConsultaRo_outResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\mx.gob.sonora.claro.gespipci\SI_ConsultaRo_out.wsdl" />
+    <None Include="Service References\ConsultaPaseCajaQA\SI_ConsultaRo_out.wsdl" />
     <None Include="Web References\SI_PagoRegistroCivil_out_DEV.wsdl" />
     <None Include="Web References\SI_PagoRegistroCivil_out_PRD.wsdl" />
     <None Include="Web References\SI_PagoRegistroCivil_out_QA.wsdl" />
@@ -458,17 +457,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Negocio_WsPaseCaja_Desarrollo_SI_PaseCaja_outService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://gespipci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/df46d86169b4334dbb43d81ca5f12341">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\mx.gob.sonora.claro.gespipci\</RelPath>
-      <UpdateFromURL>http://gespipci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/df46d86169b4334dbb43d81ca5f12341</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Negocio_mx_gob_sonora_claro_gespipci_SI_ConsultaRo_outService</CachedSettingsPropName>
-    </WebReferenceUrl>
     <WebReferenceUrl Include="http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/1624f1eee3603b7b80cfe0b52fc2bc3f">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WsValidarPago_Calidad\</RelPath>
@@ -534,6 +522,15 @@
       <CodeGenerator>NSwagCSharp</CodeGenerator>
       <SourceUri>http://sfirmapruebas.sonora.gob.mx/WSPSFIEL/webservice.asmx%3fWSDL</SourceUri>
     </Content>
+    <None Include="Service References\ConsultaPaseCajaQA\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ConsultaPaseCajaQA\configuration.svcinfo" />
+    <None Include="Service References\ConsultaPaseCajaQA\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ConsultaPaseCajaQA\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

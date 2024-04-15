@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:p2="http://geson.gob.mx/TRM/PORTAL/PaseAcaja" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:p1="http://geson.gob.mx/PORTAL/WS/PaseAcaja" name="SI_PaseCaja_out" targetNamespace="http://geson.gob.mx/PORTAL/WS/PaseAcaja" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:p2="http://geson.gob.mx/TRM/PORTAL/PaseAcaja" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:p1="http://geson.gob.mx/PORTAL/WS/PaseAcaja" name="SI_PaseCaja_out" targetNamespace="http://geson.gob.mx/PORTAL/WS/PaseAcaja" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:documentation />
   <wsp:UsingPolicy wsdl:required="true" />
   <wsp:Policy wsu:Id="OP_SI_PaseCaja_out" />
@@ -86,11 +86,11 @@
       <xsd:element name="MT_PaseCaja_resp" type="p1:DT_RespuestaPaseCaja" />
       <xsd:element name="MT_PaseCaja_req" type="p1:DT_EntradaPaseCaja" />
     </xsd:schema>
-    <xsd:schema xmlns="http://geson.gob.mx/PORTAL/WS/PaseAcaja" xmlns:p5="http://geson.gob.mx/PORTAL/WS/PeriodoDeclararISRTP" targetNamespace="http://geson.gob.mx/PORTAL/WS/PaseAcaja" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:schema xmlns:p8="http://geson.gob.mx/PORTAL/WS/PeriodoDeclararISRTP" xmlns="http://geson.gob.mx/PORTAL/WS/PaseAcaja" targetNamespace="http://geson.gob.mx/PORTAL/WS/PaseAcaja" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <xsd:import namespace="http://geson.gob.mx/PORTAL/WS/PeriodoDeclararISRTP" />
       <xsd:complexType name="DT_PaseCaja">
         <xsd:annotation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">cfd0d0fce01611e6b2f700000059bd3e</xsd:appinfo>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">bd6e6d301a3911ecb47c00000059bd3e</xsd:appinfo>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element name="SEGURIDAD" type="xsd:string">
@@ -101,6 +101,11 @@
           <xsd:element name="FOLIO" type="xsd:string">
             <xsd:annotation>
               <xsd:appinfo source="http://sap.com/xi/TextID">4f71d592281811e48167d01bc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="APLICA_SEGURO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">f6101e995e8311eaaec500090ffe0001</xsd:appinfo>
             </xsd:annotation>
           </xsd:element>
           <xsd:element name="FECHA" type="xsd:string">
@@ -170,6 +175,13 @@
               <xsd:documentation>Campo OXXO</xsd:documentation>
             </xsd:annotation>
           </xsd:element>
+          <xsd:element minOccurs="0" name="SPEI_HSBC">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="18" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="DT_VigenciaLicencia">
@@ -188,7 +200,7 @@
       </xsd:complexType>
       <xsd:complexType name="DT_Generales">
         <xsd:annotation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">bee952a8281611e4ca0900000059bd3e</xsd:appinfo>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">cc942540464711e7944e00000059bd3e</xsd:appinfo>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element name="Domicilio" type="p1:DT_Domicilio">
@@ -196,11 +208,22 @@
               <xsd:appinfo source="http://sap.com/xi/TextID">b07edddb1cc711e49107e002c0a8fca6</xsd:appinfo>
             </xsd:annotation>
           </xsd:element>
-          <xsd:element maxOccurs="unbounded" name="Conceptos" type="p1:DT_ZdettConceptos">
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Conceptos" type="p1:DT_ZdettConceptos">
             <xsd:annotation>
               <xsd:appinfo source="http://sap.com/xi/TextID">b07edddc1cc711e49e73e002c0a8fca6</xsd:appinfo>
             </xsd:annotation>
           </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_Referencias">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">f5ff3428666811e7b52800000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="PSOBKEY" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PSOBTXT" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CATEGORIA" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IMPORTE" type="xsd:string" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="DT_ConveniosBancos">
@@ -210,6 +233,16 @@
         <xsd:sequence>
           <xsd:element name="ID_BANCO" type="xsd:string" />
           <xsd:element name="CONVENIO" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_TiposHospedaje">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">212217b33e9111eda93e00000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DESCRIPCION" type="xsd:string" />
+          <xsd:element minOccurs="0" name="BASE_GRAVABLE" type="xsd:string" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="DT_Vehicular">
@@ -222,7 +255,7 @@
       </xsd:complexType>
       <xsd:complexType name="DT_EntradaPaseCaja">
         <xsd:annotation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">0dc03b14e80211e6a53c00000059bd3e</xsd:appinfo>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">7ad565fb1b5b11eecafd00000059bd3e</xsd:appinfo>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element name="Cabecera" type="p1:DT_Cabecera">
@@ -278,8 +311,43 @@
               <xsd:appinfo source="http://sap.com/xi/TextID">0e4febbbe80211e6b14c542241f9b618</xsd:appinfo>
             </xsd:annotation>
           </xsd:element>
-          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ApoyoSocial" type="p5:DT_ApoyoSocial" />
-          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Rubros" type="p5:DT_Rubros" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ApoyoSocial" type="p8:DT_ApoyoSocial">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">3386ff5d666911e7bd6d542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Rubros" type="p8:DT_Rubros">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">3386ff5e666911e7855e542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Hospedaje" type="p1:DT_Referencias">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">6f40482f206911eab8f200090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Ventanilla" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">7534764e3e9111ed90db549defadac03</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Plataforma_Hospedaje" type="p1:DT_TiposHospedaje">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">26aee68b0e3211eebfd2e88088174ccf</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CABECERA_RC" type="p1:DT_Cabecera_RC">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">7a80f4311b5b11eeba46e88088174ccf</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ACTIV_ACTA">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="1" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="DT_ZdettConceptos">
@@ -497,6 +565,206 @@
           </xsd:element>
         </xsd:sequence>
       </xsd:complexType>
+      <xsd:complexType name="DT_Cabecera_RC">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">aeb0ae0f1b5a11eeb54000000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="COD_BP">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e519f232711e499bff19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="20" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="RFC">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76ef232711e48694f19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="20" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="TP_CTA_CONTRATO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76f0232711e48596f19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="COD_CTA_CONTRADO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76f1232711e4bb56f19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="12" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="CLASE_OBJETO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76f2232711e4bb55f19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="COD_OBJ_CONTRATO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76f3232711e4bebcf19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="20" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="CLAVE_PERIODO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76f4232711e4aa9ff19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="FECHA_VENCIMIENTO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76f5232711e4a1f7f19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:date">
+                <xsd:pattern value="YYYYMMDD" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NOMBRE_OPCIONAL_PC">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76f6232711e4c6b4f19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="80" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="DIRECCION_OPCIONAL_PC">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">171e76f7232711e49860f19fc0a8fca6</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="CORREO_ELECTRONICO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">26426f66c87511e686fb542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="240" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ENVIO_EDOCUENTA" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">f00cb9155e8211ea9b9600090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="OBSERVACIONES" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">ff0a65e380a011e8b00d54e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="TIPO_ACTA" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">6467ddaffd6611e8cfdc54e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="CLAVE" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">6467ddb0fd6611e8b7c954e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="TIPO_ACTO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">6467ddb1fd6611e8863054e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="TIPO_DOCUMENTO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">6467ddb2fd6611e8aa5c54e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="TOKEN" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">6467ddb3fd6611e8a2b354e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="CORREO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">6467ddb4fd6611e8b86654e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ORIGEN" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">f55e14d6738f11ea88d700090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="SEGURO_LICENCIAS" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">f55e14d7738f11ea9eda00090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ENVIO_DOMICILIO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">940d962acad511eac70700090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="PAQUETERIA">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">940d962bcad511eaba1400090ffe0001</xsd:appinfo>
+              <xsd:documentation>WBX = Wellobox - DHL = DHL - SPX = Sepomex - APM = AMPM</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="3" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="DOMICILIO" type="p1:DT_Domicilio_RC">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">ae5f2c471b5a11eea796e88088174ccf</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="CONCEPTOS_RC" type="p1:DT_ZdettConceptos">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">80707fc80b3711ee8fc9e88088174ccf</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ACTIV_ACTA_RC">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="1" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
       <xsd:complexType name="DT_TablaVehiculosISAN">
         <xsd:annotation>
           <xsd:appinfo source="http://sap.com/xi/VersionID">bf01657f281611e4ce7f00000059bd3e</xsd:appinfo>
@@ -532,7 +800,7 @@
       </xsd:complexType>
       <xsd:complexType name="DT_RespuestaPaseCaja">
         <xsd:annotation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">34efb29ef25411e6ac6500000059bd3e</xsd:appinfo>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">9ca16a013e9111edbce100000059bd3e</xsd:appinfo>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element name="PASE_CAJA" type="p1:DT_PaseCaja">
@@ -559,7 +827,7 @@
       </xsd:complexType>
       <xsd:complexType name="DT_Cabecera">
         <xsd:annotation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">fa9c2592c87511e6c16600000059bd3e</xsd:appinfo>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">510ae675cb9011eac6ed00000059bd3e</xsd:appinfo>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element name="COD_BP">
@@ -672,81 +940,77 @@
               </xsd:restriction>
             </xsd:simpleType>
           </xsd:element>
-          <xsd:element minOccurs="0" name="OBSERVACIONES" type="xsd:string" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="DT_ReferenciasISRTP">
-        <xsd:annotation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">41688b61102111e7cc6800000059bd3e</xsd:appinfo>
-        </xsd:annotation>
-        <xsd:sequence>
-          <xsd:element name="COD_CTA_CONTRATO">
+          <xsd:element minOccurs="0" name="ENVIO_EDOCUENTA" type="xsd:string">
             <xsd:annotation>
-              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc16102111e78b51542241f9b618</xsd:appinfo>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4c39c27e5e8311ea8ac300090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="OBSERVACIONES" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">581e1b7980a011e89e8654e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="TIPO_ACTA" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">d8d73044fd6811e8c83e54e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="CLAVE" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">d8d73045fd6811e8a0a354e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="TIPO_ACTO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">d8d73046fd6811e88c7154e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="TIPO_DOCUMENTO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">d8d73047fd6811e88e6854e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="TOKEN" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">d8d73048fd6811e88ee154e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="CORREO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">d8d73049fd6811e8baf354e4a8e10103</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ORIGEN" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">f5021e93739011eaae9300090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="SEGURO_LICENCIAS" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">f5021e94739011eac6c700090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ENVIO_DOMICILIO" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">593d312bcb9011eac17a00090ffe0001</xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="PAQUETERIA">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">593d312ccb9011ea87bc00090ffe0001</xsd:appinfo>
+              <xsd:documentation>WBX = Wellobox - DHL = DHL - SPX = Sepomex - APM = AMPM</xsd:documentation>
             </xsd:annotation>
             <xsd:simpleType>
               <xsd:restriction base="xsd:string">
-                <xsd:maxLength value="20" />
-              </xsd:restriction>
-            </xsd:simpleType>
-          </xsd:element>
-          <xsd:element minOccurs="0" name="NOM_ORGANIZACION">
-            <xsd:annotation>
-              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc17102111e7a78a542241f9b618</xsd:appinfo>
-            </xsd:annotation>
-            <xsd:simpleType>
-              <xsd:restriction base="xsd:string">
-                <xsd:maxLength value="100" />
-              </xsd:restriction>
-            </xsd:simpleType>
-          </xsd:element>
-          <xsd:element name="NRO_MES">
-            <xsd:annotation>
-              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc18102111e7b7f9542241f9b618</xsd:appinfo>
-            </xsd:annotation>
-            <xsd:simpleType>
-              <xsd:restriction base="xsd:int">
-                <xsd:totalDigits value="2" />
-              </xsd:restriction>
-            </xsd:simpleType>
-          </xsd:element>
-          <xsd:element name="NRO_EMPLEADOS">
-            <xsd:annotation>
-              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc19102111e78b4a542241f9b618</xsd:appinfo>
-            </xsd:annotation>
-            <xsd:simpleType>
-              <xsd:restriction base="xsd:int">
-                <xsd:totalDigits value="7" />
-              </xsd:restriction>
-            </xsd:simpleType>
-          </xsd:element>
-          <xsd:element name="BAS_GRAVABLE">
-            <xsd:annotation>
-              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc1a102111e7865b542241f9b618</xsd:appinfo>
-            </xsd:annotation>
-            <xsd:simpleType>
-              <xsd:restriction base="xsd:decimal">
-                <xsd:totalDigits value="13" />
-                <xsd:fractionDigits value="2" />
+                <xsd:maxLength value="3" />
               </xsd:restriction>
             </xsd:simpleType>
           </xsd:element>
         </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="DT_DatosDeclaracion">
+      <xsd:complexType name="DT_Domicilio_RC">
         <xsd:annotation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">bf10e3a3281611e4a52500000059bd3e</xsd:appinfo>
-        </xsd:annotation>
-        <xsd:sequence>
-          <xsd:element name="NOM_CAMPO" type="xsd:string" />
-          <xsd:element name="DES_CAMPO" type="xsd:string" />
-          <xsd:element name="VAL_CAMPO" type="xsd:string" />
-          <xsd:element name="IND_APLIC" type="xsd:string" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="DT_Domicilio">
-        <xsd:annotation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">bea21ca1330311e4ca1800000059bd3e</xsd:appinfo>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">eb1a6c480e3011ee9c8200000059bd3e</xsd:appinfo>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element name="CALLE">
@@ -849,6 +1113,188 @@
               </xsd:restriction>
             </xsd:simpleType>
           </xsd:element>
+          <xsd:element minOccurs="0" name="PERSONA_ALTERNA" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CELULAR" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_ReferenciasISRTP">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">41688b61102111e7cc6800000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="COD_CTA_CONTRATO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc16102111e78b51542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="20" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="NOM_ORGANIZACION">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc17102111e7a78a542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="100" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NRO_MES">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc18102111e7b7f9542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:totalDigits value="2" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NRO_EMPLEADOS">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc19102111e78b4a542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:totalDigits value="7" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="BAS_GRAVABLE">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4248bc1a102111e7865b542241f9b618</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="13" />
+                <xsd:fractionDigits value="2" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_DatosDeclaracion">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">bf10e3a3281611e4a52500000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="NOM_CAMPO" type="xsd:string" />
+          <xsd:element name="DES_CAMPO" type="xsd:string" />
+          <xsd:element name="VAL_CAMPO" type="xsd:string" />
+          <xsd:element name="IND_APLIC" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_Domicilio">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">833269e4fd6811e8a68d00000059bd3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="CALLE">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320f99f1320911e486c9cb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="ENTRE_CALLES">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320f99f2320911e48f37cb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="100" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NRO_EXT">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320f99f3320911e4a491cb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NRO_INT">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320fbda0320911e4b183cb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="MUNICIPIO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320fbda1320911e4cb2acb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="LOCALIDAD">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320fbda2320911e4cb45cb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="41" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="COLONIA">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320fbda3320911e49cd3cb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="42" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="COD_POSTAL">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320fbda4320911e4a033cb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="ZONA">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320fbda5320911e480bccb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="ESTADO">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">320fbda6320911e4c133cb4ac0a80164</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="PERSONA_ALTERNA" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CELULAR" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL" type="xsd:string" />
         </xsd:sequence>
       </xsd:complexType>
     </xsd:schema>

@@ -4,11 +4,14 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using Datos.DTO.Infraestructura.ViewModels;
-using Negocio.mx.gob.sonora.claro.gespipci;
+//using Negocio.mx.gob.sonora.claro.gespipci;
+using Negocio.ConsultaPaseCajaQA;
 using Negocio.Repositorios.PaseCaja.Format;
 using Negocio.Servicios;
 using Negocio.WsPagoRegistroCivil_Productivo;
-using Negocio.WsPaseCaja_Productivo;
+//using Negocio.WsPaseCaja_Productivo;
+using Negocio.WsPaseCaja_Calidad;
+using Negocio.WsValidarPago_Calidad;
 //using Negocio.WsValidarPago_Productivo;
 //using Negocio.WsValidarPago_Calidad;
 
@@ -29,9 +32,9 @@ namespace Negocio.PaseCaja
         {
             //return "sonora";
             //PRODD
-            return "<awYS<%CY9][]sfHB-ds$ZV$Dvrmn#-~Q&LcbZEG";
+            //return "<awYS<%CY9][]sfHB-ds$ZV$Dvrmn#-~Q&LcbZEG";
             //QA
-            //return "Nf(bBYv!/2Uc";
+            return "Nf(bBYv!/2Uc";
         }
 
         public PaseCajaRepository()
@@ -363,7 +366,7 @@ namespace Negocio.PaseCaja
             return service.Guardar(Data, mso.ToArray());
         }
 
-        public DT_Consulta_resp ValidarPago(string folio)
+        public WsValidarPago_Calidad.DT_Consulta_resp ValidarPago(string folio)
         {
             var paseCaja = string.Empty;
             var recibo = string.Empty;
@@ -378,12 +381,12 @@ namespace Negocio.PaseCaja
             }
 
             
-            using (var ws = new SI_ConsultaRo_outService
+            using (var ws = new WsValidarPago_Calidad.SI_ConsultaRo_outService
             {
                 Credentials = new System.Net.NetworkCredential(WsUsuario(), WsClave())
             })
             {
-                var resultado = ws.SI_ConsultaRo_out(new DT_Consulta_req { PASEC = paseCaja, RECIBO = recibo });
+                var resultado = ws.SI_ConsultaRo_out(new WsValidarPago_Calidad.DT_Consulta_req { PASEC = paseCaja, RECIBO = recibo });
 
                 return resultado;
             }
