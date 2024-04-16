@@ -349,7 +349,7 @@ namespace Negocio.Repositorios.PaseCaja.Format
             _taux.AddCell(celda);
 
             celda = new PdfPCell { Padding = 2f, PaddingLeft = 6f, PaddingBottom = 5f, Border = Rectangle.NO_BORDER };
-            celda.AddElement(new Paragraph("Comercios Autorizados: Oxxo, Abarrey, Super del Norte, Benavides, Telecomm.", _large) { Alignment = Element.ALIGN_CENTER });
+            celda.AddElement(new Paragraph("Comercios Autorizados: Oxxo, Abarrey, Benavides, Telecomm.", _large) { Alignment = Element.ALIGN_CENTER });
             _taux.AddCell(celda);
 
             celda = new PdfPCell { Border = Rectangle.LEFT_BORDER | Rectangle.RIGHT_BORDER | Rectangle.BOTTOM_BORDER };
