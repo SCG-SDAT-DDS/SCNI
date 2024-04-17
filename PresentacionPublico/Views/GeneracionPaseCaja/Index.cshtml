@@ -14,7 +14,7 @@
                     <p>Para generar el pase a caja por favor ingrese la siguiente información.</p>
                     @using (Html.BeginForm("Index", "GeneracionPaseCaja", new { }, FormMethod.Post, new { @class = "form-horizontal text-left" }))
                     {
-                        
+
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-offset-1 control-label" for="Nombre"><strong class="obligatorio">*</strong>Nombre</label>
@@ -36,15 +36,7 @@
                             @Html.ValidationMessage("Capcha", null, new { @class = "label label-warning" })
                             <hr />
                         </div>
-
-                        <div id='recaptcha' class="g-recaptcha"
-                             data-sitekey="@(System.Configuration.ConfigurationManager.AppSettings["CaptchaSitioKey"])"
-                             data-callback="onSubmit"
-                             data-size="invisible">
-                        </div>
-                        <input name="Capcha" type="submit" class="btn btn-primary block full-width m-b" id="btnBuscar"
-                               value="Generar" />
-
+                        <hr />
                         <div class="col-sm-12">
                             <div class="alert alert-info">
                                 Con el pase a caja podrá realizar el pago en Agencias Fiscales, Comercios Autorizados: Oxxo, Abarrey, Benavides, Telecomm y/o a través de la opción de Pago en Línea.
@@ -56,6 +48,16 @@
                                 El trámite de solicitud de Constancia de No Inhabilitación deberá realizarlo una vez que ya esté reflejado el pago.
                             </div>
                         </div>
+
+                        <div id='recaptcha' class="g-recaptcha"
+                             data-sitekey="@(System.Configuration.ConfigurationManager.AppSettings["CaptchaSitioKey"])"
+                             data-callback="onSubmit"
+                             data-size="invisible">
+                        </div>
+                        <input name="Capcha" type="submit" class="btn btn-primary block full-width m-b" id="btnBuscar"
+                               value="Generar" />
+
+
                     }
                     <small>Todos los campos marcados con <strong class="obligatorio">*</strong> son obligatorios.</small>
                     <br />
