@@ -98,7 +98,7 @@ namespace Presentacion.Controllers
                         // Configuraciones previas de la conexión
                         bd.Configuration.ValidateOnSaveEnabled = false;
                         bd.Entry(solicitud.Persona).State = (solicitud.Persona.IDPersona > 0
-                            ? EntityState.Unchanged
+                            ? EntityState.Modified
                             : EntityState.Added);
 
                         if (solicitud.Persona.IDPersona > 0)

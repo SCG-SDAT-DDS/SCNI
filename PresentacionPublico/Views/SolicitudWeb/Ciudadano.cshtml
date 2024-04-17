@@ -467,7 +467,6 @@
                     noValidos++;
                     mensajeError = (mensajeError ? "<br/>" : "") + "RFC inválido.";
                 }
-
                 if (noValidos > 0) {
                     var mensaje = (hayNecesarios ? "Los campos marcados en rojo no deben estar vacios." : "") + mensajeError;
                     mostrarAlert(mensaje, "danger", true);
