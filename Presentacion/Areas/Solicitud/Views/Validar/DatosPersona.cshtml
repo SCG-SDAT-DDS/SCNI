@@ -36,7 +36,7 @@
                         <li class="list-group-item">
                             <strong>GÉNERO</strong>
                             <span class="pull-right">
-                                @(Model.Solicitud.Persona.Genero.Contains("1") ? "Femenino": "Masculino")
+                                @(Model.Solicitud.Persona.Genero.Contains("1") ? "Femenino" : "Masculino")
                             </span>
                         </li>
                         <li class="list-group-item">
@@ -112,10 +112,15 @@
                     </ul>
                 </div>
                 <div class="col-sm-12 text-right">
-                    <a href="@Url.Action("Index", "Registro", new {Area = "Solicitud", IdSolicitud = Model.Solicitud.IDSolicitud.ToString().EncodeTo64()})" class="btn btn-warning">
+                    <a href="@Url.Action("Index","EditPersona",  new {Area = "Solicitud", IdSolicitud =  Model.Solicitud.IDSolicitud.ToString().EncodeTo64()})" class="btn btn-warning">
                         <i class="fa fa-pencil"></i>
                         Modificar datos
                     </a>
+                    
+                    @*<a href="@Url.Action("Index", "Registro", new {Area = "Solicitud", IdSolicitud = Model.Solicitud.IDSolicitud.ToString().EncodeTo64()})" class="btn btn-warning">
+                        <i class="fa fa-pencil"></i>
+                        Modificar datos
+                    </a>*@
                 </div>
             </div>
         </div>

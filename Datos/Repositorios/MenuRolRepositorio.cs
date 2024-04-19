@@ -214,6 +214,7 @@ namespace Datos.Repositorios
         {
             using (var bd = new Contexto())
             {
+
                 return (from r in bd.Rol
                         where r.IDRol == idRol &&
                               r.MenuInicio.Any(om => om.Controlador == controlador && om.Accion == accion)

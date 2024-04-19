@@ -1131,3 +1131,7 @@ Nombre del parámetro: buffer
 05/03/2024 13:38:32 ==> CESRR/CNI/6/2024.Error al convertir el PKCS7 a arreglo de bytes.
 05/03/2024 14:29:54 ==> Hubo un error al firmar algunas contancias.
 08/03/2024 11:14:43 ==> Hubo un error al firmar el lote. Es posible que algunas constancias no hayan sido firmada.
+18/4/2024 14:45:52 ==> Folio ingresado es inválido o no se tiene pago registrado.
+19/4/2024 11:22:03 ==> Folio ingresado es inválido o no se tiene pago registrado.
+19/4/2024 11:24:38 ==> Folio ingresado es inválido o no se tiene pago registrado.
+19/4/2024 11:43:00 ==> El identificador de la solicitud es incorrecto.

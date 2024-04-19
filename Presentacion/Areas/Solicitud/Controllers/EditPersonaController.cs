@@ -16,7 +16,7 @@ using Sistema.Extensiones;
 
 namespace Presentacion.Areas.Solicitud.Controllers
 {
-    public class RegistroController : ControladorBase
+    public class EditPersonaController : ControladorBase
     {
         [HttpGet]
         public ActionResult Index()
@@ -47,7 +47,7 @@ namespace Presentacion.Areas.Solicitud.Controllers
                 if (solicitud == null || solicitud.Carta.Any(c => c.Estado == EstadosCarta.Firmada))
                     return RedirectToAction("Index", "Buscar");
 
-                if(solicitud.Entidad == null) solicitud.Entidad = new Entidad();
+                if (solicitud.Entidad == null) solicitud.Entidad = new Entidad();
 
                 solicitudViewModel.Solicitud = solicitud;
             }
@@ -68,7 +68,7 @@ namespace Presentacion.Areas.Solicitud.Controllers
             var archivoPapeleta = Convert.FromBase64String(respuestaPago.STR_B64);
             var nombrePapeleta = Guid.NewGuid().ToString();
 
-            var accionDefault = (ActionResult) RedirectToAction("Index", "Validar");
+            var accionDefault = (ActionResult)RedirectToAction("DatosPersona", "Validar");
 
             if (ModelState.IsValid && pagoCorrecto)
             {
@@ -76,6 +76,13 @@ namespace Presentacion.Areas.Solicitud.Controllers
                 var paseCaja = respuestaPago.DATOS.PASE_CAJA;
 
                 solicitud.IDSolicitud = ObtenerParametroGetEnInt(Enumerados.Parametro.IdSolicitud);
+
+                accionDefault = RedirectToAction("DatosPersona", "Validar",
+                                   new
+                                   {
+                                       Area = "Solicitud",
+                                       IdSolicitud = solicitud.IDSolicitud.ToString().EncodeTo64()
+                                   });
 
                 solicitud.URLPapeleta = Archivo.ObtenerRutaSolicitudesBaseDatos(archivoPapeleta,
                     Archivo.Ruta.SolicitudDocumentos, nombrePapeleta);
@@ -138,7 +145,7 @@ namespace Presentacion.Areas.Solicitud.Controllers
                             {
                                 bd.Entry(solicitud.Persona).Property(p => p.Genero).IsModified = true;
                             }
-                            
+
                             solicitudRepositorio.Guardar(solicitud);
 
                             bd.SaveChanges();
@@ -168,7 +175,7 @@ namespace Presentacion.Areas.Solicitud.Controllers
 
             EnviarAlerta(General.GuardadoCorrecto, mensajeError, correcto);
 
-            var solicitudViewModel = new SolicitudViewModel {Solicitud = solicitud};
+            var solicitudViewModel = new SolicitudViewModel { Solicitud = solicitud };
 
             if (solicitudViewModel.Solicitud.Entidad == null) solicitudViewModel.Solicitud.Entidad = new Entidad();
 
@@ -191,7 +198,7 @@ namespace Presentacion.Areas.Solicitud.Controllers
                 return lista;
             }
         }
-        
+
         [WebMethod]
         [HttpPost]
         public JsonResult ObtenerPersonaPorRFC(string rfc)
