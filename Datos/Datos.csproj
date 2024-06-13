@@ -153,6 +153,7 @@
     <Compile Include="DTO\Infraestructura\ViewModels\PaginacionViewModel.cs" />
     <Compile Include="DTO\Infraestructura\ViewModels\PlantillaViewModel.cs" />
     <Compile Include="DTO\Infraestructura\ViewModels\PrecioViewModel.cs" />
+    <Compile Include="DTO\Infraestructura\ViewModels\ReporteCanceladaViewModel.cs" />
     <Compile Include="DTO\Infraestructura\ViewModels\ReporteSancionViewModel.cs" />
     <Compile Include="DTO\Infraestructura\ViewModels\ReporteConstanciaViewModel.cs" />
     <Compile Include="DTO\Infraestructura\ViewModels\TituloViewModel.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="DTO\Infraestructura\ViewModels\UsuarioViewModel.cs" />
     <Compile Include="DTO\PersonaCartaDto.cs" />
     <Compile Include="DTO\PersonaSancionesDto.cs" />
+    <Compile Include="DTO\Reportes\ReporteCanceladaDto.cs" />
     <Compile Include="DTO\Reportes\ReporteConstanciaDto.cs" />
     <Compile Include="DTO\Reportes\ReporteSancionadoDto.cs" />
     <Compile Include="DTO\Reportes\ReporteSancionDto.cs" />

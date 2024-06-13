@@ -10,8 +10,7 @@
 namespace Datos
 {
     using System;
-    using System.ComponentModel;
-
+    
     public enum TiposSancion : int
     {
         Apercibimiento = 1,
@@ -19,12 +18,10 @@ namespace Datos
         Suspensión = 2,
         DestituciónDelPuesto = 5,
         SanciónEconómica = 6,
-        [Description("Inhabilitación para desempeñar empleos, cargos o comisiones en el SP")]
         InhabilitaciónDesempeñar = 4,
         AmonestaciónPrivada = 8,
         AmonestaciónPública = 9,
         DejarSinEfecto = 7,
-        [Description("Inhabilitación y para participar en adquisiciones, arrendamientos, servicios u OP")]
         InhabilitaciónParticipar = 10
     }
 }

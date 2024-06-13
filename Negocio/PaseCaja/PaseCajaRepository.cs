@@ -8,7 +8,8 @@ using Datos.DTO.Infraestructura.ViewModels;
 using Negocio.ConsultaPaseCajaQA;
 using Negocio.Repositorios.PaseCaja.Format;
 using Negocio.Servicios;
-using Negocio.WsPagoRegistroCivil_Productivo;
+//using Negocio.WsPagoRegistroCivil_Productivo;
+using Negocio.WsPagoRegistroCivil_Calidad;
 //using Negocio.WsPaseCaja_Productivo;
 using Negocio.WsPaseCaja_Calidad;
 using Negocio.WsValidarPago_Calidad;
@@ -33,8 +34,9 @@ namespace Negocio.PaseCaja
             //return "sonora";
             //PRODD
             //return "<awYS<%CY9][]sfHB-ds$ZV$Dvrmn#-~Q&LcbZEG";
-            //QA
-            return "Nf(bBYv!/2Uc";
+            //QAvieja -->"Nf(bBYv!/2Uc"
+            //QA NEW
+            return "vnF~>^-H32Ek";
         }
 
         public PaseCajaRepository()

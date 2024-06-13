@@ -200,10 +200,10 @@
                                 <small>Todos los campos marcados con <strong class="obligatorio">*</strong> son obligatorios.</small>
                             </div>
                             <a href="@Url.Action("Index", "SolicitudWeb")" class="col-md-2 col-xs-2 btn btn-default">Regresar</a>
-                            <div id='recaptcha' class="g-recaptcha"
+                            @*<div id='recaptcha' class="g-recaptcha"
                                  data-sitekey="@(System.Configuration.ConfigurationManager.AppSettings["CaptchaSitioKey"])"
                                  data-callback="onSubmit"
-                                 data-size="invisible"></div>
+                                 data-size="invisible"></div>*@
                             <input type="submit" class="btn btn-primary block col-md-9 col-xs-9 col-md-offset-1 col-xs-offset-1 m-b" id="btnBuscar"
                                    value="Enviar"/>
                         </div>
@@ -274,7 +274,7 @@
     <script type="text/javascript" src="/Scripts/fileinput.min.js"></script>
     <script type="text/javascript" src="/Scripts/fileinput_locale_es.js"></script>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    @*<script src="https://www.google.com/recaptcha/api.js" async defer></script>*@
     <script type="text/javascript">
         var onSubmit = function (token) {
             $('form').submit();
@@ -472,8 +472,8 @@
                     mostrarAlert(mensaje, "danger", true);
                     return false;
                 }
-
-                grecaptcha.execute();
+                $('form').submit();
+                //grecaptcha.execute();
             });
         });
 

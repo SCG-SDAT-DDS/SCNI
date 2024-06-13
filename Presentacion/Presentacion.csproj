@@ -298,6 +298,7 @@
     </Content>
     <Content Include="Areas\Solicitud\Views\Validar\ValidaEdit.cshtml" />
     <Content Include="Areas\Solicitud\Views\EditPersona\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\Canceladas\Index.cshtml" />
     <None Include="Connected Services\WebServiceProd\webservice.wsdl" />
     <None Include="Connected Services\WebService\configuration91.svcinfo" />
     <None Include="Connected Services\WebService\configuration.svcinfo" />
@@ -1008,6 +1009,7 @@
     <Compile Include="Areas\Catalogo\Controllers\PlantillaController.cs" />
     <Compile Include="Areas\Catalogo\Controllers\PuestoController.cs" />
     <Compile Include="Areas\Catalogo\Controllers\TituloController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\CanceladasController.cs" />
     <Compile Include="Areas\Reporte\Controllers\ConstanciasController.cs" />
     <Compile Include="Areas\Reporte\Controllers\SancionesController.cs" />
     <Compile Include="Areas\Reporte\ReporteAreaRegistration.cs" />

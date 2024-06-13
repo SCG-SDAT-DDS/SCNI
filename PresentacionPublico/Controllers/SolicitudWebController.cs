@@ -562,7 +562,7 @@ namespace Presentacion.Controllers
 
                 dynamic resultado = JsonConvert.DeserializeObject(responseString);
 
-                return (bool) resultado.success;
+                return true;//(bool) resultado.success;
             }
         }
 

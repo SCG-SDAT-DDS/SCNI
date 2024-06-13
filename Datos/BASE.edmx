@@ -194,7 +194,7 @@
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="ApellidoP" Type="varchar" MaxLength="50" />
           <Property Name="ApellidoM" Type="varchar" MaxLength="50" />
-          <Property Name="Genero" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Genero" Type="char" MaxLength="2" Nullable="false" />
           <Property Name="FechaNacimiento" Type="date" />
           <Property Name="CURP" Type="varchar" MaxLength="20" />
           <Property Name="RFC" Type="varchar" MaxLength="20" />
@@ -1428,7 +1428,7 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ApellidoP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ApellidoM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Genero" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Genero" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
           <Property Name="CURP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -1486,10 +1486,11 @@
           <Member Name="Suspensión" Value="2" />
           <Member Name="DestituciónDelPuesto" Value="5" />
           <Member Name="SanciónEconómica" Value="6" />
-          <Member Name="Inhabilitación" Value="4" />
+          <Member Name="InhabilitaciónDesempeñar" Value="4" />
           <Member Name="AmonestaciónPrivada" Value="8" />
           <Member Name="AmonestaciónPública" Value="9" />
           <Member Name="DejarSinEfecto" Value="7" />
+          <Member Name="InhabilitaciónParticipar" Value="10" />
         </EnumType>
         <EntityType Name="Folio">
           <Key>
@@ -1511,6 +1512,7 @@
         <EnumType Name="TiposInicio" UnderlyingType="Byte">
           <Member Name="Contraseña" Value="1" />
           <Member Name="Fiel" Value="2" />
+          <Member Name="PFX" Value="3" />
         </EnumType>
         <EntityType Name="Usuario">
           <Key>

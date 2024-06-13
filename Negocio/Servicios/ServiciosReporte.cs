@@ -211,5 +211,45 @@ namespace Negocio.Servicios
                 return paqueteExcel.GetAsByteArray();
             }
         }
+
+
+        public byte[] GenerarReporteCanceladas(List<ReporteCanceladaDto> solicitudes, ReporteCanceladaViewModel criterios)
+        {
+            var filtros = new List<string>();
+
+            if (criterios.FechaInicio > DateTime.MinValue)
+                filtros.Add("Fecha inicio: " + criterios.FechaInicio.ToString("dd/MM/yyyy"));
+
+            if (criterios.FechaFin > DateTime.MinValue)
+                filtros.Add("Fecha fin: " + criterios.FechaFin.ToString("dd/MM/yyyy"));
+
+
+            using (var st = new MemoryStream(ReportesFormatos.ReporteCanceladas))
+            {
+                var paqueteExcel = new ExcelPackage(st);
+
+                var hojaExcel = paqueteExcel.Workbook.Worksheets["Canceladas"];
+
+                hojaExcel.Cells["E4"].Value = DateTime.Now.ToString("dd/MM/yyyy");
+                hojaExcel.Cells["B5"].Value = string.Join(", ", filtros);
+                hojaExcel.Cells["D6"].Value = solicitudes.Count;
+
+                var fila = 8;
+
+                foreach (var solicitud in solicitudes)
+                {
+                    hojaExcel.Cells["A" + fila].Value = solicitud.FolioPaseACaja;
+                    hojaExcel.Cells["B" + fila].Value = solicitud.Solicitante;
+                    hojaExcel.Cells["C" + fila].Value = solicitud.FolioPago;
+                    hojaExcel.Cells["D" + fila].Value = solicitud.FechaSolicitud.ToString("dd/MM/yyyy");
+                    hojaExcel.Cells["E" + fila].Value = solicitud.MotivoCancelacion;
+
+                    fila++;
+                }
+
+
+                return paqueteExcel.GetAsByteArray();
+            }
+        }
     }
 }

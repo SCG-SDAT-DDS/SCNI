@@ -193,6 +193,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\ReporteCanceladas.xlsx" />
     <None Include="Resources\ReporteConstancias.xlsx" />
     <None Include="Resources\ReporteSancionado.xlsx" />
     <None Include="Resources\ReporteSanciones.xlsx" />

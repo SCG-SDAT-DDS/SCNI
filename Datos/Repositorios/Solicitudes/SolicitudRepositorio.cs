@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Datos.DTO;
 using Datos.DTO.Infraestructura.ViewModels;
+using Datos.DTO.Reportes;
 using Datos.Recursos;
 
 namespace Datos.Repositorios.Solicitudes
@@ -361,6 +362,57 @@ namespace Datos.Repositorios.Solicitudes
                 where c.IDSolicitud == idSolicitud &&
                       c.Estado == EstadosCarta.NoFirmada
                 select c).Any();
+        }
+
+        public List<ReporteCanceladaDto> ObtenerReporteSolicitudesCanceladas(ReporteCanceladaViewModel criterios)
+        {
+            var query = (from q in Contexto.Solicitud
+                         where q.Cancelada
+                         select q);
+
+            if (criterios.FechaInicio != DateTime.MinValue)
+                query = (from q in query
+                         where q.FechaSolicitud >= criterios.FechaInicio
+                         select q);
+
+            if (criterios.FechaFin != DateTime.MinValue)
+                query = (from q in query
+                         where q.FechaSolicitud <= criterios.FechaFin
+                         select q);
+
+
+            if (!string.IsNullOrEmpty(criterios.Nombre))
+                query = (from q in query
+                         where q.Persona.Nombre.Contains(criterios.Nombre)
+                         select q);
+
+
+            if (!string.IsNullOrEmpty(criterios.ApellidoP))
+                query = (from q in query
+                         where q.Persona.ApellidoP.Contains(criterios.ApellidoP)
+                         select q);
+
+            
+            if (!string.IsNullOrEmpty(criterios.ApellidoM))
+                query = (from q in query
+                         where q.Persona.ApellidoM.Contains(criterios.ApellidoM)
+                         select q);
+
+
+            if (!string.IsNullOrEmpty(criterios.FolioDePago))
+                query = (from q in query
+                         where q.FolioPago.Contains(criterios.FolioDePago)
+                         select q);
+
+            return (from q in query
+                    select new ReporteCanceladaDto
+                    {
+                        FolioPaseACaja = q.FolioPaseCaja,
+                        Solicitante = q.Persona.Nombre + " " + q.Persona.ApellidoP + " " + q.Persona.ApellidoM,
+                        FolioPago = q.FolioPago,
+                        FechaSolicitud = q.FechaSolicitud,
+                        MotivoCancelacion = q.MotivoCancelacion
+                    }).ToList();
         }
     }
 }
