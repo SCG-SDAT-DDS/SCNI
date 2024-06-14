@@ -118,7 +118,7 @@ namespace Sistema
             return new List<SelectListItem> {
                 new SelectListItem { Text = "Seleccione...", Value = "" },
                 new SelectListItem { Text = "Responsabilidad Oficial", Value = "1" },
-                new SelectListItem { Text = "Situación Patrimonial", Value = "2" },
+                //new SelectListItem { Text = "Situación Patrimonial", Value = "2" },
                 new SelectListItem { Text = "Administración Pública Municipal", Value = "3" },
             };
         }

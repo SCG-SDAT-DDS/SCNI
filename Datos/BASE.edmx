@@ -1680,7 +1680,6 @@
         </EnumType>
         <EnumType Name="Origenes">
           <Member Name="ResponsabilidadOficial" Value="1" />
-          <Member Name="SituaciónPatrimonial" Value="2" />
           <Member Name="AdministraciónPúblicaMunicipal" Value="3" />
         </EnumType>
         <EntityType Name="Plantilla">

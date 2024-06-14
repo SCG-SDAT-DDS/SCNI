@@ -14,7 +14,6 @@ namespace Datos
     public enum Origenes : int
     {
         ResponsabilidadOficial = 1,
-        SituaciónPatrimonial = 2,
         AdministraciónPúblicaMunicipal = 3
     }
 }

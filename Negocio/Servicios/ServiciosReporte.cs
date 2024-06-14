@@ -173,9 +173,7 @@ namespace Negocio.Servicios
                     hojaExcel.Cells["A" + fila].Value = sancion.Nombre;
                     hojaExcel.Cells["B" + fila].Value = sancion.Paterno;
                     hojaExcel.Cells["C" + fila].Value = sancion.Materno;
-                    hojaExcel.Cells["D" + fila].Value = sancion.Origen == Origenes.SituaciónPatrimonial
-                        ? "SP"
-                        : sancion.Origen == Origenes.ResponsabilidadOficial ? "RO" : "APM";
+                    hojaExcel.Cells["D" + fila].Value = sancion.Origen == Origenes.ResponsabilidadOficial ? "RO" : "APM";
                     hojaExcel.Cells["E" + fila].Value = sancion.NumeroExpediente;
                     hojaExcel.Cells["F" + fila].Value = sancion.TipoSancion.Descripcion();
                     hojaExcel.Cells["G" + fila].Value = sancion.SancionAno;
