@@ -193,10 +193,18 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\ReporteCanceladas.xlsx" />
-    <None Include="Resources\ReporteConstancias.xlsx" />
-    <None Include="Resources\ReporteSancionado.xlsx" />
-    <None Include="Resources\ReporteSanciones.xlsx" />
+    <Resource Include="Resources\ReporteCanceladas.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\ReporteConstancias.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\ReporteSancionado.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\ReporteSanciones.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <None Include="Service References\ConsultaPaseCajaQA\Negocio.ConsultaPaseCajaQA.DT_Consulta_resp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

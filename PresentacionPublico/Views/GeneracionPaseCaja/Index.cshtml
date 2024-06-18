@@ -41,21 +41,25 @@
                             <div class="alert alert-info">
                                 Con el pase a caja podrá realizar el pago en Agencias Fiscales, Comercios Autorizados: Oxxo, Abarrey, Benavides, Telecomm y/o a través de la opción de Pago en Línea.
                                 <br /><br />
-                                Pagos reflejados de manera inmediata: Oxxo.
+                                <span style="color: red; font-weight: bold">Pagos reflejados de manera inmediata: pago en Agencias Fiscales, Pago en Línea y en Oxxo.</span>
                                 <br />
-                                Pagos reflejados de 24 a 48 hrs: Abarrey, Benavides, Telecomm.
+                                <span style="color: red; font-weight: bold">
+                                    Pagos reflejados de 24 a 48 hrs: Abarrey, Benavides, Telecomm.
+                                </span>
                                 <br /><br />
                                 El trámite de solicitud de Constancia de No Inhabilitación deberá realizarlo una vez que ya esté reflejado el pago.
-                            </div>
-                        </div>
+                            </div >
 
-                        <div id='recaptcha' class="g-recaptcha"
-                             data-sitekey="@(System.Configuration.ConfigurationManager.AppSettings["CaptchaSitioKey"])"
-                             data-callback="onSubmit"
-                             data-size="invisible">
+                        </div >
+
+
+                        <div id = 'recaptcha' class="g-recaptcha"
+                                                        data-sitekey="@(System.Configuration.ConfigurationManager.AppSettings["CaptchaSitioKey"])"
+                                                        data-callback="onSubmit"
+                                                        data-size="invisible">
                         </div>
-                        <input name="Capcha" type="submit" class="btn btn-primary block full-width m-b" id="btnBuscar"
-                               value="Generar" />
+                        <input name = "Capcha" type="submit" class="btn btn-primary block full-width m-b" id="btnBuscar"
+                                value="Generar" />
 
 
                     }
@@ -63,8 +67,8 @@
                     <br />
                     <a href="@Url.Action("Index", "SolicitudWeb")">Regresar al menú</a>
                 </div>
-            </div>
-        </div>
+                </div>
+                </div>
     </div>
 </div>
 
