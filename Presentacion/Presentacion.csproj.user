@@ -15,7 +15,7 @@
     <NameOfLastUsedPublishProfile>SCNIPUBLISH</NameOfLastUsedPublishProfile>
     <ProjectView>ProjectFiles</ProjectView>
     <NameOfLastUsedPublishProfile>\\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Presentacion\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
-    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />

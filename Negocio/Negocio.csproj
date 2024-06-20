@@ -118,6 +118,11 @@
     <Compile Include="Servicios\ServiciosCarta.cs" />
     <Compile Include="Servicios\ServiciosPaseCaja.cs" />
     <Compile Include="Servicios\ServiciosReporte.cs" />
+    <Compile Include="Web References\constancia.nuevo.validador.prod\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\WebReferenceFirma\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -212,6 +217,14 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ConsultaPaseCajaQA\SI_ConsultaRo_out.wsdl" />
+    <None Include="Web References\constancia.nuevo.validador.prod\DT_Consulta_resp.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\constancia.nuevo.validador.prod\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\constancia.nuevo.validador.prod\SI_ConsultaRo_out.wsdl" />
     <None Include="Web References\SI_PagoRegistroCivil_out_DEV.wsdl" />
     <None Include="Web References\SI_PagoRegistroCivil_out_PRD.wsdl" />
     <None Include="Web References\SI_PagoRegistroCivil_out_QA.wsdl" />
@@ -465,6 +478,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Negocio_WsPaseCaja_Desarrollo_SI_PaseCaja_outService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://gespipci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/df46d86169b4334dbb43d81ca5f12341">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\constancia.nuevo.validador.prod\</RelPath>
+      <UpdateFromURL>http://gespipci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/df46d86169b4334dbb43d81ca5f12341</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Negocio_constancia_nuevo_validador_prod_SI_ConsultaRo_outService</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://gespiqci.claro.sonora.gob.mx:50000/dir/wsdl%3fp=sa/1624f1eee3603b7b80cfe0b52fc2bc3f">
       <UrlBehavior>Dynamic</UrlBehavior>

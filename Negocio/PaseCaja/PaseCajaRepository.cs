@@ -4,17 +4,13 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using Datos.DTO.Infraestructura.ViewModels;
-//using Negocio.mx.gob.sonora.claro.gespipci;
-using Negocio.ConsultaPaseCajaQA;
+using Negocio.constancia.nuevo.validador.prod;
 using Negocio.Repositorios.PaseCaja.Format;
 using Negocio.Servicios;
-//using Negocio.WsPagoRegistroCivil_Productivo;
-using Negocio.WsPagoRegistroCivil_Calidad;
-//using Negocio.WsPaseCaja_Productivo;
-using Negocio.WsPaseCaja_Calidad;
-using Negocio.WsValidarPago_Calidad;
-//using Negocio.WsValidarPago_Productivo;
-//using Negocio.WsValidarPago_Calidad;
+using Negocio.WsPagoRegistroCivil_Productivo;
+using Negocio.WsPaseCaja_Productivo;
+//using negocio.wsvalidarpago_productivo;
+//using negocio.wsvalidarpago_calidad;
 
 namespace Negocio.PaseCaja
 {
@@ -25,18 +21,12 @@ namespace Negocio.PaseCaja
 
         private static string WsUsuario()
         {
-            //return "SAPPIENS";
-            return "SAPPISCG";
+            return "SAPPISCNI";
         }
 
         private static string WsClave()
         {
-            //return "sonora";
-            //PRODD
-            //return "<awYS<%CY9][]sfHB-ds$ZV$Dvrmn#-~Q&LcbZEG";
-            //QAvieja -->"Nf(bBYv!/2Uc"
-            //QA NEW
-            return "vnF~>^-H32Ek";
+            return "c~<Yv2guRA7b";
         }
 
         public PaseCajaRepository()
@@ -368,7 +358,7 @@ namespace Negocio.PaseCaja
             return service.Guardar(Data, mso.ToArray());
         }
 
-        public WsValidarPago_Calidad.DT_Consulta_resp ValidarPago(string folio)
+        public DT_Consulta_resp ValidarPago(string folio)
         {
             var paseCaja = string.Empty;
             var recibo = string.Empty;
@@ -383,12 +373,12 @@ namespace Negocio.PaseCaja
             }
 
             
-            using (var ws = new WsValidarPago_Calidad.SI_ConsultaRo_outService
+            using (var ws = new SI_ConsultaRo_outService
             {
                 Credentials = new System.Net.NetworkCredential(WsUsuario(), WsClave())
             })
             {
-                var resultado = ws.SI_ConsultaRo_out(new WsValidarPago_Calidad.DT_Consulta_req { PASEC = paseCaja, RECIBO = recibo });
+                var resultado = ws.SI_ConsultaRo_out(new DT_Consulta_req { PASEC = paseCaja, RECIBO = recibo });
 
                 return resultado;
             }

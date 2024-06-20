@@ -131,5 +131,30 @@ namespace Negocio.Properties {
                 return ((string)(this["Negocio_WebReferenceFirma_WebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderPart" +
+            "y=&senderService=BS_SIGAF_WS_PRO&receiverParty=&receiverService=&interface=SI_Co" +
+            "nsultaRo_out&interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoE" +
+            "nLinea")]
+        public string Negocio_mx_gob_sonora_claro_gespipci_SI_ConsultaRo_outService {
+            get {
+                return ((string)(this["Negocio_mx_gob_sonora_claro_gespipci_SI_ConsultaRo_outService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderPart" +
+            "y=&senderService=BS_SIGAF_WS_PRO&receiverParty=&receiverService=&interface=SI_Co" +
+            "nsultaRo_out&interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoE" +
+            "nLinea")]
+        public string Negocio_constancia_nuevo_validador_prod_SI_ConsultaRo_outService {
+            get {
+                return ((string)(this["Negocio_constancia_nuevo_validador_prod_SI_ConsultaRo_outService"]));
+            }
+        }
     }
 }

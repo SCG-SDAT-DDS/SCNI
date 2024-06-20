@@ -29,5 +29,11 @@
     <Setting Name="Negocio_WebReferenceFirma_WebService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://sfirmapruebas.sonora.gob.mx/WSPSFIEL/webservice.asmx</Value>
     </Setting>
+    <Setting Name="Negocio_mx_gob_sonora_claro_gespipci_SI_ConsultaRo_outService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_PRO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_ConsultaRo_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoEnLinea</Value>
+    </Setting>
+    <Setting Name="Negocio_constancia_nuevo_validador_prod_SI_ConsultaRo_outService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://gespipci.claro.sonora.gob.mx:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_SIGAF_WS_PRO&amp;receiverParty=&amp;receiverService=&amp;interface=SI_ConsultaRo_out&amp;interfaceNamespace=http%3A%2F%2Fgeson.gob.mx%2FTRM%2FPORTAL%2FPagoEnLinea</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
