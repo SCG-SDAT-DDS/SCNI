@@ -198,9 +198,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Resources\ReporteCanceladas.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\ReporteConstancias.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -210,6 +207,7 @@
     <Resource Include="Resources\ReporteSanciones.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <None Include="Resources\ReporteCanceladas.xlsx" />
     <None Include="Service References\ConsultaPaseCajaQA\Negocio.ConsultaPaseCajaQA.DT_Consulta_resp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
