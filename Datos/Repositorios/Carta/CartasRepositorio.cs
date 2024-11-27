@@ -213,6 +213,8 @@ namespace Datos.Repositorios.Carta
 
             carta.Consultable = esConsultable;
             carta.Solicitud.Cancelada = !esConsultable;
+            if(!esConsultable)
+                carta.Solicitud.FechaCancelada = DateTime.Now;
         }
     }
 }

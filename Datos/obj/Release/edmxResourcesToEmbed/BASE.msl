@@ -313,6 +313,7 @@
     <EntitySetMapping Name="Solicitud">
       <EntityTypeMapping TypeName="BASE.Solicitud">
         <MappingFragment StoreEntitySet="Solicitud">
+          <ScalarProperty Name="FechaCancelada" ColumnName="FechaCancelada" />
           <ScalarProperty Name="FolioPaseCaja" ColumnName="FolioPaseCaja" />
           <ScalarProperty Name="NumeroDeOficio" ColumnName="NumeroDeOficio" />
           <ScalarProperty Name="MotivoCancelacion" ColumnName="MotivoCancelacion" />

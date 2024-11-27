@@ -296,6 +296,7 @@
           <Property Name="FolioPago" Type="varchar" MaxLength="23" Nullable="false" />
           <Property Name="Identificacion" Type="int" Nullable="false" />
           <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+          <Property Name="FechaCancelada" Type="date" />
           <Property Name="URLPapeleta" Type="varchar" MaxLength="100" />
           <Property Name="URLIdentificacion" Type="varchar" MaxLength="100" />
           <Property Name="Codigo" Type="varchar" MaxLength="32" Nullable="false" />
@@ -1726,6 +1727,7 @@
           <NavigationProperty Name="Persona" Relationship="BASE.SolicitudPersona" FromRole="Solicitud" ToRole="Persona" />
           <NavigationProperty Name="Carta" Relationship="BASE.FK_Carta_Solicitud" FromRole="Solicitud" ToRole="Carta" />
           <Property Name="FolioPaseCaja" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCancelada" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="SolicitudEntidad">
           <End Type="BASE.Entidad" Role="Entidad" Multiplicity="0..1" />
@@ -2183,6 +2185,7 @@
           <EntitySetMapping Name="Solicitud">
             <EntityTypeMapping TypeName="BASE.Solicitud">
               <MappingFragment StoreEntitySet="Solicitud">
+                <ScalarProperty Name="FechaCancelada" ColumnName="FechaCancelada" />
                 <ScalarProperty Name="FolioPaseCaja" ColumnName="FolioPaseCaja" />
                 <ScalarProperty Name="NumeroDeOficio" ColumnName="NumeroDeOficio" />
                 <ScalarProperty Name="MotivoCancelacion" ColumnName="MotivoCancelacion" />

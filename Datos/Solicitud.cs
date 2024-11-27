@@ -34,6 +34,7 @@ namespace Datos
         public string MotivoCancelacion { get; set; }
         public string NumeroDeOficio { get; set; }
         public string FolioPaseCaja { get; set; }
+        public Nullable<System.DateTime> FechaCancelada { get; set; }
     
         public virtual Entidad Entidad { get; set; }
         public virtual Persona Persona { get; set; }

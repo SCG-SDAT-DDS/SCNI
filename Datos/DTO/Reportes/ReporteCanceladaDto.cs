@@ -17,5 +17,6 @@ namespace Datos.DTO.Reportes
         public DateTime FechaSolicitud { get; set; }
 
         public string MotivoCancelacion { get; set; }
+        public string NumeroExpediente { get; set; }
     }
 }

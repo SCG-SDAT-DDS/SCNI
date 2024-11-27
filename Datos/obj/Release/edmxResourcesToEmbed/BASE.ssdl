@@ -189,7 +189,7 @@
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
     <Property Name="ApellidoP" Type="varchar" MaxLength="50" />
     <Property Name="ApellidoM" Type="varchar" MaxLength="50" />
-    <Property Name="Genero" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Genero" Type="char" MaxLength="2" Nullable="false" />
     <Property Name="FechaNacimiento" Type="date" />
     <Property Name="CURP" Type="varchar" MaxLength="20" />
     <Property Name="RFC" Type="varchar" MaxLength="20" />
@@ -291,6 +291,7 @@
     <Property Name="FolioPago" Type="varchar" MaxLength="23" Nullable="false" />
     <Property Name="Identificacion" Type="int" Nullable="false" />
     <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+    <Property Name="FechaCancelada" Type="date" />
     <Property Name="URLPapeleta" Type="varchar" MaxLength="100" />
     <Property Name="URLIdentificacion" Type="varchar" MaxLength="100" />
     <Property Name="Codigo" Type="varchar" MaxLength="32" Nullable="false" />

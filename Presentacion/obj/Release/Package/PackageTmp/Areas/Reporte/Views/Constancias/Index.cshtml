@@ -56,7 +56,7 @@
                                     <label for="Solicitud_Tipo">Tipo de Solicitud:</label>
                                 </div>
                                 <div class="col-md-9 col-xs-12">
-                                    @Html.DropDownListFor(m => m.TipoSolicitud, Listas.ObtenerListaTipoSolicitud(), new {@class = "form-control"})
+                                    @Html.DropDownListFor(m => m.Medio, Listas.ObtenerListaTipoSolicitudes(), new {@class = "form-control"})
                                 </div>
                             </div>
                         </div>
@@ -82,26 +82,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="col-md-12 form-horizontal">
-                            <div class="form-group">
-                                <div class="col-md-3 col-xs-12">
-                                    <label for="Campo">Medio:</label>
-                                </div>
-                                <div class="col-md-9 col-xs-12">
-                                    @Html.DropDownListFor(m => m.Medio, Listas.ObtenerListaTipoSolicitudes(true), new {@class = "form-control input-sm"})
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 form-horizontal">
-                            <div class="form-group">
-                                <div class="col-md-3 p-t-5"><label for="Solicitud_Tipo">Tipo de Entidad:</label></div>
-                                <div class="col-md-9">
-                                    @Html.DropDownListFor(m => m.TipoEntidad, Listas.ObtenerListaTipoEntidad(), new { @class = "form-control input-sm" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="col-xs-12 m-t-10">
                         <div class="pull-right">

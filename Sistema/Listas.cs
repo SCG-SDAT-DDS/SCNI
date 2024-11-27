@@ -209,17 +209,19 @@ namespace Sistema
         public static List<SelectListItem> ObtenerListaTipoSolicitudes(bool incluirSeleccione = false)
         {
             var lista = new List<SelectListItem> {
-                new SelectListItem { Text = "Presencial", Value = "1" },
-                new SelectListItem { Text = "Web", Value = "2" },
+                new SelectListItem { Text = "Personal", Value = "1" },
+                new SelectListItem { Text = "Dependencia-Entidad", Value = "2" },
             };
+
+
 
             if (incluirSeleccione)
             {
-                lista.Insert(0, new SelectListItem
-                {
-                    Value = string.Empty,
-                    Text = "Seleccione..."
-                });
+                //lista.Insert(0, new SelectListItem
+                //{
+                //    Value = string.Empty,
+                //    Text = "Seleccione..."
+                //});
             }
 
             return lista;

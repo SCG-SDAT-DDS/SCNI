@@ -113,7 +113,7 @@ namespace Negocio.Servicios
             if (criterios.ConSinObservaciones > 0)
                 filtros.Add("Con observaciones: " + (criterios.ConSinObservaciones == 1 ? "Sí" : "No"));
 
-            using (var st = new MemoryStream(ReportesFormatos.ReporteSanciones))
+            using (var st = new MemoryStream(ReportesFormatos.ReporteCanceladas))
             {
                 var paqueteExcel = new ExcelPackage(st);
 
@@ -221,8 +221,7 @@ namespace Negocio.Servicios
             if (criterios.FechaFin > DateTime.MinValue)
                 filtros.Add("Fecha fin: " + criterios.FechaFin.ToString("dd/MM/yyyy"));
 
-
-            using (var st = new MemoryStream(ReportesFormatos.ReporteCanceladas))
+            using (var st = new MemoryStream(ReportesFormatos.ReporteCanceladasExp))
             {
                 var paqueteExcel = new ExcelPackage(st);
 
@@ -238,9 +237,10 @@ namespace Negocio.Servicios
                 {
                     hojaExcel.Cells["A" + fila].Value = solicitud.FolioPaseACaja;
                     hojaExcel.Cells["B" + fila].Value = solicitud.Solicitante;
-                    hojaExcel.Cells["C" + fila].Value = solicitud.FolioPago;
-                    hojaExcel.Cells["D" + fila].Value = solicitud.FechaSolicitud.ToString("dd/MM/yyyy");
-                    hojaExcel.Cells["E" + fila].Value = solicitud.MotivoCancelacion;
+                    hojaExcel.Cells["C" + fila].Value = solicitud.NumeroExpediente;
+                    hojaExcel.Cells["D" + fila].Value = solicitud.FolioPago;
+                    hojaExcel.Cells["E" + fila].Value = solicitud.FechaSolicitud.ToString("dd/MM/yyyy");
+                    hojaExcel.Cells["F" + fila].Value = solicitud.MotivoCancelacion;
 
                     fila++;
                 }

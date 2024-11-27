@@ -8,7 +8,12 @@ using Negocio.constancia.nuevo.validador.prod;
 using Negocio.Repositorios.PaseCaja.Format;
 using Negocio.Servicios;
 using Negocio.WsPagoRegistroCivil_Productivo;
-using Negocio.WsPaseCaja_Productivo;
+
+//Prod
+//using Negocio.WsPaseCaja_Productivo;
+//Calidad
+using Negocio.WsPaseCaja_Calidad;
+
 //using negocio.wsvalidarpago_productivo;
 //using negocio.wsvalidarpago_calidad;
 

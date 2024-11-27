@@ -18,7 +18,7 @@
                         </div>
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>Ciudadano</h5>
+                                <h5></h5>
                             </div>
                             <div class="ibox-content" style="display: block;">
                                 <div class="row text-center">
@@ -39,65 +39,69 @@
                                     <div class="col-xs-2 col-md-2">
                                         <button class="btn btn-primary dim btn-large-dim" type="button">
                                             <i class="fa fa-user" style="font-size: 54px;"></i>
-                                        </button><br/>
-                                        <input type="hidden" value="@Url.Action("Ciudadano", "SolicitudWeb")"/>
+                                        </button><br />
+                                        <input type="hidden" value="@Url.Action("Ciudadano", "SolicitudWeb")" />
                                         <label>Solicitud de constancia</label>
                                     </div>
-                                    <div class="col-xs-2 col-md-2">
+                                    @*<div class="col-xs-2 col-md-2">
                                         <button class="btn btn-info dim btn-large-dim" type="button">
                                             <i class="fa fa-search" style="font-size: 54px;"></i>
-                                        </button><br/>
-                                        <input type="hidden" value="@Url.Action("Index", "Validacion")"/>
+                                        </button><br />
+                                        <input type="hidden" value="@Url.Action("Index", "Validacion")" />
                                         <label>Búsqueda e impresión de constancia</label>
-                                    </div>
+                                    </div>*@
                                     <div class="col-xs-2 col-md-2">
                                         <button class="btn btn-warning dim btn-large-dim" type="button">
                                             <i class="fa fa-certificate" style="font-size: 54px;"></i>
-                                        </button><br/>
-                                        <input type="hidden" value="@Url.Action("Constancia", "Validacion")"/>
+                                        </button><br />
+                                        <input type="hidden" value="@Url.Action("Constancia", "Validacion")" />
                                         <label>Validar constancia</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Dependencia o Entidad</h5>
-                            </div>
-                            <div class="ibox-content" style="display: block;">
-                                <div class="row text-center">
-                                    <div class="col-xs-2 col-md-2 col-md-offset-2 col-xs-offset-2" data-toggle="tooltip" title="Con el pase a caja podrá realizar el pago en Agencias Fiscales, Comercios Autorizados y/o a través de la opción de Pago en Línea.">
-                                        <button class="btn btn-info dim btn-large-dim" type="button">
-                                            <i class="fa fa-file-pdf-o" style="font-size: 54px;"></i>
-                                        </button><br />
-                                        <input type="hidden" value="@Url.Action("Index", "GeneracionPaseCaja")" />
-                                        <label>Generar pase a caja</label>
+                        @if (false)
+                        {
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Dependencia o Entidad</h5>
+                                </div>
+                                <div class="ibox-content" style="display: block;">
+                                    <div class="row text-center">
+                                        <div class="col-xs-2 col-md-2 col-md-offset-2 col-xs-offset-2" data-toggle="tooltip" title="Con el pase a caja podrá realizar el pago en Agencias Fiscales, Comercios Autorizados y/o a través de la opción de Pago en Línea.">
+                                            <button class="btn btn-info dim btn-large-dim" type="button">
+                                                <i class="fa fa-file-pdf-o" style="font-size: 54px;"></i>
+                                            </button><br />
+                                            <input type="hidden" value="@Url.Action("Index", "GeneracionPaseCaja")" />
+                                            <label>Generar pase a caja</label>
+                                        </div>
+                                        <div class="col-xs-2 col-md-2" data-toggle="tooltip" title="Pago en línea de un Pase a Caja.">
+                                            <button class="btn btn-danger dim btn-large-dim" type="button" id="btnPagoLinea"
+                                                    data-toggle="modal" data-target="#modalPagoLinea">
+                                                <i class="fa fa-credit-card" style="font-size: 54px;"></i>
+                                            </button><br />
+                                            <label>Pago en línea</label>
+                                        </div>
+                                        <div class="col-xs-2 col-md-2">
+                                            <button class="btn btn-primary dim btn-large-dim" type="button">
+                                                <i class="fa fa-building" style="font-size: 54px;"></i>
+                                            </button><br />
+                                            <input type="hidden" value="@Url.Action("Entidad", "SolicitudWeb")" />
+                                            <label>Solicitud de constancia</label>
+                                        </div>
+                                        <div class="col-xs-2 col-md-2">
+                                            <button class="btn btn-info dim btn-large-dim" type="button">
+                                                <i class="fa fa-search" style="font-size: 54px;"></i>
+                                            </button><br />
+                                            <input type="hidden" value="@Url.Action("Buscar")" />
+                                            <label>Búsqueda de solicitud</label>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-2 col-md-2" data-toggle="tooltip" title="Pago en línea de un Pase a Caja.">
-                                        <button class="btn btn-danger dim btn-large-dim" type="button" id="btnPagoLinea"
-                                                data-toggle="modal" data-target="#modalPagoLinea">
-                                            <i class="fa fa-credit-card" style="font-size: 54px;"></i>
-                                        </button><br />
-                                        <label>Pago en línea</label>
-                                    </div>
-                                    <div class="col-xs-2 col-md-2">
-                                        <button class="btn btn-primary dim btn-large-dim" type="button">
-                                            <i class="fa fa-building" style="font-size: 54px;"></i>
-                                        </button><br />
-                                        <input type="hidden" value="@Url.Action("Entidad", "SolicitudWeb")" />
-                                        <label>Solicitud de constancia</label>
-                                    </div>
-                                    <div class="col-xs-2 col-md-2">
-                                        <button class="btn btn-info dim btn-large-dim" type="button">
-                                            <i class="fa fa-search" style="font-size: 54px;"></i>
-                                        </button><br/>
-                                        <input type="hidden" value="@Url.Action("Buscar")"/>
-                                        <label>Búsqueda de solicitud</label>
-                                    </div>                                    
                                 </div>
                             </div>
-                        </div>
+                        }
+
                     </div>
                 </div>
             }
@@ -119,7 +123,7 @@
                     Si no ha realizado este paso de clic <a target="_blank" href="@Url.Action("Index", "GeneracionPaseCaja")">AQUÍ</a> para generarlo.
                 </p>
                 <p>
-                    <span class="badge">2</span>&nbsp;Posteriormente ingresar el folio del Pase a Caja y siga las instrucciones correspondientes.
+                    <span class="badge">2</span>&nbsp;Una vez realizado el pago en línea, ingresa a la opción "<a href="@Url.Action("Ciudadano", "SolicitudWeb")">Solicitud de constancia</a>" en este sitio e introduce el folio del Pase a Caja o del Recibo Oficial pagado para concluir el tramite de la solicitud de la constancia de no inhabilitación. Posteriormente, será enviada al correo electrónico proporcionado.
                 </p>
                 <p>
                     <span class="badge">3</span>&nbsp;Una vez realizado el pago en línea ingresar a la opción

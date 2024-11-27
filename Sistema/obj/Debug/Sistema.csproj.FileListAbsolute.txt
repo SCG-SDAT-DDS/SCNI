@@ -36,3 +36,16 @@ C:\Users\Pablo Perez\Documents\Contraloria\Sistema-Constancias\Sistema-Constanci
 \\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Debug\Sistema.csproj.Up2Date
 \\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Debug\Sistema.dll
 \\Mac\Home\Desktop\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Debug\Sistema.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Debug\Sistema.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Debug\Sistema.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Debug\System.Web.Mvc.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Debug\System.Web.Mvc.xml
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\bin\Debug\es\System.Web.Mvc.resources.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Debug\Sistema.csproj.AssemblyReference.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Debug\Sistema.csproj.CoreCompileInputs.cache
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Debug\Sistema.csproj.Up2Date
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Debug\Sistema.dll
+C:\Users\Pablo Perez\Documents\Contraloria\Respaldo\Sistema-Constancias\Sistema-Constancias\Sistema\obj\Debug\Sistema.pdb
